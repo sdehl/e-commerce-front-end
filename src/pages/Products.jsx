@@ -23,7 +23,9 @@ function Products() {
   useEffect(() => {
     handle.apiCall();
   }, []);
-  console.log(products);
+ 
+
+  
   return products && (
     <>
       <div className="container">

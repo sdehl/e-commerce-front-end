@@ -3,6 +3,11 @@
   width: 16px;
 }
 
+.falseInput {
+  color: rgb(158, 158, 158);
+  padding-right: 10px;
+}
+
 .home-logo {
   height: 80px;
   width: fit-content;
