@@ -1,6 +1,7 @@
 import { Route, Routes } from "react-router-dom";
 import NavigationBar from "./components/NavigationBar";
 import Home from "./pages/Home";
+import Products from "./pages/Products";
 import "./App.css";
 
 function App() {
@@ -8,6 +9,7 @@ function App() {
     <div className="App">
       <NavigationBar />
       <Home />
+      <Products />
     </div>
   );
 }
