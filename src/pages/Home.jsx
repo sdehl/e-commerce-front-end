@@ -1,72 +1,79 @@
-import { Col, Row, Container, Carousel, Button } from "react-bootstrap";
+import { Carousel, Button } from "react-bootstrap";
 
 function Home() {
   return (
-    <Container>
-      <div>
-        <Row>
-          <Col className="d-flex flex-column align-items-start">
-            <img
-              src={
-                "https://www.gemainteriores.com/wp-content/uploads/2021/05/Portada-2-scaled.jpg"
-              }
-              className="d-bloxk w-100"
-              alt=""
-            />
-          </Col>
-          <Col>
-            <img
-              src={
-                "https://www.gemainteriores.com/wp-content/uploads/2022/08/H02-GAR-BZ-1.jpg"
-              }
-              className="d-bloxk w-100"
-              alt=""
-            />
-            <h4>En stock</h4>
-            <h3>COLECCIÓN DE GRIFERÍAS</h3>
-            <Button variant="outline-light">DESCUBRIR</Button>
-          </Col>
-          <Col>
-            <Carousel>
-              <Carousel.Item></Carousel.Item>
-              <Carousel.Item>
-                <img
-                  src={
-                    "https://www.gemainteriores.com/wp-content/uploads/2021/09/Caliza-Grande-2-e1632065636364.jpg"
-                  }
-                  alt=""
-                />
-
-                <Carousel.Caption></Carousel.Caption>
-              </Carousel.Item>
-              <Carousel.Item>
-                <img
-                  src={
-                    "https://www.gemainteriores.com/wp-content/uploads/2021/05/Tirador-Agata-Negro-4.jpg"
-                  }
-                  alt=""
-                />
-
-                <Carousel.Caption>
-                  <h4>En stock</h4>
-                  <h2>COLECCIÓN DE GRIFERÍAS</h2>
-                </Carousel.Caption>
-              </Carousel.Item>
-            </Carousel>
-            <img
-              src={
-                "https://www.gemainteriores.com/wp-content/uploads/2022/08/H02-GAR-BZ-1.jpg"
-              }
-              className="d-bloxk w-100"
-              alt=""
-            />
-          </Col>
-        </Row>
+    <div>
+      <div className="row d-flex ">
+        <div className="col-7 ">
+          <img
+            src={
+              "https://www.gemainteriores.com/wp-content/uploads/2021/05/Portada-2-scaled.jpg"
+            }
+            className="d-inline-block w-100"
+            alt=""
+          />
+        </div>
+        <div className="col-5 p-5">
+          <div className="d-flex flex-column">
+            <div>
+              <img
+                src={
+                  "https://www.gemainteriores.com/wp-content/uploads/2021/02/G02-TOP-SIMP-BZ-6.jpeg"
+                }
+                className="d-block w-100"
+                alt=""
+              />
+            </div>
+            <div>
+              <h4>EN STOCK</h4>
+              <h3>COLECCIÓN DE GRIFERÍAS</h3>
+              <Button variant="light">DESCUBRIR</Button>
+            </div>
+          </div>
+        </div>
       </div>
-    </Container>
+      <div className="container">
+        <div className="row d-flex">
+          <div className="col-4 ">
+            <img
+              src={
+                "https://www.gemainteriores.com/wp-content/uploads/2021/02/G02-TOP-SIMP-BZ-6.jpeg"
+              }
+              className="d-block"
+              alt=""
+            />
+          </div>
+          <div className="col-4">
+            <img
+              src={
+                "https://www.gemainteriores.com/wp-content/uploads/2021/02/G01-OPA-PARED-BZ-7.jpg"
+              }
+              className="d-block"
+              alt=""
+            />
+          </div>
+          <div className="col-4">
+            <img
+              src={
+                "https://www.gemainteriores.com/wp-content/uploads/2021/02/G02-TOP-SIMP-BK-5.jpeg"
+              }
+              className="d-block"
+              alt=""
+            />
+          </div>
+        </div>
+      </div>
+      <div className="row d-flex flex-column">
+        <div className="col-3"></div>
+        <div className="col-3"></div>
+        <div className="col-3"></div>
+        <div className="col-3"></div>
+      </div>
+    </div>
   );
 }
 export default Home;
+
 //   );
 // <div class="vc_row wpb_row vc_row-fluid vc_custom_1608393000148 qodef-content-aligment-center">
 //     <div class="wpb_column vc_column_container vc_col-sm-12 vc_col-lg-7 vc_col-md-7">
