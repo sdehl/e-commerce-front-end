@@ -4,7 +4,6 @@ import search from "./svg/magnifying-glass-solid.svg";
 import bag from "./svg/bag-shopping-solid.svg";
 import profile from "./svg/user-regular.svg";
 import rocket from "./svg/rocket-solid.svg";
-import gemaLogo from "./img/gema-logo.png";
 
 import "./styles/NavigationBarStyles.css";
 
@@ -20,8 +19,9 @@ function NavigationBar() {
           <span>Envios a Montevideo y al Interior del Uruguay</span>
         </div>
       </div>
-      <div className="d-flex justify-content-between align-items-center mx-5">
+      <div className="d-flex justify-content-between align-items-center mx-4">
         <div>
+          <span className="falseInput">____________</span>
           <img className="icons" src={search} alt="search icon" />
         </div>
         <div>
@@ -32,7 +32,7 @@ function NavigationBar() {
           />
         </div>
         <div>
-          <img className="icons " src={profile} alt="profile icon" />
+          <img className="icons" src={profile} alt="profile icon" />
           <img className="icons mx-2" src={bag} alt="bag icon" />
         </div>
       </div>

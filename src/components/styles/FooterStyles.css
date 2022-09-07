@@ -1,0 +1,45 @@
+.footer {
+  margin-top: auto;
+}
+
+ul {
+  text-align: left;
+  list-style: none;
+  font-size: 16px;
+  margin-bottom: 35px !important;
+  padding-left: 0px !important;
+}
+
+li {
+  margin: 10px 0;
+}
+
+ul h5 {
+  margin-bottom: 20px;
+  font-size: 14px;
+}
+.icons {
+  height: 16px;
+  width: 16px;
+  margin-right: 10px;
+}
+
+.sn-icons,
+.preciosIVA {
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  font-size: 16px;
+  color: #7a7a7a;
+}
+
+.gemaLogoFooter {
+  height: 250px;
+  width: 250px;
+}
+
+.bottom-banner {
+  height: 60px;
+  background-color: #f7f0ea;
+  color: #7b5a52;
+}
