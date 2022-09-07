@@ -1,20 +1,32 @@
-import { Col, Row, Container } from "react-bootstrap";
+import { Col, Row, Container, Carousel } from "react-bootstrap";
+
 import Tirador4 from "*.jpg";
 import conjunto from "*.jpg";
 
-export default function home() {
+function home() {
   return (
     <Container>
       <div class="position-relative">
         <Row className="d-flex flex-column align-items-center">
-          <Col className="col-md-12">
-            <img src={Tirador4} alt="banner" />
-            <h4>En stock</h4>
-            <h2>COLECCIÓN DE GRIFERÍAS</h2>
-            <img src={conjunto} alt="banner" />
-          </Col>
+          <col>
+            <Carousel>
+              <Carousel.Item>
+                <img src={Tirador4} className="d-bloxk w-100" alt="tirador" />
+              </Carousel.Item>
+              <Carousel.Item>
+                <img src={conjunto} alt="conjunto color bronce" />
+
+                <Carousel.Caption>
+                  <h4>En stock</h4>
+                  <h2>COLECCIÓN DE GRIFERÍAS</h2>
+                </Carousel.Caption>
+              </Carousel.Item>
+            </Carousel>
+          </col>
         </Row>
       </div>
     </Container>
   );
 }
+
+export default home;
