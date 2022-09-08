@@ -16,7 +16,7 @@ function NavigationBar() {
   const navigate = useNavigate();
   return (
     <>
-      <div className="top-banner d-flex justify-content-center align-items-center">
+      <div className="top-banner d-none d-md-flex justify-content-center align-items-center">
         {" "}
         <div>
           <img className="icons mx-2" src={rocket} alt="rocket icon" />
@@ -56,6 +56,7 @@ function NavigationBar() {
       <div className="d-flex justify-content-center dropdowns-container">
         <Navbar expand="lg">
           <Container fluid>
+            <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="navbarScroll">
               <Nav
                 className="me-auto my-2 my-lg-0"

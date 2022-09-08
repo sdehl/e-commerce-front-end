@@ -1,47 +1,67 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { addProductToCart } from "../redux/slices/gemaSlice";
+import ProductCard from "./ProductCard";
 import "./styles/ProductStyles.css";
 
 function Product() {
-  const [products, setProducts] = useState(null);
+  const [product, setProduct] = useState(null);
   const params = useParams();
+  const [buttonCart, setButtonCart] = useState("Agregar al carrito");
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   useEffect(() => {
-    async function getProducts() {
+    async function getProduct() {
       try {
         const result = await axios({
           method: "GET",
-          url: `http://localhost:8000/products`,
-          //   url: `http://localhost:8000/products/${params._id}`,
+          url: `http://localhost:8000/product/${params.id}`,
         });
-        // console.log(result.data);
-        setProducts(result.data);
+        console.log(result.data);
+        setProduct(result.data);
       } catch (error) {
         console.log(error);
       }
     }
-    getProducts();
+    getProduct();
   }, []);
-  console.log(products);
+
   return (
-    products && (
+    product && (
       <div className="container oneProductSection">
         <div className="row ">
-          <div className="col-4">
-            <img
-              className="productImg"
-              src="https://www.gemainteriores.com/wp-content/uploads/2020/11/H03-GRA-38-BZ.jpg"
-              alt=""
-            />
+          <div className="col-12 col-lg-4 ">
+            <img className="productImg" src={product.pictures[1]} alt="" />
           </div>
-          <div className="col-8">
-            <h1>PERCHA GRANATE BRONCE</h1>
-            <h3>U$S 9</h3>
-            <h6>Categorías: BRONCE - HERRAJES - PERCHAS</h6>
-
-            <button className="quantityBtn">- 3 +</button>
-            <button className="addToCartBtn">AGREGAR AL CARRITO</button>
+          <div className="productInformation col-12 col-lg-8">
+            <h1>{product.name.toUpperCase()}</h1>
+            <h3>U$S {product.price}</h3>
+            <h6>Categorías: {product.Category.toUpperCase()}</h6>
+            <p className="productStock">
+              {" "}
+              {product.stock > 0 ? "HAY STOCK" : "PRODUCTO NO DISPONIBLE"}
+            </p>
+            <div className="buttons">
+              <button className="quantityBtn">- 3 +</button>
+              <button
+                className="addToCartBtn "
+                onClick={() => {
+                  // console.log("buttonCart", buttonCart);
+                  // if (buttonCart !== "Agregar al carrito") {
+                  //   // navigate("/products");
+                  //   // navigate("/");
+                  // } else {
+                  dispatch(addProductToCart(product._id));
+                  setButtonCart("Ver carrito");
+                  // }
+                }}
+              >
+                {buttonCart.toUpperCase()}
+              </button>
+            </div>
           </div>
           <div className="row description ">
             <strong>
@@ -51,6 +71,7 @@ function Product() {
             <div>
               <p className="dimentions">
                 <strong>DIMENSIONES: </strong>
+                <br />
                 Diámetro: 12 mm Ancho: 38 mm
               </p>
               <p className="materials">
@@ -66,9 +87,19 @@ function Product() {
                   </Link>
                 </strong>
               </p>
-              <p className="includes">INCLUYE TORNILLOS CORRESPONDIENTES</p>
+              <p className="includes">
+                INCLUYE COMPONENTES CORRESPONDIENTES PARA SU COLOCACIÓN
+              </p>
             </div>
           </div>
+        </div>
+
+        <div className="recommendations">
+          <h4>TAMBIÉN TE RECOMENDAMOS...</h4>
+
+          <div className="col-4"></div>
+          <div className="col-4"></div>
+          <div className="col-4"></div>
         </div>
       </div>
     )

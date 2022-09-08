@@ -2,41 +2,72 @@
   padding-top: 100px;
   padding-bottom: 150px;
 }
-h1 {
+.productInformation h1 {
+  color: #303030;
   font-size: 24px !important;
+  margin: 0 0 25px;
+  font-weight: 600;
 }
-/* .col-8 {
-  padding-left: 20px;
-  text-align: left;
-} */
+
+.productInformation h3 {
+  font-weight: 400;
+  font-size: 25px;
+}
+
+.productInformation h6 {
+  margin: 100px 0;
+  color: #757575;
+  font-weight: 700;
+}
+.productStock {
+  font-weight: 700;
+  margin: 31px 0 18px;
+  font-size: 14px;
+  letter-spacing: 0.07rem;
+}
 
 .productImg {
-  height: 400px;
-  width: 400px;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.buttons {
+  margin: 40px 0;
 }
 
 /* Botón hardcodeado */
 .quantityBtn {
-  padding: 8px 20px;
+  padding: 10px 20px;
   font-size: 11px;
   border: rgb(146, 146, 146) solid 0.5px;
   background-color: transparent;
-  margin-right: 10px;
+  margin-right: 30px;
+  letter-spacing: 0.5rem;
 }
+/*  */
 
 .addToCartBtn {
-  padding: 8px 65px;
+  background: linear-gradient(to left, white 50%, black 50%);
+  background-size: 200% 100%;
+  background-position: right bottom;
+  transition: all 1s ease;
+  border: 1px solid black;
+  color: black;
+  padding: 10px 65px;
+  text-align: center;
+  text-decoration: none;
   font-size: 11px;
-  border: black solid 1px;
-  background-color: transparent;
+  font-weight: 500;
+  letter-spacing: 0.2rem;
+}
+.addToCartBtn:hover {
+  background-position: left bottom;
+  color: white;
 }
 
 .description {
   color: #757575;
-}
-
-.dimentions {
-  padding: 0 490px;
+  text-align: center;
 }
 
 .careTips {
@@ -50,4 +81,12 @@ h1 {
 
 .includes {
   font-weight: 900;
+}
+
+.recommendations {
+  margin-top: 80px;
+}
+.recommendations h4 {
+  margin: 30px 0;
+  font-weight: 600;
 }

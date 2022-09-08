@@ -5,6 +5,7 @@ import search from "./svg/magnifying-glass-solid.svg";
 import pinterest from "./svg/pinterest-p.svg";
 
 import "./styles/FooterStyles.css";
+import { Link } from "react-router-dom";
 
 function Footer() {
   return (
@@ -32,9 +33,23 @@ function Footer() {
               <li>Montevideo, Uruguay</li>
             </ul>
             <div className="sn-icons">
-              <img className="icons " src={fb} alt="facebook icon" />
-              <img className="icons " src={ig} alt="instagram icon" />
-              <img className="icons " src={pinterest} alt="pinterest icon" />
+              <a
+                href="https://www.facebook.com/gemainteriores/?_rdc=4&_rdr"
+                target="_blank"
+              >
+                <img className="icons " src={fb} alt="facebook icon" />
+              </a>
+
+              <a href="https://www.instagram.com/gemainteriores/" target="_blank">
+                <img className="icons " src={ig} alt="instagram icon" />
+              </a>
+
+              <a
+                href="https://www.pinterest.com/pilartorrendell3/_saved/"
+                target="_blank"
+              >
+                <img className="icons " src={pinterest} alt="pinterest icon" />
+              </a>
             </div>
           </div>
           <div className="col-12 col-lg-3">

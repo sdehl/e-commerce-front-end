@@ -26,11 +26,8 @@ function Home() {
               />
             </div>
             <div>
-              <h4 className="text-muted">EN STOCK</h4>
-              <h3 className="text-muted">COLECCIÓN DE GRIFERÍAS</h3>
-              <Button variant="light" className="text-muted">
-                DESCUBRIR
-              </Button>
+              <h4>EN STOCK</h4>
+              <h3>COLECCIÓN DE GRIFERÍAS</h3>
             </div>
           </div>
         </div>
@@ -44,7 +41,7 @@ function Home() {
             className="d-inline-block w-100 mb-4"
             alt=""
           />
-          <h5 className="fw-bold pb-3">RATTAN, PIEDRA Y OTROS</h5>
+          <h5 className="fw-bold pb-3">TIRADORES</h5>
           <p className="fw-bold">SHOP NOW</p>
         </div>
         <div className="col-4 d-flex flex-column">
@@ -56,7 +53,7 @@ function Home() {
               className="d-block w-100 mb-4"
               alt=""
             />
-            <h5 className="fw-bold pb-3">BRONCE</h5>
+            <h5 className="fw-bold pb-3">HERRAJES</h5>
             <p className="fw-bold">SHOP NOW</p>
           </div>
         </div>
@@ -68,7 +65,7 @@ function Home() {
             className="d-block w-100 mb-4"
             alt=""
           />
-          <h5 className="fw-bold pb-3">NEGRO</h5>
+          <h5 className="fw-bold pb-3">GRIFERÍA</h5>
           <p className="fw-bold">SHOP NOW</p>
         </div>
       </div>
