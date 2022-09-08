@@ -63,45 +63,31 @@ function NavigationBar() {
                 >
                   SHOP ALL
                 </Nav.Link>
+                <Nav.Link
+                  className="mx-3"
+                  onClick={() => {
+                    navigate("/products/Tiradores");
+                  }}
+                >
+                  TIRADORES
+                </Nav.Link>
+                <Nav.Link
+                  className="mx-3"
+                  onClick={() => {
+                    navigate("/products/Herrajes");
+                  }}
+                >
+                  HERRAJES
+                </Nav.Link>
 
-                <NavDropdown
+                <Nav.Link
                   className="mx-3"
-                  title="TIRADORES"
-                  id="navbarScrollingDropdown"
+                  onClick={() => {
+                    navigate("/products/Grifería");
+                  }}
                 >
-                  <NavDropdown.Item className="dropDownStyle" href="#action1">
-                    Pomo
-                  </NavDropdown.Item>
-                  <NavDropdown.Item href="#action2">Manija</NavDropdown.Item>
-                </NavDropdown>
-                <NavDropdown
-                  className="mx-3"
-                  title="HERRAJES"
-                  id="navbarScrollingDropdown"
-                >
-                  <NavDropdown.Item href="#action1">
-                    Pestillos/Manijones
-                  </NavDropdown.Item>
-                  <NavDropdown.Item href="#action2">Perchas</NavDropdown.Item>
-                  <NavDropdown.Item href="#action3">
-                    Accesorios de Baño
-                  </NavDropdown.Item>
-                </NavDropdown>
-                <NavDropdown
-                  className="mx-3"
-                  title="GRIFERÍA"
-                  id="navbarScrollingDropdown"
-                >
-                  <NavDropdown.Item href="#action1">Lavatorio</NavDropdown.Item>
-                  <NavDropdown.Item href="#action2">Cocina</NavDropdown.Item>
-                  <NavDropdown.Item href="#action3">Ducha</NavDropdown.Item>
-                  <NavDropdown.Item href="#action4">
-                    Desagües, Válvulas y Sifones
-                  </NavDropdown.Item>
-                  <NavDropdown.Item href="#action5">
-                    Piletas y Bidet
-                  </NavDropdown.Item>
-                </NavDropdown>
+                  GRIFERÍA
+                </Nav.Link>
               </Nav>
             </Navbar.Collapse>
           </Container>
