@@ -1,32 +1,33 @@
 import ProductCard from "./ProductCard";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { useSelector, useDispatch } from "react-redux";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 function Products() {
   const params = useParams();
   const [products, setProducts] = useState();
-  console.log(params.category)
+
+  //the call is made if the page is reloaded
+  useEffect(() => {
+    handle.apiCall();
+  }, []);
+
+  //when params change the api is called again with new category
+  useEffect(() => {
+    handle.apiCall();
+  }, [params]);
+
+  //Aux functions
   const handle = {
     apiCall: async () => {
       const response = await axios({
         method: "get",
         url: `http://localhost:8000/products`,
-        params: {category: params.category},
+        params: { infoToFindBy: params.category },
       });
       setProducts(response.data);
     },
-    addProductTocart: {},
   };
-
-  useEffect(() => {
-    handle.apiCall();
-  }, []);
-
-  useEffect(() => {
-    handle.apiCall();
-  }, [params]);
 
   return (
     products && (

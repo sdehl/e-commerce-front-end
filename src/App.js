@@ -4,6 +4,8 @@ import Footer from "./components/Footer";
 import Home from "./components/Home";
 import Products from "./components/Products";
 import Product from "./components/Product";
+import Cart from "./components/Cart.jsx";
+
 import "./App.css";
 
 function App() {
@@ -14,6 +16,7 @@ function App() {
         <Route path="/" element={<Home />}></Route>
         <Route path="/products" element={<Products />}></Route>
         <Route path="/products/:category" element={<Products />}></Route>
+        <Route path="/cart" element={<Cart />}></Route>
       </Routes>
       <Footer />
     </div>

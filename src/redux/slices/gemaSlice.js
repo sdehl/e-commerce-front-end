@@ -5,10 +5,24 @@ const gemaSlice = createSlice({
   initialState: {
     user: {},
     cart: [],
+    cantProductsCart: 0,
   },
   reducers: {
     addProductToCart(state, action) {
-      state.cart.push(action.payload);
+      if (state.cart > 0) {
+        const found = state.cart.some((prod) => prod.id === action.payload.id);
+        console.log("isFound", found);
+        if (found) {
+        }
+      } else {
+        state.cart.push({
+          productId: action.payload.id,
+          cant: action.payload.cant,
+        });
+      }
+    },
+    updateCantProducts(state, action) {
+      state.cantProductsCart += action.payload;
     },
     deleteProductFromCart(state, action) {
       const newCart = state.cart.filter((element) => {
@@ -24,6 +38,7 @@ const gemaSlice = createSlice({
 const { actions, reducer } = gemaSlice;
 export const {
   addProductToCart,
+  updateCantProducts,
   deleteProductFromCart,
   updateUser,
   deleteCart,

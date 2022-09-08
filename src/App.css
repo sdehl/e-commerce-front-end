@@ -62,14 +62,16 @@
   color: white;
 }
 
-@media screen and (max-width: 480px) {
-  .card {
-    flex: 0 0 100%;
-  }
-}
 
 @media screen and (max-width: 1069px) {
   .card {
     flex: 0 0 50%;
   }
 }
+
+@media screen and (max-width: 480px) {
+  .card {
+    flex: 0 0 100%;
+  }
+}
+

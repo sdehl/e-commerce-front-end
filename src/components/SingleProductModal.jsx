@@ -36,8 +36,10 @@ function singleproductmodal(props) {
             </strong>
             <h4>U$S 97</h4>
             <div class="input-group w-auto justify-content-end align-items-center">
-              <Button           onClick={() => {
- variant="light" className="text-muted">
+              <Button
+                onClick={() => (variant = "light")}
+                className="text-muted"
+              >
                 COMPRAR{" "}
               </Button>
               <input

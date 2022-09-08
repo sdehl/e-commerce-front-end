@@ -41,9 +41,16 @@ function NavigationBar() {
         </div>
         <div>
           <img className="icons" src={profile} alt="profile icon" />
+          <Nav.Link
+            className="icons d-inline-block "
+            onClick={() => {
+              navigate("/cart");
+            }}
+          >
+            <img className="icons mx-2" src={bag} alt="bag icon" />
+          </Nav.Link>
 
-          <img className="icons mx-2" src={bag} alt="bag icon" />
-          <h6 className="icons d-inline-block light">{gema.cart.length}</h6>
+          <h6 className="icons d-inline-block light">{gema.cantProductsCart}</h6>
         </div>
       </div>
       <div className="d-flex justify-content-center dropdowns-container">
