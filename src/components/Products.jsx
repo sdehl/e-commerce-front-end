@@ -24,6 +24,7 @@ function Products() {
   useEffect(() => {
     handle.apiCall();
   }, []);
+  // console.log("despues", gema.state);
 
   useEffect(() => {
     handle.apiCall();

@@ -1,9 +1,10 @@
-import { addProductToCart } from "../redux/slices/gemaSlice";
+import { addProductToCart } from "../Redux/slices/gemaSlice";
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router";
+import { Link } from "react-router-dom";
 
-function ProductCard({product}) {
+function ProductCard({ product }) {
   const [buttonCart, setButtonCart] = useState("Agregar al carrito");
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -33,9 +34,12 @@ function ProductCard({product}) {
           {buttonCart}
         </button>
       </div>
+      {console.log(product._id)}
       <div className="card-body">
-        <h6 class="product-title">{(product.name).toUpperCase()}</h6>
-        <h4 class="product-price mt-4">{`U$S ${product.price}`}</h4>
+        <Link className="product-title-link" to={`/product/${product._id}`}>
+          <h6 className="product-title">{product.name.toUpperCase()}</h6>
+        </Link>
+        <h4 className="product-price mt-4">{`U$S ${product.price}`}</h4>
       </div>
     </div>
   );

@@ -119,8 +119,8 @@ function Home() {
             alt=""
           />
         </div>
-        <div class="d-flex">
-          <div class="vr"></div>
+        <div className="d-flex">
+          <div className="vr"></div>
         </div>
       </div>
     </div>
