@@ -6,7 +6,7 @@ import ProductCard from "./ProductCard";
 function Products() {
   // const gema = useSelector((state) => state.gema);
 
-  const [products, setProducts] = useState();
+  const [products, setProducts] = useState(null);
 
   const handle = {
     apiCall: async () => {
@@ -14,7 +14,7 @@ function Products() {
         method: "get",
         url: `http://localhost:8000/products`,
       });
-      console.log(response.data)
+      console.log(response.data);
       setProducts(response.data);
     },
     addProductTocart: {},
@@ -23,19 +23,19 @@ function Products() {
   useEffect(() => {
     handle.apiCall();
   }, []);
- 
 
-  
-  return products && (
-    <>
-      <div className="container">
-        <div class="conte d-flex justify-content-center mt-3">
-          {products.map((product) => {
-            return <p>{product.name}</p>;
-          })}
+  return (
+    products && (
+      <>
+        <div className="container">
+          <div className="conte d-flex justify-content-center mt-3">
+            {products.map((product) => {
+              return <ProductCard product={product} />;
+            })}
+          </div>
         </div>
-      </div>
-    </>
+      </>
+    )
   );
 }
 

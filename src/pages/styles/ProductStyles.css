@@ -1,0 +1,53 @@
+.oneProductSection {
+  padding-top: 100px;
+  padding-bottom: 150px;
+}
+h1 {
+  font-size: 24px !important;
+}
+/* .col-8 {
+  padding-left: 20px;
+  text-align: left;
+} */
+
+.productImg {
+  height: 400px;
+  width: 400px;
+}
+
+/* Botón hardcodeado */
+.quantityBtn {
+  padding: 8px 20px;
+  font-size: 11px;
+  border: rgb(146, 146, 146) solid 0.5px;
+  background-color: transparent;
+  margin-right: 10px;
+}
+
+.addToCartBtn {
+  padding: 8px 65px;
+  font-size: 11px;
+  border: black solid 1px;
+  background-color: transparent;
+}
+
+.description {
+  color: #757575;
+}
+
+.dimentions {
+  padding: 0 490px;
+}
+
+.careTips {
+  text-decoration: none !important;
+  color: #7b5a52;
+}
+.careTips:hover {
+  text-decoration: none !important;
+  color: #7b5a52;
+}
+
+.includes {
+  font-weight: 900;
+}

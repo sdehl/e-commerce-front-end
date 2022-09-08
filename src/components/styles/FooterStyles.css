@@ -1,4 +1,4 @@
-.footer {
+.footerComponent {
   margin-top: auto;
 }
 
@@ -28,7 +28,7 @@ ul h5 {
 .preciosIVA {
   display: flex;
   flex-direction: row;
-  justify-content: start;
+  justify-content: flex-start;
   font-size: 16px;
   color: #7a7a7a;
 }
