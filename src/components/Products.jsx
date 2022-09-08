@@ -2,15 +2,18 @@ import ProductCard from "./ProductCard";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { useSelector, useDispatch } from "react-redux";
+import { Link, useParams } from "react-router-dom";
 
 function Products() {
-  const gema = useSelector((state) => state.gema);
+  const params = useParams();
   const [products, setProducts] = useState();
+  console.log(params.category)
   const handle = {
     apiCall: async () => {
       const response = await axios({
         method: "get",
         url: `http://localhost:8000/products`,
+        params: {category: params.category},
       });
       setProducts(response.data);
     },
@@ -20,7 +23,10 @@ function Products() {
   useEffect(() => {
     handle.apiCall();
   }, []);
-  console.log("despues", gema.state);
+
+  useEffect(() => {
+    handle.apiCall();
+  }, [params]);
 
   return (
     products && (
@@ -33,7 +39,7 @@ function Products() {
           </div>
           <div className="productList">
             {products.map((product) => {
-              return <ProductCard product={product} />;
+              return <ProductCard key={product._id} product={product} />;
             })}
           </div>
         </div>

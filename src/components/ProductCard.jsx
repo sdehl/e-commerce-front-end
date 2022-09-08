@@ -7,10 +7,12 @@ function ProductCard({product}) {
   const [buttonCart, setButtonCart] = useState("Agregar al carrito");
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const filteredPicture= product.pictures[0].replaceAll(`"`, ``);
+
   return (
     <div className="card p-3 border-0 cardCss">
       <img
-        src={product.pictures[1]}
+        src={filteredPicture}
         className="card-img-top imageProduct"
         alt="..."
       ></img>
