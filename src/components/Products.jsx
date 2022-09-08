@@ -20,7 +20,7 @@ function Products() {
   useEffect(() => {
     handle.apiCall();
   }, []);
-  console.log("despues", gema.state);
+  // console.log("despues", gema.state);
 
   return (
     products && (
