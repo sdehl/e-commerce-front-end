@@ -7,13 +7,26 @@ const gemaSlice = createSlice({
     cart: [],
   },
   reducers: {
-    createCart(state, action) {},
+    addProductToCart(state, action) {
+      state.cart.push(action.payload);
+    },
+    deleteProductFromCart(state, action) {
+      const newCart = state.cart.filter((element) => {
+        return element !== action.payload;
+      });
+      state.cart = newCart;
+    },
     updateUser(state, action) {},
     deleteCart(state, action) {},
   },
 });
 
 const { actions, reducer } = gemaSlice;
-export const { createCart, updateUser, deleteCart } = actions;
+export const {
+  addProductToCart,
+  deleteProductFromCart,
+  updateUser,
+  deleteCart,
+} = actions;
 
 export default reducer;

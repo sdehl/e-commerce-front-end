@@ -1,13 +1,19 @@
 import React from "react";
 import { Container, Dropdown, Nav, Navbar, NavDropdown } from "react-bootstrap";
+import { Link } from "react-router-dom";
+import { useNavigate } from "react-router";
+
 import search from "./svg/magnifying-glass-solid.svg";
 import bag from "./svg/bag-shopping-solid.svg";
 import profile from "./svg/user-regular.svg";
 import rocket from "./svg/rocket-solid.svg";
+import { useSelector } from "react-redux";
 
 import "./styles/NavigationBarStyles.css";
 
 function NavigationBar() {
+  const gema = useSelector((state) => state.gema);
+  const navigate = useNavigate();
   return (
     <>
       <div className="top-banner d-flex justify-content-center align-items-center">
@@ -25,15 +31,19 @@ function NavigationBar() {
           <img className="icons" src={search} alt="search icon" />
         </div>
         <div>
-          <img
-            className="home-logo"
-            src="https://www.gemainteriores.com/wp-content/uploads/2021/05/Logo-H4-1-scaled.jpg"
-            alt="gema-logo"
-          />
+          <Link to="/">
+            <img
+              className="home-logo"
+              src="https://www.gemainteriores.com/wp-content/uploads/2021/05/Logo-H4-1-scaled.jpg"
+              alt="gema-logo"
+            />
+          </Link>
         </div>
         <div>
           <img className="icons" src={profile} alt="profile icon" />
+
           <img className="icons mx-2" src={bag} alt="bag icon" />
+          <h6 className="icons d-inline-block light">{gema.cart.length}</h6>
         </div>
       </div>
       <div className="d-flex justify-content-center dropdowns-container">
@@ -45,7 +55,12 @@ function NavigationBar() {
                 style={{ maxHeight: "100px" }}
                 navbarScroll
               >
-                <Nav.Link className="mx-3" href="#action1">
+                <Nav.Link
+                  className="mx-3"
+                  onClick={() => {
+                    navigate("/products");
+                  }}
+                >
                   SHOP ALL
                 </Nav.Link>
 
