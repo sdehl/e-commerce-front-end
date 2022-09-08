@@ -3,17 +3,18 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { useSelector, useDispatch } from "react-redux";
 import { Link, useParams } from "react-router-dom";
+import SingleProductModal from "./SingleProductModal";
 
 function Products() {
   const params = useParams();
   const [products, setProducts] = useState();
-  console.log(params.category)
+  console.log(params.category);
   const handle = {
     apiCall: async () => {
       const response = await axios({
         method: "get",
         url: `http://localhost:8000/products`,
-        params: {category: params.category},
+        params: { category: params.category },
       });
       setProducts(response.data);
     },

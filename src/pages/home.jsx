@@ -26,11 +26,9 @@ function Home() {
               />
             </div>
             <div>
-              <h4 className="text-muted">EN STOCK</h4>
-              <h3 className="text-muted">COLECCIÓN DE GRIFERÍAS</h3>
-              <Button variant="light" className="text-muted">
-                DESCUBRIR
-              </Button>
+              <h4>EN STOCK</h4>
+              <h3>COLECCIÓN DE GRIFERÍAS</h3>
+              <Button style="descubrir">DESCUBRIR</Button>
             </div>
           </div>
         </div>

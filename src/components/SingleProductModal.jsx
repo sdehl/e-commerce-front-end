@@ -1,10 +1,13 @@
 import { useState } from "react";
+import { useDispatch } from "react-redux";
 import Product from "./Products";
-import Button from "react-bootstrap";
+import { Button } from "react-bootstrap";
 
-function singleproductmodal(props) {
-  const [prodId, setProdId] = (useState = true);
-  const dispatch = useDispatch();
+function SingleProductModal(props) {
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
 
   return (
     <div className="row mb-5">
@@ -36,10 +39,7 @@ function singleproductmodal(props) {
             </strong>
             <h4>U$S 97</h4>
             <div class="input-group w-auto justify-content-end align-items-center">
-              <Button           onClick={() => {
- variant="light" className="text-muted">
-                COMPRAR{" "}
-              </Button>
+              <Button>COMPRAR </Button>
               <input
                 type="text"
                 id="quantity_6319f06b0aa64"
@@ -62,4 +62,4 @@ function singleproductmodal(props) {
   );
 }
 
-export default singleproductmodal;
+export default SingleProductModal;
