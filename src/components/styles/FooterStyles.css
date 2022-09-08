@@ -24,6 +24,10 @@ ul h5 {
   margin-right: 10px;
 }
 
+.icons:hover {
+  fill: black;
+}
+
 .sn-icons,
 .preciosIVA {
   display: flex;

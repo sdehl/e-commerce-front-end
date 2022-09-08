@@ -1,4 +1,4 @@
-import { addProductToCart } from "../Redux/slices/gemaSlice";
+import { addProductToCart } from "../redux/slices/gemaSlice";
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router";
@@ -8,7 +8,7 @@ function ProductCard({ product }) {
   const [buttonCart, setButtonCart] = useState("Agregar al carrito");
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const filteredPicture= product.pictures[0].replaceAll(`"`, ``);
+  const filteredPicture = product.pictures[0].replaceAll(`"`, ``);
 
   return (
     <div className="card p-3 border-0 cardCss">
@@ -31,7 +31,7 @@ function ProductCard({ product }) {
             }
           }}
         >
-          {buttonCart}
+          {buttonCart.toUpperCase()}
         </button>
       </div>
       {console.log(product._id)}
