@@ -3,7 +3,6 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { useSelector, useDispatch } from "react-redux";
 import { Link, useParams } from "react-router-dom";
-import SingleProductModal from "./SingleProductModal";
 
 function Products() {
   const params = useParams();
