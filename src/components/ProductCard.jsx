@@ -1,7 +1,10 @@
-import { addProductToCart, updateCantProducts } from "../redux/slices/gemaSlice";
+import {
+  addProductToCart,
+  updateCantProducts,
+} from "../redux/slices/gemaSlice";
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router";
+import { useNavigate, useParams } from "react-router";
 import { Link } from "react-router-dom";
 import SingleProductModal from "./SingleProductModal";
 import Modal from "react-bootstrap";
@@ -10,11 +13,15 @@ function ProductCard({ product }) {
   const [buttonCart, setButtonCart] = useState("Agregar al carrito");
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const params = useParams();
+  //we filter the pictures to avoid errors that may appear
   const filteredPicture = product.pictures[0].replaceAll(`"`, ``);
 
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+
+
 
   <button variant="primary" onClick={handleShow}></button>;
 
@@ -29,14 +36,11 @@ function ProductCard({ product }) {
         <button
           className="addToCart"
           onClick={() => {
-            console.log("buttonCart", buttonCart);
             if (buttonCart !== "Agregar al carrito") {
-              //  Navigate("/cart");
-              navigate("/");
+              navigate("/cart");
             } else {
-               console.log(product._id);
               dispatch(addProductToCart({ id: product._id, cant: 1 }));
-              dispatch(updateCantProducts(1)); 
+              dispatch(updateCantProducts(1));
               setButtonCart("Ver carrito");
             }
           }}
@@ -48,7 +52,6 @@ function ProductCard({ product }) {
         </button>
       </div>
 
-      {console.log(product._id)}
       <div className="card-body">
         <Link className="product-title-link" to={`/product/${product._id}`}>
           <h6 className="product-title">{product.name.toUpperCase()}</h6>

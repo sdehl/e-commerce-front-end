@@ -5,6 +5,7 @@ import Home from "./components/Home";
 import Products from "./components/Products";
 import Product from "./components/Product";
 import Cart from "./components/Cart.jsx";
+import ErrorPage from "./components/ErrorPage.jsx";
 
 import "./App.css";
 
@@ -18,6 +19,7 @@ function App() {
         <Route path="/product/:id" element={<Product />}></Route>
         <Route path="/products/:category" element={<Products />}></Route>
         <Route path="/cart" element={<Cart />}></Route>
+        <Route path="*" element={<ErrorPage />}></Route>
       </Routes>
       <Footer />
     </div>

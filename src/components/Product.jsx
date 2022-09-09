@@ -2,7 +2,10 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { addProductToCart } from "../redux/slices/gemaSlice";
+import {
+  addProductToCart,
+  updateCantProducts,
+} from "../redux/slices/gemaSlice";
 import ProductCard from "./ProductCard";
 import "./styles/ProductStyles.css";
 
@@ -10,27 +13,40 @@ function Product() {
   const [product, setProduct] = useState(null);
   const params = useParams();
   const [buttonCart, setButtonCart] = useState("Agregar al carrito");
+  const [recomProducts, setRecomProducts] = useState(null);
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
+  const handle = {
+    get3Products: async () => {
+      const response = await axios({
+        method: "get",
+        url: `${process.env.REACT_APP_API_URL}/products/show3Products`,
+        params: { idToAvoid: params.id },
+      });
+      return await setRecomProducts(response.data);
+    },
+  };
 
   useEffect(() => {
     async function getProduct() {
       try {
         const result = await axios({
           method: "GET",
-          url: `http://localhost:8000/product/${params.id}`,
+          url: `${process.env.REACT_APP_API_URL}/product/${params.id}`,
         });
-        console.log(result.data);
-        setProduct(result.data);
+        await setProduct(result.data);
       } catch (error) {
         console.log(error);
       }
     }
+    handle.get3Products();
     getProduct();
   }, []);
 
   return (
-    product && (
+    product &&
+    recomProducts && (
       <div className="container oneProductSection">
         <div className="row ">
           <div className="col-12 col-lg-4 ">
@@ -45,18 +61,17 @@ function Product() {
               {product.stock > 0 ? "HAY STOCK" : "PRODUCTO NO DISPONIBLE"}
             </p>
             <div className="buttons">
-              <button className="quantityBtn">- 3 +</button>
+              <button className="quantityBtn">{product.stock}</button>
               <button
-                className="addToCartBtn "
+                className="addToCartBtn"
                 onClick={() => {
-                  // console.log("buttonCart", buttonCart);
-                  // if (buttonCart !== "Agregar al carrito") {
-                  //   // navigate("/products");
-                  //   // navigate("/");
-                  // } else {
-                  dispatch(addProductToCart(product._id));
-                  setButtonCart("Ver carrito");
-                  // }
+                  if (buttonCart !== "Agregar al carrito") {
+                    navigate("/cart");
+                  } else {
+                    dispatch(addProductToCart({ id: product._id, cant: 1 }));
+                    dispatch(updateCantProducts(1));
+                    setButtonCart("Ver carrito");
+                  }
                 }}
               >
                 {buttonCart.toUpperCase()}
@@ -96,10 +111,11 @@ function Product() {
 
         <div className="recommendations">
           <h4>TAMBIÉN TE RECOMENDAMOS...</h4>
-
-          <div className="col-4"></div>
-          <div className="col-4"></div>
-          <div className="col-4"></div>
+          <div className="row">
+            {recomProducts.map((prod) => {
+              return <ProductCard key={prod._id} product={prod} />;
+            })}
+          </div>
         </div>
       </div>
     )

@@ -22,7 +22,7 @@ function Products() {
     apiCall: async () => {
       const response = await axios({
         method: "get",
-        url: `http://localhost:8000/products`,
+        url: `${process.env.REACT_APP_API_URL}/products`,
         params: { infoToFindBy: params.category },
       });
       setProducts(response.data);

@@ -9,10 +9,21 @@ const gemaSlice = createSlice({
   },
   reducers: {
     addProductToCart(state, action) {
-      if (state.cart > 0) {
-        const found = state.cart.some((prod) => prod.id === action.payload.id);
-        console.log("isFound", found);
+      if (state.cart.length > 0) {
+        let position = 0;
+        const found = state.cart.some((product, index) => {
+          if (product.productId === action.payload.id) {
+            position = index;
+            return true;
+          }
+        });
         if (found) {
+          state.cart[position].cant += action.payload.cant;
+        } else {
+          state.cart.push({
+            productId: action.payload.id,
+            cant: action.payload.cant,
+          });
         }
       } else {
         state.cart.push({
