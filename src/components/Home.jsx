@@ -16,7 +16,7 @@ function Home() {
         </div>
         <div className="col-5 p-5">
           <div className="d-flex flex-column">
-            <div>
+            <div className="row">
               <img
                 src={
                   "https://www.gemainteriores.com/wp-content/uploads/2021/02/G02-TOP-SIMP-BZ-6.jpeg"
