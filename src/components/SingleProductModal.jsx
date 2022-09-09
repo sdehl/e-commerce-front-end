@@ -2,13 +2,6 @@ import { useState } from "react";
 import { Modal } from "react-bootstrap";
 
 function SingleProductModal({ show, handleClose }) {
-  //   const [show, setShow] = useState(false);
-  //   const handleClose = () => setShow(false);
-  //   const handleShow = () => setShow(true);
-  // <Button variant="primary" onClick={handleShow}>
-  //</Button>
-  // TODO ESTO VA EN EL PRODUCTCARD
-
   const [quantity, setQuantity] = useState(1);
 
   return (

@@ -12,7 +12,6 @@ function Products() {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-  //the call is made if the page is reloaded
   useEffect(() => {
     handle.apiCall();
   }, []);
@@ -22,7 +21,7 @@ function Products() {
     handle.apiCall();
   }, [params]);
 
-  //Aux functions
+  //Helpers
   const handle = {
     apiCall: async () => {
       const response = await axios({

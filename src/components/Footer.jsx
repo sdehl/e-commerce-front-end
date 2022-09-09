@@ -3,13 +3,10 @@ import fb from "./svg/facebook-f.svg";
 import ig from "./svg/instagram.svg";
 import search from "./svg/magnifying-glass-solid.svg";
 import pinterest from "./svg/pinterest-p.svg";
-
+import { Link } from "react-router-dom";
 import "./styles/FooterStyles.css";
-import { Link, useLocation } from "react-router-dom";
 
 function Footer() {
-  // const { pathname } = useLocation();
-  // if (pathname === "*") return null;
   return (
     <div className="footerComponent mt-5">
       <div className="container my-1">

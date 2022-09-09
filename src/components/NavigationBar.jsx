@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, Dropdown, Nav, Navbar, NavDropdown } from "react-bootstrap";
+import { Container, Nav, Navbar} from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router";
 
@@ -48,12 +48,6 @@ function NavigationBar() {
               navigate("/profile");
             }}
           />
-          {/* <Nav.Link
-            className="icons "
-            onClick={() => {
-              navigate("/cart");
-            }}
-          > */}
           <img
             className="icons link-icons mx-2"
             src={bag}
@@ -62,7 +56,6 @@ function NavigationBar() {
               navigate("/cart");
             }}
           />
-          {/* </Nav.Link> */}
 
           <h6 className="icons d-inline-block light">{gema.cantProductsCart}</h6>
         </div>

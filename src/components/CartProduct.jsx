@@ -1,15 +1,9 @@
-import {
-  addProductToCart,
-  updateCantProducts,
-} from "../redux/slices/gemaSlice";
 import { useDispatch } from "react-redux";
 import { useEffect, useState } from "react";
 import "../components/styles/CartStyles.css";
-//import { useNavigate } from "react-router";
 import { Link } from "react-router-dom";
 
 function CartProduct({ product, cant }) {
-  const dispatch = useDispatch();
   const [quantity, setQuantity] = useState("");
   const [subTotal, setSubTotal] = useState("");
   const filteredPicture = product.pictures[0].replaceAll(`"`, ``);

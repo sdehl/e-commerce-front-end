@@ -1,6 +1,6 @@
-import { Carousel, Button } from "react-bootstrap";
-import "./styles/HomeStyles.css";
+//import { Carousel, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import "./styles/HomeStyles.css";
 
 function Home() {
   return (
@@ -155,9 +155,6 @@ function Home() {
               alt="grifería-bronce"
             />
           </a>
-        </div>
-        <div class="d-flex">
-          <div class="vr"></div>
         </div>
       </div>
     </div>
