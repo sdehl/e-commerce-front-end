@@ -25,10 +25,10 @@ function NavigationBar() {
           <span>Envios a Montevideo y al Interior del Uruguay</span>
         </div>
       </div>
-      <div className=" d-flex justify-content-between align-items-center mx-4">
-        <div className="d-none d-md-flex">
-          <span className="falseInput">____________</span>
-          <img className="icons" src={search} alt="search icon" />
+      <div className=" d-flex justify-content-between align-items-center mx-5">
+        <div className="d-none d-md-flex align-items-center">
+          <input className="headerSearch" type="text" />{" "}
+          <img className="icons mx-2" src={search} alt="search icon" />
         </div>
         <div>
           <Link to="/">
@@ -81,12 +81,12 @@ function NavigationBar() {
                 navbarScroll
               >
                 <Nav.Link
-                  className="mx-3"
+                  className="mx-3 "
                   onClick={() => {
                     navigate("/products");
                   }}
                 >
-                  SHOP ALL
+                  <span className="underline-animation">SHOP ALL</span>
                 </Nav.Link>
                 <Nav.Link
                   className="mx-3"
@@ -94,7 +94,7 @@ function NavigationBar() {
                     navigate("/products/Tiradores");
                   }}
                 >
-                  TIRADORES
+                  <span className="underline-animation"> TIRADORES</span>
                 </Nav.Link>
                 <Nav.Link
                   className="mx-3"
@@ -102,7 +102,7 @@ function NavigationBar() {
                     navigate("/products/Herrajes");
                   }}
                 >
-                  HERRAJES
+                  <span className="underline-animation">HERRAJES </span>
                 </Nav.Link>
 
                 <Nav.Link
@@ -111,7 +111,7 @@ function NavigationBar() {
                     navigate("/products/Grifería");
                   }}
                 >
-                  GRIFERÍA
+                  <span className="underline-animation">GRIFERÍA </span>
                 </Nav.Link>
               </Nav>
             </Navbar.Collapse>

@@ -13,12 +13,13 @@
   margin-right: 6%;
 }
 
-.add-substract:hover, .delete:hover {
+.add-substract:hover,
+.delete:hover {
   color: #7b5a52;
   cursor: pointer;
 }
 
-.titleTotalCart{
+.titleTotalCart {
   padding-bottom: 50px;
 }
 
@@ -71,6 +72,12 @@
 .updateButton:hover {
   background-position: left bottom;
   color: white;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
 
 @media screen and (max-width: 674px) {

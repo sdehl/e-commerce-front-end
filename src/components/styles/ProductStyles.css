@@ -35,16 +35,20 @@
   margin: 40px 0;
 }
 
-/* Botón hardcodeado */
 .quantityBtn {
   padding: 10px 20px;
   font-size: 11px;
   border: rgb(146, 146, 146) solid 0.5px;
   background-color: transparent;
   margin-right: 30px;
-  letter-spacing: 0.5rem;
+  display: inline-block;
 }
-/*  */
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
 
 .addToCartBtn {
   background: linear-gradient(to left, white 50%, black 50%);
