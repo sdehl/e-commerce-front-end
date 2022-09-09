@@ -299,3 +299,50 @@ p {
 p a {
   color: rgba(255, 255, 255, 0.5);
 } */
+
+.enStock {
+  font-family: Cormorant;
+  color: #7b5a52;
+  font-weight: 50;
+}
+
+.boldCollection {
+  font-weight: 1000;
+  text-align: center;
+}
+
+#imageHome {
+  display: inline-block !important;
+  height: 100% !important;
+  object-fit: cover !important;
+}
+
+.logoGemaHome {
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  border-radius: 100%;
+  text-decoration: none !important;
+}
+
+.removeLinkDeco {
+  text-decoration: none !important;
+  color: black;
+}
+.hashtag {
+  color: #7b5a52;
+  font-family: Cormorant;
+  font-size: smaller;
+}
+
+.removeLinkDeco:hover {
+  text-decoration: none !important;
+  color: #7b5a52 !important;
+  opacity: 0.8;
+}
+
+@media screen and (max-width: 958px) {
+  .imageDivCart {
+    display: none;
+  }
+}

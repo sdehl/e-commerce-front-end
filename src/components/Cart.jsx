@@ -94,16 +94,6 @@ function Cart() {
           </div>
           <div className="listCart">
             <h3 className="ml-4 titleTotalCart ">TOTAL DEL CARRITO</h3>
-            <div className="row m-4">
-              <div className="col-2">
-                {" "}
-                <h5 className="font-weight-bold">SUBTOTAL</h5>
-              </div>
-              <div className="col-8">
-                {" "}
-                <h5>{`U$S: ${total}`}</h5>
-              </div>
-            </div>
             <ColoredLine color="gray" />
             <div className="row m-4">
               <div className="col-2">
@@ -126,9 +116,7 @@ function Cart() {
                   className="mb-4"
                 ></input>
                  {" "}
-                <label for="userAdress">
-                  Envios a Maldonado por DePunta - Costo del Cliente
-                </label>
+                <label for="userAdress">Envios a Maldonado por DePunta - Costo del Cliente</label>
                 <br></br>
                 <input
                   type="radio"
@@ -137,9 +125,7 @@ function Cart() {
                   className="mb-4"
                 ></input>
                  {" "}
-                <label for="userAdress">
-                  Envios al Interior por DAC - Costo del Cliente
-                </label>
+                <label for="userAdress">Envios al Interior por DAC - Costo del Cliente</label>
                 <br></br>
               </div>
             </div>
