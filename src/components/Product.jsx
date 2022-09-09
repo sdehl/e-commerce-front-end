@@ -2,20 +2,18 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import {
-  addProductToCart,
-  updateCantProducts,
-} from "../redux/slices/gemaSlice";
+import { addProductToCart, updateCantProducts } from "../redux/slices/gemaSlice";
 import ProductCard from "./ProductCard";
 import "./styles/ProductStyles.css";
 
 function Product() {
   const [product, setProduct] = useState(null);
-  const params = useParams();
+  const [quantity, setQuantity] = useState(1);
   const [buttonCart, setButtonCart] = useState("Agregar al carrito");
   const [recomProducts, setRecomProducts] = useState(null);
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const params = useParams();
 
   const handle = {
     get3Products: async () => {
@@ -55,21 +53,51 @@ function Product() {
           <div className="productInformation col-12 col-lg-8">
             <h1>{product.name.toUpperCase()}</h1>
             <h3>U$S {product.price}</h3>
-            <h6>Categorías: {product.Category.toUpperCase()}</h6>
+            <h6>Categorías: {product.Category.toUpperCase()}</h6>{" "}
             <p className="productStock">
               {" "}
               {product.stock > 0 ? "HAY STOCK" : "PRODUCTO NO DISPONIBLE"}
             </p>
             <div className="buttons">
-              <button className="quantityBtn">{product.stock}</button>
+              {/* <button className="quantityBtn">{product.stock}</button> */}
+              <div className="quantityBtn">
+                <span
+                  className="add-substract pr-2"
+                  onClick={() => {
+                    quantity > 1 && setQuantity(quantity - 1);
+                  }}
+                >
+                  -
+                </span>
+                <input
+                  type="number"
+                  min="0"
+                  value={quantity}
+                  className="input"
+                  onChange={(e) => {
+                    if (e.target.value >= 0) {
+                      setQuantity(e.target.value);
+                    }
+                  }}
+                ></input>
+                <span
+                  className="add-substract pr-2"
+                  onClick={() => {
+                    setQuantity(quantity + 1);
+                  }}
+                >
+                  +
+                </span>
+              </div>
+
               <button
                 className="addToCartBtn"
                 onClick={() => {
                   if (buttonCart !== "Agregar al carrito") {
                     navigate("/cart");
                   } else {
-                    dispatch(addProductToCart({ id: product._id, cant: 1 }));
-                    dispatch(updateCantProducts(1));
+                    dispatch(addProductToCart({ id: product._id, cant: quantity }));
+                    dispatch(updateCantProducts(quantity));
                     setButtonCart("Ver carrito");
                   }
                 }}

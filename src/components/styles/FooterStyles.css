@@ -9,9 +9,14 @@ ul {
   margin-bottom: 35px !important;
   padding-left: 0px !important;
 }
+ul li {
+  cursor: pointer;
+}
 
 li {
   margin: 10px 0;
+  color: #7a7a7a;
+  font-weight: 500;
 }
 
 ul h5 {
@@ -35,6 +40,24 @@ ul h5 {
   justify-content: flex-start;
   font-size: 16px;
   color: #7a7a7a;
+  font-weight: bolder;
+}
+
+.footerSearch {
+  width: 85%;
+  border: none;
+  border-bottom: #d6d6d6 solid 0.8px;
+}
+.footerSearch:focus {
+  border-bottom: solid 0.8px #c27f6e;
+  outline: none;
+}
+
+.dividerLine {
+  display: flex;
+  justify-content: center;
+  color: #d6d6d6;
+  margin: 20px auto 10px auto;
 }
 
 .gemaLogoFooter {
@@ -46,4 +69,10 @@ ul h5 {
   height: 60px;
   background-color: #f7f0ea;
   color: #7b5a52;
+}
+
+.copyright {
+  font-family: Cormorant;
+  color: #7b5a52;
+  font-weight: 50;
 }

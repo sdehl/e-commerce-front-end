@@ -1,4 +1,5 @@
-import { Button, Modal } from "react-bootstrap";
+import { useState } from "react";
+import { Modal } from "react-bootstrap";
 
 function SingleProductModal({ show, handleClose }) {
   //   const [show, setShow] = useState(false);
@@ -8,49 +9,60 @@ function SingleProductModal({ show, handleClose }) {
   //</Button>
   // TODO ESTO VA EN EL PRODUCTCARD
 
+  const [quantity, setQuantity] = useState(1);
+
   return (
     <Modal show={show} onHide={handleClose} size="lg">
       <div className="d-flex align-items-center">
-        <img
-          src={
-            "https://www.gemainteriores.com/wp-content/uploads/2022/09/G04-DES-100X100-BZ-1.1-scaled.jpg"
-          }
-          className="d-block w-50"
-          alt=""
-        />
-        <strong>
-          <h2>
-            -PRE VENTA- DESAGÜE DE PISO ESCONDIDO CUADRADO 100X100MM BRONCE
-          </h2>
-          <h4>U$S 97</h4>
-        </strong>
-      </div>
-      <div className="input-group w-auto justify-content-end align-items-center">
-        <Button variant="light"> COMPRAR </Button>
-        <div class="input-group justify-content-center mb-3">
-          <Button
-            variant="dark"
-            className="btn btn-outline-secondary fs-1"
-            type="button"
-            id="button-addon1"
-          >
-            -
-          </Button>
-          <input
-            type="number"
-            className="form-control xs-2"
-            placeholder="1"
-            aria-label="add-remove-items"
-            aria-describedby="add-remove-items"
-          ></input>
-          <Button
-            variant="dark"
-            className="btn btn-outline-secondary text-center"
-            type="button"
-            id="button-addon1"
-          >
-            <strong>+</strong>
-          </Button>
+        <div className="col-5 ">
+          <img
+            src={
+              "https://www.gemainteriores.com/wp-content/uploads/2022/09/G04-DES-100X100-BZ-1.1-scaled.jpg"
+            }
+            className="d-block w-50"
+            alt=""
+          />
+        </div>
+        <div className="col-6 my-5">
+          <strong>
+            <h2>
+              -PRE VENTA- DESAGÜE DE PISO ESCONDIDO CUADRADO 100X100MM BRONCE
+            </h2>
+            <h4>U$S 97</h4>
+          </strong>
+          <div className="d-flex justify-content-space-between  my-5">
+            <div className="d-flex elemntsPrice quantityBox">
+              <span
+                className="add-substract pr-2"
+                onClick={() => {
+                  quantity > 1 && setQuantity(quantity - 1);
+                }}
+              >
+                -
+              </span>
+              <input
+                type="number"
+                min="0"
+                value={quantity}
+                className="input"
+                onChange={(e) => {
+                  if (e.target.value >= 0) {
+                    setQuantity(e.target.value);
+                  }
+                }}
+              ></input>
+              <span
+                className="add-substract pr-2"
+                onClick={() => {
+                  setQuantity(quantity + 1);
+                }}
+              >
+                +
+              </span>
+            </div>
+
+            <button className="descubrir px-2"> AGREGAR AL CARRITO </button>
+          </div>
         </div>
       </div>
     </Modal>
