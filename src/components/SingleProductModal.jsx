@@ -25,31 +25,31 @@ function SingleProductModal({ show, handleClose }) {
           <h4>U$S 97</h4>
         </strong>
       </div>
-      <div class="input-group w-auto justify-content-end align-items-center">
+      <div className="input-group w-auto justify-content-end align-items-center">
         <Button variant="light"> COMPRAR </Button>
-        <div class="input-group mb-3">
+        <div class="input-group justify-content-center mb-3">
           <Button
             variant="dark"
-            class="btn btn-outline-secondary"
+            className="btn btn-outline-secondary fs-1"
             type="button"
             id="button-addon1"
           >
-            Button
+            -
           </Button>
           <input
             type="number"
-            class="form-control"
-            placeholder=""
+            className="form-control"
+            placeholder="1"
             aria-label="add-remove-items"
             aria-describedby="add-remove-items"
           ></input>
           <Button
             variant="dark"
-            class="btn btn-outline-secondary"
+            className="btn btn-outline-secondary text-center"
             type="button"
             id="button-addon1"
           >
-            Button
+            <strong>+</strong>
           </Button>
         </div>
       </div>

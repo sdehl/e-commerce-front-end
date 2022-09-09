@@ -16,24 +16,29 @@ function Home() {
         </div>
         <div className="col-5 p-5">
           <div className="d-flex flex-column">
-            <div className="row">
-              <img
-                src={
-                  "https://www.gemainteriores.com/wp-content/uploads/2021/02/G02-TOP-SIMP-BZ-6.jpeg"
-                }
-                className="d-block w-100"
-                alt=""
-              />
-            </div>
-            <div>
-              <h4>EN STOCK</h4>
-              <h3>COLECCIÓN DE GRIFERÍAS</h3>
+            <div className=" div-column justify-content-center p-3">
+              ">
+              <div className="row ">
+                <img
+                  src={
+                    "https://www.gemainteriores.com/wp-content/uploads/2021/02/G02-TOP-SIMP-BZ-6.jpeg"
+                  }
+                  className="d-block w-100"
+                  alt=""
+                />
+              </div>
+              <div className=" div-column justify-content-center p-3">
+                <h4>EN STOCK</h4>
+                <button className="buttons">QUICK VIEW</button>
+
+                <h3>COLECCIÓN DE GRIFERÍAS</h3>
+              </div>
             </div>
           </div>
         </div>
       </div>
       <div className="row p-5 m-5">
-        <div className="col-4 d-flex flex-column">
+        <div className="col-4 d-flex flex-column justify-content-center text-center p-3">
           <img
             src={
               "https://www.gemainteriores.com/wp-content/uploads/2021/02/G02-TOP-SIMP-BZ-6.jpeg"
@@ -44,7 +49,7 @@ function Home() {
           <h5 className="fw-bold pb-3">TIRADORES</h5>
           <p className="fw-bold">SHOP NOW</p>
         </div>
-        <div className="col-4 d-flex flex-column">
+        <div className="col-4 d-flex flex-column justify-content-center text-center p-3">
           <div>
             <img
               src={
@@ -57,7 +62,7 @@ function Home() {
             <p className="fw-bold">SHOP NOW</p>
           </div>
         </div>
-        <div className="col-4 d-flex flex-column">
+        <div className="col-4 d-flex flex-column justify-content-center text-center p-3">
           <img
             src={
               "https://www.gemainteriores.com/wp-content/uploads/2021/02/G02-TOP-SIMP-BK-5.jpeg"
@@ -113,7 +118,7 @@ function Home() {
             }
             styles="image"
             className="image d-inline-block w-100 mb-4"
-            alt=""
+            alt="grifería-bronce"
           />
         </div>
         <div class="d-flex">
