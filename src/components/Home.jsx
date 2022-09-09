@@ -29,9 +29,9 @@ function Home() {
               </div>
               <div className=" div-column justify-content-center p-3">
                 <h4>EN STOCK</h4>
-                <button className="buttons">QUICK VIEW</button>
 
                 <h3>COLECCIÓN DE GRIFERÍAS</h3>
+                <button className="descubrir">DESCUBRIR</button>
               </div>
             </div>
           </div>
@@ -39,15 +39,17 @@ function Home() {
       </div>
       <div className="row p-5 m-5">
         <div className="col-4 d-flex flex-column justify-content-center text-center p-3">
-          <img
-            src={
-              "https://www.gemainteriores.com/wp-content/uploads/2021/02/G02-TOP-SIMP-BZ-6.jpeg"
-            }
-            className="d-inline-block w-100 mb-4"
-            alt=""
-          />
-          <h5 className="fw-bold pb-3">TIRADORES</h5>
-          <p className="fw-bold">SHOP NOW</p>
+          <div>
+            <img
+              src={
+                "https://www.gemainteriores.com/wp-content/uploads/2021/02/G02-TOP-SIMP-BZ-6.jpeg"
+              }
+              className="d-inline-block w-100 mb-4"
+              alt=""
+            />
+            <h5 className="fw-bold pb-3">TIRADORES</h5>
+            <p className="fw-bold hover-underline-animation ">SHOP NOW</p>
+          </div>
         </div>
         <div className="col-4 d-flex flex-column justify-content-center text-center p-3">
           <div>
@@ -59,25 +61,31 @@ function Home() {
               alt=""
             />
             <h5 className="fw-bold pb-3">HERRAJES</h5>
-            <p className="fw-bold">SHOP NOW</p>
+            <p className="fw-bold hover-underline-animation ">SHOP NOW</p>
           </div>
         </div>
         <div className="col-4 d-flex flex-column justify-content-center text-center p-3">
-          <img
-            src={
-              "https://www.gemainteriores.com/wp-content/uploads/2021/02/G02-TOP-SIMP-BK-5.jpeg"
-            }
-            className="d-block w-100 mb-4"
-            alt=""
-          />
-          <h5 className="fw-bold pb-3">GRIFERÍA</h5>
-          <p className="fw-bold">SHOP NOW</p>
+          <div>
+            <img
+              src={
+                "https://www.gemainteriores.com/wp-content/uploads/2021/02/G02-TOP-SIMP-BK-5.jpeg"
+              }
+              className="d-block w-100 mb-4"
+              alt=""
+            />
+            <h5 className="fw-bold pb-3">GRIFERÍA</h5>
+            <p className="fw-bold hover-underline-animation ">SHOP NOW</p>
+          </div>
         </div>
       </div>
 
       <div className="row p-5 m-5">
-        <h5 className="  pt-5"># G E M A I N T E R I O R E S</h5>
-        <h5 className="mb-5 mt-3 pb-5 ">Lo mejor de nuestros productos</h5>
+        <div className="pl-3 text-center">
+          <p className="pt-5"># G E M A I N T E R I O R E S</p>
+          <h5 className="fs-3 mb-5 mt-3 pb-5 ">
+            Lo mejor de nuestros productos
+          </h5>
+        </div>
 
         <br></br>
         <br></br>

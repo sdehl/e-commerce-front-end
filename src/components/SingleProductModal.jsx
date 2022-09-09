@@ -38,7 +38,7 @@ function SingleProductModal({ show, handleClose }) {
           </Button>
           <input
             type="number"
-            className="form-control"
+            className="form-control xs-2"
             placeholder="1"
             aria-label="add-remove-items"
             aria-describedby="add-remove-items"
