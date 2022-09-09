@@ -1,4 +1,7 @@
-import { addProductToCart, updateCantProducts } from "../redux/slices/gemaSlice";
+import {
+  addProductToCart,
+  updateCantProducts,
+} from "../redux/slices/gemaSlice";
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router";
@@ -6,17 +9,11 @@ import { Link } from "react-router-dom";
 import SingleProductModal from "./SingleProductModal";
 import Modal from "react-bootstrap";
 
-function ProductCard({ product }) {
+function ProductCard({ product, handleShow }) {
   const [buttonCart, setButtonCart] = useState("Agregar al carrito");
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const filteredPicture = product.pictures[0].replaceAll(`"`, ``);
-
-  const [show, setShow] = useState(false);
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
-
-  <button variant="primary" onClick={handleShow}></button>;
 
   return (
     <div className="card p-3 border-0 cardCss">
@@ -29,21 +26,25 @@ function ProductCard({ product }) {
         <button
           className="addToCart"
           onClick={() => {
-            console.log("buttonCart", buttonCart);
             if (buttonCart !== "Agregar al carrito") {
               //  Navigate("/cart");
               navigate("/");
             } else {
-               console.log(product._id);
+              console.log(product._id);
               dispatch(addProductToCart({ id: product._id, cant: 1 }));
-              dispatch(updateCantProducts(1)); 
+              dispatch(updateCantProducts(1));
               setButtonCart("Ver carrito");
             }
           }}
         >
           {buttonCart.toUpperCase()}
         </button>
-        <button className="addToCart" onClick={() => {}}>
+        <button
+          className="addToCart"
+          onClick={() => {
+            handleShow();
+          }}
+        >
           QUICK VIEW
         </button>
       </div>
