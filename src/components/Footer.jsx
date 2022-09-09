@@ -8,8 +8,8 @@ import "./styles/FooterStyles.css";
 import { useLocation } from "react-router-dom";
 
 function Footer() {
-  const { pathname } = useLocation();
-  if (pathname === "*") return null;
+  // const { pathname } = useLocation();
+  // if (pathname === "*") return null;
   return (
     <div className="footerComponent mt-5">
       <div className="container my-1">
@@ -19,7 +19,7 @@ function Footer() {
               ______________________{" "}
               <img className="icons" src={search} alt="search icon" />
             </div>
-            <div>_____</div>
+
             <div>
               <img
                 className="gemaLogoFooter"

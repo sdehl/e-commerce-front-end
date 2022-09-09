@@ -2,6 +2,9 @@
   height: 16px;
   width: 16px;
 }
+.link-icons {
+  cursor: pointer;
+}
 
 .falseInput {
   color: rgb(158, 158, 158);
@@ -11,6 +14,8 @@
 .home-logo {
   height: 80px;
   width: fit-content;
+  position: relative;
+  left: -45px;
 }
 
 .top-banner {
@@ -44,4 +49,16 @@
 
 .dropdowns-container {
   border-bottom: 1px #ebebeb solid;
+}
+
+@media screen and (max-width: 768px) {
+  .navbar-nav {
+    background-color: #faf6f2;
+    display: inline-block;
+  }
+
+  .navbar-nav-scroll {
+    max-height: 200px !important;
+    padding: 20px 40px !important;
+  }
 }

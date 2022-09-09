@@ -43,9 +43,9 @@ function CartProduct({ product, cant }) {
         <p className="elemntsPrice">{`U$S ${product.price}`}</p>
         <div className="d-flex elemntsPrice quantityBox">
           <span
-            className="add-substract"
+            className="add-substract pr-2"
             onClick={() => {
-              setQuantity(quantity - 1);
+              quantity > 1 && setQuantity(quantity - 1);
             }}
           >
             -
@@ -62,7 +62,7 @@ function CartProduct({ product, cant }) {
             }}
           ></input>
           <span
-            className="add-substract"
+            className="add-substract pr-2"
             onClick={() => {
               setQuantity(quantity + 1);
             }}

@@ -21,7 +21,7 @@ function Product() {
     get3Products: async () => {
       const response = await axios({
         method: "get",
-        url: `${process.env.REACT_APP_API_URL}/products/show3Products`,
+        url: `${process.env.REACT_APP_API_URL}/products/random`,
         params: { idToAvoid: params.id },
       });
       return await setRecomProducts(response.data);
@@ -42,7 +42,7 @@ function Product() {
     }
     handle.get3Products();
     getProduct();
-  }, []);
+  }, [params]);
 
   return (
     product &&

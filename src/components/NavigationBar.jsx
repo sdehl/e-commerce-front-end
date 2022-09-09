@@ -25,8 +25,8 @@ function NavigationBar() {
           <span>Envios a Montevideo y al Interior del Uruguay</span>
         </div>
       </div>
-      <div className="d-flex justify-content-between align-items-center mx-4">
-        <div>
+      <div className=" d-flex justify-content-between align-items-center mx-4">
+        <div className="d-none d-md-flex">
           <span className="falseInput">____________</span>
           <img className="icons" src={search} alt="search icon" />
         </div>
@@ -39,24 +39,41 @@ function NavigationBar() {
             />
           </Link>
         </div>
-        <div>
-          <img className="icons" src={profile} alt="profile icon" />
-          <Nav.Link
-            className="icons d-inline-block "
+        <div className="d-none d-md-flex  ">
+          <img
+            className="icons link-icons"
+            src={profile}
+            alt="profile icon"
+            onClick={() => {
+              navigate("/profile");
+            }}
+          />
+          {/* <Nav.Link
+            className="icons "
             onClick={() => {
               navigate("/cart");
             }}
-          >
-            <img className="icons mx-2" src={bag} alt="bag icon" />
-          </Nav.Link>
+          > */}
+          <img
+            className="icons link-icons mx-2"
+            src={bag}
+            alt="bag icon"
+            onClick={() => {
+              navigate("/cart");
+            }}
+          />
+          {/* </Nav.Link> */}
 
           <h6 className="icons d-inline-block light">{gema.cantProductsCart}</h6>
         </div>
       </div>
-      <div className="d-flex justify-content-center dropdowns-container">
-        <Navbar expand="lg">
+      <div className=" d-flex justify-content-center dropdowns-container">
+        <Navbar expand="md">
           <Container fluid>
-            <Navbar.Toggle aria-controls="basic-navbar-nav" />
+            <Navbar.Toggle
+              className="border-0 shadow-none "
+              aria-controls="basic-navbar-nav"
+            />
             <Navbar.Collapse id="navbarScroll">
               <Nav
                 className="me-auto my-2 my-lg-0"
