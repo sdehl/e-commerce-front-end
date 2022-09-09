@@ -17,7 +17,7 @@ function Footer() {
               ______________________{" "}
               <img className="icons" src={search} alt="search icon" />
             </div>
-            <div>_____</div>
+
             <div>
               <img
                 className="gemaLogoFooter"

@@ -7,6 +7,7 @@ import Product from "./components/Product";
 import Cart from "./components/Cart.jsx";
 
 import "./App.css";
+import Profile from "./components/Profile";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route path="/products" element={<Products />}></Route>
         <Route path="/product/:id" element={<Product />}></Route>
         <Route path="/products/:category" element={<Products />}></Route>
+        <Route path="/profile" element={<Profile />}></Route>
         <Route path="/cart" element={<Cart />}></Route>
       </Routes>
       <Footer />
