@@ -5,7 +5,10 @@ import { useDispatch } from "react-redux";
 import {
   addProductToCart,
   updateCantProducts,
+<<<<<<< HEAD
   updateTotalPrice,
+=======
+>>>>>>> ed3f8b53a60ec62ca73db631f1289fa22ae94e02
 } from "../redux/slices/gemaSlice";
 import ProductCard from "./ProductCard";
 import "./styles/ProductStyles.css";

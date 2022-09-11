@@ -1,7 +1,47 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 import "./styles/ProfileStyles.css";
 
 function Profile() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [loginEmailorUsername, setLoginEmailorUsername] = useState("");
+  const [loginPassword, setLoginPassword] = useState("");
+
+  async function register() {
+    try {
+      const result = await axios({
+        method: "POST",
+        url: `${process.env.REACT_APP_API_URL}/register`,
+        headers: { "Content-Type": "application/json" },
+        data: {
+          email: email,
+          password: password,
+        },
+      });
+      console.log(result.data);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  async function login() {
+    try {
+      const response = await axios({
+        method: "POST",
+        url: `${process.env.REACT_APP_API_URL}/login`,
+        headers: { "Content-Type": "application/json" },
+        data: {
+          emailorUsername: loginEmailorUsername,
+          password: loginPassword,
+        },
+      });
+      console.log(response.data);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
   return (
     <div className="container profileForm">
       <div className="row signInForm">
@@ -11,26 +51,28 @@ function Profile() {
               <h2> INICIAR SESIÓN</h2>
             </strong>
             <div className="my-5 ">
-              <label for="email" className="form-label">
+              <label htmlFor="emailorUsername" className="form-label">
                 Nombre de usuario o correo electrónico{" "}
                 <span className="obligatory">*</span>
               </label>
               <input
-                type="email"
+                type="text"
                 className="form-control"
-                name="email"
-                aria-describedby="emailHelp"
+                name="emailorUsername"
+                id="emailorUsername"
+                onChange={(e) => setLoginEmailorUsername(e.target.value)}
               />
             </div>
             <div className="mb-5">
-              <label for="password" className="form-label">
+              <label htmlFor="password" className="form-label">
                 Contraseña <span className="obligatory">*</span>
               </label>
               <input
                 type="password"
                 name="password"
                 className="form-control"
-                id="exampleInputPassword1"
+                id="password"
+                onChange={(e) => setLoginPassword(e.target.value)}
               />
             </div>
             <div className="mb-3 form-check rememberMe">
@@ -39,7 +81,13 @@ function Profile() {
                 <input type="checkbox" className="form-check-input" />
                 Recordarme
               </label>{" "}
-              <button type="submit" className="login-btn">
+              <button
+                type="button"
+                className="login-btn"
+                onClick={() => {
+                  login();
+                }}
+              >
                 INICIAR SESIÓN
               </button>
             </div>
@@ -56,28 +104,36 @@ function Profile() {
                 <h2> REGISTRARME</h2>
               </strong>
               <div className="my-5 ">
-                <label for="email" className="form-label">
+                <label htmlFor="email" className="form-label">
                   Correo electrónico <span className="obligatory">*</span>
                 </label>
                 <input
                   type="email"
                   className="form-control"
                   name="email"
-                  aria-describedby="emailHelp"
+                  id="email"
+                  onChange={(e) => setEmail(e.target.value)}
                 />
               </div>
               <div className="mb-5">
-                <label for="password" className="form-label">
+                <label htmlFor="password" className="form-label">
                   Contraseña <span className="obligatory">*</span>
                 </label>
                 <input
                   type="password"
                   name="password"
                   className="form-control"
-                  id="exampleInputPassword1"
+                  id="password"
+                  onChange={(e) => setPassword(e.target.value)}
                 />
               </div>
-              <button type="submit" className="login-btn">
+              <button
+                type="button"
+                className="login-btn"
+                onClick={() => {
+                  register();
+                }}
+              >
                 REGISTRARME
               </button>
             </form>
