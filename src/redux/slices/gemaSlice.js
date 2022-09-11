@@ -32,6 +32,7 @@ const gemaSlice = createSlice({
         });
       }
     },
+    //quantity
     updateCantProducts(state, action) {
       state.cantProductsCart += action.payload;
     },
