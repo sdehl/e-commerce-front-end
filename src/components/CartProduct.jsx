@@ -28,7 +28,7 @@ function CartProduct({ product, cant }) {
           {" "}
           <img src={filteredPicture} className="imageCart" alt="..."></img>
         </div>
-        <Link className="product-link" to={`/product/${product.slug}`}>
+        <Link className="product-link" to={`/product/${product._id}`}>
           <p className="m-3">{product.name}</p>
         </Link>
       </div>
