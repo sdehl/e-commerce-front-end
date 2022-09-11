@@ -48,7 +48,7 @@
 .hover-underline-animation {
   display: inline-block;
   position: relative;
-  color: #c7af95;
+  color: black;
 }
 
 .hover-underline-animation:after {
@@ -56,10 +56,10 @@
   position: absolute;
   width: 100%;
   transform: scaleX(0);
-  height: 2px;
+  height: 0.8px;
   bottom: 0;
   left: 0;
-  background-color: #000000;
+  background-color: #6b6969b4;
   transform-origin: bottom right;
   transition: transform 0.25s ease-out;
 }
@@ -86,7 +86,7 @@
   }
 }) */
 
-.addToCart {
+.homeButton {
   margin-top: 10px;
   background: linear-gradient(to left, transparent 50%, black 50%);
   background-size: 200% 100%;
@@ -98,12 +98,11 @@
   padding: 15px 32px;
   text-align: center;
   text-decoration: none;
-  display: none;
   font-size: 16px;
-  width: 80%;
+  width: 123;
 }
 
-.addToCart:hover {
+.homeButton:hover {
   background-position: left bottom;
   color: white;
 }

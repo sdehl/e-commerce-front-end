@@ -2,7 +2,11 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { addProductToCart, updateCantProducts } from "../redux/slices/gemaSlice";
+import {
+  addProductToCart,
+  updateCantProducts,
+  updateTotalPrice,
+} from "../redux/slices/gemaSlice";
 import ProductCard from "./ProductCard";
 import "./styles/ProductStyles.css";
 
@@ -59,7 +63,6 @@ function Product() {
               {product.stock > 0 ? "HAY STOCK" : "PRODUCTO NO DISPONIBLE"}
             </p>
             <div className="buttons">
-              {/* <button className="quantityBtn">{product.stock}</button> */}
               <div className="quantityBtn">
                 <span
                   className="add-substract pr-2"
@@ -96,8 +99,11 @@ function Product() {
                   if (buttonCart !== "Agregar al carrito") {
                     navigate("/cart");
                   } else {
-                    dispatch(addProductToCart({ id: product._id, cant: quantity }));
+                    dispatch(
+                      addProductToCart({ id: product._id, cant: quantity })
+                    );
                     dispatch(updateCantProducts(quantity));
+                    dispatch(updateTotalPrice(quantity * product.price));
                     setButtonCart("Ver carrito");
                   }
                 }}

@@ -1,6 +1,7 @@
 import {
   addProductToCart,
   updateCantProducts,
+  updateTotalPrice
 } from "../redux/slices/gemaSlice";
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect, useState } from "react";
@@ -14,7 +15,6 @@ function ProductCard({ product, handleShow }) {
   const [buttonCart, setButtonCart] = useState("Agregar al carrito");
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const params = useParams();
   //we filter the pictures to avoid errors that may appear
   const filteredPicture = product.pictures[0].replaceAll(`"`, ``);
 
@@ -47,6 +47,7 @@ function ProductCard({ product, handleShow }) {
             } else {
               dispatch(addProductToCart({ id: product._id, cant: 1 }));
               dispatch(updateCantProducts(1));
+              dispatch(updateTotalPrice(product.price));
               setButtonCart("Ver carrito");
             }
           }}
@@ -56,7 +57,7 @@ function ProductCard({ product, handleShow }) {
         <button
           className="addToCart"
           onClick={() => {
-            handleShow();
+            handleShow(product);
           }}
         >
           QUICK VIEW

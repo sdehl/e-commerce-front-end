@@ -1,12 +1,22 @@
 import { useDispatch } from "react-redux";
 import { useEffect, useState } from "react";
+import {
+  addProductToCart,
+  updateCantProducts,
+  deleteProductFromCart,
+  updateTotalPrice,
+} from "../redux/slices/gemaSlice";
 import "../components/styles/CartStyles.css";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
-function CartProduct({ product, cant }) {
+function CartProduct({ product, cant, setTotal, total }) {
+  //const gema = useSelector((state) => state.gema);
   const [quantity, setQuantity] = useState("");
   const [subTotal, setSubTotal] = useState("");
+  const [productCantCero, setProductCantCero] = useState(false);
   const filteredPicture = product.pictures[0].replaceAll(`"`, ``);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     setQuantity(cant);
@@ -20,7 +30,15 @@ function CartProduct({ product, cant }) {
   return (
     <div className="d-flex justify-content-between">
       <div className="d-flex align-items-center justify-content-center">
-        <span className="m-3 delete" onClick={() => {}}>
+        <span
+          className="m-3 delete"
+          onClick={() => {
+            dispatch(updateCantProducts(-quantity));
+            setQuantity(0);
+            dispatch(deleteProductFromCart(product._id));
+            dispatch(updateTotalPrice(-(quantity * product.price)));
+          }}
+        >
           {" "}
           X{" "}
         </span>
@@ -39,26 +57,51 @@ function CartProduct({ product, cant }) {
           <span
             className="add-substract pr-2"
             onClick={() => {
-              quantity > 1 && setQuantity(quantity - 1);
+              quantity >= 0 &&
+                dispatch(addProductToCart({ id: product._id, cant: -1 }));
+              dispatch(updateCantProducts(-1));
+              setQuantity(quantity - 1);
+              dispatch(updateTotalPrice(-product.price));
             }}
           >
             -
           </span>
           <input
-            type="number"
+            type="text"
             min="0"
             value={quantity}
             className="input"
             onChange={(e) => {
               if (e.target.value >= 0) {
-                setQuantity(e.target.value);
+                dispatch(updateCantProducts(Number(-quantity)));
+                dispatch(
+                  addProductToCart({
+                    id: product._id,
+                    cant: -quantity,
+                  })
+                );
+                dispatch(updateTotalPrice(-subTotal));
+                setQuantity(Number(e.target.value));
+                dispatch(
+                  addProductToCart({
+                    id: product._id,
+                    cant: Number(e.target.value),
+                  })
+                );
+                dispatch(updateCantProducts(Number(e.target.value)));
+                dispatch(
+                  updateTotalPrice(Number(e.target.value) * product.price)
+                );
               }
             }}
           ></input>
           <span
             className="add-substract pr-2"
             onClick={() => {
+              dispatch(updateTotalPrice(product.price));
               setQuantity(quantity + 1);
+              dispatch(addProductToCart({ id: product._id, cant: 1 }));
+              dispatch(updateCantProducts(1));
             }}
           >
             +

@@ -6,6 +6,8 @@ import Products from "./components/Products";
 import Product from "./components/Product";
 import Cart from "./components/Cart.jsx";
 import ErrorPage from "./components/ErrorPage.jsx";
+import Search from "./components/Search.jsx";
+import Billing from "./components/Billing";
 
 import "./App.css";
 import Profile from "./components/Profile";
@@ -21,6 +23,8 @@ function App() {
         <Route path="/products/:category" element={<Products />}></Route>
         <Route path="/profile" element={<Profile />}></Route>
         <Route path="/cart" element={<Cart />}></Route>
+        <Route path="/search" element={<Search />}></Route>
+        <Route path="/billing" element={<Billing />}></Route>
         <Route path="*" element={<ErrorPage />}></Route>
       </Routes>
       <Footer />
