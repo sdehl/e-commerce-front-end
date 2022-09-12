@@ -32,6 +32,7 @@ function Cart() {
       const response = await axios({
         method: "get",
         url: `${process.env.REACT_APP_API_URL}/product/${productSlug}`,
+        headers: { Authorization: `Bearer ${token}` },
       });
       return response.data;
     },
