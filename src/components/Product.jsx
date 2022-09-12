@@ -37,7 +37,7 @@ function Product() {
       try {
         const result = await axios({
           method: "GET",
-          url: `${process.env.REACT_APP_API_URL}/product/${params.slug}`,
+          url: `${process.env.REACT_APP_API_URL}/product/${params.id}`,
         });
         await setProduct(result.data);
       } catch (error) {

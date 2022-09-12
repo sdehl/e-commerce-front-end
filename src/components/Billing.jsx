@@ -7,7 +7,9 @@ function Billing({ userLogged }) {
   const gema = useSelector((state) => state.gema);
   const location = useLocation();
   const { cart } = location.state;
+  console.log("cart",cart[0].product.name)
   const [order, setOrder] = useState();
+
   const ColoredLine = ({ color }) => (
     <hr
       style={{
@@ -18,6 +20,7 @@ function Billing({ userLogged }) {
       }}
     />
   );
+
   return (
     cart && (
       <div className="contMargin">
@@ -33,7 +36,7 @@ function Billing({ userLogged }) {
                 <input
                   required
                   className="inputListCheckout"
-                  value={order.name}
+                  value="hello"
                   onChange={(e) => {
                     const order = order;
                     order.name = e.target.value;

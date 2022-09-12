@@ -19,11 +19,8 @@ function Profile() {
           password: password,
         },
       });
-<<<<<<< HEAD
-=======
       setEmail("");
       setPassword("");
->>>>>>> 25019bde2d5ae7e52aaebe80b0f242099aa6a1ac
     } catch (error) {
       console.log(error);
     }
