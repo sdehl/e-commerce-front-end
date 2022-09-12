@@ -19,7 +19,6 @@ function Profile() {
           password: password,
         },
       });
-      console.log(result.data);
     } catch (error) {
       console.log(error);
     }

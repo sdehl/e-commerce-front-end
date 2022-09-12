@@ -8,6 +8,14 @@ import Cart from "./components/Cart.jsx";
 import ErrorPage from "./components/ErrorPage.jsx";
 import Search from "./components/Search.jsx";
 import Billing from "./components/Billing";
+//Import dashboard elements
+import AdminUsers from "./components/Admin/AdminUsers";
+import AdminUser from "./components/Admin/AdminUser";
+import AdminProducts from "./components/Admin/AdminProducts";
+import AdminProduct from "./components/Admin/AdminProduct";
+import AdminOrders from "./components/Admin/AdminOrders";
+import AdminOrder from "./components/Admin/AdminOrder";
+import AdminIndex from "./components/Admin/AdminIndex.jsx";
 
 import "./App.css";
 import Profile from "./components/Profile";
@@ -24,7 +32,20 @@ function App() {
         <Route path="/profile" element={<Profile />}></Route>
         <Route path="/cart" element={<Cart />}></Route>
         <Route path="/search" element={<Search />}></Route>
+
+        {
+          //protect route if user is logged
+        }
         <Route path="/billing" element={<Billing />}></Route>
+
+        {
+          //protect route if admin
+        }
+        <Route path="/admin" element={<AdminIndex />}></Route>
+        <Route path="/adminProducts" element={<AdminProducts />} />
+        <Route path="/adminUsers" element={<AdminUsers />} />
+        <Route path="/adminOrders" element={<AdminOrders />} />
+
         <Route path="*" element={<ErrorPage />}></Route>
       </Routes>
       <Footer />

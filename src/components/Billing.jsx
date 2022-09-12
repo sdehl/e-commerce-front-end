@@ -1,11 +1,13 @@
 import { useSelector } from "react-redux";
 import { useLocation } from "react-router-dom";
 import "./styles/BillingStyles.css";
+import { useEffect, useState } from "react";
 
 function Billing({ userLogged }) {
   const gema = useSelector((state) => state.gema);
   const location = useLocation();
   const { cart } = location.state;
+  const [order, setOrder] = useState();
   const ColoredLine = ({ color }) => (
     <hr
       style={{
@@ -28,12 +30,22 @@ function Billing({ userLogged }) {
                   //we will by default put the name of the user logged
                 }
                 <label>First Name *</label>
-                <input className="inputListCheckout"></input>
+                <input
+                  required
+                  className="inputListCheckout"
+                  value={order.name}
+                  onChange={(e) => {
+                    const order = order;
+                    order.name = e.target.value;
+
+                    setOrder(order);
+                  }}
+                ></input>
               </div>
               <div className="d-flex flex-column">
                 {" "}
                 <label>Last Name *</label>
-                <input className="inputListCheckout"></input>
+                <input required className="inputListCheckout"></input>
               </div>
             </div>
             <div className="listInfo d-flex flex-column">
@@ -41,51 +53,33 @@ function Billing({ userLogged }) {
               <input className="inputListCheckout"></input>
             </div>
             <div className="listInfo d-flex flex-column">
-              <label>País / Región *</label>
-              <input
-                className="inputListCheckout"
-                placeholder="Uruguay"
-              ></input>
-            </div>
-            <div className="listInfo d-flex flex-column">
               <label>Dirección de la calle *</label>
               <input
+                required
                 className="inputListCheckout"
                 placeholder="NUMERO DE LA CASA Y NOMBRE DE LA CALLE"
               ></input>
             </div>
             <div className="listInfo d-flex flex-column">
               <label> Localidad / Ciudad *</label>
-              <input
-                className="inputListCheckout"
-                placeholder="NUMERO DE LA CASA Y NOMBRE DE LA CALLE"
-              ></input>
+              <input className="inputListCheckout" required></input>
             </div>
             <div className="listInfo d-flex flex-column">
               <label>Código postal *</label>
-              <input
-                className="inputListCheckout"
-                placeholder="NUMERO DE LA CASA Y NOMBRE DE LA CALLE"
-              ></input>
+              <input className="inputListCheckout" required></input>
             </div>
             <div className="listInfo d-flex flex-column">
               <label>Teléfono *</label>
-              <input
-                className="inputListCheckout"
-                placeholder="NUMERO DE LA CASA Y NOMBRE DE LA CALLE"
-              ></input>
+              <input className="inputListCheckout" required></input>
             </div>
             <div className="listInfo d-flex flex-column">
               <label>Correo electrónico *</label>
-              <input
-                className="inputListCheckout"
-                placeholder="NUMERO DE LA CASA Y NOMBRE DE LA CALLE"
-              ></input>
+              <input className="inputListCheckout"></input>
             </div>
           </div>
           <div className="col-6">
             <div className=" d-flex flex-column listProducts">
-              <label>Notas del pedido (opcional</label>
+              <label>Notas del pedido (opcional)</label>
               <input className="extraInfoInput"></input>
             </div>
           </div>

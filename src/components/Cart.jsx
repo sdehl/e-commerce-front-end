@@ -13,8 +13,6 @@ function Cart() {
   const [cart, setCart] = useState(null);
   const navigate = useNavigate();
   const [total, setTotal] = useState(0);
-  //const [updatesCart, setUpdatedCart] = useState(null);
-  const dispatch = useDispatch();
 
   const ColoredLine = ({ color }) => (
     <hr

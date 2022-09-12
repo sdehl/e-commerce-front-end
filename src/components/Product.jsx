@@ -32,10 +32,11 @@ function Product() {
 
   useEffect(() => {
     async function getProduct() {
+      console.log("params.id", params)
       try {
         const result = await axios({
           method: "GET",
-          url: `${process.env.REACT_APP_API_URL}/product/${params.id}`,
+          url: `${process.env.REACT_APP_API_URL}/product/${params.slug}`,
         });
         await setProduct(result.data);
       } catch (error) {
