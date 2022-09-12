@@ -43,6 +43,8 @@ function App() {
         }
         <Route path="/admin" element={<AdminIndex />}></Route>
         <Route path="/adminProducts" element={<AdminProducts />} />
+        <Route path="/adminProducts/:id" element={<AdminProduct />} />
+
         <Route path="/adminUsers" element={<AdminUsers />} />
         <Route path="/adminOrders" element={<AdminOrders />} />
 

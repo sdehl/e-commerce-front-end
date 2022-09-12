@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { Link, Navigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "../styles/AdminStyles.css";
 
 function AdminProducts() {
@@ -63,14 +63,10 @@ function AdminProducts() {
                   <td className="textTable">{product.price}</td>
                   <td className="textTable">{product.stock}</td>
                   <td className="d-flex justify-content-between">
-                    <button
-                      className="updateButtonProduct"
-                      onClick={() => {
-                        //Navigate(`adminProduct/${product._id}`);
-                      }}
-                    >
-                      Editar
-                    </button>
+                    <Link to={`/adminProducts/${product._id}`}>
+                      <button className="updateButtonProduct">Editar</button>
+                    </Link>
+
                     <button
                       className="updateButtonProduct"
                       onClick={() => {
