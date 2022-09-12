@@ -45,7 +45,7 @@ function ProductCard({ product, handleShow }) {
             if (buttonCart !== "Agregar al carrito") {
               navigate("/cart");
             } else {
-              dispatch(addProductToCart({ id: product._id, cant: 1 }));
+              dispatch(addProductToCart({ id: product._id, cant: 1, slug: product.slug, }));
               dispatch(updateCantProducts(1));
               dispatch(updateTotalPrice(product.price));
               setButtonCart("Ver carrito");
@@ -65,7 +65,7 @@ function ProductCard({ product, handleShow }) {
       </div>
 
       <div className="card-body">
-        <Link className="product-title-link" to={`/product/${product._id}`}>
+        <Link className="product-title-link" to={`/product/${product.slug}`}>
           <h6 className="product-title">{product.name.toUpperCase()}</h6>
         </Link>
         <h4 className="product-price mt-4">{`U$S ${product.price}`}</h4>

@@ -25,7 +25,7 @@ function Product() {
       const response = await axios({
         method: "get",
         url: `${process.env.REACT_APP_API_URL}/products/random`,
-        params: { idToAvoid: params.id },
+        params: { slugToAvoid: params.slug },
       });
       return await setRecomProducts(response.data);
     },
@@ -33,11 +33,11 @@ function Product() {
 
   useEffect(() => {
     async function getProduct() {
-      console.log("params.id", params)
+      console.log("params.id", params);
       try {
         const result = await axios({
           method: "GET",
-          url: `${process.env.REACT_APP_API_URL}/product/${params.id}`,
+          url: `${process.env.REACT_APP_API_URL}/product/${params.slug}`,
         });
         await setProduct(result.data);
       } catch (error) {
@@ -79,7 +79,7 @@ function Product() {
           <div className="productInformation col-12 col-lg-8">
             <h1>{product.name.toUpperCase()}</h1>
             <h3>U$S {product.price}</h3>
-            <h6>Categorías: {product.Category.toUpperCase()}</h6>{" "}
+            <h6>Categorías: {product.category.toUpperCase()}</h6>{" "}
             <p className="productStock">
               {" "}
               {product.stock > 0 ? "HAY STOCK" : "PRODUCTO NO DISPONIBLE"}
@@ -121,7 +121,13 @@ function Product() {
                   if (buttonCart !== "Agregar al carrito") {
                     navigate("/cart");
                   } else {
-                    dispatch(addProductToCart({ id: product._id, cant: quantity }));
+                    dispatch(
+                      addProductToCart({
+                        id: product._id,
+                        cant: quantity,
+                        slug: product.slug,
+                      })
+                    );
                     dispatch(updateCantProducts(quantity));
                     dispatch(updateTotalPrice(quantity * product.price));
                     setButtonCart("Ver carrito");

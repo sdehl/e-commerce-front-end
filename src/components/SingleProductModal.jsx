@@ -73,7 +73,7 @@ function SingleProductModal({ show, handleClose, product }) {
                     navigate("/cart");
                   } else {
                     dispatch(
-                      addProductToCart({ id: product._id, cant: quantity })
+                      addProductToCart({ id: product._id, cant: quantity, slug: product.slug, })
                     );
                     dispatch(updateCantProducts(quantity));
                     dispatch(updateTotalPrice(quantity * product.price));

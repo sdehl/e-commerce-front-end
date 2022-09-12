@@ -24,12 +24,14 @@ const gemaSlice = createSlice({
           state.cart.push({
             productId: action.payload.id,
             cant: action.payload.cant,
+            slug: action.payload.slug,
           });
         }
       } else {
         state.cart.push({
           productId: action.payload.id,
           cant: action.payload.cant,
+          slug: action.payload.slug,
         });
       }
     },
@@ -38,8 +40,8 @@ const gemaSlice = createSlice({
       state.cantProductsCart += action.payload;
     },
     updateTotalPrice(state, action) {
-      console.log("prev price", state.totalPrice)
-      console.log("action payload price", action.payload)
+      console.log("prev price", state.totalPrice);
+      console.log("action payload price", action.payload);
 
       state.totalPrice += action.payload;
     },

@@ -58,7 +58,7 @@ function CartProduct({ product, cant, setTotal, total }) {
             className="add-substract pr-2"
             onClick={() => {
               quantity >= 0 &&
-                dispatch(addProductToCart({ id: product._id, cant: -1 }));
+                dispatch(addProductToCart({ id: product._id, cant: -1, slug: product.slug, }));
               dispatch(updateCantProducts(-1));
               setQuantity(quantity - 1);
               dispatch(updateTotalPrice(-product.price));
@@ -78,6 +78,7 @@ function CartProduct({ product, cant, setTotal, total }) {
                   addProductToCart({
                     id: product._id,
                     cant: -quantity,
+                    slug: product.slug,
                   })
                 );
                 dispatch(updateTotalPrice(-subTotal));
@@ -86,6 +87,7 @@ function CartProduct({ product, cant, setTotal, total }) {
                   addProductToCart({
                     id: product._id,
                     cant: Number(e.target.value),
+                    slug: product.slug,
                   })
                 );
                 dispatch(updateCantProducts(Number(e.target.value)));
@@ -100,7 +102,7 @@ function CartProduct({ product, cant, setTotal, total }) {
             onClick={() => {
               dispatch(updateTotalPrice(product.price));
               setQuantity(quantity + 1);
-              dispatch(addProductToCart({ id: product._id, cant: 1 }));
+              dispatch(addProductToCart({ id: product._id, cant: 1, slug: product.slug, }));
               dispatch(updateCantProducts(1));
             }}
           >

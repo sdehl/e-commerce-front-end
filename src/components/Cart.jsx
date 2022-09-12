@@ -26,10 +26,10 @@ function Cart() {
   );
 
   const handle = {
-    apiCall: async (productId) => {
+    apiCall: async (productSlug) => {
       const response = await axios({
         method: "get",
-        url: `${process.env.REACT_APP_API_URL}/product/${productId}`,
+        url: `${process.env.REACT_APP_API_URL}/product/${productSlug}`,
       });
       return response.data;
     },
@@ -38,7 +38,7 @@ function Cart() {
       let tot = 0;
       for (const prod of gema.cart) {
         if (prod.cant > 0) {
-          let productObject = await handle.apiCall(prod.productId);
+          let productObject = await handle.apiCall(prod.slug);
           obj.push({ product: productObject, cant: prod.cant });
           tot += productObject.price * prod.cant;
         }
