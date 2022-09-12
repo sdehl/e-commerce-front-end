@@ -8,6 +8,7 @@ import {
   updateTotalPrice,
 } from "../redux/slices/gemaSlice";
 import ProductCard from "./ProductCard";
+import { Carousel } from "react-bootstrap";
 import "./styles/ProductStyles.css";
 
 function Product() {
@@ -53,7 +54,27 @@ function Product() {
       <div className="container oneProductSection">
         <div className="row ">
           <div className="col-12 col-lg-4 ">
-            <img className="productImg" src={product.pictures[1]} alt="" />
+            <Carousel variant="dark">
+              {product.pictures.map((picture, index) => {
+                return (
+                  <Carousel.Item>
+                    {index === 0 ? (
+                      <img
+                        className="productImg"
+                        src={picture.replaceAll(`"`, ``)}
+                        alt="Many product images"
+                      />
+                    ) : (
+                      <img
+                        className="productImg"
+                        src={picture}
+                        alt="Many product images"
+                      />
+                    )}
+                  </Carousel.Item>
+                );
+              })}
+            </Carousel>
           </div>
           <div className="productInformation col-12 col-lg-8">
             <h1>{product.name.toUpperCase()}</h1>
@@ -100,9 +121,7 @@ function Product() {
                   if (buttonCart !== "Agregar al carrito") {
                     navigate("/cart");
                   } else {
-                    dispatch(
-                      addProductToCart({ id: product._id, cant: quantity })
-                    );
+                    dispatch(addProductToCart({ id: product._id, cant: quantity }));
                     dispatch(updateCantProducts(quantity));
                     dispatch(updateTotalPrice(quantity * product.price));
                     setButtonCart("Ver carrito");
