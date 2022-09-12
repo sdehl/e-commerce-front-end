@@ -7,6 +7,7 @@ const gemaSlice = createSlice({
     cart: [],
     cantProductsCart: 0,
     totalPrice: 0,
+    token: "",
   },
   reducers: {
     addProductToCart(state, action) {
@@ -38,8 +39,8 @@ const gemaSlice = createSlice({
       state.cantProductsCart += action.payload;
     },
     updateTotalPrice(state, action) {
-      console.log("prev price", state.totalPrice)
-      console.log("action payload price", action.payload)
+      console.log("prev price", state.totalPrice);
+      console.log("action payload price", action.payload);
 
       state.totalPrice += action.payload;
     },
@@ -53,6 +54,14 @@ const gemaSlice = createSlice({
       state.cart[action.payload.position].cant += action.payload.cant;
     },
     deleteCart(state, action) {},
+
+    storeToken(state, action) {
+      state.token = action.payload;
+    },
+
+    deleteToken(state, action) {
+      state.token = "";
+    },
   },
 });
 
@@ -64,6 +73,8 @@ export const {
   updateUser,
   deleteCart,
   updateTotalPrice,
+  storeToken,
+  deleteToken,
 } = actions;
 
 export default reducer;

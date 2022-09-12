@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { storeToken } from "../redux/slices/gemaSlice";
 import "./styles/ProfileStyles.css";
 
 function Profile() {
@@ -8,12 +11,16 @@ function Profile() {
   const [loginEmailorUsername, setLoginEmailorUsername] = useState("");
   const [loginPassword, setLoginPassword] = useState("");
 
+  const navigate = useNavigate();
+
+  const dispatch = useDispatch();
+
   async function register() {
     try {
       const result = await axios({
         method: "POST",
         url: `${process.env.REACT_APP_API_URL}/register`,
-        // headers: { "Content-Type": "application/json" },
+        headers: { "Content-Type": "application/json" },
         data: {
           email: email,
           password: password,
@@ -37,6 +44,8 @@ function Profile() {
           password: loginPassword,
         },
       });
+      dispatch(storeToken(response.data.token));
+      navigate(-1);
       setLoginEmailorUsername("");
       setLoginPassword("");
     } catch (error) {
@@ -67,15 +76,15 @@ function Profile() {
               />
             </div>
             <div className="mb-5">
-              <label htmlFor="password" className="form-label">
+              <label htmlFor="loginPassword" className="form-label">
                 Contraseña <span className="obligatory">*</span>
               </label>
               <input
                 value={loginPassword}
                 type="password"
-                name="password"
+                name="loginPassword"
                 className="form-control"
-                id="password"
+                id="loginPassword"
                 onChange={(e) => setLoginPassword(e.target.value)}
               />
             </div>
@@ -121,15 +130,15 @@ function Profile() {
                 />
               </div>
               <div className="mb-5">
-                <label htmlFor="password" className="form-label">
+                <label htmlFor="registerPassword" className="form-label">
                   Contraseña <span className="obligatory">*</span>
                 </label>
                 <input
                   value={password}
                   type="password"
-                  name="password"
+                  name="registerPassword"
                   className="form-control"
-                  id="password"
+                  id="registerPassword"
                   onChange={(e) => setPassword(e.target.value)}
                 />
               </div>
