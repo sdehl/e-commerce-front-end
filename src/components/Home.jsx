@@ -1,8 +1,9 @@
 //import { Carousel, Button } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./styles/HomeStyles.css";
 
 function Home() {
+  const navigate = useNavigate();
   return (
     <div className="mb-5">
       <div className="row mb-5">
@@ -32,7 +33,14 @@ function Home() {
                   <h3 className="boldCollection mb-3">
                     COLECCIÓN DE GRIFERÍAS
                   </h3>
-                  <button className="descubrir">DESCUBRIR</button>
+                  <button
+                    className="homeButton"
+                    onClick={() => {
+                      navigate("/products");
+                    }}
+                  >
+                    DESCUBRIR
+                  </button>
                 </div>
               </div>
             </div>
@@ -89,7 +97,7 @@ function Home() {
 
       <div className="row p-5 m-5">
         <div className="pl-3 text-center">
-          <p className="pt-5 hashtag"># G E M A I N T E R I O R E S</p>
+          <p className=" hashtag"># G E M A I N T E R I O R E S</p>
           <h6 className="fs-3 mb-5 mt-3 pb-5 ">
             Lo mejor de Nuestro Instagram
           </h6>

@@ -27,7 +27,9 @@ function NavigationBar() {
       </div>
       <div className=" d-flex justify-content-between align-items-center mx-5">
         <div className="d-none d-md-flex align-items-center">
-          <input className="headerSearch" type="text" />{" "}
+          <input className="headerSearch" type="text" onClick={()=>{
+            navigate("/search")
+          }}/>{" "}
           <img className="icons mx-2" src={search} alt="search icon" />
         </div>
         <div>

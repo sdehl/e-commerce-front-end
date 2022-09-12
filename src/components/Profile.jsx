@@ -13,13 +13,14 @@ function Profile() {
       const result = await axios({
         method: "POST",
         url: `${process.env.REACT_APP_API_URL}/register`,
-        headers: { "Content-Type": "application/json" },
+        // headers: { "Content-Type": "application/json" },
         data: {
           email: email,
           password: password,
         },
       });
-      console.log(result.data);
+      setEmail("");
+      setPassword("");
     } catch (error) {
       console.log(error);
     }
@@ -36,7 +37,8 @@ function Profile() {
           password: loginPassword,
         },
       });
-      console.log(response.data);
+      setLoginEmailorUsername("");
+      setLoginPassword("");
     } catch (error) {
       console.log(error);
     }
@@ -57,6 +59,7 @@ function Profile() {
               </label>
               <input
                 type="text"
+                value={loginEmailorUsername}
                 className="form-control"
                 name="emailorUsername"
                 id="emailorUsername"
@@ -68,6 +71,7 @@ function Profile() {
                 Contraseña <span className="obligatory">*</span>
               </label>
               <input
+                value={loginPassword}
                 type="password"
                 name="password"
                 className="form-control"
@@ -108,6 +112,7 @@ function Profile() {
                   Correo electrónico <span className="obligatory">*</span>
                 </label>
                 <input
+                  value={email}
                   type="email"
                   className="form-control"
                   name="email"
@@ -120,6 +125,7 @@ function Profile() {
                   Contraseña <span className="obligatory">*</span>
                 </label>
                 <input
+                  value={password}
                   type="password"
                   name="password"
                   className="form-control"

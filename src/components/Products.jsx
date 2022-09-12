@@ -7,10 +7,13 @@ import SingleProductModal from "./SingleProductModal";
 function Products() {
   const params = useParams();
   const [products, setProducts] = useState();
-
   const [show, setShow] = useState(false);
+  const [productForModal, setProductForModal] = useState(null);
   const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
+  const handleShow = (product) => {
+    setProductForModal(product);
+    setShow(true);
+  };
 
   useEffect(() => {
     handle.apiCall();
@@ -21,13 +24,15 @@ function Products() {
     handle.apiCall();
   }, [params]);
 
+  useEffect(() => {}, [show]);
+
   //Helpers
   const handle = {
     apiCall: async () => {
       const response = await axios({
         method: "get",
         url: `${process.env.REACT_APP_API_URL}/products`,
-        params: { infoToFindBy: params.category },
+        params: { data: params.category, fndBy: "Category" },
       });
       setProducts(response.data);
     },
@@ -38,7 +43,8 @@ function Products() {
       <>
         <div className="h-25 d-inline-block"></div>
         <div className="container">
-          <SingleProductModal show={show} handleClose={handleClose} />
+          <SingleProductModal show={show} handleClose={handleClose} product={productForModal} />
+
           <div className="mt-5 d-flex justify-content-between">
             <h6 className="textProductsStart">{`Mostrando 1 – ${products.length} productos`}</h6>
             <h6 className="textProductsStart">Filter</h6>
@@ -46,11 +52,13 @@ function Products() {
           <div className="productList">
             {products.map((product) => {
               return (
-                <ProductCard
-                  key={product._id}
-                  product={product}
-                  handleShow={handleShow}
-                />
+                <>
+                  <ProductCard
+                    key={product._id}
+                    product={product}
+                    handleShow={handleShow}
+                  />
+                </>
               );
             })}
           </div>

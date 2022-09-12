@@ -1,0 +1,43 @@
+.imageSearch {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.nameSearch {
+  font-weight: 700;
+  font-size: larger;
+  margin: 10px;
+  color: #7a7a7a;
+}
+
+.nameSearch:hover {
+   color: #7b5a52;
+}
+.descriptionSearch {
+  font-size: 15px;
+  margin: 10px;
+  margin-top: 30px;
+
+  color: rgb(66, 65, 65);
+  font-weight: 500;
+}
+
+.prodListSearch {
+  margin: 5%;
+  margin-top: 1%;
+}
+
+.allSearchItems {
+  margin-left: 8%;
+  margin-top: 5%;
+}
+
+.searchInput {
+  width: 90%;
+  border: none;
+  border-bottom: #d6d6d6 solid 0.8px;
+}
+.searchInput:focus {
+  border-bottom: solid 0.8px #c27f6e;
+  outline: none;
+}
