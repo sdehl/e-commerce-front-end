@@ -14,6 +14,8 @@ function Cart() {
   const navigate = useNavigate();
   const [total, setTotal] = useState(0);
 
+  const token = useSelector((state) => state.gema.token);
+
   const ColoredLine = ({ color }) => (
     <hr
       style={{
@@ -79,20 +81,14 @@ function Cart() {
             return (
               <div className="listCart">
                 <section key={property.product._id} className="mt-4 mb-4">
-                  <CartProduct
-                    product={property.product}
-                    cant={property.cant}
-                    position={index}
-                  />
+                  <CartProduct product={property.product} cant={property.cant} position={index} />
                 </section>
                 <ColoredLine color="gray" />
               </div>
             );
           })}
           <div className="listCart">
-            <h3 className="ml-4 mt-5 mb-0 titleTotalCart ">
-              TOTAL DEL CARRITO
-            </h3>
+            <h3 className="ml-4 mt-5 mb-0 titleTotalCart ">TOTAL DEL CARRITO</h3>
             <ColoredLine color="gray" />
             <div className="row m-4">
               <div className="col-2">
@@ -100,29 +96,14 @@ function Cart() {
                 <h5>ENVIO</h5> {" "}
               </div>
               <div className="col-8">
-                <input
-                  type="radio"
-                  name="adress"
-                  value="userAdress"
-                  className="mb-4"
-                ></input>
-                  <label for="userAdress">Pick-up - Carrasco Sur</label>
+                <input type="radio" name="adress" value="userAdress" className="mb-4"></input> {" "}
+                <label for="userAdress">Pick-up - Carrasco Sur</label>
                 <br></br>
-                <input
-                  type="radio"
-                  name="adress"
-                  value="userAdress"
-                  className="mb-4"
-                ></input>
-                  <label for="userAdress">Envios a Maldonado por DePunta</label>
+                <input type="radio" name="adress" value="userAdress" className="mb-4"></input> {" "}
+                <label for="userAdress">Envios a Maldonado por DePunta</label>
                 <br></br>
-                <input
-                  type="radio"
-                  name="adress"
-                  value="userAdress"
-                  className="mb-4"
-                ></input>
-                  <label for="userAdress">Envios al Interior por DAC</label>
+                <input type="radio" name="adress" value="userAdress" className="mb-4"></input> {" "}
+                <label for="userAdress">Envios al Interior por DAC</label>
                 <br></br>
               </div>
             </div>

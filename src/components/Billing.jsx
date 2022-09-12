@@ -7,7 +7,8 @@ function Billing({ userLogged }) {
   const gema = useSelector((state) => state.gema);
   const location = useLocation();
   const { cart } = location.state;
-  console.log("cart",cart[0].product.name)
+  console.log(cart);
+  console.log("cart", cart[0].product.name);
   const [order, setOrder] = useState();
 
   const ColoredLine = ({ color }) => (
