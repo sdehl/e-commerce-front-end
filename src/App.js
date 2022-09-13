@@ -9,14 +9,15 @@ import ErrorPage from "./components/ErrorPage.jsx";
 import Search from "./components/Search.jsx";
 import Billing from "./components/Billing";
 //Import dashboard elements
-import AdminUsers from "./components/Admin/AdminUsers";
-import AdminUser from "./components/Admin/AdminUser";
-import AdminProducts from "./components/Admin/AdminProducts";
-import AdminProductsNew from "./components/Admin/AdminProductNew";
-import AdminProduct from "./components/Admin/AdminProduct";
-import AdminOrders from "./components/Admin/AdminOrders";
-import AdminOrder from "./components/Admin/AdminOrder";
+import AdminUsers from "./components/Admin/AdminUsers/AdminUsers";
+import AdminUser from "./components/Admin/AdminUsers/AdminUser";
+import AdminProducts from "./components/Admin/AdminProducts/AdminProducts";
+import AdminProductsNew from "./components/Admin/AdminProducts/AdminProductNew";
+import AdminProduct from "./components/Admin/AdminProducts/AdminProduct";
+//import AdminOrders from "./components/Admin/AdminOrders";
+//import AdminOrder from "./components/Admin/AdminOrders/AdminOrder";
 import AdminIndex from "./components/Admin/AdminIndex.jsx";
+import ProtectedRouteBilling from "./components/ProtectedRoute";
 
 import "./App.css";
 import Profile from "./components/Profile";
@@ -33,22 +34,17 @@ function App() {
         <Route path="/profile" element={<Profile />}></Route>
         <Route path="/cart" element={<Cart />}></Route>
         <Route path="/search" element={<Search />}></Route>
+        <Route element={<ProtectedRouteBilling />}>
+          <Route path="/billing" element={<Billing />}></Route>
+        </Route>
 
-        {
-          //protect route if user is logged
-        }
-        <Route path="/billing" element={<Billing />}></Route>
-
-        {
-          //protect route if admin
-        }
         <Route path="/admin" element={<AdminIndex />}></Route>
         <Route path="/adminProducts" element={<AdminProducts />} />
         <Route path="/adminProductsNew" element={<AdminProductsNew />} />
         <Route path="/adminProducts/:id" element={<AdminProduct />} />
 
         <Route path="/adminUsers" element={<AdminUsers />} />
-        <Route path="/adminOrders" element={<AdminOrders />} />
+        {/* { <Route path="/adminOrders" element={<AdminOrders />} />} */}
 
         <Route path="*" element={<ErrorPage />}></Route>
       </Routes>

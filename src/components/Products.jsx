@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import SingleProductModal from "./SingleProductModal";
+import "./styles/ProductStyles.css";
 
 function Products() {
   const params = useParams();
@@ -51,15 +52,7 @@ function Products() {
           </div>
           <div className="productList">
             {products.map((product) => {
-              return (
-                <>
-                  <ProductCard
-                    key={product._id}
-                    product={product}
-                    handleShow={handleShow}
-                  />
-                </>
-              );
+              return <ProductCard key={product._id} product={product} handleShow={handleShow} />;
             })}
           </div>
         </div>

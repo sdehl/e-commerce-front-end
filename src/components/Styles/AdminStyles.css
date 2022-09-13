@@ -23,16 +23,24 @@
   background-color: #e2b7ac1a !important;
 }
 
-.imagesNewProduct{
+.imagesNewProduct {
   height: 200px;
   width: 200px;
   border: 0.5px solid rgb(201, 200, 200);
-
 }
 
 .updateButtonProduct {
   background-color: transparent;
   border: 0.5px solid rgb(201, 200, 200);
+}
+
+.irAtras {
+  background-color: transparent;
+  border: 0;
+}
+
+.irAtras:hover {
+  color: #695652b8;
 }
 
 .textTable {

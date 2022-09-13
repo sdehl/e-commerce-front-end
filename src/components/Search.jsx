@@ -4,20 +4,12 @@ import axios from "axios";
 import { useParams } from "react-router-dom";
 import SearchProduct from "./SearchProduct";
 import search from "./svg/magnifying-glass-solid.svg";
+import ProductCard from "./ProductCard";
 
 function Search() {
-  const params = useParams();
   const [products, setProducts] = useState(null);
   const [productName, setProductName] = useState("");
-
-  //when params change the api is called again with new category
-  useEffect(() => {
-    handle.apiCall();
-  }, [productName]);
-
-  useEffect(() => {
-    console.log(products);
-  }, []);
+  const [recomProducts, setRecomProducts] = useState("");
 
   //Helpers
   const handle = {
@@ -29,7 +21,24 @@ function Search() {
       });
       setProducts(response.data);
     },
+    get3Products: async () => {
+      const response = await axios({
+        method: "get",
+        url: `${process.env.REACT_APP_API_URL}/products/random`,
+        params: { randomNumber: 3 },
+      });
+      return await setRecomProducts(response.data);
+    },
   };
+
+  //when params change the api is called again with new category
+  useEffect(() => {
+    handle.apiCall();
+  }, [productName]);
+
+  useEffect(() => {
+    handle.get3Products();
+  }, []);
 
   return (
     <>
@@ -48,13 +57,24 @@ function Search() {
       </div>
       <div className="">
         <div className="prodListSearch">
-          {products && (products.length > 0 ? (
-            products.map((product) => {
-              return <SearchProduct product={product} />;
-            })
-          ) : (
-            <div>Lo sentimos no hay productos con ese Nombre</div>
-          ))}
+          {products &&
+            (products.length > 0 ? (
+              products.map((product) => {
+                return <SearchProduct product={product} />;
+              })
+            ) : (
+              <>
+                <div className="mb-4">Lo sentimos no hay productos con ese Nombre</div>
+                <div className="recommendations">
+                  <h4>TAMBIÉN TE RECOMENDAMOS...</h4>
+                  <div className="row">
+                    {recomProducts.map((prod) => {
+                      return <ProductCard key={prod._id} product={prod} />;
+                    })}
+                  </div>
+                </div>
+              </>
+            ))}
         </div>
       </div>
     </>

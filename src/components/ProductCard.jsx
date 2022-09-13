@@ -9,7 +9,6 @@ import { useNavigate, useParams } from "react-router";
 import { Link } from "react-router-dom";
 import SingleProductModal from "./SingleProductModal";
 import Modal from "react-bootstrap";
-//import { Stack, Skeleton } from "@mui/material";
 
 function ProductCard({ product, handleShow }) {
   const [buttonCart, setButtonCart] = useState("Agregar al carrito");
@@ -20,18 +19,6 @@ function ProductCard({ product, handleShow }) {
 
   return (
     <div className="card p-3 border-0 cardCss">
-      {/* 
-      //DEJAMOS PENDIENTE
-      {filteredPicture ? (
-        <img
-          src={filteredPicture}
-          className="card-img-top imageProduct"
-          alt="..."
-        ></img>
-      ) : (
-          <Skeleton width={100} height={100} />
-      )} */}
-
       <img
         src={filteredPicture}
         className="card-img-top imageProduct"

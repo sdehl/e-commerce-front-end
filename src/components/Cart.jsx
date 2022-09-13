@@ -3,15 +3,14 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { useDispatch } from "react-redux";
 import CartProduct from "./CartProduct";
-import "../components/styles/CartStyles.css";
 import { useNavigate } from "react-router";
 import { updateTotalPrice } from "../redux/slices/gemaSlice";
 import { Link } from "react-router-dom";
+import "./styles/CartStyles.css";
 
 function Cart() {
   const gema = useSelector((state) => state.gema);
   const [cart, setCart] = useState(null);
-  const navigate = useNavigate();
   const [total, setTotal] = useState(0);
 
   const token = useSelector((state) => state.gema.token);
@@ -51,7 +50,6 @@ function Cart() {
   };
 
   useEffect(() => {
-    // dispatch(updateTotalPrice(-gema.totalPrice));
     handle.updateCart();
     setTotal(gema.totalPrice);
   }, []);
@@ -121,15 +119,8 @@ function Cart() {
             </div>
             <ColoredLine color="gray" />
             <div className="d-flex justify-content-start divButton mt-4">
-              <Link to="/billing" state={{ cart: cart }}>
-                <button
-                  className="updateButton listCart"
-                  onClick={() => {
-                    navigate("/billing");
-                  }}
-                >
-                  IR A FINALIZAR LA COMPRA
-                </button>
+              <Link to={cart.length !== 0 ? "/billing" : "/cart"} state={{ cart: cart }}>
+                <button className="endOrderBtn">IR A FINALIZAR LA COMPRA</button>
               </Link>
             </div>
           </div>

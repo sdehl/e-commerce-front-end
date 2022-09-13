@@ -10,6 +10,17 @@ function ProtectedRouteUser({ redirectPath = "/Profile" }) {
   return <Outlet />;
 }
 
+function ProtectedRouteBilling({ redirectPath = "/cart" }) {
+  console.log("entro a middleware");
+  const gema = useSelector((state) => state.gema);
+  console.log("state", gema);
+  if (gema.cart.length === 0) {
+    console.log("gmea cart", gema.cart);
+    return <Navigate to={redirectPath} replace />;
+  }
+  return <Outlet />;
+}
+
 //Verify if user is admin
 function ProtectedRouteAdmin({ redirectPath = "/" }) {
   const gema = useSelector((state) => state.gema);
@@ -19,4 +30,4 @@ function ProtectedRouteAdmin({ redirectPath = "/" }) {
   return <Outlet />;
 }
 
-export default {ProtectedRouteUser, ProtectedRouteAdmin};
+export default ProtectedRouteBilling;

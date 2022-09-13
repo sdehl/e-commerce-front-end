@@ -3,11 +3,15 @@ import { useLocation } from "react-router-dom";
 import "./styles/BillingStyles.css";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router";
 
 function Billing({ userLogged }) {
   const gema = useSelector((state) => state.gema);
   const location = useLocation();
+  const navigate = useNavigate();
   const { cart } = location.state;
+  
+
   const [order, setOrder] = useState({});
 
   const ColoredLine = ({ color }) => (

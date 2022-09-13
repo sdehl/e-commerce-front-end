@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import "../styles/AdminStyles.css";
+import "../../styles/AdminStyles.css"
 import { Link, Navigate } from "react-router-dom";
 import { useParams } from "react-router";
 

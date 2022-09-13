@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import "../styles/AdminStyles.css";
 
 function index() {
   return (
@@ -10,20 +11,20 @@ function index() {
       <div className="contDiv d-flex justify-content-between align-items-center">
         <Link to="/adminUsers">
           {" "}
-          <button className="updateButton" onClick={() => {}}>
+          <button className="update" onClick={() => {}}>
             Orders{" "}
           </button>
         </Link>
         <Link to="/adminUsers">
           {" "}
-          <button className="updateButton" onClick={() => {}}>
+          <button className="update" onClick={() => {}}>
             Users{" "}
           </button>
         </Link>
 
         <Link to="/adminProducts">
           {" "}
-          <button className="updateButton" onClick={() => {}}>
+          <button className="update" onClick={() => {}}>
             Products{" "}
           </button>
         </Link>
