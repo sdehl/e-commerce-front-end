@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { storeToken } from "../redux/slices/gemaSlice";
+import { storeUserData } from "../redux/slices/gemaSlice";
 import "./styles/ProfileStyles.css";
 
 function Profile() {
@@ -44,10 +44,11 @@ function Profile() {
           password: loginPassword,
         },
       });
-      dispatch(storeToken(response.data.token));
+      // console.log(response.data);
+      dispatch(storeUserData(response.data));
       navigate(-1);
-      setLoginEmailorUsername("");
-      setLoginPassword("");
+      // setLoginEmailorUsername("");
+      // setLoginPassword("");
     } catch (error) {
       console.log(error);
     }
@@ -63,8 +64,7 @@ function Profile() {
             </strong>
             <div className="my-5 ">
               <label htmlFor="emailorUsername" className="form-label">
-                Nombre de usuario o correo electrónico{" "}
-                <span className="obligatory">*</span>
+                Nombre de usuario o correo electrónico <span className="obligatory">*</span>
               </label>
               <input
                 type="text"

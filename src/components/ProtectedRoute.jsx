@@ -3,8 +3,8 @@ import { useSelector } from "react-redux";
 
 //Verify if user is logged
 function ProtectedRouteUser({ redirectPath = "/Profile" }) {
-  const twitter = useSelector((state) => state.twitter);
-  if (!twitter.user.token) {
+  const data = useSelector((state) => state.gema.userData);
+  if (!data) {
     return <Navigate to={redirectPath} replace />;
   }
   return <Outlet />;
@@ -12,11 +12,11 @@ function ProtectedRouteUser({ redirectPath = "/Profile" }) {
 
 //Verify if user is admin
 function ProtectedRouteAdmin({ redirectPath = "/" }) {
-  const gema = useSelector((state) => state.gema);
-  if (!gema.user.token.admin) {
+  const data = useSelector((state) => state.gema.userData);
+  if (!data.isAdmin) {
     return <Navigate to={redirectPath} replace />;
   }
   return <Outlet />;
 }
 
-export default {ProtectedRouteUser, ProtectedRouteAdmin};
+export { ProtectedRouteUser, ProtectedRouteAdmin };

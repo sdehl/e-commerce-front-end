@@ -1,5 +1,7 @@
 import { Route, Routes } from "react-router-dom";
+import { ProtectedRouteAdmin, ProtectedRouteUser } from "./components/ProtectedRoute";
 import NavigationBar from "./components/NavigationBar";
+import Profile from "./components/Profile";
 import Footer from "./components/Footer";
 import Home from "./components/Home";
 import Products from "./components/Products";
@@ -19,7 +21,6 @@ import AdminOrder from "./components/Admin/AdminOrder";
 import AdminIndex from "./components/Admin/AdminIndex.jsx";
 
 import "./App.css";
-import Profile from "./components/Profile";
 
 function App() {
   return (
@@ -37,18 +38,68 @@ function App() {
         {
           //protect route if user is logged
         }
-        <Route path="/billing" element={<Billing />}></Route>
+
+        <Route
+          path="/billing"
+          element={
+            <ProtectedRouteUser>
+              <Billing />
+            </ProtectedRouteUser>
+          }
+        ></Route>
 
         {
           //protect route if admin
         }
-        <Route path="/admin" element={<AdminIndex />}></Route>
-        <Route path="/adminProducts" element={<AdminProducts />} />
-        <Route path="/adminProductsNew" element={<AdminProductsNew />} />
-        <Route path="/adminProducts/:id" element={<AdminProduct />} />
+        <Route
+          path="/admin"
+          element={
+            <ProtectedRouteAdmin>
+              <AdminIndex />
+            </ProtectedRouteAdmin>
+          }
+        ></Route>
+        <Route
+          path="/adminProducts"
+          element={
+            <ProtectedRouteAdmin>
+              <AdminProducts />
+            </ProtectedRouteAdmin>
+          }
+        />
+        <Route
+          path="/adminProductsNew"
+          element={
+            <ProtectedRouteAdmin>
+              <AdminProductsNew />
+            </ProtectedRouteAdmin>
+          }
+        />
+        <Route
+          path="/adminProducts/:id"
+          element={
+            <ProtectedRouteAdmin>
+              <AdminProducts />
+            </ProtectedRouteAdmin>
+          }
+        />
 
-        <Route path="/adminUsers" element={<AdminUsers />} />
-        <Route path="/adminOrders" element={<AdminOrders />} />
+        <Route
+          path="/adminUsers"
+          element={
+            <ProtectedRouteAdmin>
+              <AdminUsers />
+            </ProtectedRouteAdmin>
+          }
+        />
+        <Route
+          path="/adminOrders"
+          element={
+            <ProtectedRouteAdmin>
+              <AdminOrders />
+            </ProtectedRouteAdmin>
+          }
+        />
 
         <Route path="*" element={<ErrorPage />}></Route>
       </Routes>
