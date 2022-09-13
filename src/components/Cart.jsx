@@ -12,7 +12,6 @@ function Cart() {
   const gema = useSelector((state) => state.gema);
   const [cart, setCart] = useState(null);
   const [total, setTotal] = useState(0);
-
   const token = useSelector((state) => state.gema.token);
 
   const ColoredLine = ({ color }) => (

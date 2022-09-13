@@ -52,7 +52,11 @@ const gemaSlice = createSlice({
     updateUser(state, action) {
       state.cart[action.payload.position].cant += action.payload.cant;
     },
-    deleteCart(state, action) {},
+    deleteCart(state, action) {
+      state.cart = [];
+      state.cantProductsCart = 0;
+      state.totalPrice = 0;
+    },
 
     storeUserData(state, action) {
       state.userData = action.payload;

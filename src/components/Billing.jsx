@@ -1,17 +1,24 @@
+import {
+  deleteCart
+} from "../redux/slices/gemaSlice";
 import { useSelector } from "react-redux";
 import { useLocation } from "react-router-dom";
 import "./styles/BillingStyles.css";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router";
+import { useDispatch } from "react-redux";
+
+
 
 function Billing({ userLogged }) {
   const gema = useSelector((state) => state.gema);
   const location = useLocation();
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const { cart } = location.state;
-  
-
+  const token = useSelector((state) => state.gema.userData.token);
+  const [errorMessage, setErrorMessage] = useState(false);
   const [order, setOrder] = useState({});
 
   const ColoredLine = ({ color }) => (
@@ -27,11 +34,13 @@ function Billing({ userLogged }) {
 
   const handle = {
     createOrder: async () => {
-      await axios({
+      const response = await axios({
         method: "post",
-        url: `${process.env.REACT_APP_API_URL}/users}`,
-        data: { order },
+        url: `${process.env.REACT_APP_API_URL}/orders`,
+        data: { order, userId: gema.userData.userId },
+        headers: { Authorization: `Bearer ${token}` },
       });
+      return (response.data)
     },
   };
 
@@ -214,12 +223,20 @@ function Billing({ userLogged }) {
           </div>
           <button
             className="createOrder m-4"
-            onClick={() => {
-              handle.createOrder();
+            onClick={async () => {
+              const response = await handle.createOrder();
+              if (response !== 200) {
+                setErrorMessage(true)
+              } else {
+                alert("La orden fue realizada correctamente")
+                dispatch(deleteCart());
+                navigate("/products")
+              }
             }}
           >
             Mandar pedido
           </button>
+          {errorMessage && <p>Error en crear orden repase su información</p>}
         </div>
       </div>
     )
