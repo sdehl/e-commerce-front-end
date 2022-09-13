@@ -1,3 +1,27 @@
+.endOrderBtn {
+  margin-top: 10px;
+  background: linear-gradient(to left, transparent 50%, black 50%);
+  background-size: 200% 100%;
+  background-position: right bottom;
+  margin-left: 10px;
+  transition: all 2s ease;
+  border: 1px solid black;
+  color: black;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  width: fit-content;
+}
+
+.endOrderBtn:hover {
+  background-position: left bottom;
+  color: white;
+}
+.deletedItem{
+  text-align: center;
+}
+
 .imageDivCart {
   width: 90px;
   height: 80px;
@@ -51,27 +75,6 @@
 
 .divButton {
   max-width: 100%;
-}
-
-.updateButton {
-  margin-top: 10px;
-  background: linear-gradient(to left, transparent 50%, black 50%);
-  background-size: 200% 100%;
-  background-position: right bottom;
-  margin-left: 10px;
-  transition: all 2s ease;
-  border: 1px solid black;
-  color: black;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  font-size: 16px;
-  width: 123;
-}
-
-.updateButton:hover {
-  background-position: left bottom;
-  color: white;
 }
 
 input::-webkit-outer-spin-button,

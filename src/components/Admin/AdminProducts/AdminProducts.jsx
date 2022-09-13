@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import "../styles/AdminStyles.css";
+import "../../styles/AdminStyles.css";
 
 function AdminProducts() {
   const [products, setProducts] = useState(null);
@@ -33,7 +33,10 @@ function AdminProducts() {
   return (
     products && (
       <div className="container mt-4">
-        <div className="mb-3 d-flex justify-content-end">
+        <div className="mb-3 d-flex justify-content-between">
+          <Link to={`/admin`}>
+            <button className="irAtras"> Centro Administrativo </button>
+          </Link>
           <Link to={`/adminProductsNew`}>
             <button className="updateButtonProduct"> Create new Product</button>
           </Link>

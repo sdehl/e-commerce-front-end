@@ -94,3 +94,95 @@ input::-webkit-inner-spin-button {
   margin: 30px 0;
   font-weight: 600;
 }
+
+
+/* ALL PRODUCTS STYLES */
+
+.productList {
+  display: flex;
+  flex-wrap: wrap;
+  padding-left: 0;
+}
+
+.product-title,
+.textProductsStart {
+  font-weight: 700;
+  color: #7a7a7a;
+  font-size: 14px;
+}
+.product-title-link {
+  text-decoration: none;
+}
+
+.product-title:hover {
+  color: none;
+}
+
+.textProductsStart {
+  font-weight: 350;
+  color: #7a7a7a;
+}
+.product-price {
+  font-weight: 350;
+  color: #7a7a7a;
+}
+
+.card {
+  list-style: none;
+  flex: 0 0 33.333333%;
+  border-radius: 0px !important;
+}
+
+#button-div {
+  position: absolute;
+  width: 100%;
+  height: 70%;
+  align-items: center;
+  justify-content: center;
+}
+
+#button-div:hover .addToCart {
+  display: inline-block;
+}
+#button-div:hover {
+  background-color: rgba(255, 255, 255, 0.582);
+}
+
+.addToCart {
+  margin-top: 10px;
+  background: linear-gradient(to left, transparent 50%, black 50%);
+  background-size: 200% 100%;
+  background-position: right bottom;
+  margin-left: 10px;
+  transition: all 2s ease;
+  border: 1px solid black;
+  color: black;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: none;
+  font-size: 16px;
+  width: 80%;
+}
+
+.addToCart:hover {
+  background-position: left bottom;
+  color: white;
+}
+
+.input {
+  border: 0 solid;
+}
+
+@media screen and (max-width: 1069px) {
+  .card {
+    flex: 0 0 50%;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .card {
+    flex: 0 0 100%;
+  }
+}
+

@@ -12,7 +12,7 @@ function SearchProduct({ product }) {
           <img src={filteredPicture} className="imageSearch" alt="..."></img>
         </div>
         <div className="col-7 m-3 d-flex flex-column justify-content-center">
-          <Link className="product-title-link" to={`/product/${product._id}`}>
+          <Link className="product-title-link" to={`/product/${product.slug}`}>
             <h6 className="nameSearch">{product.name.toUpperCase()}</h6>
           </Link>
           <div className="descriptionSearch">{product.description}</div>

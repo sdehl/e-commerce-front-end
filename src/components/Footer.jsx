@@ -5,17 +5,27 @@ import search from "./svg/magnifying-glass-solid.svg";
 import pinterest from "./svg/pinterest-p.svg";
 import { Link } from "react-router-dom";
 import "./styles/FooterStyles.css";
+import { useNavigate } from "react-router";
 
 function Footer() {
+  const navigate = useNavigate();
+
   return (
     <div className="footerComponent mt-5">
       <div className="container my-1">
         <div className="row">
           <div className="col-12 col-lg-3">
             <div>
-              <input className="footerSearch" type="text" />{" "}
+              <input
+                className="footerSearch"
+                type="text"
+                onClick={() => {
+                  navigate("/search");
+                }}
+              />{" "}
               <img className="icons" src={search} alt="search icon" />
             </div>
+
             <div className="dividerLine">____</div>
             <div className="d-flex justify-content-center">
               <Link to="/">
@@ -34,10 +44,7 @@ function Footer() {
               <li>Montevideo, Uruguay</li>
             </ul>
             <div className="sn-icons">
-              <a
-                href="https://www.facebook.com/gemainteriores/?_rdc=4&_rdr"
-                target="_blank"
-              >
+              <a href="https://www.facebook.com/gemainteriores/?_rdc=4&_rdr" target="_blank">
                 <img className="icons " src={fb} alt="facebook icon" />
               </a>
 
@@ -45,10 +52,7 @@ function Footer() {
                 <img className="icons " src={ig} alt="instagram icon" />
               </a>
 
-              <a
-                href="https://www.pinterest.com/pilartorrendell3/_saved/"
-                target="_blank"
-              >
+              <a href="https://www.pinterest.com/pilartorrendell3/_saved/" target="_blank">
                 <img className="icons " src={pinterest} alt="pinterest icon" />
               </a>
             </div>

@@ -1,10 +1,6 @@
 import { useEffect, useState } from "react";
-import { Modal } from "react-bootstrap";
-import {
-  addProductToCart,
-  updateCantProducts,
-  updateTotalPrice,
-} from "../redux/slices/gemaSlice";
+import { Modal, Carousel } from "react-bootstrap";
+import { addProductToCart, updateCantProducts, updateTotalPrice } from "../redux/slices/gemaSlice";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router";
 import "./styles/SingleProductModalStyles.css";
@@ -23,72 +19,168 @@ function SingleProductModal({ show, handleClose, product }) {
   return (
     product && (
       <Modal show={show} onHide={handleClose} size="lg">
-        <div className="d-flex align-items-center container">
-          <div className="col-5 divImageModel ">
-            <img
-              src={product.pictures[0].replaceAll(`"`, ``)}
-              className="imageModel"
-              alt=""
-            />
-          </div>
-          <div className="col-6 my-5">
-            <strong>
-              <h2>{product.name}</h2>
-              <h4>{product.price}</h4>
-            </strong>
-            <div className="d-flex justify-content-space-between  my-5">
-              <div className="d-flex elemntsPrice quantityBox">
-                <span
-                  className="add-substract pr-2"
-                  onClick={() => {
-                    quantity > 1 && setQuantity(quantity - 1);
-                  }}
-                >
-                  -
-                </span>
-                <input
-                  type="number"
-                  min="0"
-                  value={quantity}
-                  className="input"
-                  onChange={(e) => {
-                    if (e.target.value >= 0) {
-                      setQuantity(e.target.value);
-                    }
-                  }}
-                ></input>
-                <span
-                  className="add-substract pr-2"
-                  onClick={() => {
-                    setQuantity(quantity + 1);
-                  }}
-                >
-                  +
-                </span>
-              </div>
-              <button
-                className="addToCartBtn"
-                onClick={() => {
-                  if (buttonCart !== "Agregar al carrito") {
-                    navigate("/cart");
-                  } else {
-                    dispatch(
-                      addProductToCart({ id: product._id, cant: quantity, slug: product.slug, })
+        <Modal.Body>
+          <div>
+            <div className="row">
+              <div className="col-6 d-flex flex-column justify-content-center">
+                <Carousel variant="dark">
+                  {product.pictures.map((picture, index) => {
+                    return (
+                      <Carousel.Item key={index}>
+                        {index === 0 ? (
+                          <img
+                            className="productImg"
+                            src={picture.replaceAll(`"`, ``)}
+                            alt="Many product images"
+                          />
+                        ) : (
+                          <img className="productImg" src={picture} alt="Many product images" />
+                        )}
+                      </Carousel.Item>
                     );
-                    dispatch(updateCantProducts(quantity));
-                    dispatch(updateTotalPrice(quantity * product.price));
-                    setButtonCart("Ver carrito");
-                  }
-                }}
-              >
-                {buttonCart.toUpperCase()}
-              </button>{" "}
+                  })}
+                </Carousel>
+              </div>
+              <div className="col-6 d-flex flex-column justify-content-center">
+                <h1>{product.name}</h1>
+                <h5>U$S {product.price}</h5>
+                <p className="productStock mb-5">
+                  {" "}
+                  {product.stock > 0 ? "HAY STOCK" : "PRODUCTO NO DISPONIBLE"}
+                </p>
+                {product.stock > 0 && (
+                  <>
+                    <div className="d-lg-flex">
+                      <div className="quantityBtnModal m-2">
+                        <span
+                          className="add-substract pr-2"
+                          onClick={() => {
+                            quantity > 1 && setQuantity(quantity - 1);
+                          }}
+                        >
+                          -
+                        </span>
+                        <input
+                          type="number"
+                          min="0"
+                          value={quantity}
+                          className="input"
+                          onChange={(e) => {
+                            if (e.target.value >= 0) {
+                              setQuantity(e.target.value);
+                            }
+                          }}
+                        ></input>
+                        <span
+                          className="add-substract pr-2"
+                          onClick={() => {
+                            setQuantity(quantity + 1);
+                          }}
+                        >
+                          +
+                        </span>
+                      </div>
+                      <div className="divButtonCartModal  m-2">
+                        {" "}
+                        <button
+                          className="addToCartBtnModal"
+                          onClick={() => {
+                            if (buttonCart !== "Agregar al carrito") {
+                              navigate("/cart");
+                            } else {
+                              dispatch(
+                                addProductToCart({
+                                  id: product._id,
+                                  cant: quantity,
+                                  slug: product.slug,
+                                }),
+                              );
+                              dispatch(updateCantProducts(quantity));
+                              dispatch(updateTotalPrice(quantity * product.price));
+                              setButtonCart("Ver carrito");
+                            }
+                          }}
+                        >
+                          {buttonCart.toUpperCase()}
+                        </button>
+                      </div>
+                    </div>
+                  </>
+                )}
+              </div>
             </div>
           </div>
-        </div>
+        </Modal.Body>
       </Modal>
     )
   );
 }
 
 export default SingleProductModal;
+
+// product && (
+//   <Modal show={show} onHide={handleClose} size="lg">
+//     <div className="d-flex align-items-center container">
+//       <div className="col-5 divImageModel ">
+//         <img
+//           src={product.pictures[0].replaceAll(`"`, ``)}
+//           className="imageModel"
+//           alt=""
+//         />
+//       </div>
+//       <div className="col-6 my-5">
+//         <strong>
+//           <h2>{product.name}</h2>
+//           <h4>{product.price}</h4>
+//         </strong>
+//         <div className="d-flex justify-content-space-between  my-5">
+//           <div className="d-flex elemntsPrice quantityBox">
+//             <span
+//               className="add-substract pr-2"
+//               onClick={() => {
+//                 quantity > 1 && setQuantity(quantity - 1);
+//               }}
+//             >
+//               -
+//             </span>
+//             <input
+//               type="number"
+//               min="0"
+//               value={quantity}
+//               className="input"
+//               onChange={(e) => {
+//                 if (e.target.value >= 0) {
+//                   setQuantity(e.target.value);
+//                 }
+//               }}
+//             ></input>
+//             <span
+//               className="add-substract pr-2"
+//               onClick={() => {
+//                 setQuantity(quantity + 1);
+//               }}
+//             >
+//               +
+//             </span>
+//           </div>
+//           <button
+//             className="addToCartBtn"
+//             onClick={() => {
+//               if (buttonCart !== "Agregar al carrito") {
+//                 navigate("/cart");
+//               } else {
+//                 dispatch(
+//                   addProductToCart({ id: product._id, cant: quantity, slug: product.slug, })
+//                 );
+//                 dispatch(updateCantProducts(quantity));
+//                 dispatch(updateTotalPrice(quantity * product.price));
+//                 setButtonCart("Ver carrito");
+//               }
+//             }}
+//           >
+//             {buttonCart.toUpperCase()}
+//           </button>{" "}
+//         </div>
+//       </div>
+//     </div>
+//   </Modal>
