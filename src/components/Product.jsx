@@ -2,11 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import {
-  addProductToCart,
-  updateCantProducts,
-  updateTotalPrice,
-} from "../redux/slices/gemaSlice";
+import { addProductToCart, updateCantProducts, updateTotalPrice } from "../redux/slices/gemaSlice";
 import ProductCard from "./ProductCard";
 import { Carousel } from "react-bootstrap";
 import "./styles/ProductStyles.css";
@@ -33,7 +29,6 @@ function Product() {
 
   useEffect(() => {
     async function getProduct() {
-      console.log("params.id", params);
       try {
         const result = await axios({
           method: "GET",
@@ -65,11 +60,7 @@ function Product() {
                         alt="Many product images"
                       />
                     ) : (
-                      <img
-                        className="productImg"
-                        src={picture}
-                        alt="Many product images"
-                      />
+                      <img className="productImg" src={picture} alt="Many product images" />
                     )}
                   </Carousel.Item>
                 );
@@ -126,7 +117,7 @@ function Product() {
                         id: product._id,
                         cant: quantity,
                         slug: product.slug,
-                      })
+                      }),
                     );
                     dispatch(updateCantProducts(quantity));
                     dispatch(updateTotalPrice(quantity * product.price));
@@ -162,9 +153,7 @@ function Product() {
                   </Link>
                 </strong>
               </p>
-              <p className="includes">
-                INCLUYE COMPONENTES CORRESPONDIENTES PARA SU COLOCACIÓN
-              </p>
+              <p className="includes">INCLUYE COMPONENTES CORRESPONDIENTES PARA SU COLOCACIÓN</p>
             </div>
           </div>
         </div>

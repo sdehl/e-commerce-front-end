@@ -46,7 +46,7 @@ function CartProduct({ product, cant, setTotal, total }) {
           {" "}
           <img src={filteredPicture} className="imageCart" alt="..."></img>
         </div>
-        <Link className="product-link" to={`/product/${product._id}`}>
+        <Link className="product-link" to={`/product/${product.slug}`}>
           <p className="m-3">{product.name}</p>
         </Link>
       </div>
@@ -58,7 +58,7 @@ function CartProduct({ product, cant, setTotal, total }) {
             className="add-substract pr-2"
             onClick={() => {
               quantity >= 0 &&
-                dispatch(addProductToCart({ id: product._id, cant: -1, slug: product.slug, }));
+                dispatch(addProductToCart({ id: product._id, cant: -1, slug: product.slug }));
               dispatch(updateCantProducts(-1));
               setQuantity(quantity - 1);
               dispatch(updateTotalPrice(-product.price));
@@ -79,7 +79,7 @@ function CartProduct({ product, cant, setTotal, total }) {
                     id: product._id,
                     cant: -quantity,
                     slug: product.slug,
-                  })
+                  }),
                 );
                 dispatch(updateTotalPrice(-subTotal));
                 setQuantity(Number(e.target.value));
@@ -88,12 +88,10 @@ function CartProduct({ product, cant, setTotal, total }) {
                     id: product._id,
                     cant: Number(e.target.value),
                     slug: product.slug,
-                  })
+                  }),
                 );
                 dispatch(updateCantProducts(Number(e.target.value)));
-                dispatch(
-                  updateTotalPrice(Number(e.target.value) * product.price)
-                );
+                dispatch(updateTotalPrice(Number(e.target.value) * product.price));
               }
             }}
           ></input>
@@ -102,7 +100,7 @@ function CartProduct({ product, cant, setTotal, total }) {
             onClick={() => {
               dispatch(updateTotalPrice(product.price));
               setQuantity(quantity + 1);
-              dispatch(addProductToCart({ id: product._id, cant: 1, slug: product.slug, }));
+              dispatch(addProductToCart({ id: product._id, cant: 1, slug: product.slug }));
               dispatch(updateCantProducts(1));
             }}
           >
