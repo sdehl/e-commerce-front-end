@@ -45,10 +45,11 @@ function Profile() {
         },
       });
       // console.log(response.data);
+
       dispatch(storeUserData(response.data));
       navigate(-1);
-      // setLoginEmailorUsername("");
-      // setLoginPassword("");
+      setLoginEmailorUsername("");
+      setLoginPassword("");
     } catch (error) {
       console.log(error);
     }
