@@ -44,7 +44,7 @@ function Profile() {
           password: loginPassword,
         },
       });
-      // console.log(response.data);
+      console.log(response.data);
 
       dispatch(storeUserData(response.data));
       navigate(-1);

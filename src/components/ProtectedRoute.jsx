@@ -27,9 +27,8 @@ function ProtectedRouteBilling({ redirectPath = "/cart" }) {
 //Verify if user is admin
 function ProtectedRouteAdmin({ redirectPath = "/" }) {
   const data = useSelector((state) => state.gema);
-  console.log(data);
-  if (!data.isAdmin) {
-    console.log("hola");
+
+  if (!data.userData.isAdmin) {
     return <Navigate to={redirectPath} replace />;
   }
   return <Outlet />;

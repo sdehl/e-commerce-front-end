@@ -42,67 +42,30 @@ function App() {
           //protect route if user is logged
         }
 
-        <Route
-          path="/billing"
-          element={
-            <ProtectedRouteUser>
-              <Billing />
-            </ProtectedRouteUser>
-          }
-        ></Route>
-
+        <Route element={<ProtectedRouteUser />}>
+          <Route path="/billing" element={<Billing />}></Route>
+        </Route>
         {
           //protect route if admin
         }
-        <Route
-          path="/admin"
-          element={
-            <ProtectedRouteAdmin>
-              <AdminIndex />
-            </ProtectedRouteAdmin>
-          }
-        ></Route>
-        <Route
-          path="/adminProducts"
-          element={
-            <ProtectedRouteAdmin>
-              <AdminProducts />
-            </ProtectedRouteAdmin>
-          }
-        />
-        <Route
-          path="/adminProductsNew"
-          element={
-            <ProtectedRouteAdmin>
-              <AdminProductsNew />
-            </ProtectedRouteAdmin>
-          }
-        />
-        <Route
-          path="/adminProducts/:id"
-          element={
-            <ProtectedRouteAdmin>
-              <AdminProducts />
-            </ProtectedRouteAdmin>
-          }
-        />
-
-        <Route
-          path="/adminUsers"
-          element={
-            <ProtectedRouteAdmin>
-              <AdminUsers />
-            </ProtectedRouteAdmin>
-          }
-        />
-        <Route
-          path="/adminOrders"
-          element={
-            <ProtectedRouteAdmin>
-              <AdminOrders />
-            </ProtectedRouteAdmin>
-          }
-        />
+        <Route element={<ProtectedRouteAdmin />}>
+          <Route path="/admin" element={<AdminIndex />}></Route>
+        </Route>
+        <Route element={<ProtectedRouteAdmin />}>
+          <Route path="/adminProducts" element={<AdminProducts />}></Route>
+        </Route>
+        <Route element={<ProtectedRouteAdmin />}>
+          <Route path="/adminProductsNew" element={<AdminProductsNew />}></Route>
+        </Route>
+        <Route element={<ProtectedRouteAdmin />}>
+          <Route path="/adminProducts/:slug" element={<AdminProducts />}></Route>
+        </Route>
+        <Route element={<ProtectedRouteAdmin />}>
+          <Route path="/adminUsers" element={<AdminUsers />}></Route>
+        </Route>
+        <Route element={<ProtectedRouteAdmin />}>
+          <Route path="/adminOrders" element={<AdminOrders />}></Route>
+        </Route>
 
         <Route path="*" element={<ErrorPage />}></Route>
       </Routes>

@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, Nav, Navbar} from "react-bootstrap";
+import { Container, Nav, Navbar } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router";
 
@@ -22,14 +22,21 @@ function NavigationBar() {
           <img className="icons mx-2" src={rocket} alt="rocket icon" />
         </div>
         <div>
-          <span>Envios a Montevideo y al Interior del Uruguay</span>
+          <span>Envios a Montevideo y al Interior del Uruguay</span>{" "}
+          <span>
+            <Link to="/admin">ADMIN</Link>
+          </span>
         </div>
       </div>
       <div className=" d-flex justify-content-between align-items-center mx-5">
         <div className="d-none d-md-flex align-items-center">
-          <input className="headerSearch" type="text" onClick={()=>{
-            navigate("/search")
-          }}/>{" "}
+          <input
+            className="headerSearch"
+            type="text"
+            onClick={() => {
+              navigate("/search");
+            }}
+          />{" "}
           <img className="icons mx-2" src={search} alt="search icon" />
         </div>
         <div>
@@ -65,16 +72,9 @@ function NavigationBar() {
       <div className=" d-flex justify-content-center dropdowns-container">
         <Navbar expand="md">
           <Container fluid>
-            <Navbar.Toggle
-              className="border-0 shadow-none "
-              aria-controls="basic-navbar-nav"
-            />
+            <Navbar.Toggle className="border-0 shadow-none " aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="navbarScroll">
-              <Nav
-                className="me-auto my-2 my-lg-0"
-                style={{ maxHeight: "100px" }}
-                navbarScroll
-              >
+              <Nav className="me-auto my-2 my-lg-0" style={{ maxHeight: "100px" }} navbarScroll>
                 <Nav.Link
                   className="mx-3 "
                   onClick={() => {
