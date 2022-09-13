@@ -12,6 +12,7 @@ import Billing from "./components/Billing";
 import AdminUsers from "./components/Admin/AdminUsers";
 import AdminUser from "./components/Admin/AdminUser";
 import AdminProducts from "./components/Admin/AdminProducts";
+import AdminProductsNew from "./components/Admin/AdminProductNew";
 import AdminProduct from "./components/Admin/AdminProduct";
 import AdminOrders from "./components/Admin/AdminOrders";
 import AdminOrder from "./components/Admin/AdminOrder";
@@ -43,6 +44,7 @@ function App() {
         }
         <Route path="/admin" element={<AdminIndex />}></Route>
         <Route path="/adminProducts" element={<AdminProducts />} />
+        <Route path="/adminProductsNew" element={<AdminProductsNew />} />
         <Route path="/adminProducts/:id" element={<AdminProduct />} />
 
         <Route path="/adminUsers" element={<AdminUsers />} />

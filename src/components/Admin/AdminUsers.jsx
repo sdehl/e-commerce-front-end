@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 
 function Users() {
-  console.log("entro acs")
   const [users, setUsers] = useState();
 
   const handle = {

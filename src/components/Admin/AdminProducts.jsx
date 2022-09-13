@@ -22,7 +22,6 @@ function AdminProducts() {
       const newProducts = products.filter((e) => {
         return e._id !== id;
       });
-      console.log("new Products", newProducts);
       setProducts(newProducts);
     },
   };
@@ -34,6 +33,11 @@ function AdminProducts() {
   return (
     products && (
       <div className="container mt-4">
+        <div className="mb-3 d-flex justify-content-end">
+          <Link to={`/adminProductsNew`}>
+            <button className="updateButtonProduct"> Create new Product</button>
+          </Link>
+        </div>
         <table class="table table-hover">
           <thead>
             <tr>
@@ -59,11 +63,11 @@ function AdminProducts() {
               return (
                 <tr>
                   <th scope="row">{product.name}</th>
-                  <td>{product.Category}</td>
+                  <td>{product.category}</td>
                   <td className="textTable">{product.price}</td>
                   <td className="textTable">{product.stock}</td>
                   <td className="d-flex justify-content-between">
-                    <Link to={`/adminProducts/${product._id}`}>
+                    <Link to={`/adminProducts/${product.slug}`}>
                       <button className="updateButtonProduct">Editar</button>
                     </Link>
 

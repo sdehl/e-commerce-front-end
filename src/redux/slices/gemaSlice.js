@@ -41,9 +41,6 @@ const gemaSlice = createSlice({
       state.cantProductsCart += action.payload;
     },
     updateTotalPrice(state, action) {
-      console.log("prev price", state.totalPrice);
-      console.log("action payload price", action.payload);
-
       state.totalPrice += action.payload;
     },
     deleteProductFromCart(state, action) {

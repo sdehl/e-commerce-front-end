@@ -2,14 +2,13 @@ import { useSelector } from "react-redux";
 import { useLocation } from "react-router-dom";
 import "./styles/BillingStyles.css";
 import { useEffect, useState } from "react";
+import axios from "axios";
 
 function Billing({ userLogged }) {
   const gema = useSelector((state) => state.gema);
   const location = useLocation();
   const { cart } = location.state;
-  console.log(cart);
-  console.log("cart", cart[0].product.name);
-  const [order, setOrder] = useState();
+  const [order, setOrder] = useState({});
 
   const ColoredLine = ({ color }) => (
     <hr
@@ -21,6 +20,25 @@ function Billing({ userLogged }) {
       }}
     />
   );
+
+  const handle = {
+    createOrder: async () => {
+      await axios({
+        method: "post",
+        url: `${process.env.REACT_APP_API_URL}/users}`,
+        data: { order },
+      });
+    },
+  };
+
+  useEffect(() => {
+    setOrder((current) => {
+      return {
+        ...current,
+        products: cart,
+      };
+    });
+  }, []);
 
   return (
     cart && (
@@ -37,12 +55,14 @@ function Billing({ userLogged }) {
                 <input
                   required
                   className="inputListCheckout"
-                  value="hello"
+                  value={order.name}
                   onChange={(e) => {
-                    const order = order;
-                    order.name = e.target.value;
-
-                    setOrder(order);
+                    setOrder((current) => {
+                      return {
+                        ...current,
+                        name: e.target.value,
+                      };
+                    });
                   }}
                 ></input>
               </div>
@@ -54,7 +74,18 @@ function Billing({ userLogged }) {
             </div>
             <div className="listInfo d-flex flex-column">
               <label>Nombre de la empresa (opcional)</label>
-              <input className="inputListCheckout"></input>
+              <input
+                className="inputListCheckout"
+                value={order.companyName}
+                onChange={(e) => {
+                  setOrder((current) => {
+                    return {
+                      ...current,
+                      companyName: e.target.value,
+                    };
+                  });
+                }}
+              ></input>
             </div>
             <div className="listInfo d-flex flex-column">
               <label>Dirección de la calle *</label>
@@ -62,29 +93,96 @@ function Billing({ userLogged }) {
                 required
                 className="inputListCheckout"
                 placeholder="NUMERO DE LA CASA Y NOMBRE DE LA CALLE"
+                value={order.adress}
+                onChange={(e) => {
+                  setOrder((current) => {
+                    return {
+                      ...current,
+                      adress: e.target.value,
+                    };
+                  });
+                }}
               ></input>
             </div>
             <div className="listInfo d-flex flex-column">
               <label> Localidad / Ciudad *</label>
-              <input className="inputListCheckout" required></input>
+              <input
+                className="inputListCheckout"
+                value={order.city}
+                onChange={(e) => {
+                  setOrder((current) => {
+                    return {
+                      ...current,
+                      city: e.target.value,
+                    };
+                  });
+                }}
+                required
+              ></input>
             </div>
             <div className="listInfo d-flex flex-column">
               <label>Código postal *</label>
-              <input className="inputListCheckout" required></input>
+              <input
+                className="inputListCheckout"
+                value={order.postalCode}
+                onChange={(e) => {
+                  setOrder((current) => {
+                    return {
+                      ...current,
+                      postalCode: e.target.value,
+                    };
+                  });
+                }}
+                required
+              ></input>
             </div>
             <div className="listInfo d-flex flex-column">
               <label>Teléfono *</label>
-              <input className="inputListCheckout" required></input>
+              <input
+                className="inputListCheckout"
+                value={order.telephone}
+                onChange={(e) => {
+                  setOrder((current) => {
+                    return {
+                      ...current,
+                      telephone: e.target.value,
+                    };
+                  });
+                }}
+                required
+              ></input>
             </div>
             <div className="listInfo d-flex flex-column">
               <label>Correo electrónico *</label>
-              <input className="inputListCheckout"></input>
+              <input
+                className="inputListCheckout"
+                value={order.mail}
+                onChange={(e) => {
+                  setOrder((current) => {
+                    return {
+                      ...current,
+                      mail: e.target.value,
+                    };
+                  });
+                }}
+              ></input>
             </div>
           </div>
           <div className="col-6">
             <div className=" d-flex flex-column listProducts">
               <label>Notas del pedido (opcional)</label>
-              <input className="extraInfoInput"></input>
+              <input
+                className="extraInfoInput"
+                value={order.additionalDescription}
+                onChange={(e) => {
+                  setOrder((current) => {
+                    return {
+                      ...current,
+                      additionalDescription: e.target.value,
+                    };
+                  });
+                }}
+              ></input>
             </div>
           </div>
           <h3 className="mt-4 mb-3">TU PEDIDO</h3>
@@ -110,6 +208,14 @@ function Billing({ userLogged }) {
               <h3>{gema.totalPrice}</h3>
             </div>
           </div>
+          <button
+            className="createOrder m-4"
+            onClick={() => {
+              handle.createOrder();
+            }}
+          >
+            Mandar pedido
+          </button>
         </div>
       </div>
     )

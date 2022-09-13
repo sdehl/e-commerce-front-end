@@ -1,5 +1,33 @@
+/* INDEX STYLES */
+
+.contDiv {
+  margin-left: 20%;
+  margin-right: 20%;
+  height: 30vh;
+}
+.subText {
+  margin-top: 2%;
+  text-align: center;
+  font-weight: 300;
+}
+
+.titleIndexAdmin {
+  margin-top: 3%;
+  text-align: center;
+}
+
+/* INDEX STYLES */
+
+/* PRODUCTS STYLES */
 .table {
   background-color: #e2b7ac1a !important;
+}
+
+.imagesNewProduct{
+  height: 200px;
+  width: 200px;
+  border: 0.5px solid rgb(201, 200, 200);
+
 }
 
 .updateButtonProduct {
@@ -7,10 +35,109 @@
   border: 0.5px solid rgb(201, 200, 200);
 }
 
-.textTable{
-   text-align:center;
+.textTable {
+  text-align: center;
 }
 
+.nameIndividualProduct {
+  font-size: x-large;
+  padding: 20px;
+  border: 1px solid rgba(128, 128, 128, 0.226);
+  margin-bottom: 40px;
+  margin-top: 20px;
+  color: gray;
+}
+
+.elementsInProductIndividual {
+  border: 1px solid rgba(128, 128, 128, 0.226);
+  padding: 10px;
+  margin-bottom: 20px;
+  color: gray;
+  flex: 0 0 50%;
+}
+
+.divOfImages {
+  display: flex;
+}
+
+.imagesOfProduct {
+  display: inline-block;
+  align-items: center;
+  height: 200px;
+  width: 200px;
+  border: 1px solid rgba(128, 128, 128, 0.226);
+  flex: 0 0 33.333333%;
+}
+
+.imagesOfProduct img {
+  max-width: 100%;
+  max-height: 100%;
+}
 .updateButtonProduct:hover {
   background-color: #aa847b27;
 }
+
+.buttonUpdate {
+  margin-left: 10px;
+  margin-bottom: 20px;
+  color: rgb(68, 66, 66);
+  border: 2px solid rgba(128, 128, 128, 0.226);
+  background-color: transparent;
+}
+
+.buttonUpdate:hover {
+  background-color: #aa847b27;
+}
+
+.texAreaProduct {
+  height: 40%;
+  border: 2px solid rgba(128, 128, 128, 0.226);
+  color: rgb(68, 66, 66);
+  padding: 2%;
+}
+
+.update {
+  margin-top: 10px;
+  background: linear-gradient(to left, transparent 50%, black 50%);
+  background-size: 200% 100%;
+  background-position: right bottom;
+  margin-left: 10px;
+  transition: all 2s ease;
+  border: 1px solid black;
+  color: black;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  width: fit-content;
+}
+
+.update:hover {
+  background-position: left bottom;
+  color: white;
+}
+
+.alertCorrectActualization {
+  color: rgb(126, 122, 122);
+  margin: 3%;
+}
+
+.itemsUpdate {
+  flex: 0 0 50%;
+}
+
+.LinkGoBack {
+  margin: 20px;
+  color: black;
+}
+
+.LinkGoBack:hover {
+  color: #7b5a52;
+}
+
+@media screen and (max-width: 480px) {
+  .itemsUpdate {
+    flex: 0 0 100%;
+  }
+}
+/* PRODUCTS STYLES */
