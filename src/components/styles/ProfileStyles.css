@@ -2,7 +2,8 @@
   max-width: 80rem;
 }
 
-.signInForm {
+.signInForm,
+.editForm {
   padding: 200px 0;
 }
 .registerForm {
@@ -22,8 +23,9 @@
   padding: 10px !important;
 }
 
-.login-btn {
-  margin-left: 30px;
+.login-btn,
+.register-btn,
+.save-btn {
   background-color: transparent;
   border: 1px solid black;
   color: black;
@@ -31,7 +33,6 @@
   text-align: center;
   text-decoration: none;
   font-size: 11px;
-
   letter-spacing: 0.2rem;
 }
 .rememberMe,
@@ -45,16 +46,20 @@
   color: #6a6a6a;
 }
 
-.newUser {
-  color: #ab836e;
-  font-weight: bold;
-  text-decoration: underline 1px;
-  text-underline-offset: 3px;
+.cart-icon,
+.home-icon {
+  height: 16px;
+  width: 16px;
 }
 
-.existingUser {
-  color: rgb(160, 0, 0);
-  text-decoration: underline 1px;
-  text-underline-offset: 3px;
-  font-weight: bold;
+.cart-link,
+.home-link {
+  color: #ab836e;
+  text-decoration: none;
+}
+
+.cart-link:hover,
+.home-link:hover {
+  color: #7c5e4e;
+  text-decoration: solid 1px #3e342f;
 }
