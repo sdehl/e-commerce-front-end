@@ -37,9 +37,7 @@ function Product() {
       return await setRecomProducts(response.data);
     },
   };
-
-  useEffect(() => {}, [show]);
-
+  
   useEffect(() => {
     async function getProduct() {
       try {

@@ -3,13 +3,14 @@ import axios from "axios";
 import "../../styles/AdminStyles.css"
 import { Link, Navigate } from "react-router-dom";
 import { useSelector } from "react-redux";
-
+import Alert from '@mui/material/Alert';
 import { useParams } from "react-router";
 
 function NewProduct() {
   const params = useParams();
   const [product, setProduct] = useState(null);
   const [correctlyCreated, setCorrectlyCreated] = useState('');
+  const [validCategory, setValidCategory] = useState(true);
   const token = useSelector((state) => state.gema.userData.token);
 
   const ColoredLine = ({ color }) => (
@@ -37,6 +38,7 @@ function NewProduct() {
 
   useEffect(() => {
     setCorrectlyCreated(false);
+    setValidCategory(true);
   }, [product]);
 
   return (
@@ -104,6 +106,15 @@ function NewProduct() {
                 });
               }}
             ></input>
+            {!validCategory &&
+              <>
+                <Alert severity="error">ERROR! No existe categoría! Las categorias actuales son:</Alert>
+                <ul>
+                  <li>Herrajes</li>
+                  <li>Tiradores</li>
+                  <li>Grifería</li>
+                </ul>
+              </>}
           </div>
           <ColoredLine color="gray" />
           <textarea
@@ -135,6 +146,8 @@ function NewProduct() {
               const status = await handle.createProduct(product);
               if (status === 200) {
                 setCorrectlyCreated('Correctly added');
+              } else if (status === 408) {
+                setValidCategory(false);
               } else {
                 setCorrectlyCreated('Not correctly added');
               }
@@ -142,13 +155,16 @@ function NewProduct() {
           >
             CREAR
           </button>
-          {correctlyCreated === 'Correctly added' && <p className="alertCorrectActualization m-2">Se ha actualizado correctamente</p>}
-          {correctlyCreated === 'Not correctly added' && <p className="alertCorrectActualization m-2">ERROR! Verifique que el nombre del producto sea único</p>}
+
+          {correctlyCreated === 'Correctly added' && <Alert severity="success">Se ha creado correctamente</Alert>}
+          {correctlyCreated === 'Not correctly added' && <Alert severity="error">ERROR! Verifique que el nombre del producto sea único</Alert>}
         </div>
+
         <Link style={{ textDecoration: "none" }} to="/admin/products">
           <p className="LinkGoBack">ATRAS</p>
         </Link>
       </div>
+
     </div>
   );
 }

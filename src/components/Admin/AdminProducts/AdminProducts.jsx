@@ -49,13 +49,13 @@ function AdminProducts() {
             <button className="updateButtonProduct"> Create new Product</button>
           </Link>
         </div>
-        <table class="table table-hover">
+        <table className="table table-hover">
           <thead>
-            <tr>
+            <tr className="titlesTable">
               <th className="fw-bold" scope="col">
                 Name
               </th>
-              <th className="fw-bold" scope="col">
+              <th className="fw-bold d-flex justify-content-center" scope="col">
                 Category
               </th>
               <th className="fw-bold" scope="col">
@@ -64,7 +64,7 @@ function AdminProducts() {
               <th className="fw-bold" scope="col">
                 Stock
               </th>
-              <th className="fw-bold" scope="col">
+              <th className="fw-bold " scope="col">
                 Update
               </th>
             </tr>
