@@ -84,13 +84,17 @@
   border: 0 solid;
 }
 
+.imageProduct{
+ height:310px;
+}
+
 @media screen and (max-width: 1069px) {
   .card {
     flex: 0 0 50%;
   }
 }
 
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 560px) {
   .card {
     flex: 0 0 100%;
   }

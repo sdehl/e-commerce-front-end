@@ -3,24 +3,26 @@ import {
   updateCantProducts,
   updateTotalPrice
 } from "../redux/slices/gemaSlice";
-import { useSelector, useDispatch } from "react-redux";
-import { useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router";
+import { useDispatch } from "react-redux";
+import { useState } from "react";
+import { useNavigate } from "react-router";
 import { Link } from "react-router-dom";
-import SingleProductModal from "./SingleProductModal";
-import Modal from "react-bootstrap";
 
 function ProductCard({ product, handleShow }) {
   const [buttonCart, setButtonCart] = useState("Agregar al carrito");
   const dispatch = useDispatch();
   const navigate = useNavigate();
   //we filter the pictures to avoid errors that may appear
-  const filteredPicture = product.pictures[0].replaceAll(`"`, ``);
+  let filteredPicture;
+  if (product.pictures.length > 0) {
+    console.log(product.pictures.length);
+    filteredPicture = product.pictures[0].replaceAll(`"`, ``);
+  }
 
   return (
     <div className="card p-3 border-0 cardCss">
       <img
-        src={filteredPicture}
+        src={filteredPicture ? filteredPicture : "https://wallpaperaccess.com/full/1756496.jpg"}
         className="card-img-top imageProduct"
         alt="..."
       ></img>

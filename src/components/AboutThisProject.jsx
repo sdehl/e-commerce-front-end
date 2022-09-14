@@ -1,39 +1,103 @@
 function About() {
   return (
-    <p>
-      Este E-commerce es el proyecto final desarrollado en el marco del Bootcamp-Grupo 2207 de Hack
-      Academy, una institución educativa ubicada en Montevideo, Uruguay especializada en
-      programación, que imparte cursos desde el año 2016. El bootcamp es un curso de tiempo completo
-      que capacita a desarrolladores como Full Stack Jr. El objetivo del proyecto final es poner en
-      práctica los conocimientos adquiridos utilizando diversas tecnologías. Durante las tres
-      semanas que duró insumió una carga horaria de circa 160 hrs por integrante, utilizando las
-      siguientes tecnologías: React, Redux, Redux Toolkit, MongoDB, Express, Axios, MUI, Bootstrap,
-      React-Bootstrap… Los estudiantes autores del proyecto son: Mercedes Torrendel, Santiago Dehl y
-      Marcos Rossi. Para la organización del proyecto se utilizaron las herramientas: Trello, para
-      controlar el flujo y la asignación de tareas, y Figma, para modelar y diagramar. Se utilizó el
-      modelo Entidad-Relación (MER). La metodología adoptada para el desarrollo del proyecto fue
-      Scrum, donde se llevó el proyecto sobre los estándares de MVP, presentando una demo al final
-      de cada semana. Se ha buscado respetar las buenas prácticas en cuanto a organización de las
-      carpetas, consistencia en los idiomas, legibilidad/nomenclatura de los archivos y hacer la
-      posible menor cantidad de llamadas a la base de datos. El E-commerce cuenta con una página
-      Home, una página con todos los productos, y un panel de administración donde el usuario con
-      permisos de administrador podrá crear, consultar, modificar/actualizar y borrar artículos.
-      Planificación: 1 - Concepción del proyecto y ERD Uno de los primeros desafíos de nuestro
-      proyecto fue el desarrollo de un diagrama de relaciones de entidad cuidadosamente pensado.
-      Aquí definimos las principales relaciones entre las siguientes entidades: …… 2 - Diseño e
-      Inspiración Inspiramos la plantilla de nuestro sitio web con la de Gema, un sitio web
-      minorista de accesorios ??? cuidadosamente diseñado. Nutrimos nuestra base de datos con
-      imágenes, descripciones, nombres y precios del propio website. 3 - Metodología de trabajo
-      Organizamos nuestro trabajo utilizando Metodología Ágile con tres sprints. Cada sprint tenía
-      tareas que se organizaban y desarrollaban individualmente o en grupos, usando Trello para
-      determinar la finalización de las tareas. Cada interacción entre sus desarrolladores, y por
-      extensión, todo el proyecto, se realizó en línea usando Discord. 4 - Frameworks y Tecnologías
-      Usamos la pila MERN. Lo que significa que nuestro proyecto utilizó una base de datos no
-      relacional y que trabajamos con Mongo, MongoDB, Mongo Atlas, Mongo Compass y Mongoose, además
-      de Supabase para importar imágenes. Express, React y Node como nuestros marcos de aplicación.
-      En el desarrollo utilizamos tecnologías conocidas que rodean este stack, como React Bootstrap,
-      Hooks, Formidable, etc.
-    </p>
+    <>
+      <div className="section-header">
+        <h1>QUIÉNES SOMOS</h1>
+      </div>
+      <div className="container">
+        <div className="row">
+          <div className="col">
+            <h4>SOMOS UN EQUIPO</h4>
+            <p>TEXTTTT</p>
+          </div>
+          <div className="col">
+            <img src="" alt="" />
+          </div>
+        </div>
+        <div className="row">
+          <div className="col"></div>
+          <div className="col"></div>
+        </div>
+      </div>
+    </>
   );
 }
 export default About;
+
+// <h3>Sobre este proyecto</h3>
+//             <h5>
+//               Este E-commerce es el proyecto final desarrollado por{" "}
+//               <strong>Mercedes Torrendel, Santiago Dehl y Marcos Rossi</strong> en el marco del
+//               Bootcamp-Grupo 2207 de Hack Academy, una institución educativa ubicada en Montevideo,
+//               Uruguay especializada en programación, que imparte cursos desde el año 2016. El
+//               bootcamp es un curso de tiempo completo que capacita a desarrolladores como Full Stack
+//               Jr. El objetivo del proyecto final es poner en práctica los conocimientos adquiridos
+//               utilizando diversas tecnologías. Durante las tres semanas que duró insumió una carga
+//               horaria de circa 160 hrs por integrante. Uno de los primeros desafíos de nuestro
+//               proyecto fue el desarrollo de un diagrama de relaciones de entidad cuidadosamente
+//               pensado. Aquí definimos las principales relaciones entre las siguientes entidades: ……
+//             </h5>
+//           </div>
+//         </div>
+//       </div>
+//       <div className="container">
+//         <div className="row d-inline-block ">
+//           <div className="col-6">
+//             <h3>Aspectos organizacionales & MER</h3>
+//             <h5>
+//               Para la maquetación del proyecto se utilizaron las siguientes herramientas:{" "}
+//               <strong>Trello</strong>, para controlar el flujo y la asignación de tareas, y{" "}
+//               <strong>Figma</strong>, para modelar y diagramar. Se utilizó el modelo
+//               Entidad-Relación (MER). La metodología adoptada para el desarrollo del proyecto fue
+//               Scrum, donde se llevó el proyecto sobre los estándares de MVP, presentando una demo al
+//               final de cada semana. Se ha buscado respetar las buenas prácticas en cuanto a
+//               organización de las carpetas, consistencia en los idiomas, legibilidad/nomenclatura de
+//               los archivos y hacer la posible menor cantidad de llamadas a la base de datos. El
+//               E-commerce cuenta con una página Home, una página con todos los productos, y un panel
+//               de administración donde el usuario con permisos de administrador podrá crear,
+//               consultar, modificar/actualizar y borrar artículos. Inspiramos la plantilla de nuestro
+//               e-store con la de Gema, un sitio web minorista de accesorios ??? cuidadosamente
+//               diseñado. Nutrimos nuestra base de datos con imágenes, descripciones, nombres y
+//               precios del propio website.
+//             </h5>
+//           </div>
+//           <div className="col-6 m-5">
+//             <img
+//               src={"https://www.gemainteriores.com/wp-content/uploads/2021/04/H02-CUA-BZ-1-1.jpg"}
+//               className="image d-inline-block w-100 my-4"
+//               alt="tiradores de bronce"
+//             />
+//           </div>
+//         </div>
+//       </div>
+//       <div className="container">
+//         <div className="row ">
+//           <div className="col-6">
+//             <h3>Concepción del proyecto</h3>
+//             <img
+//               src={
+//                 "https://www.gemainteriores.com/wp-content/uploads/2021/05/Coleccion-Negro-Mate.jpg"
+//               }
+//               className="image d-inline-block w-100 my-4"
+//               alt="tiradores negros, griferia negra y color-palette sobre alfombra"
+//             />
+//           </div>
+//           <div className="col-6 m-5">
+//             <h5>
+//               Uno de los primeros desafíos de nuestro proyecto fue el desarrollo de un diagrama de
+//               relaciones de entidad cuidadosamente pensado. Aquí definimos las principales
+//               relaciones entre las siguientes entidades: …… 2 - Diseño e Inspiración Inspiramos la
+//               plantilla de nuestro sitio web con la de Gema, un sitio web minorista de accesorios
+//               ??? cuidadosamente diseñado. Nutrimos nuestra base de datos con imágenes,
+//               descripciones, nombres y precios del propio website. 3 - Metodología de trabajo
+//               Organizamos nuestro trabajo utilizando Metodología Ágile con tres sprints. Cada sprint
+//               tenía tareas que se organizaban y desarrollaban individualmente o en grupos, usando
+//               Trello para determinar la finalización de las tareas. Cada interacción entre sus
+//               desarrolladores, y por extensión, todo el proyecto, se realizó en línea usando
+//               Discord. 4 - Frameworks y Tecnologías Usamos la pila MERN. Lo que significa que
+//               nuestro proyecto utilizó una base de datos no relacional y que trabajamos con Mongo,
+//               MongoDB, Mongo Atlas, Mongo Compass y Mongoose, además de Supabase para importar
+//               imágenes. Express, React y Node como nuestros marcos de aplicación. En el desarrollo
+//               utilizamos tecnologías conocidas que rodean este stack, como React Bootstrap, Hooks,
+//               Formidable, etc. Cada interacción entre sus desarrolladores, y por extensión, todo el
+//               proyecto, se realizó en línea usando Discord.

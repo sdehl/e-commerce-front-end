@@ -23,6 +23,14 @@
   background-color: #e2b7ac1a !important;
 }
 
+.titlesTable{
+  background-color: #c7af9533;
+}
+
+.buttonsTableProducts{
+  display: inline-block;
+}
+
 .imagesNewProduct {
   height: 200px;
   width: 200px;
@@ -106,10 +114,10 @@
 
 .update {
   margin-top: 10px;
+  margin-right: 20px;
   background: linear-gradient(to left, transparent 50%, black 50%);
   background-size: 200% 100%;
   background-position: right bottom;
-  margin-left: 10px;
   transition: all 2s ease;
   border: 1px solid black;
   color: black;

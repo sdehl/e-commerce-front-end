@@ -2,12 +2,17 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import "../../styles/AdminStyles.css"
 import { Link, Navigate } from "react-router-dom";
+import { useSelector } from "react-redux";
+import Alert from '@mui/material/Alert';
 import { useParams } from "react-router";
 
 function NewProduct() {
   const params = useParams();
   const [product, setProduct] = useState(null);
-  const [correctlyUpdated, setCorrectlyUpdated] = useState(false);
+  const [correctlyCreated, setCorrectlyCreated] = useState('');
+  const [validCategory, setValidCategory] = useState(true);
+  const token = useSelector((state) => state.gema.userData.token);
+
   const ColoredLine = ({ color }) => (
     <hr
       style={{
@@ -19,14 +24,22 @@ function NewProduct() {
     />
   );
   const handle = {
-    createProduct: async (slug, product) => {
+    createProduct: async (product) => {
       const response = await axios({
         method: "post",
-        url: `${process.env.REACT_APP_API_URL}/products/${slug}`,
+        url: `${process.env.REACT_APP_API_URL}/products`,
         data: { product },
+        headers: { Authorization: `Bearer ${token}` },
+
       });
+      return await response.data;
     },
   };
+
+  useEffect(() => {
+    setCorrectlyCreated(false);
+    setValidCategory(true);
+  }, [product]);
 
   return (
     <div className="container mt-4">
@@ -93,6 +106,15 @@ function NewProduct() {
                 });
               }}
             ></input>
+            {!validCategory &&
+              <>
+                <Alert severity="error">ERROR! No existe categoría! Las categorias actuales son:</Alert>
+                <ul>
+                  <li>Herrajes</li>
+                  <li>Tiradores</li>
+                  <li>Grifería</li>
+                </ul>
+              </>}
           </div>
           <ColoredLine color="gray" />
           <textarea
@@ -120,21 +142,29 @@ function NewProduct() {
         <div className="d-flex align-items-center itemsUpdate">
           <button
             className="update"
-            onClick={() => {
-              handle.createProduct(product.slug, product);
-              setCorrectlyUpdated(true);
+            onClick={async () => {
+              const status = await handle.createProduct(product);
+              if (status === 200) {
+                setCorrectlyCreated('Correctly added');
+              } else if (status === 408) {
+                setValidCategory(false);
+              } else {
+                setCorrectlyCreated('Not correctly added');
+              }
             }}
           >
             CREAR
           </button>
-          {correctlyUpdated && (
-            <p className="alertCorrectActualization">Producto fue agregado correctamente</p>
-          )}
+
+          {correctlyCreated === 'Correctly added' && <Alert severity="success">Se ha creado correctamente</Alert>}
+          {correctlyCreated === 'Not correctly added' && <Alert severity="error">ERROR! Verifique que el nombre del producto sea único</Alert>}
         </div>
+
         <Link style={{ textDecoration: "none" }} to="/admin/products">
           <p className="LinkGoBack">ATRAS</p>
         </Link>
       </div>
+
     </div>
   );
 }

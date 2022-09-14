@@ -3,11 +3,17 @@ import axios from "axios";
 import "../../styles/AdminStyles.css"
 import { Link, Navigate } from "react-router-dom";
 import { useParams } from "react-router";
+import { useSelector } from "react-redux";
+import Alert from '@mui/material/Alert';
 
 function AdminProduct() {
   const params = useParams();
   const [product, setProduct] = useState();
   const [correctlyUpdated, setCorrectlyUpdated] = useState(false);
+  const [validCategory, setValidCategory] = useState(true);
+  const token = useSelector((state) => state.gema.userData.token);
+  const [originalName, setOriginalName] = useState();
+
   const ColoredLine = ({ color }) => (
     <hr
       style={{
@@ -19,19 +25,15 @@ function AdminProduct() {
     />
   );
   const handle = {
-    updateProduct: async (slug, product) => {
+    updateProduct: async (product) => {
       const response = await axios({
         method: "patch",
-        url: `${process.env.REACT_APP_API_URL}/products/${slug}`,
-        data: { product },
+        url: `${process.env.REACT_APP_API_URL}/products/${product.slug}`,
+        data: { product, originalName },
+        headers: { Authorization: `Bearer ${token}` },
       });
-    },
-    createProduct: async (slug, product) => {
-      const response = await axios({
-        method: "post",
-        url: `${process.env.REACT_APP_API_URL}/products/${slug}`,
-        data: { product },
-      });
+      console.log(response.data)
+      return await response.data;
     },
   };
 
@@ -41,15 +43,23 @@ function AdminProduct() {
         const response = await axios({
           method: "GET",
           url: `${process.env.REACT_APP_API_URL}/product/${params.slug}`,
+          headers: { Authorization: `Bearer ${token}` },
+
         });
         await setProduct(response.data);
+        setOriginalName(response.data.name);
       } catch (error) {
         console.log(error);
       }
     }
     getProduct();
-    
+
   }, []);
+
+  useEffect(() => {
+    setCorrectlyUpdated(false);
+    setValidCategory(true);
+  }, [product]);
 
   return (
     product && (
@@ -118,6 +128,15 @@ function AdminProduct() {
                   });
                 }}
               ></input>
+              {!validCategory &&
+                <>
+                  <Alert severity="error">ERROR! No existe categoría! Las categorias actuales son:</Alert>
+                  <ul>
+                    <li>Herrajes</li>
+                    <li>Tiradores</li>
+                    <li>Grifería</li>
+                  </ul>
+                </>}
             </div>
             <ColoredLine color="gray" />
             <textarea
@@ -160,16 +179,25 @@ function AdminProduct() {
           <div className="d-flex align-items-center itemsUpdate">
             <button
               className="update"
-              onClick={() => {
-                handle.updateProduct(product.slug, product);
-                setCorrectlyUpdated(true);
+              onClick={async () => {
+                const status = await handle.updateProduct(product);
+                console.log("status", status);
+                if (status === 200) {
+                  setCorrectlyUpdated('Correctly added');
+                } else if (status === 408) {
+                  setOriginalName(product.name);
+                  setValidCategory(false);
+                } else {
+                  setOriginalName(product.name);
+                  setCorrectlyUpdated('Not correctly added');
+                }
               }}
             >
               ACTUALIZAR
             </button>
-            {correctlyUpdated && (
-              <p className="alertCorrectActualization">Se ha actualizado correctamente</p>
-            )}
+            {correctlyUpdated === 'Correctly added' && <Alert severity="success">Se ha actualizado correctamente</Alert>}
+            {correctlyUpdated === 'Not correctly added' && <Alert severity="error">ERROR! Verifique que el nombre del producto sea único</Alert>}
+
           </div>
           <Link style={{ textDecoration: "none" }} to="/admin/products">
             <p className="LinkGoBack">ATRAS</p>
