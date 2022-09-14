@@ -25,6 +25,9 @@ function CartProduct({ product, cant, setTotal, total }) {
 
   useEffect(() => {
     setSubTotal(quantity * product.price);
+    if (quantity === 0) {
+      dispatch(deleteProductFromCart(product._id));
+    }
   }, [quantity]);
 
   return (
@@ -62,11 +65,12 @@ function CartProduct({ product, cant, setTotal, total }) {
               <span
                 className="add-substract pr-2"
                 onClick={() => {
-                  quantity >= 0 &&
+                  if (quantity > 0) {
                     dispatch(addProductToCart({ id: product._id, cant: -1, slug: product.slug }));
-                  dispatch(updateCantProducts(-1));
-                  setQuantity(quantity - 1);
-                  dispatch(updateTotalPrice(-product.price));
+                    dispatch(updateCantProducts(-1));
+                    setQuantity(quantity - 1);
+                    dispatch(updateTotalPrice(-product.price));
+                  }
                 }}
               >
                 -

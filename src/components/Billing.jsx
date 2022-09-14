@@ -9,17 +9,15 @@ import axios from "axios";
 import { useNavigate } from "react-router";
 import { useDispatch } from "react-redux";
 
-
-
 function Billing({ userLogged }) {
   const gema = useSelector((state) => state.gema);
-  const location = useLocation();
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const { cart } = location.state;
+  const [cart, setCart] = useState(null);
   const token = useSelector((state) => state.gema.userData.token);
   const [errorMessage, setErrorMessage] = useState(false);
   const [order, setOrder] = useState({});
+  const [productoFalta, setProfuctoFalta] = useState(null);
 
   const ColoredLine = ({ color }) => (
     <hr
@@ -33,6 +31,27 @@ function Billing({ userLogged }) {
   );
 
   const handle = {
+    apiCall: async (productSlug) => {
+      const response = await axios({
+        method: "get",
+        url: `${process.env.REACT_APP_API_URL}/product/${productSlug}`,
+        headers: { Authorization: `Bearer ${token}` },
+      });
+      return response.data;
+    },
+    updateCart: async () => {
+      const obj = [];
+      let tot = 0;
+      for (const prod of gema.cart) {
+        if (prod.cant > 0) {
+          let productObject = await handle.apiCall(prod.slug);
+          console.log(productObject);
+          obj.push({ product: productObject, cant: prod.cant });
+          tot += productObject.price * prod.cant;
+        }
+      }
+      await setCart(obj);
+    },
     createOrder: async () => {
       const response = await axios({
         method: "post",
@@ -40,9 +59,24 @@ function Billing({ userLogged }) {
         data: { order, userId: gema.userData.userId },
         headers: { Authorization: `Bearer ${token}` },
       });
-      return (response.data)
+      if (response.data !== 200) {
+        setProfuctoFalta(response.data);
+      } else {
+        return response.data;
+      }
     },
   };
+
+  useEffect(() => {
+    console.log("productoFalta", productoFalta)
+    handle.updateCart();
+    setOrder((current) => {
+      return {
+        ...current,
+        products: cart,
+      };
+    });
+  }, []);
 
   useEffect(() => {
     setOrder((current) => {
@@ -51,7 +85,7 @@ function Billing({ userLogged }) {
         products: cart,
       };
     });
-  }, []);
+  }, [cart]);
 
   return (
     cart && (
@@ -205,7 +239,7 @@ function Billing({ userLogged }) {
               <h5>PRODUCTO</h5>
               <h5>SUBTOTAL</h5>
             </div>
-            {cart.map((property, index) => {
+            {cart.map((property) => {
               return (
                 <div>
                   <ColoredLine color="gray" />
@@ -225,6 +259,7 @@ function Billing({ userLogged }) {
             className="createOrder m-4"
             onClick={async () => {
               const response = await handle.createOrder();
+              console.log(response);
               if (response !== 200) {
                 setErrorMessage(true)
               } else {
@@ -236,7 +271,27 @@ function Billing({ userLogged }) {
           >
             Mandar pedido
           </button>
-          {errorMessage && <p>Error en crear orden repase su información</p>}
+          {errorMessage && (
+            <>
+              <p className="m-2 fst-italic">Error en crear orden repase su información. Puede que ya no haya stock de los productos elegidos</p>
+              <div>
+                {productoFalta
+                  && productoFalta.map((product) => {
+                    return (
+                      <div className="d-flex flex-column mt-4">
+                        <h4 className="m-2 fw-bold">INFORMACION DE PRODUCTOS EN FALTA DE STOCK</h4>
+                        <h6 className="m-2">NOMBRE: {product.name}</h6>
+                        <h6 className="m-2">Cantidad stock restante: {product.stockLeft}</h6>
+                        <img src={product.picture}>
+                        </img>
+                      </div>
+                    );
+                  })}
+
+              </div>
+            </>
+          )
+          }
         </div>
       </div>
     )

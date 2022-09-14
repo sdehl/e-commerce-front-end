@@ -118,13 +118,13 @@ function Cart() {
             </div>
             <ColoredLine color="gray" />
             <div className="d-flex justify-content-start divButton mt-4">
-              <Link to={cart.length !== 0 ? "/billing" : "/cart"} state={{ cart: cart }}>
+              <Link to={gema.cart.length !== 0 ? "/billing" : "/cart"} status={console.log("cart when clicked",gema.cart)}>
                 <button className="endOrderBtn">IR A FINALIZAR LA COMPRA</button>
               </Link>
             </div>
           </div>
         </div>
-      </div>
+      </div >
     )
   );
 }
