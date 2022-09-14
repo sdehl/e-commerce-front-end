@@ -9,14 +9,15 @@ import cart from "./svg/cart-shopping-solid.svg";
 import profile from "./svg/user-regular.svg";
 import rocket from "./svg/rocket-solid.svg";
 import admin from "./svg/gear-solid.svg";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 import "./styles/NavigationBarStyles.css";
+import { deleteUserData } from "../redux/slices/gemaSlice";
 
 function NavigationBar() {
   const gema = useSelector((state) => state.gema);
   const navigate = useNavigate();
-
+  const dispatch = useDispatch();
   return (
     <>
       <div className="top-banner d-none d-md-flex justify-content-center align-items-center">
@@ -25,6 +26,13 @@ function NavigationBar() {
           <img className="icons mx-2" src={rocket} alt="rocket icon" />
         </div>
         <div>
+          <button
+            onClick={() => {
+              dispatch(deleteUserData());
+            }}
+          >
+            Logout
+          </button>
           <span>Envios a Montevideo y al Interior del Uruguay</span>{" "}
         </div>
       </div>
