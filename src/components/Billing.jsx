@@ -270,7 +270,7 @@ function Billing({ userLogged }) {
                   confirmButtonText: 'Continuar'
                 })
                 dispatch(deleteCart());
-                navigate("/products")
+                // navigate("/")
               }
             }}
           >

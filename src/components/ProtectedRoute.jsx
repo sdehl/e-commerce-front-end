@@ -11,7 +11,7 @@ function ProtectedRouteUser({ redirectPath = "/Profile" }) {
     }
     return <Outlet />;
   } else {
-    return <Navigate to={redirectPath} replace />;
+    return <Navigate to="/" replace />;
   }
 }
 
