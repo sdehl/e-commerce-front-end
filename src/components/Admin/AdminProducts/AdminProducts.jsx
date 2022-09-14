@@ -1,26 +1,34 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
+
 import "../../styles/AdminStyles.css";
 
 function AdminProducts() {
   const [products, setProducts] = useState(null);
+  const token = useSelector((state) => state.gema.userData.token);
+
 
   const handle = {
     apiCall: async () => {
       const response = await axios({
         method: "get",
         url: `${process.env.REACT_APP_API_URL}/products`,
+        headers: { Authorization: `Bearer ${token}` },
+
       });
       setProducts(response.data);
     },
-    deleteProduct: async (id) => {
+    deleteProduct: async (slug) => {
       const response = axios({
         method: "delete",
-        url: `${process.env.REACT_APP_API_URL}/products/${id}`,
+        url: `${process.env.REACT_APP_API_URL}/products/${slug}`,
+        headers: { Authorization: `Bearer ${token}` },
+
       });
       const newProducts = products.filter((e) => {
-        return e._id !== id;
+        return e.slug !== slug;
       });
       setProducts(newProducts);
     },
@@ -66,10 +74,10 @@ function AdminProducts() {
               return (
                 <tr>
                   <th scope="row">{product.name}</th>
-                  <td>{product.category}</td>
+                  <td className="textTable">{product.category}</td>
                   <td className="textTable">{product.price}</td>
                   <td className="textTable">{product.stock}</td>
-                  <td className="d-flex justify-content-between">
+                  <td className="buttonsTableProducts">
                     <Link to={`/admin/products/${product.slug}`}>
                       <button className="updateButtonProduct">Editar</button>
                     </Link>
@@ -77,7 +85,7 @@ function AdminProducts() {
                     <button
                       className="updateButtonProduct"
                       onClick={() => {
-                        handle.deleteProduct(product._id);
+                        handle.deleteProduct(product.slug);
                       }}
                     >
                       Eliminar

@@ -3,11 +3,15 @@ import axios from "axios";
 import "../../styles/AdminStyles.css"
 import { Link, Navigate } from "react-router-dom";
 import { useParams } from "react-router";
+import { useSelector } from "react-redux";
+
 
 function AdminProduct() {
   const params = useParams();
   const [product, setProduct] = useState();
   const [correctlyUpdated, setCorrectlyUpdated] = useState(false);
+  const token = useSelector((state) => state.gema.userData.token);
+
   const ColoredLine = ({ color }) => (
     <hr
       style={{
@@ -24,6 +28,7 @@ function AdminProduct() {
         method: "patch",
         url: `${process.env.REACT_APP_API_URL}/products/${slug}`,
         data: { product },
+        headers: { Authorization: `Bearer ${token}` },
       });
     },
     createProduct: async (slug, product) => {
@@ -31,6 +36,8 @@ function AdminProduct() {
         method: "post",
         url: `${process.env.REACT_APP_API_URL}/products/${slug}`,
         data: { product },
+        headers: { Authorization: `Bearer ${token}` },
+
       });
     },
   };
@@ -41,6 +48,8 @@ function AdminProduct() {
         const response = await axios({
           method: "GET",
           url: `${process.env.REACT_APP_API_URL}/product/${params.slug}`,
+          headers: { Authorization: `Bearer ${token}` },
+
         });
         await setProduct(response.data);
       } catch (error) {
@@ -48,8 +57,12 @@ function AdminProduct() {
       }
     }
     getProduct();
-    
+
   }, []);
+
+  useEffect(() => {
+    setCorrectlyUpdated(false);
+  }, [product]);
 
   return (
     product && (

@@ -69,7 +69,6 @@ function Billing({ userLogged }) {
   };
 
   useEffect(() => {
-    console.log("productoFalta", productoFalta)
     handle.updateCart();
     setOrder((current) => {
       return {

@@ -2,12 +2,16 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import "../../styles/AdminStyles.css"
 import { Link, Navigate } from "react-router-dom";
+import { useSelector } from "react-redux";
+
 import { useParams } from "react-router";
 
 function NewProduct() {
   const params = useParams();
   const [product, setProduct] = useState(null);
-  const [correctlyUpdated, setCorrectlyUpdated] = useState(false);
+  const [correctlyCreated, setCorrectlyCreated] = useState('');
+  const token = useSelector((state) => state.gema.userData.token);
+
   const ColoredLine = ({ color }) => (
     <hr
       style={{
@@ -19,14 +23,21 @@ function NewProduct() {
     />
   );
   const handle = {
-    createProduct: async (slug, product) => {
+    createProduct: async (product) => {
       const response = await axios({
         method: "post",
-        url: `${process.env.REACT_APP_API_URL}/products/${slug}`,
+        url: `${process.env.REACT_APP_API_URL}/products`,
         data: { product },
+        headers: { Authorization: `Bearer ${token}` },
+
       });
+      return await response.data;
     },
   };
+
+  useEffect(() => {
+    setCorrectlyCreated(false);
+  }, [product]);
 
   return (
     <div className="container mt-4">
@@ -120,16 +131,19 @@ function NewProduct() {
         <div className="d-flex align-items-center itemsUpdate">
           <button
             className="update"
-            onClick={() => {
-              handle.createProduct(product.slug, product);
-              setCorrectlyUpdated(true);
+            onClick={async () => {
+              const status = await handle.createProduct(product);
+              if (status === 200) {
+                setCorrectlyCreated('Correctly added');
+              } else {
+                setCorrectlyCreated('Not correctly added');
+              }
             }}
           >
             CREAR
           </button>
-          {correctlyUpdated && (
-            <p className="alertCorrectActualization">Producto fue agregado correctamente</p>
-          )}
+          {correctlyCreated === 'Correctly added' && <p className="alertCorrectActualization m-2">Se ha actualizado correctamente</p>}
+          {correctlyCreated === 'Not correctly added' && <p className="alertCorrectActualization m-2">ERROR! Verifique que el nombre del producto sea único</p>}
         </div>
         <Link style={{ textDecoration: "none" }} to="/admin/products">
           <p className="LinkGoBack">ATRAS</p>
