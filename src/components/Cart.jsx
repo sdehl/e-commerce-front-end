@@ -95,13 +95,13 @@ function Cart() {
               </div>
               <div className="col-8">
                 <input type="radio" name="adress" value="userAdress" className="mb-4"></input> {" "}
-                <label for="userAdress">Pick-up - Carrasco Sur</label>
+                <label htmlFor="userAdress">Pick-up - Carrasco Sur</label>
                 <br></br>
                 <input type="radio" name="adress" value="userAdress" className="mb-4"></input> {" "}
-                <label for="userAdress">Envios a Maldonado por DePunta</label>
+                <label htmlFor="userAdress">Envios a Maldonado por DePunta</label>
                 <br></br>
                 <input type="radio" name="adress" value="userAdress" className="mb-4"></input> {" "}
-                <label for="userAdress">Envios al Interior por DAC</label>
+                <label htmlFor="userAdress">Envios al Interior por DAC</label>
                 <br></br>
               </div>
             </div>

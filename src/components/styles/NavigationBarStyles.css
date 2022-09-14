@@ -1,16 +1,22 @@
 .icons {
-  height: 16px;
+  height: 19px;
   width: 16px;
+  color: #ab836e;
+  font-weight: bold;
 }
 .link-icons {
   cursor: pointer;
+}
+
+.cart {
+  margin-left: 2px;
 }
 
 .home-logo {
   height: 80px;
   width: fit-content;
   position: relative;
-  left: -80px;
+  left: -69px;
 }
 
 .top-banner {
