@@ -3,7 +3,6 @@ import { createSlice, current } from "@reduxjs/toolkit";
 const gemaSlice = createSlice({
   name: "gema",
   initialState: {
-    user: {},
     cart: [],
     cantProductsCart: 0,
     totalPrice: 0,
