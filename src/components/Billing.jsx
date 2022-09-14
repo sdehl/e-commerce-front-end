@@ -8,6 +8,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router";
 import { useDispatch } from "react-redux";
+import Swal from 'sweetalert2'
 
 function Billing({ userLogged }) {
   const gema = useSelector((state) => state.gema);
@@ -56,7 +57,7 @@ function Billing({ userLogged }) {
       const response = await axios({
         method: "post",
         url: `${process.env.REACT_APP_API_URL}/orders`,
-        data: { order},
+        data: { order },
         headers: { Authorization: `Bearer ${token}` },
       });
       if (response.data !== 200) {
@@ -263,7 +264,11 @@ function Billing({ userLogged }) {
               if (response !== 200) {
                 setErrorMessage(true)
               } else {
-                alert("La orden fue realizada correctamente")
+                Swal.fire({
+                  title: 'La orden fue creada correctamente!',
+                  icon: 'success',
+                  confirmButtonText: 'Continuar'
+                })
                 dispatch(deleteCart());
                 navigate("/products")
               }
