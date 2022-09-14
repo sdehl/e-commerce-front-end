@@ -4,9 +4,11 @@ import { Link } from "react-router-dom";
 import { useNavigate } from "react-router";
 
 import search from "./svg/magnifying-glass-solid.svg";
-import bag from "./svg/bag-shopping-solid.svg";
+// import bag from "./svg/bag-shopping-solid.svg";
+import cart from "./svg/cart-shopping-solid.svg";
 import profile from "./svg/user-regular.svg";
 import rocket from "./svg/rocket-solid.svg";
+import admin from "./svg/gear-solid.svg";
 import { useSelector } from "react-redux";
 
 import "./styles/NavigationBarStyles.css";
@@ -14,6 +16,7 @@ import "./styles/NavigationBarStyles.css";
 function NavigationBar() {
   const gema = useSelector((state) => state.gema);
   const navigate = useNavigate();
+
   return (
     <>
       <div className="top-banner d-none d-md-flex justify-content-center align-items-center">
@@ -23,9 +26,6 @@ function NavigationBar() {
         </div>
         <div>
           <span>Envios a Montevideo y al Interior del Uruguay</span>{" "}
-          <span>
-            <Link to="/admin">ADMIN</Link>
-          </span>
         </div>
       </div>
       <div className=" d-flex justify-content-between align-items-center mx-5">
@@ -48,25 +48,42 @@ function NavigationBar() {
             />
           </Link>
         </div>
-        <div className="d-none d-md-flex  ">
-          <img
-            className="icons link-icons"
-            src={profile}
-            alt="profile icon"
-            onClick={() => {
-              navigate("/profile");
-            }}
-          />
-          <img
-            className="icons link-icons mx-2"
-            src={bag}
-            alt="bag icon"
-            onClick={() => {
-              navigate("/cart");
-            }}
-          />
+        <div className="d-none d-md-flex ">
+          <div>
+            <img
+              className="icons link-icons"
+              src={profile}
+              alt="profile icon"
+              onClick={() => {
+                navigate("/profile");
+              }}
+            />
+          </div>
 
-          <h6 className="icons d-inline-block light">{gema.cantProductsCart}</h6>
+          <div className="cart">
+            <img
+              className="icons link-icons mx-1"
+              src={cart}
+              alt="cart icon"
+              onClick={() => {
+                navigate("/cart");
+              }}
+            />
+            <h6 className="icons d-inline-block light">{gema.cantProductsCart}</h6>{" "}
+          </div>
+
+          <div>
+            {gema.userData.isAdmin ? (
+              <img
+                className="icons link-icons"
+                src={admin}
+                alt="profile icon"
+                onClick={() => {
+                  navigate("/admin");
+                }}
+              />
+            ) : null}
+          </div>
         </div>
       </div>
       <div className=" d-flex justify-content-center dropdowns-container">

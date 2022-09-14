@@ -10,6 +10,7 @@ function Profile() {
   const [password, setPassword] = useState("");
   const [loginEmailorUsername, setLoginEmailorUsername] = useState("");
   const [loginPassword, setLoginPassword] = useState("");
+  const [userStatus, setUserStatus] = useState("");
 
   const navigate = useNavigate();
 
@@ -26,10 +27,13 @@ function Profile() {
           password: password,
         },
       });
+
+      setUserStatus(result.status);
       setEmail("");
       setPassword("");
     } catch (error) {
       console.log(error);
+      setUserStatus(error.response.status);
     }
   }
 
@@ -66,6 +70,7 @@ function Profile() {
                 Nombre de usuario o correo electrónico <span className="obligatory">*</span>
               </label>
               <input
+                required
                 type="text"
                 value={loginEmailorUsername}
                 className="form-control"
@@ -79,6 +84,7 @@ function Profile() {
                 Contraseña <span className="obligatory">*</span>
               </label>
               <input
+                required
                 value={loginPassword}
                 type="password"
                 name="loginPassword"
@@ -120,6 +126,7 @@ function Profile() {
                   Correo electrónico <span className="obligatory">*</span>
                 </label>
                 <input
+                  required
                   value={email}
                   type="email"
                   className="form-control"
@@ -133,6 +140,7 @@ function Profile() {
                   Contraseña <span className="obligatory">*</span>
                 </label>
                 <input
+                  required
                   value={password}
                   type="password"
                   name="registerPassword"
@@ -141,15 +149,24 @@ function Profile() {
                   onChange={(e) => setPassword(e.target.value)}
                 />
               </div>
-              <button
-                type="button"
-                className="login-btn"
-                onClick={() => {
-                  register();
-                }}
-              >
-                REGISTRARME
-              </button>
+
+              <div className="d-flex align-items-center justify-content-between">
+                <button
+                  type="button"
+                  className="login-btn"
+                  onClick={() => {
+                    register();
+                  }}
+                >
+                  REGISTRARME
+                </button>
+                {userStatus === 201 ? (
+                  <h5 className="newUser">Usuario creado correctamente!</h5>
+                ) : null}
+                {userStatus === 409 ? (
+                  <h5 className="existingUser"> Correo electrónico ya existe!</h5>
+                ) : null}
+              </div>
             </form>
           </div>
         </div>

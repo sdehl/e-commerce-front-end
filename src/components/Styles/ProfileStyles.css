@@ -44,3 +44,17 @@
 .forgetPassword:hover {
   color: #6a6a6a;
 }
+
+.newUser {
+  color: #ab836e;
+  font-weight: bold;
+  text-decoration: underline 1px;
+  text-underline-offset: 3px;
+}
+
+.existingUser {
+  color: rgb(160, 0, 0);
+  text-decoration: underline 1px;
+  text-underline-offset: 3px;
+  font-weight: bold;
+}
