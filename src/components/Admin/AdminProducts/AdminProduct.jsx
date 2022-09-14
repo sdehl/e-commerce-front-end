@@ -40,7 +40,7 @@ function AdminProduct() {
       try {
         const response = await axios({
           method: "GET",
-          url: `${process.env.REACT_APP_API_URL}/product/${params.id}`,
+          url: `${process.env.REACT_APP_API_URL}/product/${params.slug}`,
         });
         await setProduct(response.data);
       } catch (error) {
