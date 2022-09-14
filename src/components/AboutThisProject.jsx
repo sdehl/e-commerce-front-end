@@ -9,7 +9,7 @@ function About() {
       semanas que duró insumió una carga horaria de circa 160 hrs por integrante, utilizando las
       siguientes tecnologías: React, Redux, Redux Toolkit, MongoDB, Express, Axios, MUI, Bootstrap,
       React-Bootstrap… Los estudiantes autores del proyecto son: Mercedes Torrendel, Santiago Dehl y
-      Marcos Ross Para la organización del proyecto se utilizaron las herramientas: Trello, para
+      Marcos Rossi. Para la organización del proyecto se utilizaron las herramientas: Trello, para
       controlar el flujo y la asignación de tareas, y Figma, para modelar y diagramar. Se utilizó el
       modelo Entidad-Relación (MER). La metodología adoptada para el desarrollo del proyecto fue
       Scrum, donde se llevó el proyecto sobre los estándares de MVP, presentando una demo al final
