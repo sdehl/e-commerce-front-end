@@ -48,23 +48,24 @@ function App() {
         {
           //protect route if admin
         }
+
         <Route element={<ProtectedRouteAdmin />}>
           <Route path="/admin" element={<AdminIndex />}></Route>
         </Route>
         <Route element={<ProtectedRouteAdmin />}>
-          <Route path="/adminProducts" element={<AdminProducts />}></Route>
+          <Route path="/admin/products" element={<AdminProducts />}></Route>
         </Route>
         <Route element={<ProtectedRouteAdmin />}>
-          <Route path="/adminProductsNew" element={<AdminProductsNew />}></Route>
+          <Route path="/admin/products/create" element={<AdminProductsNew />}></Route>
         </Route>
         <Route element={<ProtectedRouteAdmin />}>
-          <Route path="/adminProducts/:slug" element={<AdminProducts />}></Route>
+          <Route path="/admin/products/:slug" element={<AdminProducts />}></Route>
         </Route>
         <Route element={<ProtectedRouteAdmin />}>
-          <Route path="/adminUsers" element={<AdminUsers />}></Route>
+          <Route path="/admin/users" element={<AdminUsers />}></Route>
         </Route>
         <Route element={<ProtectedRouteAdmin />}>
-          <Route path="/adminOrders" element={<AdminOrders />}></Route>
+          <Route path="/admin/orders" element={<AdminOrders />}></Route>
         </Route>
 
         <Route path="*" element={<ErrorPage />}></Route>

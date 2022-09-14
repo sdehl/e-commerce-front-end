@@ -37,7 +37,7 @@ function AdminProducts() {
           <Link to={`/admin`}>
             <button className="irAtras"> Centro Administrativo </button>
           </Link>
-          <Link to={`/adminProductsNew`}>
+          <Link to={`/admin/products/create`}>
             <button className="updateButtonProduct"> Create new Product</button>
           </Link>
         </div>
@@ -70,7 +70,7 @@ function AdminProducts() {
                   <td className="textTable">{product.price}</td>
                   <td className="textTable">{product.stock}</td>
                   <td className="d-flex justify-content-between">
-                    <Link to={`/adminProducts/${product.slug}`}>
+                    <Link to={`/admin/products/${product.slug}`}>
                       <button className="updateButtonProduct">Editar</button>
                     </Link>
 

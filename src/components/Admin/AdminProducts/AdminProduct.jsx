@@ -171,7 +171,7 @@ function AdminProduct() {
               <p className="alertCorrectActualization">Se ha actualizado correctamente</p>
             )}
           </div>
-          <Link style={{ textDecoration: "none" }} to="/adminProducts">
+          <Link style={{ textDecoration: "none" }} to="/admin/products">
             <p className="LinkGoBack">ATRAS</p>
           </Link>
         </div>

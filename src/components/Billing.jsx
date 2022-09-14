@@ -56,7 +56,7 @@ function Billing({ userLogged }) {
       const response = await axios({
         method: "post",
         url: `${process.env.REACT_APP_API_URL}/orders`,
-        data: { order, userId: gema.userData.userId },
+        data: { order},
         headers: { Authorization: `Bearer ${token}` },
       });
       if (response.data !== 200) {

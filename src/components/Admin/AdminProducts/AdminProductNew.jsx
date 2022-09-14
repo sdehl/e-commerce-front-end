@@ -45,7 +45,6 @@ function NewProduct() {
             }}
           ></input>
           <ColoredLine color="gray" />
-
           <div className="d-flex justify-content-around flex-wrap  mt-5 mb-4">
             <div>
               <lable className="m-2">PRECIO (U$S)</lable>
@@ -132,7 +131,7 @@ function NewProduct() {
             <p className="alertCorrectActualization">Producto fue agregado correctamente</p>
           )}
         </div>
-        <Link style={{ textDecoration: "none" }} to="/adminProducts">
+        <Link style={{ textDecoration: "none" }} to="/admin/products">
           <p className="LinkGoBack">ATRAS</p>
         </Link>
       </div>
