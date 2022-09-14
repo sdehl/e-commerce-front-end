@@ -27,7 +27,6 @@ function Profile() {
           password: password,
         },
       });
-
       setUserStatus(result.status);
       setEmail("");
       setPassword("");
