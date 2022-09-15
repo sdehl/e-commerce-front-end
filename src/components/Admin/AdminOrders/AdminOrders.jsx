@@ -7,7 +7,6 @@ import _ from "lodash";
 import "../../styles/AdminStyles.css";
 import backArrow from "../../svg/arrow-left-solid.svg";
 
-
 function AllOrders() {
   const [allOrders, setAllOrders] = useState(null);
   const token = useSelector((state) => state.gema.userData.token);

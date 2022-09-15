@@ -276,15 +276,20 @@ function Billing({ userLogged }) {
                 productos elegidos
               </p>
               <div>
+                {missingProducts && (
+                  <h4 className="m-2 fw-bold">INFORMACION DE PRODUCTOS EN FALTA DE STOCK</h4>
+                )}
                 {missingProducts &&
                   missingProducts.map((product) => {
                     return (
-                      <div className="d-flex flex-column mt-4">
-                        <h4 className="m-2 fw-bold">INFORMACION DE PRODUCTOS EN FALTA DE STOCK</h4>
-                        <h6 className="m-2">NOMBRE: {product.name}</h6>
-                        <h6 className="m-2">Cantidad stock restante: {product.stockLeft}</h6>
-                        <img src={product.picture}></img>
-                      </div>
+                      <>
+                        <ColoredLine color="gray" />
+                        <div className="d-flex flex-column mt-4 mb-4">
+                          <h6 className="m-2">NOMBRE: {product.name}</h6>
+                          <h6 className="m-2">Cantidad stock restante: {product.stockLeft}</h6>
+                          <img className="sizeImageOutOfStock" src={product.picture}></img>
+                        </div>
+                      </>
                     );
                   })}
               </div>
