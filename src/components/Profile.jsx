@@ -89,7 +89,6 @@ function Profile() {
       }
       userProfile();
     }
-    userProfile();
   }, []);
 
   async function editProfile() {
@@ -248,7 +247,7 @@ function Profile() {
               <form
                 onSubmit={(e) => {
                   e.preventDefault();
-                  login();
+                  handle.login();
                 }}
               >
                 <strong>
@@ -320,7 +319,7 @@ function Profile() {
                 <form
                   onSubmit={(e) => {
                     e.preventDefault();
-                    register();
+                    handle.register();
                   }}
                 >
                   <strong>
