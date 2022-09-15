@@ -1,8 +1,14 @@
+import "../components/styles/About.css";
+
 function About() {
   return (
     <>
-      <div className="section-header">
-        <h1>QUIÉNES SOMOS</h1>
+      <div>
+        <img
+          src="https://www.gemainteriores.com/wp-content/uploads/2021/05/Coleccion-Negro-Mate.jpg"
+          className="banner w-100 my-4 pb-5 mb-5"
+          alt="tiradores de bronce irregulares"
+        />
       </div>
       <div className="container">
         <div className="row">
