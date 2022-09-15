@@ -17,7 +17,7 @@ function NavigationBar() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   return (
-    <>
+    <div className="allNavbar">
       <div className="top-banner d-none d-md-flex justify-content-center align-items-center">
         {" "}
         <div>
@@ -127,7 +127,7 @@ function NavigationBar() {
           </Container>
         </Navbar>
       </div>
-    </>
+    </div>
   );
 }
 

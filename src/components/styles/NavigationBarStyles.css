@@ -117,8 +117,12 @@
   background-image: url("../svg/bars-solid.svg") !important;
 }
 
-@media screen and (max-width: 480px) {
-  .itemsUpdate {
-    flex: 0 0 100%;
+@media screen and (max-width: 767px) {
+  .allNavbar {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-left: 2%;
+    margin-right: 2%;
   }
 }
