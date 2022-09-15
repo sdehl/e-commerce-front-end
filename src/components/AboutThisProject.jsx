@@ -1,4 +1,7 @@
 import "../components/styles/About.css";
+import mer from "./img/mer-t.jpg";
+import sant from "./img/sdehl.jpg";
+import marc from "./img/marc.jpg";
 
 function About() {
   return (
@@ -144,24 +147,24 @@ function About() {
           <div className="col">
             {" "}
             <img
-              src={"https://www.gemainteriores.com/wp-content/uploads/2021/04/H02-TUR-BZ-5.jpg"}
-              className="image about-image d-inline-block w-100 my-4"
+              src={mer}
+              className="image profile-image d-inline-block w-100 my-4"
               alt="Foto de perfil"
             />
           </div>
           <div className="col">
             {" "}
             <img
-              src={"https://www.gemainteriores.com/wp-content/uploads/2021/04/H02-TUR-BZ-5.jpg"}
-              className="image about-image d-inline-block w-100 my-4"
+              src={sant}
+              className="image profile-image d-inline-block w-100 my-4"
               alt="Foto de perfil"
             />
           </div>
           <div className="col">
             {" "}
             <img
-              src={"https://www.gemainteriores.com/wp-content/uploads/2021/04/H02-TUR-BZ-5.jpg"}
-              className="image about-image d-inline-block w-100 my-4"
+              src={marc}
+              className="image profile-image d-inline-block w-100 my-4"
               alt="Foto de perfil"
             />
           </div>
