@@ -16,7 +16,7 @@ function About() {
             <h4>Sobre este proyecto</h4>
             <p>
               Este E-commerce es el proyecto final desarrollado por{" "}
-              <strong>Mercedes Torrendel, Santiago Dehl y Marcos Rossi</strong> en el marco del
+              <strong>Mercedes Torrendell, Santiago Dehl y Marcos Rossi</strong> en el marco del
               Bootcamp-Grupo 2207 de Hack Academy, una institución educativa ubicada en Montevideo,
               Uruguay especializada en programación, que imparte cursos desde el año 2016. El
               bootcamp es un curso de tiempo completo que capacita a desarrolladores como Full Stack
@@ -29,7 +29,7 @@ function About() {
           </div>
           <div className="col">
             <img
-              src="https://www.gemainteriores.com/wp-content/uploads/2021/04/H02-TUR-BZ-1-1-768x530.jpg"
+              src="https://www.gemainteriores.com/wp-content/uploads/2021/04/H02-TUR-BZ-1-1.jpg"
               className="image d-inline-block w-100 my-4"
               alt="tiradores de bronce irregulares"
             />
@@ -38,7 +38,7 @@ function About() {
         <div className="row">
           <div className="col">
             <img
-              src={"https://www.gemainteriores.com/wp-content/uploads/2021/04/H02-CUA-BZ-1-1.jpg"}
+              src={"https://www.gemainteriores.com/wp-content/uploads/2021/04/H02-CUA-BZ-1.jpg"}
               className="image d-inline-block w-100 my-4"
               alt="tiradores de bronce cilíndricos"
             />
@@ -57,9 +57,9 @@ function About() {
               E-commerce cuenta con una página Home, una página con todos los productos, y un panel
               de administración donde el usuario con permisos de administrador podrá crear,
               consultar, modificar/actualizar y borrar artículos. Inspiramos la plantilla de nuestro
-              e-store con la de Gema, un sitio web minorista de accesorios ??? cuidadosamente
-              diseñado. Nutrimos nuestra base de datos con imágenes, descripciones, nombres y
-              precios del propio website.
+              e-store con la de Gema, un sitio web minorista de accesorios de interiores
+              cuidadosamente diseñado. Nutrimos nuestra base de datos con imágenes, descripciones,
+              nombres y precios del propio website.
             </p>
           </div>
         </div>
@@ -77,7 +77,7 @@ function About() {
           </div>
           <div className="col">
             <img
-              src="https://www.gemainteriores.com/wp-content/uploads/2021/05/Coleccion-Negro-Mate.jpg"
+              src="https://www.gemainteriores.com/wp-content/uploads/2021/04/H01-PIR-18-BZ-3.jpg"
               className="image d-inline-block w-100 my-4"
               alt="tiradores negros, griferia negra y color-palette sobre alfombra"
             />
@@ -86,7 +86,7 @@ function About() {
         <div className="row">
           <div className="col">
             <img
-              src={"https://www.gemainteriores.com/wp-content/uploads/2020/07/IMG_4427.jpg"}
+              src={"https://www.gemainteriores.com/wp-content/uploads/2021/04/H02-TUR-BZ-5.jpg"}
               className="image d-inline-block w-100 my-4"
               alt="Llamador de puerta palm en bronce"
             />
@@ -109,23 +109,33 @@ function About() {
           </div>
         </div>
       </div>
-      <div className="row text-center m-5 pt-5">
-        <div className="col">Icon</div>
-        <div className="col">Icon</div>
-        <div className="col">Icon</div>
-        <div className="col">Icon</div>
+      <div className="row text-center m-5 py-5">
+        <div className="col">
+          <div class="icons8-react-native"></div>
+        </div>
+        <div className="col">
+          <div class="icons8-figma"></div>
+        </div>
+        <div className="col">
+          <div class="icons8-redux"></div>
+        </div>
+        <div className="col">
+          <div class="icons8-trello"></div>
+        </div>
       </div>
-      <div className="row text-center m-5">
-        <div className="col">Icon</div>
-        <div className="col">Icon</div>
-        <div className="col">Icon</div>
-        <div className="col">Icon</div>
-      </div>
-      <div className="row text-center m-5 pb-5">
-        <div className="col">Icon</div>
-        <div className="col">Icon</div>
-        <div className="col">Icon</div>
-        <div className="col">Icon</div>
+      <div className="row text-center m-5 py-5">
+        <div className="col">
+          <div class="icons8-mongodb"></div>
+        </div>
+        <div className="col">
+          <div class="icons8-mongoose"></div>
+        </div>
+        <div className="col">
+          <div class="icons8-discord"></div>
+        </div>
+        <div className="col">
+          <div class="icons8-microsoft-teams-2019"></div>
+        </div>
       </div>
     </>
   );
