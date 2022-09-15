@@ -16,7 +16,7 @@
   height: 80px;
   width: fit-content;
   position: relative;
-  left: -69px;
+  /* left: -69px; */
 }
 
 .top-banner {
@@ -97,4 +97,13 @@
 .underline-animation:hover:after {
   transform: scaleX(1);
   transform-origin: bottom left;
+}
+
+.col-4 {
+  text-align: center;
+}
+.navIcons {
+  justify-content: right;
+  position: relative;
+  right: 20px;
 }

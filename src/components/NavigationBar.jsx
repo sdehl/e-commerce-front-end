@@ -3,8 +3,8 @@ import { Container, Nav, Navbar } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router";
 
+import gemaLogo from "./img/gema-logo.png";
 import search from "./svg/magnifying-glass-solid.svg";
-// import bag from "./svg/bag-shopping-solid.svg";
 import cart from "./svg/cart-shopping-solid.svg";
 import profile from "./svg/user-regular.svg";
 import rocket from "./svg/rocket-solid.svg";
@@ -36,27 +36,25 @@ function NavigationBar() {
           <span>Envios a Montevideo y al Interior del Uruguay</span>{" "}
         </div>
       </div>
-      <div className=" d-flex justify-content-between align-items-center mx-5">
-        <div className="d-none d-md-flex align-items-center">
-          <input
-            className="headerSearch"
-            type="text"
-            onClick={() => {
-              navigate("/search");
-            }}
-          />{" "}
-          <img className="icons mx-2" src={search} alt="search icon" />
+      <div className="row align-items-center my-4 ">
+        <div className="col-4 d-none d-md-flex">
+          <div>
+            <input
+              className="headerSearch"
+              type="text"
+              onClick={() => {
+                navigate("/search");
+              }}
+            />{" "}
+            <img className="icons mx-2" src={search} alt="search icon" />
+          </div>
         </div>
-        <div>
+        <div className="col-4">
           <Link to="/">
-            <img
-              className="home-logo"
-              src="https://www.gemainteriores.com/wp-content/uploads/2021/05/Logo-H4-1-scaled.jpg"
-              alt="gema-logo"
-            />
+            <img className="home-logo" src={gemaLogo} alt="gema-logo" />
           </Link>
         </div>
-        <div className="d-none d-md-flex ">
+        <div className="col-4 d-none d-md-flex navIcons">
           <div>
             <img
               className="icons link-icons"

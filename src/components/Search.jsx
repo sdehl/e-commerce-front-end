@@ -43,7 +43,7 @@ function Search() {
   return (
     <>
       <div className="allSearchItems ">
-        <h2 classNem="mb-2">NEW SEARCH</h2>
+        <h2 className="mb-2">NEW SEARCH</h2>
         <input
           className="searchInput mt-4"
           type="text"

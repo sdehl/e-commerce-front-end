@@ -24,11 +24,7 @@ function User({ show, handleClose, user }) {
                 <div className="d-flex flex-column">
                   <div className="d-flex flex-column">
                     <h1 className="textCenter mb-4">
-<<<<<<< HEAD
-                      {user.username ? user.username : user.email}
-=======
                       {user.username ? user.username() : user.email()}
->>>>>>> 0f6bb72e676d537d7fd851234a5076a1748a7406
                     </h1>
                     <div className="d-flex">
                       <h5 className="textElementInModal mt-1">Name:</h5>

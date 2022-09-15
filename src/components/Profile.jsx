@@ -242,7 +242,12 @@ function Profile() {
         <div className="container profileForm">
           <div className="row signInForm">
             <div className="col-12 col-lg-6">
-              <form>
+              <form
+                onSubmit={(e) => {
+                  e.preventDefault();
+                  login();
+                }}
+              >
                 <strong>
                   <h2> INICIAR SESIÓN</h2>
                 </strong>
@@ -277,11 +282,11 @@ function Profile() {
                 <div className="d-flex align-items-center justify-content-between mb-3 ">
                   <div>
                     <button
-                      type="button"
+                      type="submit"
                       className="login-btn"
-                      onClick={() => {
-                        login();
-                      }}
+                      // onClick={() => {
+                      //   login();
+                      // }}
                     >
                       INICIAR SESIÓN
                     </button>
@@ -312,7 +317,12 @@ function Profile() {
               </form>
 
               <div className="registerForm">
-                <form>
+                <form
+                  onSubmit={(e) => {
+                    e.preventDefault();
+                    register();
+                  }}
+                >
                   <strong>
                     <h2> REGISTRARME</h2>
                   </strong>
@@ -346,13 +356,7 @@ function Profile() {
                   </div>
 
                   <div className="d-flex align-items-center justify-content-between">
-                    <button
-                      type="button"
-                      className="register-btn "
-                      onClick={() => {
-                        register();
-                      }}
-                    >
+                    <button type="submit" className="register-btn ">
                       REGISTRARME
                     </button>
                     {userStatus === 201 ? (
