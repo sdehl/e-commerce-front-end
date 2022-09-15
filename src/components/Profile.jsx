@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { storeUserData } from "../redux/slices/gemaSlice";
+import { deleteUserData, storeUserData } from "../redux/slices/gemaSlice";
 import Alert from "@mui/material/Alert";
 import cart from "./svg/cart-shopping-solid.svg";
 import home from "./svg/house-solid.svg";
@@ -16,8 +16,21 @@ function Profile() {
   const [loginPassword, setLoginPassword] = useState("");
   const [userStatus, setUserStatus] = useState("");
   const [loginStatus, setLoginStatus] = useState("");
+  const [userInfo, setUserInfo] = useState(null);
+  const [firstname, setFirstname] = useState("");
+  const [lastname, setLastname] = useState("");
+  const [username, setUsername] = useState("");
+  const [phone, setPhone] = useState("");
+  const [adress, setAdress] = useState("");
+  // console.log(firstname);
+  // console.log(lastname);
+  // console.log(username);
+  // console.log(phone);
+  // console.log(adress);
 
-  console.log(gema);
+  // console.log(userInfo);
+
+  // console.log(gema);
   const navigate = useNavigate();
 
   const dispatch = useDispatch();
@@ -67,114 +80,172 @@ function Profile() {
     }
   }
 
+  useEffect(() => {
+    async function userProfile() {
+      try {
+        const data = await axios({
+          method: "GET",
+          url: `${process.env.REACT_APP_API_URL}/users/${gema.userData.userId}`,
+          headers: { Authorization: `Bearer ${gema.userData.token}` },
+        });
+        setUserInfo(data.data.user);
+      } catch (error) {
+        console.log(error);
+      }
+    }
+    userProfile();
+  }, [userInfo]);
+
+  async function editProfile() {
+    try {
+      const newData = await axios({
+        method: "PATCH",
+        url: `${process.env.REACT_APP_API_URL}/users/${gema.userData.userId}`,
+        headers: { Authorization: `Bearer ${gema.userData.token}` },
+        data: {
+          firstname: firstname,
+          lastname: lastname,
+          username: username,
+          phone: phone,
+          adress: adress,
+        },
+      });
+      console.log(newData);
+      setUserStatus(newData.status);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
   return (
     <>
       {gema.userData.token ? (
-        <div className="container profileForm">
-          <div className="row editForm">
-            <div className="col-12 col-lg-6">
-              <form>
-                <strong>
-                  <h2> EDITAR PERFIL</h2>
-                </strong>
-                <div className="my-5 ">
-                  <label htmlFor="firstname" className="form-label">
-                    Nombre
-                  </label>
-                  <input
-                    required
-                    type="text"
-                    // value={loginEmailorUsername}
-                    className="form-control"
-                    name="firstname"
-                    id="firstname"
-                    // onChange={(e) => setLoginEmailorUsername(e.target.value)}
-                  />
-                </div>
-                <div className="my-5 ">
-                  <label htmlFor="lastname" className="form-label">
-                    Apellido
-                  </label>
-                  <input
-                    required
-                    type="text"
-                    // value={loginEmailorUsername}
-                    className="form-control"
-                    name="lastname"
-                    id="lastname"
-                    // onChange={(e) => setLoginEmailorUsername(e.target.value)}
-                  />
-                </div>
-                <div className="my-5 ">
-                  <label htmlFor="username" className="form-label">
-                    Nombre de usuario
-                  </label>
-                  <input
-                    required
-                    type="text"
-                    // value={loginEmailorUsername}
-                    className="form-control"
-                    name="username"
-                    id="username"
-                    // onChange={(e) => setLoginEmailorUsername(e.target.value)}
-                  />
-                </div>
-                <div className="mb-5">
-                  <label htmlFor="phone" className="form-label">
-                    Teléfono
-                  </label>
-                  <input
-                    required
-                    // value={loginPassword}
-                    type="tel"
-                    name="phone"
-                    className="form-control"
-                    id="phone"
-                    placeholder="+598 xx xxx xxx"
-                    // onChange={(e) => setLoginPassword(e.target.value)}
-                  />
-                </div>
-                <div className="mb-5">
-                  <label htmlFor="adress" className="form-label">
-                    Dirección
-                  </label>
-                  <input
-                    required
-                    // value={loginPassword}
-                    type="text"
-                    name="adress"
-                    className="form-control"
-                    id="adress"
-                    // onChange={(e) => setLoginPassword(e.target.value)}
-                  />
-                </div>
-                <div className="d-flex align-items-center justify-content-between">
-                  <button
-                    type="button"
-                    className="save-btn "
-                    // onClick={() => {
-                    //   register();
-                    // }}
-                  >
-                    GUARDAR
-                  </button>
-                  {userStatus === 201 ? (
-                    <Alert severity="warning" icon={false}>
-                      Perfil editado correctamente!{" "}
-                      <span className="mx-2">
-                        <Link className="home-link" to="/">
-                          Ir a <img className="home-icon" src={home} alt="" />
-                        </Link>
-                      </span>
-                    </Alert>
-                  ) : null}
-                </div>
-              </form>
+        userInfo && (
+          <div className="container profileForm">
+            <div className="row editForm">
+              <div className="col-12 col-lg-6">
+                <form>
+                  <strong>
+                    <h2>PERFIL DEL USUARIO</h2>
+                  </strong>
+                  <div className="my-5 ">
+                    <label htmlFor="firstname" className="form-label">
+                      Nombre
+                    </label>
+                    <input
+                      required
+                      type="text"
+                      defaultValue={userInfo.firstname}
+                      className="form-control"
+                      name="firstname"
+                      id="firstname"
+                      onChange={(e) => setFirstname(e.target.value)}
+                    />
+                  </div>
+                  <div className="my-5 ">
+                    <label htmlFor="lastname" className="form-label">
+                      Apellido
+                    </label>
+                    <input
+                      required
+                      type="text"
+                      defaultValue={userInfo.lastname}
+                      className="form-control"
+                      name="lastname"
+                      id="lastname"
+                      onChange={(e) => setLastname(e.target.value)}
+                    />
+                  </div>
+                  <div className="my-5 ">
+                    <label htmlFor="username" className="form-label">
+                      Nombre de usuario
+                    </label>
+                    <input
+                      required
+                      type="text"
+                      defaultValue={userInfo.username}
+                      className="form-control"
+                      name="username"
+                      id="username"
+                      onChange={(e) => setUsername(e.target.value)}
+                    />
+                  </div>
+                  <div className="mb-5">
+                    <label htmlFor="phone" className="form-label">
+                      Teléfono
+                    </label>
+                    <input
+                      required
+                      defaultValue={userInfo.phone}
+                      type="number"
+                      name="phone"
+                      className="form-control"
+                      id="phone"
+                      placeholder="+598 xx xxx xxx"
+                      onChange={(e) => setPhone(e.target.value)}
+                    />
+                  </div>
+                  <div className="mb-5">
+                    <label htmlFor="adress" className="form-label">
+                      Dirección
+                    </label>
+                    <input
+                      required
+                      defaultValue={userInfo.adress}
+                      type="text"
+                      name="adress"
+                      className="form-control"
+                      id="adress"
+                      onChange={(e) => setAdress(e.target.value)}
+                    />
+                  </div>
+                  <div className="d-flex align-items-center justify-content-between">
+                    <button
+                      type="button"
+                      className="save-btn "
+                      onClick={() => {
+                        editProfile();
+                      }}
+                    >
+                      GUARDAR
+                    </button>
+                    <button
+                      className="logout-btn my-5"
+                      onClick={() => {
+                        dispatch(deleteUserData());
+                      }}
+                    >
+                      LOGOUT{" "}
+                    </button>
+                  </div>
+                  <div className="userEdited">
+                    {userStatus === 200 ? (
+                      <Alert severity="warning" icon={false}>
+                        Perfil editado correctamente!{" "}
+                        <span className="mx-2">
+                          <Link className="home-link" to="/">
+                            Ir a <img className="home-icon" src={home} alt="" />
+                          </Link>
+                        </span>
+                      </Alert>
+                    ) : null}
+                  </div>
+                </form>
+              </div>
+              <div className="col-12 col-lg-6">
+                <h3>HISTORIAL DE ORDENES</h3>
+                {/* {userInfo.orderHistory.map((orders)=>{
+                  return(
+                    orders.
+                  )
+                })} */}
+              </div>
             </div>
           </div>
-        </div>
+        )
       ) : (
-        // Aqui empieza el login/register
+        //  login/register
+
         <div className="container profileForm">
           <div className="row signInForm">
             <div className="col-12 col-lg-6">
@@ -315,18 +386,4 @@ function Profile() {
   );
 }
 
-// import * as React from 'react';
-// import Alert from '@mui/material/Alert';
-// import Stack from '@mui/material/Stack';
-
-// export default function BasicAlerts() {
-//   return (
-//     <Stack sx={{ width: '100%' }} spacing={2}>
-//       <Alert severity="error">This is an error alert — check it out!</Alert>
-//       <Alert severity="warning">This is a warning alert — check it out!</Alert>
-//       <Alert severity="info">This is an info alert — check it out!</Alert>
-//       <Alert severity="success">This is a success alert — check it out!</Alert>
-//     </Stack>
-//   );
-// }
 export default Profile;
