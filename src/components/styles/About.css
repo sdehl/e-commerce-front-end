@@ -8,7 +8,9 @@
   max-height: 510px;
   min-height: 336px;
 }
-
+.profile-image {
+  border-radius: 50%;
+}
 .icons8-redux {
   display: inline-block;
   width: 96px;
