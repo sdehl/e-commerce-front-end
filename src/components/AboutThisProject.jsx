@@ -30,7 +30,7 @@ function About() {
           <div className="col">
             <img
               src="https://www.gemainteriores.com/wp-content/uploads/2021/04/H02-TUR-BZ-1-1.jpg"
-              className="image d-inline-block w-100 my-4"
+              className="image about-image d-inline-block w-100 my-4"
               alt="tiradores de bronce irregulares"
             />
           </div>
@@ -39,7 +39,7 @@ function About() {
           <div className="col">
             <img
               src={"https://www.gemainteriores.com/wp-content/uploads/2021/04/H02-CUA-BZ-1.jpg"}
-              className="image d-inline-block w-100 my-4"
+              className="image about-image d-inline-block w-100 my-4"
               alt="tiradores de bronce cilíndricos"
             />
           </div>
@@ -78,7 +78,7 @@ function About() {
           <div className="col">
             <img
               src="https://www.gemainteriores.com/wp-content/uploads/2021/04/H01-PIR-18-BZ-3.jpg"
-              className="image d-inline-block w-100 my-4"
+              className="image about-image d-inline-block w-100 my-4"
               alt="tiradores negros, griferia negra y color-palette sobre alfombra"
             />
           </div>
@@ -87,7 +87,7 @@ function About() {
           <div className="col">
             <img
               src={"https://www.gemainteriores.com/wp-content/uploads/2021/04/H02-TUR-BZ-5.jpg"}
-              className="image d-inline-block w-100 my-4"
+              className="image about-image d-inline-block w-100 my-4"
               alt="Llamador de puerta palm en bronce"
             />
           </div>
@@ -135,6 +135,36 @@ function About() {
         </div>
         <div className="col">
           <div class="icons8-microsoft-teams-2019"></div>
+        </div>
+      </div>
+      <div className="container w-75">
+        <div className="row d.flex card-group pb-5">
+          <h1>TEAM:</h1>
+
+          <div className="col">
+            {" "}
+            <img
+              src={"https://www.gemainteriores.com/wp-content/uploads/2021/04/H02-TUR-BZ-5.jpg"}
+              className="image about-image d-inline-block w-100 my-4"
+              alt="Foto de perfil"
+            />
+          </div>
+          <div className="col">
+            {" "}
+            <img
+              src={"https://www.gemainteriores.com/wp-content/uploads/2021/04/H02-TUR-BZ-5.jpg"}
+              className="image about-image d-inline-block w-100 my-4"
+              alt="Foto de perfil"
+            />
+          </div>
+          <div className="col">
+            {" "}
+            <img
+              src={"https://www.gemainteriores.com/wp-content/uploads/2021/04/H02-TUR-BZ-5.jpg"}
+              className="image about-image d-inline-block w-100 my-4"
+              alt="Foto de perfil"
+            />
+          </div>
         </div>
       </div>
     </>
