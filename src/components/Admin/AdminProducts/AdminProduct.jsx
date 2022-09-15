@@ -8,12 +8,14 @@ import backArrow from "../../svg/arrow-left-solid.svg";
 import "../../styles/AdminStyles.css";
 
 function AdminProduct() {
+  const token = useSelector((state) => state.gema.userData.token);
   const params = useParams();
+
+  //states
   const [product, setProduct] = useState(null);
   const [correctlyUpdated, setCorrectlyUpdated] = useState(false);
   const [validCategory, setValidCategory] = useState(true);
-  const token = useSelector((state) => state.gema.userData.token);
-  const [originalName, setOriginalName] = useState();
+  const [originalName, setOriginalName] = useState("");
 
   const navigate = useNavigate();
 
@@ -35,7 +37,6 @@ function AdminProduct() {
         data: { product, originalName },
         headers: { Authorization: `Bearer ${token}` },
       });
-      console.log(response.data);
       return await response.data;
     },
   };
@@ -49,7 +50,7 @@ function AdminProduct() {
           headers: { Authorization: `Bearer ${token}` },
         });
         if (response.data !== "El producto no existe! Ha sido eliminado") {
-          await setProduct(response.data);
+          setProduct(response.data);
           setOriginalName(response.data.name);
         }
       } catch (error) {
@@ -136,9 +137,51 @@ function AdminProduct() {
                   ERROR! No existe categoría! Las categorias actuales son:
                 </Alert>
                 <ul>
-                  <li>Herrajes</li>
-                  <li>Tiradores</li>
-                  <li>Grifería</li>
+                  <li>
+                    <button
+                      className="bottonCategoria"
+                      onClick={() => {
+                        setProduct((current) => {
+                          return {
+                            ...current,
+                            category: "Herrajes",
+                          };
+                        });
+                      }}
+                    >
+                      Herrajes
+                    </button>
+                  </li>
+                  <li>
+                    <button
+                      className="bottonCategoria"
+                      onClick={() => {
+                        setProduct((current) => {
+                          return {
+                            ...current,
+                            category: "Tiradores",
+                          };
+                        });
+                      }}
+                    >
+                      Tiradores
+                    </button>
+                  </li>
+                  <li>
+                    <button
+                      className="bottonCategoria"
+                      onClick={() => {
+                        setProduct((current) => {
+                          return {
+                            ...current,
+                            category: "Griferías",
+                          };
+                        });
+                      }}
+                    >
+                      Grifería
+                    </button>
+                  </li>
                 </ul>
               </>
             )}

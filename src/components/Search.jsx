@@ -1,7 +1,6 @@
 import "./styles/SearchStyles.css";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { useParams } from "react-router-dom";
 import SearchProduct from "./SearchProduct";
 import search from "./svg/magnifying-glass-solid.svg";
 import ProductCard from "./ProductCard";
@@ -11,7 +10,7 @@ function Search() {
   const [productName, setProductName] = useState("");
   const [recomProducts, setRecomProducts] = useState("");
 
-  //Helpers
+  //Auxiliar function
   const handle = {
     apiCall: async () => {
       const response = await axios({
@@ -33,12 +32,12 @@ function Search() {
 
   //when params change the api is called again with new category
   useEffect(() => {
-    handle.apiCall();
-  }, [productName]);
-
-  useEffect(() => {
     handle.get3Products();
   }, []);
+
+  useEffect(() => {
+    handle.apiCall();
+  }, [productName]);
 
   return (
     <>

@@ -8,11 +8,10 @@ import backArrow from "../../svg/arrow-left-solid.svg";
 import "../../styles/AdminStyles.css";
 
 function NewProduct() {
-  const params = useParams();
+  const token = useSelector((state) => state.gema.userData.token);
   const [product, setProduct] = useState(null);
   const [correctlyCreated, setCorrectlyCreated] = useState("");
   const [validCategory, setValidCategory] = useState(true);
-  const token = useSelector((state) => state.gema.userData.token);
   const navigate = useNavigate();
 
   const ColoredLine = ({ color }) => (
@@ -25,6 +24,8 @@ function NewProduct() {
       }}
     />
   );
+
+  //Auxiliar function
   const handle = {
     createProduct: async (product) => {
       const response = await axios({

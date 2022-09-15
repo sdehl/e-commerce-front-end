@@ -27,65 +27,68 @@ function Profile() {
 
   const dispatch = useDispatch();
 
-  async function register() {
-    try {
-      const result = await axios({
-        method: "POST",
-        url: `${process.env.REACT_APP_API_URL}/register`,
-        headers: { "Content-Type": "application/json" },
-        data: {
-          email: email,
-          password: password,
-        },
-      });
+  const handle = {
+    register: async () => {
+      try {
+        const result = await axios({
+          method: "POST",
+          url: `${process.env.REACT_APP_API_URL}/register`,
+          headers: { "Content-Type": "application/json" },
+          data: {
+            email: email,
+            password: password,
+          },
+        });
+        dispatch(storeUserData(result.data));
+        setUserStatus(result.status);
+        setEmail("");
+        setPassword("");
+      } catch (error) {
+        console.log(error);
+        setUserStatus(error.response.status);
+      }
+    },
+    login: async () => {
+      try {
 
-      dispatch(storeUserData(result.data));
-      setUserStatus(result.status);
-      setEmail("");
-      setPassword("");
-    } catch (error) {
-      console.log(error);
-      setUserStatus(error.response.status);
-    }
-  }
+        const response = await axios({
+          method: "POST",
+          url: `${process.env.REACT_APP_API_URL}/login`,
+          headers: { "Content-Type": "application/json" },
+          data: {
+            emailorUsername: loginEmailorUsername,
+            password: loginPassword,
+          },
+        });
 
-  async function login() {
-    try {
-      const response = await axios({
-        method: "POST",
-        url: `${process.env.REACT_APP_API_URL}/login`,
-        headers: { "Content-Type": "application/json" },
-        data: {
-          emailorUsername: loginEmailorUsername,
-          password: loginPassword,
-        },
-      });
-
-      dispatch(storeUserData(response.data));
-      navigate(-1);
-      setLoginEmailorUsername("");
-      setLoginPassword("");
-      setLoginStatus(response.status);
-    } catch (error) {
-      console.log(error.response.status);
-      setLoginStatus(error.response.status);
-    }
+        dispatch(storeUserData(response.data));
+        navigate(-1);
+        setLoginEmailorUsername("");
+        setLoginPassword("");
+        setLoginStatus(response.status);
+      } catch (error) {
+        console.log(error.response.status);
+        setLoginStatus(error.response.status);
+      }
+    },
   }
 
   useEffect(() => {
-    async function userProfile() {
-      try {
-        const data = await axios({
-          method: "GET",
-          url: `${process.env.REACT_APP_API_URL}/users/${gema.userData.userId}`,
-          headers: { Authorization: `Bearer ${gema.userData.token}` },
-        });
-        setUserInfo(data.data.user);
-      } catch (error) {
-        console.log(error);
+    if (gema.userData.userId) {
+      async function userProfile() {
+        try {
+          const data = await axios({
+            method: "GET",
+            url: `${process.env.REACT_APP_API_URL}/users/${gema.userData.userId}`,
+            headers: { Authorization: `Bearer ${gema.userData.token}` },
+          });
+          setUserInfo(data.data.user);
+        } catch (error) {
+          console.log(error);
+        }
       }
+      userProfile();
     }
-    userProfile();
   }, []);
 
   async function editProfile() {
@@ -102,7 +105,6 @@ function Profile() {
           adress: adress,
         },
       });
-      console.log(newData);
       setUserStatus(newData.status);
     } catch (error) {
       console.log(error);
@@ -245,7 +247,7 @@ function Profile() {
               <form
                 onSubmit={(e) => {
                   e.preventDefault();
-                  login();
+                  handle.login();
                 }}
               >
                 <strong>
@@ -284,9 +286,6 @@ function Profile() {
                     <button
                       type="submit"
                       className="login-btn"
-                      // onClick={() => {
-                      //   login();
-                      // }}
                     >
                       INICIAR SESIÓN
                     </button>
@@ -320,7 +319,7 @@ function Profile() {
                 <form
                   onSubmit={(e) => {
                     e.preventDefault();
-                    register();
+                    handle.register();
                   }}
                 >
                   <strong>

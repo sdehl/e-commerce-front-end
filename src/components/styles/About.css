@@ -2,6 +2,12 @@
   object-fit: cover;
   max-height: 250px;
 }
+.about-image {
+  max-width: 510px;
+  min-width: 336px;
+  max-height: 510px;
+  min-height: 336px;
+}
 
 .icons8-redux {
   display: inline-block;

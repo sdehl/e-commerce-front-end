@@ -9,8 +9,9 @@ import backArrow from "../../svg/arrow-left-solid.svg";
 import "../../styles/AdminStyles.css";
 
 function AdminProducts() {
-  const [products, setProducts] = useState(null);
   const token = useSelector((state) => state.gema.userData.token);
+
+  const [products, setProducts] = useState(null);
 
   const handle = {
     apiCall: async () => {

@@ -9,7 +9,7 @@ const gemaSlice = createSlice({
     userData: {},
   },
   reducers: {
-    //REDUCERS PRODUCT - CART  ------------------------------
+    // PRODUCT - CART  ------------------------------
     addProductToCart(state, action) {
       if (state.cart.length > 0) {
         let position = 0;
@@ -53,7 +53,7 @@ const gemaSlice = createSlice({
       state.cantProductsCart = 0;
       state.totalPrice = 0;
     },
-    //REDUCER USERS ---------------------------------------------------
+    //USERS ---------------------------------------------------
     updateUser(state, action) {
       state.cart[action.payload.position].cant += action.payload.cant;
     },

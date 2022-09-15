@@ -1,8 +1,4 @@
-import {
-  addProductToCart,
-  updateCantProducts,
-  updateTotalPrice
-} from "../redux/slices/gemaSlice";
+import { addProductToCart, updateCantProducts, updateTotalPrice } from "../redux/slices/gemaSlice";
 import { useDispatch } from "react-redux";
 import { useState } from "react";
 import { useNavigate } from "react-router";
@@ -33,7 +29,7 @@ function ProductCard({ product, handleShow }) {
             if (buttonCart !== "Agregar al carrito") {
               navigate("/cart");
             } else {
-              dispatch(addProductToCart({ id: product._id, cant: 1, slug: product.slug, }));
+              dispatch(addProductToCart({ id: product._id, cant: 1, slug: product.slug }));
               dispatch(updateCantProducts(1));
               dispatch(updateTotalPrice(product.price));
               setButtonCart("Ver carrito");

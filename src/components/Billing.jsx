@@ -1,23 +1,22 @@
-import {
-  deleteCart
-} from "../redux/slices/gemaSlice";
-import { useSelector } from "react-redux";
-import { useLocation } from "react-router-dom";
-import "./styles/BillingStyles.css";
+import { deleteCart } from "../redux/slices/gemaSlice";
+import { useSelector, useDispatch } from "react-redux";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router";
-import { useDispatch } from "react-redux";
-import Swal from 'sweetalert2'
+import Swal from "sweetalert2";
+import "./styles/BillingStyles.css";
+import { set } from "lodash";
 
 function Billing({ userLogged }) {
   const gema = useSelector((state) => state.gema);
-  const dispatch = useDispatch();
-  const [cart, setCart] = useState(null);
   const token = useSelector((state) => state.gema.userData.token);
+  const dispatch = useDispatch();
+  console.log("gema", gema);
+
+  //states
+  const [cart, setCart] = useState(null);
   const [errorMessage, setErrorMessage] = useState(false);
   const [order, setOrder] = useState({});
-  const [productoFalta, setProfuctoFalta] = useState(null);
+  const [missingProducts, setMissingProducts] = useState(null);
 
   const ColoredLine = ({ color }) => (
     <hr
@@ -30,6 +29,7 @@ function Billing({ userLogged }) {
     />
   );
 
+  //Auxiliar functions
   const handle = {
     apiCall: async (productSlug) => {
       const response = await axios({
@@ -45,24 +45,29 @@ function Billing({ userLogged }) {
       for (const prod of gema.cart) {
         if (prod.cant > 0) {
           let productObject = await handle.apiCall(prod.slug);
-          console.log(productObject);
           obj.push({ product: productObject, cant: prod.cant });
           tot += productObject.price * prod.cant;
         }
       }
-      await setCart(obj);
+      setCart(obj);
     },
     createOrder: async () => {
-      const response = await axios({
-        method: "post",
-        url: `${process.env.REACT_APP_API_URL}/orders`,
-        data: { order, totalPrice: gema.totalPrice},
-        headers: { Authorization: `Bearer ${token}` },
-      });
-      if (response.data !== 200) {
-        setProfuctoFalta(response.data);
-      } else {
-        return response.data;
+      try {
+        const response = await axios({
+          method: "post",
+          url: `${process.env.REACT_APP_API_URL}/orders`,
+          data: { order, totalPrice: gema.totalPrice },
+          headers: { Authorization: `Bearer ${token}` },
+        });
+        Swal.fire({
+          title: "La orden fue creada correctamente!",
+          icon: "success",
+          confirmButtonText: "Continuar",
+        });
+        dispatch(deleteCart());
+      } catch (error) {
+        setMissingProducts(error.response.data);
+        setErrorMessage(true);
       }
     },
   };
@@ -89,14 +94,14 @@ function Billing({ userLogged }) {
   return (
     cart && (
       <div className="contMargin">
+        <div className="titleBilling">
+          <h6 className="pb-4 tituloBilling">DETALLES DE FACTURACIÓN</h6>
+        </div>
         <div className="row">
           <div className="col-6">
-            <div className="d-flex listProducts">
-              <div className="d-flex flex-column ml-4">
+            <div className="row">
+              <div className="col-6 d-flex flex-column ml-4">
                 {" "}
-                {
-                  //we will by default put the name of the user logged
-                }
                 <label>First Name *</label>
                 <input
                   required
@@ -112,7 +117,7 @@ function Billing({ userLogged }) {
                   }}
                 ></input>
               </div>
-              <div className="d-flex flex-column">
+              <div className="col-6 d-flex flex-column">
                 {" "}
                 <label>Last Name *</label>
                 <input required className="inputListCheckout"></input>
@@ -215,9 +220,9 @@ function Billing({ userLogged }) {
             </div>
           </div>
           <div className="col-6">
-            <div className=" d-flex flex-column listProducts">
+            <div className="m-0 d-flex flex-column listProducts">
               <label>Notas del pedido (opcional)</label>
-              <input
+              <textarea
                 className="extraInfoInput"
                 value={order.additionalDescription}
                 onChange={(e) => {
@@ -228,72 +233,63 @@ function Billing({ userLogged }) {
                     };
                   });
                 }}
-              ></input>
+              ></textarea>
             </div>
           </div>
           <h3 className="mt-4 mb-3">TU PEDIDO</h3>
-          <div className="">
-            <div className="d-flex">
+          <div className="order">
+            <div className="row">
               {" "}
-              <h5>PRODUCTO</h5>
-              <h5>SUBTOTAL</h5>
+              <h5 className="col-2"></h5>
+              <h5 className="col-6 ">PRODUCTO</h5>
+              <h5 className="col-2">SUBTOTAL</h5>
             </div>
             {cart.map((property) => {
               return (
-                <div>
+                <>
                   <ColoredLine color="gray" />
-                  <div className="d-flex listProducts">
-                    <h5>{property.product.name}</h5>
-                    <h5>{property.product.price}</h5>
+                  <div className="row marginProducts">
+                    <h5 className="col-2 d-flex justify-content-center">{property.cant} x</h5>
+                    <h5 className="col-6">{property.product.name}</h5>
+                    <h5 className="col-2">U$S {property.product.price}</h5>
                   </div>
-                </div>
+                </>
               );
             })}
-            <div>
-              <h3>TOTAL PRICE</h3>
-              <h3>{gema.totalPrice}</h3>
+            <div className="d-flex mt-5 ">
+              <h3 className="totalPrice">TOTAL PRICE</h3>
+              <h4 className="mt-1">U$S {gema.totalPrice}</h4>
             </div>
           </div>
           <button
             className="createOrder m-4"
-            onClick={async () => {
-              const response = await handle.createOrder();
-              if (response !== 200) {
-                setErrorMessage(true)
-              } else {
-                Swal.fire({
-                  title: 'La orden fue creada correctamente!',
-                  icon: 'success',
-                  confirmButtonText: 'Continuar'
-                })
-                dispatch(deleteCart());
-                // navigate("/")
-              }
+            onClick={() => {
+              handle.createOrder();
             }}
           >
             Mandar pedido
           </button>
           {errorMessage && (
             <>
-              <p className="m-2 fst-italic">Error en crear orden repase su información. Puede que ya no haya stock de los productos elegidos</p>
+              <p className="m-2 fst-italic">
+                Error en crear orden repase su información. Puede que ya no haya stock de los
+                productos elegidos
+              </p>
               <div>
-                {productoFalta
-                  && productoFalta.map((product) => {
+                {missingProducts &&
+                  missingProducts.map((product) => {
                     return (
                       <div className="d-flex flex-column mt-4">
                         <h4 className="m-2 fw-bold">INFORMACION DE PRODUCTOS EN FALTA DE STOCK</h4>
                         <h6 className="m-2">NOMBRE: {product.name}</h6>
                         <h6 className="m-2">Cantidad stock restante: {product.stockLeft}</h6>
-                        <img src={product.picture}>
-                        </img>
+                        <img src={product.picture}></img>
                       </div>
                     );
                   })}
-
               </div>
             </>
-          )
-          }
+          )}
         </div>
       </div>
     )

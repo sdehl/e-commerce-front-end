@@ -24,38 +24,38 @@ function User({ show, handleClose, user }) {
                 <div className="d-flex flex-column">
                   <div className="d-flex flex-column">
                     <h1 className="textCenter mb-4">
-                      {user.username ? user.username() : user.email()}
+                      {user.username ? user.username : user.email}
                     </h1>
                     <div className="d-flex">
-                      <h5 className="textElementInModal mt-1">Name:</h5>
+                      <h5 className="textElementInModal mt-1">Nombre:</h5>
                       <p className="itemsTextOfModal">
                         {user.name ? user.name : "No se ha registrado"}
                       </p>
                     </div>
                     <ColoredLine color="gray" />
                     <div className="d-flex">
-                      <h5 className="mt-4 textElementInModal">Username: </h5>
+                      <h5 className="mt-4 textElementInModal">Nombre de usuario: </h5>
                       <p className="mt-4 itemsTextOfModal">
                         {user.username ? user.username : "No se ha registrado"}
                       </p>
                     </div>
                     <ColoredLine color="gray" />
                     <div className="d-flex">
-                      <h5 className="mt-4 textElementInModal">Email:</h5>
+                      <h5 className="mt-4 textElementInModal">Correo electrónico:</h5>
                       <p className="mt-4 itemsTextOfModal">
                         {user.email ? user.email : "No se ha registrado"}
                       </p>
                     </div>
                     <ColoredLine color="gray" />
                     <div className="d-flex">
-                      <h5 className="mt-4 textElementInModal">Adress:</h5>
+                      <h5 className="mt-4 textElementInModal">Dirección:</h5>
                       <p className="mt-4 itemsTextOfModal">
                         {user.adress ? user.adress : "No se ha registrado"}
                       </p>
                     </div>
                     <ColoredLine color="gray" />
                     <div className="d-flex">
-                      <h5 className="mt-4 textElementInModal">Saved Phone: </h5>
+                      <h5 className="mt-4 textElementInModal">Teléfono: </h5>
                       <p className="mt-4 itemsTextOfModal">
                         {user.phone ? user.phone : "No se ha registrado"}
                       </p>
