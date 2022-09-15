@@ -3,6 +3,7 @@ import axios from "axios";
 import { useSelector } from "react-redux";
 import UserOrder from "../AdminUsers/AdminUserOrder";
 import { Link } from "react-router-dom";
+import _ from "lodash";
 import "../../styles/AdminStyles.css"
 
 function AllOrders() {
@@ -20,6 +21,11 @@ function AllOrders() {
             headers: { Authorization: `Bearer ${token}` },
          });
          await setAllOrders(response.data);
+      },
+      filterOrders: (filterBy) => {
+         if(filterBy === "quantity"){
+            const filteredOrders = _.sortBy(allOrders, [function(o) { return o.totalPrice; }]);
+         }
       },
    }
    useEffect(() => {

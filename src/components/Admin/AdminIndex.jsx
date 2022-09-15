@@ -16,20 +16,20 @@ function Index() {
       <div className="contDiv d-flex justify-content-between align-items-center">
         <Link to="/admin/orders">
           {" "}
-          <button className="update" onClick={() => { }}>
+          <button className="update">
             Ordenes{" "}
           </button>
         </Link>
         <Link to="/admin/users">
           {" "}
-          <button className="update" onClick={() => { }}>
+          <button className="update">
             Usuarios{" "}
           </button>
         </Link>
 
         <Link to="/admin/products">
           {" "}
-          <button className="update" onClick={() => { }}>
+          <button className="update">
             Productos{" "}
           </button>
         </Link>

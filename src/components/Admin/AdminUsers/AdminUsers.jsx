@@ -39,7 +39,6 @@ function Users() {
         return console.log(error);
       }
     },
-
   };
 
   useEffect(() => {
@@ -47,46 +46,49 @@ function Users() {
   }, []);
 
   return users && (
-    <div className="container mt-4">
-      <Link to={`/admin`}>
-        <button className="irAtras"> Centro Administrativo </button>
-      </Link>
+    <>
+      <h1 className="m-4 d-flex justify-content-center">USUARIOS</h1>
+      <div className="container mt-4">
+        <Link to={`/admin`}>
+          <button className="irAtras"> Centro Administrativo </button>
+        </Link>
 
 
-      <table class="table table-hover mt-2 ">
-        <AdminUser show={show} handleClose={handleClose} user={productForModal} />
-        <thead>
-          <tr className="titlesTable">
-            <th scope="col">Nombre</th>
-            <th scope="col">Identificador</th>
-            <th scope="col">Teléfono</th>
-            <th scope="col">Cantidad de órdenes</th>
-            <th scope="col">Modificar</th>
-          </tr>
-        </thead>
-        <tbody>
-          {users.map((user) => {
-            return (
+        <table class="table table-hover mt-2 ">
+          <AdminUser show={show} handleClose={handleClose} user={productForModal} />
+          <thead>
+            <tr className="titlesTable">
+              <th scope="col">Nombre</th>
+              <th scope="col">Identificador</th>
+              <th scope="col">Teléfono</th>
+              <th scope="col">Cantidad de órdenes</th>
+              <th scope="col">Modificar</th>
+            </tr>
+          </thead>
+          <tbody>
+            {users.map((user) => {
+              return (
 
-              <tr>
-                <td>{user.name ? user : "No se ha registrado un nombre aún"}</td>
-                <td>{user.username ? user.username : user.email}</td>
-                <td>{user.phone ? user.phone : "No se ha registrado un teléfono aún"}</td>
-                <td className="textCenter">{user.orderHistory.length}</td>
-                <td>
-                  <button className="buttonCrud m-1" onClick={() => {
-                    handle.deleteUser(user._id);
-                  }}>Eliminar</button>
-                  <button className="buttonCrud m-1" onClick={() => {
-                    handleShow(user);
-                  }}>Ver más</button>
-                </td>
-              </tr>
-            );
-          })}
-        </tbody>
-      </table>
-    </div>
+                <tr>
+                  <td>{user.name ? user : "No se ha registrado un nombre aún"}</td>
+                  <td>{user.username ? user.username : user.email}</td>
+                  <td>{user.phone ? user.phone : "No se ha registrado un teléfono aún"}</td>
+                  <td className="textCenter">{user.orderHistory.length}</td>
+                  <td>
+                    <button className="buttonCrud m-1" onClick={() => {
+                      handle.deleteUser(user._id);
+                    }}>Eliminar</button>
+                    <button className="buttonCrud m-1" onClick={() => {
+                      handleShow(user);
+                    }}>Ver más</button>
+                  </td>
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
+      </div>
+    </>
   );
 }
 

@@ -161,7 +161,7 @@ function NewProduct() {
         </div>
 
         <Link style={{ textDecoration: "none" }} to="/admin/products">
-          <p className="LinkGoBack">ATRAS</p>
+          <p className="buttonGoBack m-4">ATRAS</p>
         </Link>
       </div>
 

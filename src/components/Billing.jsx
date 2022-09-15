@@ -12,7 +12,6 @@ import Swal from 'sweetalert2'
 
 function Billing({ userLogged }) {
   const gema = useSelector((state) => state.gema);
-  const navigate = useNavigate();
   const dispatch = useDispatch();
   const [cart, setCart] = useState(null);
   const token = useSelector((state) => state.gema.userData.token);
@@ -57,7 +56,7 @@ function Billing({ userLogged }) {
       const response = await axios({
         method: "post",
         url: `${process.env.REACT_APP_API_URL}/orders`,
-        data: { order },
+        data: { order, totalPrice: gema.totalPrice},
         headers: { Authorization: `Bearer ${token}` },
       });
       if (response.data !== 200) {
@@ -259,7 +258,6 @@ function Billing({ userLogged }) {
             className="createOrder m-4"
             onClick={async () => {
               const response = await handle.createOrder();
-              console.log(response);
               if (response !== 200) {
                 setErrorMessage(true)
               } else {

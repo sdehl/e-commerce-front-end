@@ -8,11 +8,12 @@ import "../../styles/AdminStyles.css"
 
 function AdminProduct() {
   const params = useParams();
-  const [product, setProduct] = useState();
+  const [product, setProduct] = useState(null);
   const [correctlyUpdated, setCorrectlyUpdated] = useState(false);
   const [validCategory, setValidCategory] = useState(true);
   const token = useSelector((state) => state.gema.userData.token);
   const [originalName, setOriginalName] = useState();
+
   const navigate = useNavigate()
 
   const ColoredLine = ({ color }) => (
@@ -47,8 +48,10 @@ function AdminProduct() {
           headers: { Authorization: `Bearer ${token}` },
 
         });
-        await setProduct(response.data);
-        setOriginalName(response.data.name);
+        if (response.data !== "El producto no existe! Ha sido eliminado") {
+          await setProduct(response.data);
+          setOriginalName(response.data.name);
+        }
       } catch (error) {
         console.log(error);
       }
@@ -63,7 +66,7 @@ function AdminProduct() {
   }, [product]);
 
   return (
-    product && (
+    product ? (
       <div className="container mt-4">
         <div className="row">
           <div className="col-6 d-flex flex-column">
@@ -182,14 +185,11 @@ function AdminProduct() {
               className="update"
               onClick={async () => {
                 const status = await handle.updateProduct(product);
-                console.log("status", status);
                 if (status === 200) {
                   setCorrectlyUpdated('Correctly added');
                 } else if (status === 408) {
-                  setOriginalName(product.name);
                   setValidCategory(false);
                 } else {
-                  setOriginalName(product.name);
                   setCorrectlyUpdated('Not correctly added');
                 }
               }}
@@ -208,8 +208,18 @@ function AdminProduct() {
           ATRAS
           </button>
       </div>
+    ) : (
+      <div className="m-5 d-flex flex-column justify-content-center align-items-center flex-around">
+        <h3 className="mb-5">El producto ha sido eliminado</h3>
+        <Link to="/admin/products/create">
+          {" "}
+          <button className="update">
+            Create new product{" "}
+          </button>
+        </Link>
+      </div>
     )
-  );
+  )
 }
 
 export default AdminProduct;

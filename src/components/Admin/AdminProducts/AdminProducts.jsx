@@ -40,63 +40,66 @@ function AdminProducts() {
 
   return (
     products && (
-      <div className="container mt-4">
-        <div className="mb-3 d-flex justify-content-between">
-          <Link to={`/admin`}>
-            <button className="irAtras"> Centro Administrativo </button>
-          </Link>
-          <Link to={`/admin/products/create`}>
-            <button className="buttonCrud"> Create new Product</button>
-          </Link>
-        </div>
-        <table className="table table-hover">
-          <thead>
-            <tr className="titlesTable">
-              <th className="fw-bold" scope="col">
-                Name
+      <>
+        <h1 className="m-4 d-flex justify-content-center">PRODUCTOS</h1>
+        <div className="container mt-4">
+          <div className="mb-3 d-flex justify-content-between">
+            <Link to={`/admin`}>
+              <button className="irAtras"> Centro Administrativo </button>
+            </Link>
+            <Link to={`/admin/products/create`}>
+              <button className="buttonCrud"> Create new Product</button>
+            </Link>
+          </div>
+          <table className="table table-hover">
+            <thead>
+              <tr className="titlesTable">
+                <th className="fw-bold" scope="col">
+                  Name
               </th>
-              <th className="fw-bold d-flex justify-content-center" scope="col">
-                Category
+                <th className="fw-bold d-flex justify-content-center" scope="col">
+                  Category
               </th>
-              <th className="fw-bold" scope="col">
-                Price
+                <th className="fw-bold" scope="col">
+                  Price
               </th>
-              <th className="fw-bold" scope="col">
-                Stock
+                <th className="fw-bold" scope="col">
+                  Stock
               </th>
-              <th className="fw-bold " scope="col">
-                Update
+                <th className="fw-bold " scope="col">
+                  Update
               </th>
-            </tr>
-          </thead>
-          <tbody>
-            {products.map((product) => {
-              return (
-                <tr>
-                  <td scope="row">{product.name}</td>
-                  <td className="textTable">{product.category}</td>
-                  <td className="textTable">{product.price}</td>
-                  <td className="textTable">{product.stock}</td>
-                  <td>
-                    <Link to={`/admin/products/${product.slug}`}>
-                      <button className="buttonCrud m-1">Editar</button>
-                    </Link>
+              </tr>
+            </thead>
+            <tbody>
+              {products.map((product) => {
+                return (
+                  <tr>
+                    <td scope="row">{product.name}</td>
+                    <td className="textTable">{product.category}</td>
+                    <td className="textTable">{product.price}</td>
+                    <td className="textTable">{product.stock}</td>
+                    <td>
+                      <Link to={`/admin/products/${product.slug}`}>
+                        <button className="buttonCrud m-1">Editar</button>
+                      </Link>
 
-                    <button
-                      className="buttonCrud m-1"
-                      onClick={() => {
-                        handle.deleteProduct(product.slug);
-                      }}
-                    >
-                      Eliminar
+                      <button
+                        className="buttonCrud m-1"
+                        onClick={() => {
+                          handle.deleteProduct(product.slug);
+                        }}
+                      >
+                        Eliminar
                     </button>
-                  </td>
-                </tr>
-              );
-            })}
-          </tbody>
-        </table>
-      </div>
+                    </td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+        </div>
+      </>
     )
   );
 }

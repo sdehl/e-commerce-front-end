@@ -158,10 +158,11 @@
   width: fit-content !important; 
   background-color: transparent;
   border: 0;
+  color:black;
 }
+
 .buttonGoBack:hover{
   color: #956458;
-
 }
 
 
