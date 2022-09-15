@@ -102,8 +102,16 @@
 .col-4 {
   text-align: center;
 }
+
+.col-12 {
+  text-align: center;
+}
 .navIcons {
   justify-content: right;
   position: relative;
   right: 20px;
+}
+
+.navbar-toggler span {
+  background-image: url("../svg/bars-solid.svg") !important;
 }

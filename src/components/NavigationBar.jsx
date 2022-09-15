@@ -36,7 +36,7 @@ function NavigationBar() {
           <span>Envios a Montevideo y al Interior del Uruguay</span>{" "}
         </div>
       </div>
-      <div className="row align-items-center my-4 ">
+      <div className="row align-items-center my-4  ">
         <div className="col-4 d-none d-md-flex">
           <div>
             <input
@@ -49,7 +49,7 @@ function NavigationBar() {
             <img className="icons mx-2" src={search} alt="search icon" />
           </div>
         </div>
-        <div className="col-4">
+        <div className="col-12 justify-content-center col-md-4 ">
           <Link to="/">
             <img className="home-logo" src={gemaLogo} alt="gema-logo" />
           </Link>
@@ -83,7 +83,7 @@ function NavigationBar() {
               <img
                 className="icons link-icons"
                 src={admin}
-                alt="profile icon"
+                alt="admin icon"
                 onClick={() => {
                   navigate("/admin");
                 }}
@@ -97,7 +97,7 @@ function NavigationBar() {
           <Container fluid>
             <Navbar.Toggle className="border-0 shadow-none " aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="navbarScroll">
-              <Nav className="me-auto my-2 my-lg-0" style={{ maxHeight: "100px" }} navbarScroll>
+              <Nav className="ms-0 my-2 my-lg-0" style={{ maxHeight: "100px" }} navbarScroll>
                 <Nav.Link
                   className="mx-3 "
                   onClick={() => {
