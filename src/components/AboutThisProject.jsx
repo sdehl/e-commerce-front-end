@@ -29,7 +29,7 @@ function About() {
           </div>
           <div className="col">
             <img
-              src="https://www.gemainteriores.com/wp-content/uploads/2021/04/H02-TUR-BZ-1-1-768x530.jpg"
+              src="https://www.gemainteriores.com/wp-content/uploads/2021/04/H02-TUR-BZ-1-1.jpg"
               className="image d-inline-block w-100 my-4"
               alt="tiradores de bronce irregulares"
             />
@@ -38,7 +38,7 @@ function About() {
         <div className="row">
           <div className="col">
             <img
-              src={"https://www.gemainteriores.com/wp-content/uploads/2021/04/H02-CUA-BZ-1-1.jpg"}
+              src={"https://www.gemainteriores.com/wp-content/uploads/2021/04/H02-CUA-BZ-1.jpg"}
               className="image d-inline-block w-100 my-4"
               alt="tiradores de bronce cilíndricos"
             />
@@ -109,23 +109,33 @@ function About() {
           </div>
         </div>
       </div>
-      <div className="row text-center m-5 pt-5">
-        <div className="col">Icon</div>
-        <div className="col">Icon</div>
-        <div className="col">Icon</div>
-        <div className="col">Icon</div>
+      <div className="row text-center m-5 py-5">
+        <div className="col">
+          <div class="icons8-react-native"></div>
+        </div>
+        <div className="col">
+          <div class="icons8-figma"></div>
+        </div>
+        <div className="col">
+          <div class="icons8-redux"></div>
+        </div>
+        <div className="col">
+          <div class="icons8-trello"></div>
+        </div>
       </div>
-      <div className="row text-center m-5">
-        <div className="col">Icon</div>
-        <div className="col">Icon</div>
-        <div className="col">Icon</div>
-        <div className="col">Icon</div>
-      </div>
-      <div className="row text-center m-5 pb-5">
-        <div className="col">Icon</div>
-        <div className="col">Icon</div>
-        <div className="col">Icon</div>
-        <div className="col">Icon</div>
+      <div className="row text-center m-5 py-5">
+        <div className="col">
+          <div class="icons8-mongodb"></div>
+        </div>
+        <div className="col">
+          <div class="icons8-mongoose"></div>
+        </div>
+        <div className="col">
+          <div class="icons8-discord"></div>
+        </div>
+        <div className="col">
+          <div class="icons8-microsoft-teams-2019"></div>
+        </div>
       </div>
     </>
   );
