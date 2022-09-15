@@ -267,7 +267,7 @@ function Billing({ userLogged }) {
               handle.createOrder();
             }}
           >
-            Mandar pedido
+            MANDAR PEDIDO
           </button>
           {errorMessage && (
             <>
