@@ -1,4 +1,3 @@
-//import { Carousel, Button } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
 import "./styles/HomeStyles.css";
 
@@ -9,9 +8,7 @@ function Home() {
       <div className="row mb-5">
         <div className="col-lg-7 col-12">
           <img
-            src={
-              "https://www.gemainteriores.com/wp-content/uploads/2021/05/Portada-2-scaled.jpg"
-            }
+            src={"https://www.gemainteriores.com/wp-content/uploads/2021/05/Portada-2-scaled.jpg"}
             className="d-inline-block w-100"
             alt=""
           />
@@ -30,9 +27,7 @@ function Home() {
 
                 <div className="div-column d-flex flex-column justify-content-center align-items-center p-3">
                   <h4 className="enStock mb-3">EN STOCK</h4>
-                  <h3 className="boldCollection mb-3">
-                    COLECCIÓN DE GRIFERÍAS
-                  </h3>
+                  <h3 className="boldCollection mb-3">COLECCIÓN DE GRIFERÍAS</h3>
                   <button
                     className="homeButton"
                     onClick={() => {
@@ -98,9 +93,7 @@ function Home() {
       <div className="row p-5 m-5">
         <div className="pl-3 text-center">
           <p className=" hashtag"># G E M A I N T E R I O R E S</p>
-          <h6 className="fs-3 mb-5 mt-3 pb-5 ">
-            Lo mejor de Nuestro Instagram
-          </h6>
+          <h6 className="fs-3 mb-5 mt-3 pb-5 ">Lo mejor de Nuestro Instagram</h6>
         </div>
         <br></br>
         <br></br>

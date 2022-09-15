@@ -6,16 +6,20 @@ import {
   deleteProductFromCart,
   updateTotalPrice,
 } from "../redux/slices/gemaSlice";
-import "../components/styles/CartStyles.css";
 import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
+import "../components/styles/CartStyles.css";
 
-function CartProduct({ product, cant, setTotal, total }) {
-  //const gema = useSelector((state) => state.gema);
+function CartProduct({ product, cant }) {
+  //States
   const [quantity, setQuantity] = useState("");
   const [subTotal, setSubTotal] = useState("");
   const [deletedProduct, setDeletedProduct] = useState(false);
-  const filteredPicture = product.pictures[0].replaceAll(`"`, ``);
+
+  let filteredPicture;
+  if (product.pictures.length > 0) {
+    filteredPicture = product.pictures[0].replaceAll(`"`, ``);
+  }
+
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -48,7 +52,11 @@ function CartProduct({ product, cant, setTotal, total }) {
         </span>
         <div className="imageDivCart m-3">
           {" "}
-          <img src={filteredPicture} className="imageCart" alt="..."></img>
+          <img
+            src={filteredPicture ? filteredPicture : "https://wallpaperaccess.com/full/1756496.jpg"}
+            className="imageCart"
+            alt="..."
+          ></img>
         </div>
         <Link className="product-link" to={`/product/${product.slug}`}>
           <p className="m-3">{product.name}</p>

@@ -2,9 +2,7 @@ import React from "react";
 import { Container, Nav, Navbar } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router";
-
 import search from "./svg/magnifying-glass-solid.svg";
-// import bag from "./svg/bag-shopping-solid.svg";
 import cart from "./svg/cart-shopping-solid.svg";
 import profile from "./svg/user-regular.svg";
 import rocket from "./svg/rocket-solid.svg";
@@ -26,13 +24,13 @@ function NavigationBar() {
           <img className="icons mx-2" src={rocket} alt="rocket icon" />
         </div>
         <div>
-          {/* <button
+          <button
             onClick={() => {
               dispatch(deleteUserData());
             }}
           >
             Logout
-          </button> */}
+          </button>
           <span>Envios a Montevideo y al Interior del Uruguay</span>{" "}
         </div>
       </div>

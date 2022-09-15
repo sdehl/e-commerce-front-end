@@ -23,6 +23,16 @@
   background-color: #e2b7ac1a !important;
 }
 
+.bottonCategoria{
+  background-color: transparent;
+  border: 0px;
+  color:gray
+}
+
+.bottonCategoria:hover{
+  color:#99846caf;
+}
+
 .titlesTable{
   background-color: #c7af9533;
 }
@@ -49,6 +59,12 @@
 .irAtras {
   background-color: transparent;
   border: 0;
+  font-weight: 500;
+}
+
+.titulo-Pedido{
+    font-weight: 601;
+    margin-right: 10px;
 }
 
 .irAtras:hover {

@@ -2,13 +2,12 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
-
 import "../../styles/AdminStyles.css";
 
 function AdminProducts() {
-  const [products, setProducts] = useState(null);
   const token = useSelector((state) => state.gema.userData.token);
 
+  const [products, setProducts] = useState(null);
 
   const handle = {
     apiCall: async () => {
@@ -16,7 +15,6 @@ function AdminProducts() {
         method: "get",
         url: `${process.env.REACT_APP_API_URL}/products`,
         headers: { Authorization: `Bearer ${token}` },
-
       });
       setProducts(response.data);
     },
@@ -25,7 +23,6 @@ function AdminProducts() {
         method: "delete",
         url: `${process.env.REACT_APP_API_URL}/products/${slug}`,
         headers: { Authorization: `Bearer ${token}` },
-
       });
       const newProducts = products.filter((e) => {
         return e.slug !== slug;
@@ -56,19 +53,19 @@ function AdminProducts() {
               <tr className="titlesTable">
                 <th className="fw-bold" scope="col">
                   Name
-              </th>
+                </th>
                 <th className="fw-bold d-flex justify-content-center" scope="col">
                   Category
-              </th>
+                </th>
                 <th className="fw-bold" scope="col">
                   Price
-              </th>
+                </th>
                 <th className="fw-bold" scope="col">
                   Stock
-              </th>
+                </th>
                 <th className="fw-bold " scope="col">
                   Update
-              </th>
+                </th>
               </tr>
             </thead>
             <tbody>
@@ -91,7 +88,7 @@ function AdminProducts() {
                         }}
                       >
                         Eliminar
-                    </button>
+                      </button>
                     </td>
                   </tr>
                 );

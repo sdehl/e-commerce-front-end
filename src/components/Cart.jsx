@@ -1,18 +1,17 @@
 import { useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { useDispatch } from "react-redux";
 import CartProduct from "./CartProduct";
-import { useNavigate } from "react-router";
-import { updateTotalPrice } from "../redux/slices/gemaSlice";
 import { Link } from "react-router-dom";
 import "./styles/CartStyles.css";
 
 function Cart() {
   const gema = useSelector((state) => state.gema);
+  const token = useSelector((state) => state.gema.token);
+
+  //Status
   const [cart, setCart] = useState(null);
   const [total, setTotal] = useState(0);
-  const token = useSelector((state) => state.gema.token);
 
   const ColoredLine = ({ color }) => (
     <hr
@@ -25,6 +24,7 @@ function Cart() {
     />
   );
 
+  //Auxiliar functions
   const handle = {
     apiCall: async (productSlug) => {
       const response = await axios({
@@ -118,13 +118,13 @@ function Cart() {
             </div>
             <ColoredLine color="gray" />
             <div className="d-flex justify-content-start divButton mt-4">
-              <Link to={gema.cart.length !== 0 ? "/billing" : "/cart"} status={console.log("cart when clicked",gema.cart)}>
+              <Link to={gema.cart.length !== 0 ? "/billing" : "/cart"}>
                 <button className="endOrderBtn">IR A FINALIZAR LA COMPRA</button>
               </Link>
             </div>
           </div>
         </div>
-      </div >
+      </div>
     )
   );
 }
