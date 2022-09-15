@@ -67,6 +67,9 @@ function App() {
           <Route path="/admin/users" element={<AdminUsers />}></Route>
         </Route>
         <Route element={<ProtectedRouteAdmin />}>
+          <Route path="/admin/users/:id" element={<AdminUser />}></Route>
+        </Route>
+        <Route element={<ProtectedRouteAdmin />}>
           <Route path="/admin/orders" element={<AdminOrders />}></Route>
         </Route>
 

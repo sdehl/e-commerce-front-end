@@ -46,7 +46,7 @@ function AdminProducts() {
             <button className="irAtras"> Centro Administrativo </button>
           </Link>
           <Link to={`/admin/products/create`}>
-            <button className="updateButtonProduct"> Create new Product</button>
+            <button className="buttonCrud"> Create new Product</button>
           </Link>
         </div>
         <table className="table table-hover">
@@ -73,17 +73,17 @@ function AdminProducts() {
             {products.map((product) => {
               return (
                 <tr>
-                  <th scope="row">{product.name}</th>
+                  <td scope="row">{product.name}</td>
                   <td className="textTable">{product.category}</td>
                   <td className="textTable">{product.price}</td>
                   <td className="textTable">{product.stock}</td>
-                  <td className="buttonsTableProducts">
+                  <td>
                     <Link to={`/admin/products/${product.slug}`}>
-                      <button className="updateButtonProduct">Editar</button>
+                      <button className="buttonCrud m-1">Editar</button>
                     </Link>
 
                     <button
-                      className="updateButtonProduct"
+                      className="buttonCrud m-1"
                       onClick={() => {
                         handle.deleteProduct(product.slug);
                       }}

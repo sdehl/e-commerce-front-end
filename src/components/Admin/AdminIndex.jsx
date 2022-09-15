@@ -4,7 +4,6 @@ import { useSelector } from "react-redux";
 
 function Index() {
   const gema = useSelector((state) => state.gema);
-  console.log(gema);
   return (
     <>
       <div className="m-4 d-flex justify-content-center">

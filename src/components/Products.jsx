@@ -25,8 +25,6 @@ function Products() {
     handle.apiCall();
   }, [params]);
 
-  useEffect(() => {}, [show]);
-
   //Helpers
   const handle = {
     apiCall: async () => {

@@ -9,6 +9,7 @@ const gemaSlice = createSlice({
     userData: {},
   },
   reducers: {
+    //REDUCERS PRODUCT - CART  ------------------------------
     addProductToCart(state, action) {
       if (state.cart.length > 0) {
         let position = 0;
@@ -35,7 +36,6 @@ const gemaSlice = createSlice({
         });
       }
     },
-    //quantity
     updateCantProducts(state, action) {
       state.cantProductsCart += action.payload;
     },
@@ -48,19 +48,18 @@ const gemaSlice = createSlice({
       });
       state.cart = newCart;
     },
-    updateUser(state, action) {
-      state.cart[action.payload.position].cant += action.payload.cant;
-    },
     deleteCart(state, action) {
       state.cart = [];
       state.cantProductsCart = 0;
       state.totalPrice = 0;
     },
-
+    //REDUCER USERS ---------------------------------------------------
+    updateUser(state, action) {
+      state.cart[action.payload.position].cant += action.payload.cant;
+    },
     storeUserData(state, action) {
       state.userData = action.payload;
     },
-
     deleteUserData(state, action) {
       state.userData = {};
     },

@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import "../../styles/AdminStyles.css"
-import { Link, Navigate } from "react-router-dom";
-import { useParams } from "react-router";
+import { Link } from "react-router-dom";
+import { useNavigate, useParams } from "react-router";
 import { useSelector } from "react-redux";
 import Alert from '@mui/material/Alert';
+import "../../styles/AdminStyles.css"
 
 function AdminProduct() {
   const params = useParams();
@@ -13,6 +13,7 @@ function AdminProduct() {
   const [validCategory, setValidCategory] = useState(true);
   const token = useSelector((state) => state.gema.userData.token);
   const [originalName, setOriginalName] = useState();
+  const navigate = useNavigate()
 
   const ColoredLine = ({ color }) => (
     <hr
@@ -197,12 +198,15 @@ function AdminProduct() {
             </button>
             {correctlyUpdated === 'Correctly added' && <Alert severity="success">Se ha actualizado correctamente</Alert>}
             {correctlyUpdated === 'Not correctly added' && <Alert severity="error">ERROR! Verifique que el nombre del producto sea único</Alert>}
-
           </div>
-          <Link style={{ textDecoration: "none" }} to="/admin/products">
-            <p className="LinkGoBack">ATRAS</p>
-          </Link>
+
         </div>
+        <button
+          className="buttonGoBack m-4" onClick={() => {
+            navigate(-1)
+          }}>
+          ATRAS
+          </button>
       </div>
     )
   );

@@ -15,7 +15,6 @@ function ProductCard({ product, handleShow }) {
   //we filter the pictures to avoid errors that may appear
   let filteredPicture;
   if (product.pictures.length > 0) {
-    console.log(product.pictures.length);
     filteredPicture = product.pictures[0].replaceAll(`"`, ``);
   }
 
