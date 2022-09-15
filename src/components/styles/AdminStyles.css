@@ -23,11 +23,11 @@
   background-color: #e2b7ac1a !important;
 }
 
-.titlesTable{
+.titlesTable {
   background-color: #c7af9533;
 }
 
-.buttonsTableProducts{
+.buttonsTableProducts {
   display: inline-block;
 }
 
@@ -38,21 +38,27 @@
 }
 
 .buttonCrud {
+  color: #6b5244;
   background-color: transparent;
   border: 0.5px solid rgb(201, 200, 200);
+  border: none;
 }
 
 .buttonCrud:hover {
-  background-color: #aa847b27;
+  color: #43332a;
+}
+.link-admin-center {
+  text-decoration: none;
 }
 
 .irAtras {
+  color: #6b5244;
   background-color: transparent;
   border: 0;
 }
 
 .irAtras:hover {
-  color: #695652b8;
+  color: #43332a;
 }
 
 .textTable {
@@ -89,19 +95,18 @@
   flex: 0 0 33.333333%;
 }
 
-.textCenter{
+.textCenter {
   text-align: center;
 }
 
-.modal-dialog{
-  margin:2% !important;
+.modal-dialog {
+  margin: 2% !important;
 }
 
 .imagesOfProduct img {
   max-width: 100%;
   max-height: 100%;
 }
-
 
 .buttonUpdate {
   margin-left: 10px;
@@ -152,19 +157,31 @@
   flex: 0 0 50%;
 }
 
-
-
-.buttonGoBack{
-  width: fit-content !important; 
+.buttonGoBack {
+  width: fit-content !important;
   background-color: transparent;
   border: 0;
-  color:black;
+  color: #ab836e;
 }
 
-.buttonGoBack:hover{
-  color: #956458;
+.buttonGoBack:hover {
+  color: #7e544a;
 }
 
+.delete-icon,
+.edit-icon,
+.arrow-icon,
+.show-more-icon {
+  align-items: center;
+  height: 20px;
+  width: 20px;
+}
+.trash-button,
+.edit-button,
+.back-button {
+  border: none;
+  background-color: transparent;
+}
 
 @media screen and (max-width: 480px) {
   .itemsUpdate {
@@ -174,18 +191,18 @@
 /* PRODUCTS STYLES */
 
 /* USER STYLES */
-.textElementInModal{
+.textElementInModal {
   font-weight: bold !important;
   margin-right: 20px;
 }
 
-.itemsTextOfModal{
-margin-top: 0.8%;
+.itemsTextOfModal {
+  margin-top: 0.8%;
 }
 
-.infoOrder{
+.infoOrder {
   border: 0.4px solid #9b85807a;
-  background-color:#e2b7ac1a ;
+  background-color: #e2b7ac1a;
   padding: 2%;
 }
 
@@ -195,7 +212,7 @@ margin-top: 0.8%;
   border: 0.5px solid rgba(128, 128, 128, 0.137);
 }
 
-.lightText{
+.lightText {
   color: rgb(165, 163, 163);
 }
 

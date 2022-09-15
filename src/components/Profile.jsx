@@ -22,15 +22,7 @@ function Profile() {
   const [username, setUsername] = useState("");
   const [phone, setPhone] = useState("");
   const [adress, setAdress] = useState("");
-  // console.log(firstname);
-  // console.log(lastname);
-  // console.log(username);
-  // console.log(phone);
-  // console.log(adress);
 
-  // console.log(userInfo);
-
-  // console.log(gema);
   const navigate = useNavigate();
 
   const dispatch = useDispatch();
@@ -94,7 +86,7 @@ function Profile() {
       }
     }
     userProfile();
-  }, [userInfo]);
+  }, []);
 
   async function editProfile() {
     try {
@@ -213,6 +205,7 @@ function Profile() {
                       className="logout-btn my-5"
                       onClick={() => {
                         dispatch(deleteUserData());
+                        setUserInfo("");
                       }}
                     >
                       LOGOUT{" "}
