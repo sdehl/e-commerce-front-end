@@ -106,6 +106,7 @@
 .navbarCol12 {
   text-align: center;
 }
+
 .navIcons {
   justify-content: right;
   position: relative;
@@ -114,4 +115,10 @@
 
 .navbar-toggler span {
   background-image: url("../svg/bars-solid.svg") !important;
+}
+
+@media screen and (max-width: 480px) {
+  .itemsUpdate {
+    flex: 0 0 100%;
+  }
 }
