@@ -22,15 +22,7 @@ function Profile() {
   const [username, setUsername] = useState("");
   const [phone, setPhone] = useState("");
   const [adress, setAdress] = useState("");
-  // console.log(firstname);
-  // console.log(lastname);
-  // console.log(username);
-  // console.log(phone);
-  // console.log(adress);
 
-  // console.log(userInfo);
-
-  // console.log(gema);
   const navigate = useNavigate();
 
   const dispatch = useDispatch();
@@ -97,7 +89,8 @@ function Profile() {
       }
       userProfile();
     }
-  }, [userInfo]);
+    userProfile();
+  }, []);
 
   async function editProfile() {
     try {
@@ -215,6 +208,7 @@ function Profile() {
                       className="logout-btn my-5"
                       onClick={() => {
                         dispatch(deleteUserData());
+                        setUserInfo("");
                       }}
                     >
                       LOGOUT{" "}
@@ -251,7 +245,12 @@ function Profile() {
         <div className="container profileForm">
           <div className="row signInForm">
             <div className="col-12 col-lg-6">
-              <form>
+              <form
+                onSubmit={(e) => {
+                  e.preventDefault();
+                  login();
+                }}
+              >
                 <strong>
                   <h2> INICIAR SESIÓN</h2>
                 </strong>
@@ -286,11 +285,8 @@ function Profile() {
                 <div className="d-flex align-items-center justify-content-between mb-3 ">
                   <div>
                     <button
-                      type="button"
+                      type="submit"
                       className="login-btn"
-                      onClick={() => {
-                        handle.login();
-                      }}
                     >
                       INICIAR SESIÓN
                     </button>
@@ -321,7 +317,12 @@ function Profile() {
               </form>
 
               <div className="registerForm">
-                <form>
+                <form
+                  onSubmit={(e) => {
+                    e.preventDefault();
+                    register();
+                  }}
+                >
                   <strong>
                     <h2> REGISTRARME</h2>
                   </strong>
@@ -355,13 +356,7 @@ function Profile() {
                   </div>
 
                   <div className="d-flex align-items-center justify-content-between">
-                    <button
-                      type="button"
-                      className="register-btn "
-                      onClick={() => {
-                        handle.register();
-                      }}
-                    >
+                    <button type="submit" className="register-btn ">
                       REGISTRARME
                     </button>
                     {userStatus === 201 ? (

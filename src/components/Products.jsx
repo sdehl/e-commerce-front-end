@@ -4,6 +4,8 @@ import axios from "axios";
 import { useParams } from "react-router-dom";
 import SingleProductModal from "./SingleProductModal";
 import "./styles/ProductStyles.css";
+// import { useDispatch } from "react-redux";
+// import { deleteCart } from "../redux/slices/gemaSlice";
 
 function Products() {
   const params = useParams();
@@ -11,6 +13,7 @@ function Products() {
   const [show, setShow] = useState(false);
   const [productForModal, setProductForModal] = useState(null);
   const handleClose = () => setShow(false);
+  // const dispatch = useDispatch();
   const handleShow = (product) => {
     setProductForModal(product);
     setShow(true);
@@ -18,6 +21,7 @@ function Products() {
 
   useEffect(() => {
     handle.apiCall();
+    // dispatch(deleteCart());
   }, []);
 
   //when params change the api is called again with new category

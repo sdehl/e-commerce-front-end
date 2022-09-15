@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { useNavigate, useParams } from "react-router";
 import { useSelector } from "react-redux";
 import Alert from "@mui/material/Alert";
+import backArrow from "../../svg/arrow-left-solid.svg";
 import "../../styles/AdminStyles.css";
 
 function AdminProduct() {
@@ -247,13 +248,14 @@ function AdminProduct() {
           )}
         </div>
       </div>
+
       <button
-        className="buttonGoBack m-4"
+        className="d-flex align-items-center back-button buttonGoBack m-4"
         onClick={() => {
           navigate(-1);
         }}
       >
-        ATRAS
+        <img className="arrow-icon mx-2" src={backArrow} alt="back arrow icon" /> ATRAS
       </button>
     </div>
   ) : (

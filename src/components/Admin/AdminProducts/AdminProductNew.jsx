@@ -1,15 +1,18 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import "../../styles/AdminStyles.css";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
+import { useParams, useNavigate } from "react-router";
 import Alert from "@mui/material/Alert";
+import backArrow from "../../svg/arrow-left-solid.svg";
+import "../../styles/AdminStyles.css";
 
 function NewProduct() {
   const token = useSelector((state) => state.gema.userData.token);
   const [product, setProduct] = useState(null);
   const [correctlyCreated, setCorrectlyCreated] = useState("");
   const [validCategory, setValidCategory] = useState(true);
+  const navigate = useNavigate();
 
   const ColoredLine = ({ color }) => (
     <hr
@@ -165,10 +168,16 @@ function NewProduct() {
             <Alert severity="error">ERROR! Verifique que el nombre del producto sea único</Alert>
           )}
         </div>
-
-        <Link style={{ textDecoration: "none" }} to="/admin/products">
-          <p className="buttonGoBack m-4">ATRAS</p>
-        </Link>
+        <div>
+          <button
+            className="d-flex align-items-center  back-button buttonGoBack my-4"
+            onClick={() => {
+              navigate(-1);
+            }}
+          >
+            <img className="arrow-icon mx-2" src={backArrow} alt="back arrow icon" /> ATRAS
+          </button>
+        </div>
       </div>
     </div>
   );

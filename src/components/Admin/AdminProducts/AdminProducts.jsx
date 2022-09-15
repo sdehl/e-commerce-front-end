@@ -2,6 +2,10 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
+import trash from "../../svg/trash-solid.svg";
+import edit from "../../svg/pen-to-square-regular.svg";
+import backArrow from "../../svg/arrow-left-solid.svg";
+
 import "../../styles/AdminStyles.css";
 
 function AdminProducts() {
@@ -40,31 +44,35 @@ function AdminProducts() {
       <>
         <h1 className="m-4 d-flex justify-content-center">PRODUCTOS</h1>
         <div className="container mt-4">
-          <div className="mb-3 d-flex justify-content-between">
-            <Link to={`/admin`}>
-              <button className="irAtras"> Centro Administrativo </button>
+          <div className="mb-3 d-flex justify-content-between ">
+            <Link className="link-admin-center" to={`/admin`}>
+              <button className=" d-flex align-items-center irAtras px-0">
+                {" "}
+                <img className="arrow-icon " src={backArrow} alt="back arrow icon" />{" "}
+                <span className="mx-2">CENTRO ADMINISTRATIVO </span>
+              </button>
             </Link>
             <Link to={`/admin/products/create`}>
-              <button className="buttonCrud"> Create new Product</button>
+              <button className="buttonCrud px-0"> CREAR PRODUCTO</button>
             </Link>
           </div>
           <table className="table table-hover">
             <thead>
               <tr className="titlesTable">
                 <th className="fw-bold" scope="col">
-                  Name
+                  Nombre
                 </th>
                 <th className="fw-bold d-flex justify-content-center" scope="col">
-                  Category
+                  Categoría
                 </th>
                 <th className="fw-bold" scope="col">
-                  Price
+                  Precio
                 </th>
                 <th className="fw-bold" scope="col">
                   Stock
                 </th>
                 <th className="fw-bold " scope="col">
-                  Update
+                  Actualizar
                 </th>
               </tr>
             </thead>
@@ -78,16 +86,18 @@ function AdminProducts() {
                     <td className="textTable">{product.stock}</td>
                     <td>
                       <Link to={`/admin/products/${product.slug}`}>
-                        <button className="buttonCrud m-1">Editar</button>
+                        <button className="edit-button m-1">
+                          <img className="edit-icon" src={edit} alt="edit-icon" />
+                        </button>
                       </Link>
 
                       <button
-                        className="buttonCrud m-1"
+                        className="trash-button m-1"
                         onClick={() => {
                           handle.deleteProduct(product.slug);
                         }}
                       >
-                        Eliminar
+                        <img className="delete-icon" src={trash} alt="delete icon" />
                       </button>
                     </td>
                   </tr>
