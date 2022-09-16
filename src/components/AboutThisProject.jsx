@@ -26,8 +26,8 @@ function About() {
       <div className="container">
         <div className="row">
           <div className="col mt-5">
-            <h4 className="fw-bold">Sobre este proyecto</h4>
-            <p>
+            <h4>Sobre este proyecto</h4>
+            <p className="paragraph">
               Este E-commerce es el proyecto final desarrollado por{" "}
               <strong>Mercedes Torrendell, Santiago Dehl y Marcos Rossi</strong> en el marco del
               Bootcamp-Grupo 2207 de Hack Academy, una institución educativa ubicada en Montevideo,
@@ -57,8 +57,8 @@ function About() {
             />
           </div>
           <div className="col mt-5">
-            <h4 className="fw-bold">Aspectos organizacionales & MER</h4>
-            <p>
+            <h4>Aspectos organizacionales & MER</h4>
+            <p className="paragraph">
               Para la maquetación del proyecto se utilizaron las siguientes herramientas:
               <strong>Trello</strong>, para controlar el flujo y la asignación de tareas, y Figma,
               para modelar y diagramar. Se utilizó el modelo Entidad-Relación (MER). La metodología
@@ -75,8 +75,8 @@ function About() {
         </div>
         <div className="row">
           <div className="col mt-5">
-            <h4 className="fw-bold">Concepción del proyecto e inspiración</h4>
-            <p>
+            <h4>Concepción del proyecto e inspiración</h4>
+            <p className="paragraph">
               Uno de los primeros desafíos de nuestro proyecto fue el desarrollo de un diagrama de
               relaciones de entidad cuidadosamente pensado. Aquí definimos las principales
               relaciones entre las siguientes entidades: User, Order, Product y Caegory. Inspiramos
@@ -102,8 +102,8 @@ function About() {
             />
           </div>
           <div className="col mt-5">
-            <h4 className="fw-bold">Metodología de trabajo</h4>
-            <p>
+            <h4>Metodología de trabajo</h4>
+            <p className="paragraph">
               Organizamos nuestro trabajo en tres sprints, utilizando Metodología Ágile. Cada sprint
               tenía tareas que se organizaban y desarrollaban individualmente o en grupo, usando
               Trello para determinar la evolución y finalización de las tareas. Cada interacción
@@ -159,7 +159,7 @@ function About() {
               target="_blank"
               rel="noreferrer"
             >
-              <img src={trello} alt="" />{" "}
+              <img src={trello} alt="logotipo Trello" />{" "}
             </a>
           </div>
           <div className="col-3">
@@ -169,7 +169,7 @@ function About() {
               target="_blank"
               rel="noreferrer"
             >
-              <img src={figma} alt="" />{" "}
+              <img src={figma} alt="logotipo Figma" />{" "}
             </a>
           </div>
           <div className="col-3 "></div>
