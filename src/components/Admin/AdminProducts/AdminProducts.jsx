@@ -5,12 +5,11 @@ import { useSelector } from "react-redux";
 import trash from "../../svg/trash-solid.svg";
 import edit from "../../svg/pen-to-square-regular.svg";
 import backArrow from "../../svg/arrow-left-solid.svg";
-
+import Alert from "@mui/material/Alert";
 import "../../styles/AdminStyles.css";
 
 function AdminProducts() {
   const token = useSelector((state) => state.gema.userData.token);
-
   const [products, setProducts] = useState(null);
 
   const handle = {
@@ -78,36 +77,76 @@ function AdminProducts() {
             </thead>
             <tbody>
               {products.map((product) => {
-                return (
-                  <tr>
-                    <td scope="row">{product.name}</td>
-                    <td className="textTable">{product.category}</td>
-                    <td className="textTable">{product.price}</td>
-                    <td className="textTable">{product.stock}</td>
-                    <td>
-                      <Link to={`/admin/products/${product.slug}`}>
-                        <button className="edit-button m-1">
-                          <img className="edit-icon" src={edit} alt="edit-icon" />
-                        </button>
-                      </Link>
-
-                      <button
-                        className="trash-button m-1"
-                        onClick={() => {
-                          handle.deleteProduct(product.slug);
-                        }}
-                      >
-                        <img className="delete-icon" src={trash} alt="delete icon" />
-                      </button>
-                    </td>
-                  </tr>
-                );
+                return <IndividualProduct product={product} handle={handle} />;
               })}
             </tbody>
           </table>
         </div>
       </>
     )
+  );
+}
+
+function IndividualProduct({ product, handle }) {
+  const [verifyDeleted, setVerifyDeleted] = useState(false);
+  const [deleteProduct, setDeleteProduct] = useState(false);
+
+  useEffect(() => {
+    setVerifyDeleted(false);
+  }, [deleteProduct]);
+  return (
+    <>
+      <tr>
+        <td scope="row">{product.name}</td>
+        <td className="textTable">{product.category}</td>
+        <td className="textTable">{product.price}</td>
+        <td className="textTable">{product.stock}</td>
+        <td>
+          {!verifyDeleted && (
+            <>
+              <Link to={`/admin/products/${product.slug}`}>
+                <button className="edit-button m-1">
+                  <img className="edit-icon" src={edit} alt="edit-icon" />
+                </button>
+              </Link>
+              <button
+                className="trash-button m-1"
+                onClick={() => {
+                  setVerifyDeleted(true);
+                }}
+              >
+                <img className="delete-icon" src={trash} alt="delete icon" />
+              </button>
+            </>
+          )}
+
+          {verifyDeleted && (
+            <div className="d-flex justify-content-between">
+              <Alert severity="warning">Are you sure you want to delete this item?</Alert>
+              <button
+                className="bottonConfiramtionDelete"
+                onClick={() => {
+                  handle.deleteProduct(product.slug);
+                  setDeleteProduct(true);
+                  setVerifyDeleted(false);
+                }}
+              >
+                Yes
+              </button>
+              <button
+                className="bottonConfiramtionDelete"
+                onClick={() => {
+                  setDeleteProduct(false);
+                  setVerifyDeleted(false);
+                }}
+              >
+                No
+              </button>
+            </div>
+          )}
+        </td>
+      </tr>
+    </>
   );
 }
 

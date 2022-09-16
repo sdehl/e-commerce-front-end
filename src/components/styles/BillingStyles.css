@@ -75,6 +75,13 @@
   width: fit-content !important;
 }
 
+.productosFaltantes {
+  border: 0.5px solid rgba(166, 135, 135, 0.217);
+  padding: 3%;
+  margin-top: 2%;
+  margin-bottom: 2%;
+}
+
 .createOrder:hover {
   background-position: left bottom;
   color: white;
