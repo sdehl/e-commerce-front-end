@@ -117,6 +117,17 @@
   background-image: url("../svg/bars-solid.svg") !important;
 }
 
+.searchUnderline{
+  display: inline;
+  margin-left: 20px;
+  text-decoration: underline rgba(172, 136, 136, 0.263);
+  color:transparent
+}
+
+.itemsNavBar{
+  margin-left: 20px;
+  margin-right:20px
+}
 @media screen and (max-width: 767px) {
   .allNavbar {
     display: flex;
