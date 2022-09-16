@@ -334,14 +334,6 @@ function Billing() {
                 </div>
               </>
             )}
-            <button
-              className="createOrder m-4"
-              onClick={() => {
-                navigate("/cart");
-              }}
-            >
-              Atras
-            </button>
           </div>
         </form>
       </div>

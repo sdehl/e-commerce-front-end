@@ -27,13 +27,6 @@ function NavigationBar() {
         <div>
           <span>Envios a Montevideo y al Interior del Uruguay</span>{" "}
         </div>
-        <button
-          onClick={() => {
-            dispatch(deleteUserData());
-          }}
-        >
-          LOGOUT
-        </button>
       </div>
       <div className="row align-items-center my-4  ">
         <div className="col-4 navbarCol4 d-none d-md-flex">
@@ -51,7 +44,7 @@ function NavigationBar() {
                 navigate("/search");
               }}
             >
-              Trans
+              ______________
             </p>
             <img className="icons mx-2" src={search} alt="search icon" />
           </div>

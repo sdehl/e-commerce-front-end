@@ -113,16 +113,16 @@
   background-image: url("../svg/bars-solid.svg") !important;
 }
 
-.searchUnderline{
+.searchUnderline {
   display: inline;
   margin-left: 20px;
-  text-decoration: underline rgba(172, 136, 136, 0.263);
-  color:transparent
+  text-decoration: 0.6px underline rgba(114, 94, 94, 0.263);
+  color: transparent;
 }
 
-.itemsNavBar{
+.itemsNavBar {
   margin-left: 20px;
-  margin-right:20px
+  margin-right: 20px;
 }
 @media screen and (max-width: 767px) {
   .allNavbar {

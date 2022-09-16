@@ -159,11 +159,9 @@ function Product() {
                 Bronce Macizo con terminación barniz transparente mate
               </p>
               <p>
-                <strong>
-                  <Link className="careTips" to="#">
-                    – Ver Mantenimiento y Cuidados por más información –{" "}
-                  </Link>
-                </strong>
+                <Link className="careTips" to="#">
+                  – Ver Mantenimiento y Cuidados por más información –{" "}
+                </Link>
               </p>
               <p className="includes">INCLUYE COMPONENTES CORRESPONDIENTES PARA SU COLOCACIÓN</p>
             </div>
