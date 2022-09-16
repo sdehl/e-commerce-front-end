@@ -144,29 +144,43 @@ function About() {
         <div className="row d.flex card-group pb-5">
           <h1>TEAM:</h1>
 
-          <div className="col">
+          <div className="col text-center">
             {" "}
             <img
               src={mer}
-              className="image profile-image d-inline-block w-100 my-4"
+              className="zoom profile-image d-inline-block w-100 my-4"
               alt="Foto de perfil"
             />
+            <p>Mercedes Torrendell</p>
+            <p>Full Stack Developer Jr</p>
+            <div className="icons8-linkedin"></div>
+            <div className="icons8-github mx-2"></div>
           </div>
-          <div className="col">
+          <div className="col text-center">
             {" "}
             <img
               src={sant}
-              className="image profile-image d-inline-block w-100 my-4"
+              className="zoom profile-image d-inline-block w-100 my-4"
               alt="Foto de perfil"
             />
+            <p>Santiago Dehl</p>
+            <p>Full Stack Developer Jr</p>
+            <div className="icons8-linkedin"></div>
+            <div className="icons8-github mx-2"></div>
           </div>
-          <div className="col">
+          <div className="col text-center">
             {" "}
             <img
               src={marc}
-              className="image profile-image d-inline-block w-100 my-4"
+              className="zoom profile-image d-inline-block w-100 my-4"
               alt="Foto de perfil"
             />
+            <p>Marcos Rossi</p>
+            <p>Full Stack Developer Jr</p>
+            <row>
+              <div className="icons8-linkedin"></div>
+              <div className="icons8-github mx-2"></div>
+            </row>
           </div>
         </div>
       </div>
