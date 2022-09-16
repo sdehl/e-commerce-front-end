@@ -2,6 +2,7 @@ import React from "react";
 import { Container, Nav, Navbar } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router";
+import { deleteUserData } from "../redux/slices/gemaSlice";
 
 import gemaLogo from "./img/gema-logo.png";
 import search from "./svg/magnifying-glass-solid.svg";
@@ -26,17 +27,32 @@ function NavigationBar() {
         <div>
           <span>Envios a Montevideo y al Interior del Uruguay</span>{" "}
         </div>
+        <button
+          onClick={() => {
+            dispatch(deleteUserData());
+          }}
+        >
+          LOGOUT
+        </button>
       </div>
       <div className="row align-items-center my-4  ">
         <div className="col-4 navbarCol4 d-none d-md-flex">
           <div>
-            <input
+            {/* <input
               className="headerSearch"
               type="text"
               onClick={() => {
                 navigate("/search");
               }}
-            />{" "}
+            />{" "} */}
+            <p
+              className="searchUnderline"
+              onClick={() => {
+                navigate("/search");
+              }}
+            >
+              Trans
+            </p>
             <img className="icons mx-2" src={search} alt="search icon" />
           </div>
         </div>
@@ -83,7 +99,7 @@ function NavigationBar() {
           </div>
         </div>
       </div>
-      <div className=" d-flex justify-content-center dropdowns-container">
+      <div className=" d-flex justify-content-center dropdowns-container itemsNavBar">
         <Navbar expand="md">
           <Container fluid>
             <Navbar.Toggle className="border-0 shadow-none " aria-controls="basic-navbar-nav" />

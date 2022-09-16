@@ -89,7 +89,7 @@ function Profile() {
       }
       userProfile();
     }
-  }, []);
+  }, [userInfo]);
 
   async function editProfile() {
     try {
