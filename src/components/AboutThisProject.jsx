@@ -2,6 +2,16 @@ import "../components/styles/About.css";
 import mer from "./img/mer-t.jpg";
 import sant from "./img/sdehl.jpg";
 import marc from "./img/marc.jpg";
+import figma from "./img/figma.svg";
+import trello from "./img/trello.svg";
+import react from "./img/react-native.svg";
+import node from "./img/nodejs.svg";
+import redux from "./img/redux.svg";
+import js from "./img/javascript-logo.svg";
+import discord from "./img/discord.svg";
+import mongodb from "./img/mongodb.svg";
+import mongoose from "./img/mongoose.svg";
+import teams from "./img/microsoft-teams.svg";
 
 function About() {
   return (
@@ -16,7 +26,7 @@ function About() {
       <div className="container">
         <div className="row">
           <div className="col mt-5">
-            <h4>Sobre este proyecto</h4>
+            <h4 className="fw-bold">Sobre este proyecto</h4>
             <p>
               Este E-commerce es el proyecto final desarrollado por{" "}
               <strong>Mercedes Torrendell, Santiago Dehl y Marcos Rossi</strong> en el marco del
@@ -47,35 +57,32 @@ function About() {
             />
           </div>
           <div className="col mt-5">
-            <h4>Aspectos organizacionales & MER</h4>
+            <h4 className="fw-bold">Aspectos organizacionales & MER</h4>
             <p>
               Para la maquetación del proyecto se utilizaron las siguientes herramientas:
-              <strong>Trello</strong>, para controlar el flujo y la asignación de tareas, y
-              <strong>Figma</strong>, para modelar y diagramar. Se utilizó el modelo
-              Entidad-Relación (MER). La metodología adoptada para el desarrollo del proyecto fue
-              Scrum, donde se llevó el proyecto sobre los estándares de MVP, presentando una demo al
-              final de cada semana. Se ha buscado respetar las buenas prácticas en cuanto a
-              organización de las carpetas, consistencia en los idiomas, legibilidad/nomenclatura de
-              los archivos y hacer la posible menor cantidad de llamadas a la base de datos. El
-              E-commerce cuenta con una página Home, una página con todos los productos, y un panel
-              de administración donde el usuario con permisos de administrador podrá crear,
-              consultar, modificar/actualizar y borrar artículos. Inspiramos la plantilla de nuestro
-              e-store con la de Gema, un sitio web minorista de accesorios de interiores
-              cuidadosamente diseñado. Nutrimos nuestra base de datos con imágenes, descripciones,
-              nombres y precios del propio website.
+              <strong>Trello</strong>, para controlar el flujo y la asignación de tareas, y Figma,
+              para modelar y diagramar. Se utilizó el modelo Entidad-Relación (MER). La metodología
+              adoptada para el desarrollo del proyecto fue Scrum, donde se llevó el proyecto sobre
+              los estándares de MVP, presentando una demo al final de cada semana. Se ha buscado
+              respetar las buenas prácticas en cuanto a organización de las carpetas, consistencia
+              en los idiomas, legibilidad/nomenclatura de los archivos y hacer la posible menor
+              cantidad de llamadas a la base de datos. El E-commerce cuenta con una página Home, una
+              página con todos los productos, y un panel de administración donde el usuario con
+              permisos de administrador podrá crear, consultar, modificar/actualizar y borrar
+              artículos.
             </p>
           </div>
         </div>
         <div className="row">
           <div className="col mt-5">
-            <h4>Concepción del proyecto</h4>
+            <h4 className="fw-bold">Concepción del proyecto e inspiración</h4>
             <p>
               Uno de los primeros desafíos de nuestro proyecto fue el desarrollo de un diagrama de
               relaciones de entidad cuidadosamente pensado. Aquí definimos las principales
-              relaciones entre las siguientes entidades: …… 2 - Diseño e Inspiración Inspiramos la
-              plantilla de nuestro sitio web con la de Gema, un sitio web minorista de accesorios
-              ??? cuidadosamente diseñado. Nutrimos nuestra base de datos con imágenes,
-              descripciones, nombres y precios del propio website.
+              relaciones entre las siguientes entidades: User, Order, Product y Caegory. Inspiramos
+              la plantilla de nuestro sitio web con la de Gema, un sitio web minorista de minorista
+              de accesorios para interiores, cuidadosamente diseñado. Nutrimos nuestra base de datos
+              con imágenes, descripciones, nombres y precios del propio website.
             </p>
           </div>
           <div className="col">
@@ -95,7 +102,7 @@ function About() {
             />
           </div>
           <div className="col mt-5">
-            <h4>Metodología de trabajo</h4>
+            <h4 className="fw-bold">Metodología de trabajo</h4>
             <p>
               Organizamos nuestro trabajo en tres sprints, utilizando Metodología Ágile. Cada sprint
               tenía tareas que se organizaban y desarrollaban individualmente o en grupo, usando
@@ -112,37 +119,65 @@ function About() {
           </div>
         </div>
       </div>
+
       <div className="row text-center m-5 py-5">
+        <h2 className="my-5 py-5 fw-bold">Tecnologías utilizadas</h2>
         <div className="col">
-          <div class="icons8-react-native"></div>
+          <img src={react} className="icons8-react-native " alt="logo react" />
+        </div>
+
+        <div className="col">
+          <img src={redux} className="icons8-redux" alt="logo redux" />
+        </div>
+
+        <div className="col">
+          <img src={js} className="js" alt="logo javascript" />
         </div>
         <div className="col">
-          <div class="icons8-figma"></div>
-        </div>
-        <div className="col">
-          <div class="icons8-redux"></div>
-        </div>
-        <div className="col">
-          <div class="icons8-trello"></div>
+          <img src={node} className="icons8-nodejs " alt="logo nodejs" />
         </div>
       </div>
       <div className="row text-center m-5 py-5">
         <div className="col">
-          <div class="icons8-mongodb"></div>
+          <img src={mongodb} className="icons8-mongodb " alt="logo mongodb" />
         </div>
         <div className="col">
-          <div class="icons8-mongoose"></div>
+          <img src={mongoose} className="icons8-mongoose " alt="logo mongoose" />
         </div>
         <div className="col">
-          <div class="icons8-discord"></div>
+          <img src={discord} className="icons8-discord " alt="logo discord" />
         </div>
         <div className="col">
-          <div class="icons8-microsoft-teams-2019"></div>
+          <img src={teams} className="icons8-microsoft-teams-2019 " alt="logo microsoft teams" />
+        </div>
+        <div className="row pt-5 mt-5">
+          <div className="col-3 "></div>
+          <div className="col-3 ">
+            <a
+              className="icons8-trello"
+              href="https://trello.com/b/iMKgVZ0d/e-commerce"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <img src={trello} alt="" />{" "}
+            </a>
+          </div>
+          <div className="col-3">
+            <a
+              className="icons8-figma"
+              href="https://www.figma.com/file/4K0ucBjB7EOI5obNOMZmAm/e-commerce?node-id=0%3A1"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <img src={figma} alt="" />{" "}
+            </a>
+          </div>
+          <div className="col-3 "></div>
         </div>
       </div>
       <div className="container w-75">
-        <div className="row d.flex card-group pb-5">
-          <h1>TEAM:</h1>
+        <div className="row d.flex card-group p-5 text-center">
+          <h1 className="mb-5 pb-5 fw-bold">TEAM:</h1>
 
           <div className="col text-center">
             {" "}
@@ -153,10 +188,24 @@ function About() {
             />
             <p>Mercedes Torrendell</p>
             <p>Full Stack Developer Jr</p>
-            <div className="icons8-linkedin"></div>
-            <div className="icons8-github mx-2"></div>
+            <a
+              className="icons8-linkedin"
+              href="https://www.linkedin.com/in/mercedes-torrendell-748826236/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              {" "}
+            </a>
+            <a
+              className="icons8-github mx-2"
+              href="https://github.com/mTorrendell"
+              target="_blank"
+              rel="noreferrer"
+            >
+              {" "}
+            </a>{" "}
           </div>
-          <div className="col text-center">
+          <div className="col text-center mx-5">
             {" "}
             <img
               src={sant}
@@ -165,8 +214,22 @@ function About() {
             />
             <p>Santiago Dehl</p>
             <p>Full Stack Developer Jr</p>
-            <div className="icons8-linkedin"></div>
-            <div className="icons8-github mx-2"></div>
+            <a
+              className="icons8-linkedin"
+              href="https://www.linkedin.com/in/santiagojdehl/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              {" "}
+            </a>
+            <a
+              className="icons8-github mx-2"
+              href="https://github.com/sdehl"
+              target="_blank"
+              rel="noreferrer"
+            >
+              {" "}
+            </a>
           </div>
           <div className="col text-center">
             {" "}
@@ -178,8 +241,22 @@ function About() {
             <p>Marcos Rossi</p>
             <p>Full Stack Developer Jr</p>
             <row>
-              <div className="icons8-linkedin"></div>
-              <div className="icons8-github mx-2"></div>
+              <a
+                className="icons8-linkedin"
+                href="https://www.linkedin.com/in/marcos-rossi-prado/"
+                target="_blank"
+                rel="noreferrer"
+              >
+                {" "}
+              </a>
+              <a
+                className="icons8-github mx-2"
+                href="https://github.com/gurrucha"
+                target="_blank"
+                rel="noreferrer"
+              >
+                {" "}
+              </a>{" "}
             </row>
           </div>
         </div>
@@ -188,81 +265,3 @@ function About() {
   );
 }
 export default About;
-
-// <h3>Sobre este proyecto</h3>
-//             <h5>
-//               Este E-commerce es el proyecto final desarrollado por{" "}
-//               <strong>Mercedes Torrendel, Santiago Dehl y Marcos Rossi</strong> en el marco del
-//               Bootcamp-Grupo 2207 de Hack Academy, una institución educativa ubicada en Montevideo,
-//               Uruguay especializada en programación, que imparte cursos desde el año 2016. El
-//               bootcamp es un curso de tiempo completo que capacita a desarrolladores como Full Stack
-//               Jr. El objetivo del proyecto final es poner en práctica los conocimientos adquiridos
-//               utilizando diversas tecnologías. Durante las tres semanas que duró insumió una carga
-//               horaria de circa 160 hrs por integrante. Uno de los primeros desafíos de nuestro
-//               proyecto fue el desarrollo de un diagrama de relaciones de entidad cuidadosamente
-//               pensado. Aquí definimos las principales relaciones entre las siguientes entidades: ……
-//             </h5>
-//           </div>
-//         </div>
-//       </div>
-//       <div className="container">
-//         <div className="row d-inline-block ">
-//           <div className="col-6">
-//             <h3>Aspectos organizacionales & MER</h3>
-//             <h5>
-//               Para la maquetación del proyecto se utilizaron las siguientes herramientas:{" "}
-//               <strong>Trello</strong>, para controlar el flujo y la asignación de tareas, y{" "}
-//               <strong>Figma</strong>, para modelar y diagramar. Se utilizó el modelo
-//               Entidad-Relación (MER). La metodología adoptada para el desarrollo del proyecto fue
-//               Scrum, donde se llevó el proyecto sobre los estándares de MVP, presentando una demo al
-//               final de cada semana. Se ha buscado respetar las buenas prácticas en cuanto a
-//               organización de las carpetas, consistencia en los idiomas, legibilidad/nomenclatura de
-//               los archivos y hacer la posible menor cantidad de llamadas a la base de datos. El
-//               E-commerce cuenta con una página Home, una página con todos los productos, y un panel
-//               de administración donde el usuario con permisos de administrador podrá crear,
-//               consultar, modificar/actualizar y borrar artículos. Inspiramos la plantilla de nuestro
-//               e-store con la de Gema, un sitio web minorista de accesorios ??? cuidadosamente
-//               diseñado. Nutrimos nuestra base de datos con imágenes, descripciones, nombres y
-//               precios del propio website.
-//             </h5>
-//           </div>
-//           <div className="col-6 m-5">
-//             <img
-//               src={"https://www.gemainteriores.com/wp-content/uploads/2021/04/H02-CUA-BZ-1-1.jpg"}
-//               className="image d-inline-block w-100 my-4"
-//               alt="tiradores de bronce"
-//             />
-//           </div>
-//         </div>
-//       </div>
-//       <div className="container">
-//         <div className="row ">
-//           <div className="col-6">
-//             <h3>Concepción del proyecto</h3>
-//             <img
-//               src={
-//                 "https://www.gemainteriores.com/wp-content/uploads/2021/05/Coleccion-Negro-Mate.jpg"
-//               }
-//               className="image d-inline-block w-100 my-4"
-//               alt="tiradores negros, griferia negra y color-palette sobre alfombra"
-//             />
-//           </div>
-//           <div className="col-6 m-5">
-//             <h5>
-//               Uno de los primeros desafíos de nuestro proyecto fue el desarrollo de un diagrama de
-//               relaciones de entidad cuidadosamente pensado. Aquí definimos las principales
-//               relaciones entre las siguientes entidades: …… 2 - Diseño e Inspiración Inspiramos la
-//               plantilla de nuestro sitio web con la de Gema, un sitio web minorista de accesorios
-//               ??? cuidadosamente diseñado. Nutrimos nuestra base de datos con imágenes,
-//               descripciones, nombres y precios del propio website. 3 - Metodología de trabajo
-//               Organizamos nuestro trabajo utilizando Metodología Ágile con tres sprints. Cada sprint
-//               tenía tareas que se organizaban y desarrollaban individualmente o en grupos, usando
-//               Trello para determinar la finalización de las tareas. Cada interacción entre sus
-//               desarrolladores, y por extensión, todo el proyecto, se realizó en línea usando
-//               Discord. 4 - Frameworks y Tecnologías Usamos la pila MERN. Lo que significa que
-//               nuestro proyecto utilizó una base de datos no relacional y que trabajamos con Mongo,
-//               MongoDB, Mongo Atlas, Mongo Compass y Mongoose, además de Supabase para importar
-//               imágenes. Express, React y Node como nuestros marcos de aplicación. En el desarrollo
-//               utilizamos tecnologías conocidas que rodean este stack, como React Bootstrap, Hooks,
-//               Formidable, etc. Cada interacción entre sus desarrolladores, y por extensión, todo el
-//               proyecto, se realizó en línea usando Discord.
