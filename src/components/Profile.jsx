@@ -7,6 +7,7 @@ import Alert from "@mui/material/Alert";
 import cart from "./svg/cart-shopping-solid.svg";
 import home from "./svg/house-solid.svg";
 import "./styles/ProfileStyles.css";
+import UserOrder from "./Admin/AdminUsers/AdminUserOrder";
 
 function Profile() {
   const gema = useSelector((state) => state.gema);
@@ -23,6 +24,7 @@ function Profile() {
   const [phone, setPhone] = useState("");
   const [adress, setAdress] = useState("");
 
+  // console.log(userInfo.orderHistory);
   const navigate = useNavigate();
 
   const dispatch = useDispatch();
@@ -50,7 +52,6 @@ function Profile() {
     },
     login: async () => {
       try {
-
         const response = await axios({
           method: "POST",
           url: `${process.env.REACT_APP_API_URL}/login`,
@@ -71,7 +72,7 @@ function Profile() {
         setLoginStatus(error.response.status);
       }
     },
-  }
+  };
 
   useEffect(() => {
     if (gema.userData.userId) {
@@ -82,6 +83,7 @@ function Profile() {
             url: `${process.env.REACT_APP_API_URL}/users/${gema.userData.userId}`,
             headers: { Authorization: `Bearer ${gema.userData.token}` },
           });
+
           setUserInfo(data.data.user);
         } catch (error) {
           console.log(error);
@@ -227,13 +229,23 @@ function Profile() {
                   </div>
                 </form>
               </div>
+
+              {/* userInfo.orderHistory > 0 */}
               <div className="col-12 col-lg-6">
                 <h3>HISTORIAL DE ORDENES</h3>
-                {/* {userInfo.orderHistory.map((orders)=>{
-                  return(
-                    orders.
-                  )
-                })} */}
+
+                {userInfo.orderHistory.map((order, index) => {
+                  return (
+                    <div className="userOrders">
+                      <UserOrder
+                        order={order}
+                        index={index}
+                        products={order.products}
+                        key={order._id}
+                      />
+                    </div>
+                  );
+                })}
               </div>
             </div>
           </div>
@@ -283,10 +295,7 @@ function Profile() {
                 </div>
                 <div className="d-flex align-items-center justify-content-between mb-3 ">
                   <div>
-                    <button
-                      type="submit"
-                      className="login-btn"
-                    >
+                    <button type="submit" className="login-btn">
                       INICIAR SESIÓN
                     </button>
                   </div>

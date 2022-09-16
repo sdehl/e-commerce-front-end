@@ -138,6 +138,33 @@ function NavigationBar() {
                 >
                   <span className="underline-animation">GRIFERÍA </span>
                 </Nav.Link>
+                <Nav.Link
+                  className="mx-3 d-md-none"
+                  onClick={() => {
+                    navigate("/profile");
+                  }}
+                >
+                  <span className=" underline-animation">PERFIL </span>
+                </Nav.Link>
+                <Nav.Link
+                  className="mx-3 d-md-none"
+                  onClick={() => {
+                    navigate("/cart");
+                  }}
+                >
+                  <span className=" underline-animation">CARRITO </span>
+                </Nav.Link>
+
+                {gema.userData.isAdmin ? (
+                  <Nav.Link
+                    className="mx-3 d-md-none"
+                    onClick={() => {
+                      navigate("/admin");
+                    }}
+                  >
+                    <span className=" underline-animation">ADMINISTRADOR </span>
+                  </Nav.Link>
+                ) : null}
               </Nav>
             </Navbar.Collapse>
           </Container>

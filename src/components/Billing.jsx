@@ -70,6 +70,8 @@ function Billing() {
           title: "La orden fue creada correctamente!",
           icon: "success",
           confirmButtonText: "Continuar",
+          iconColor: "#7B5A52",
+          confirmButtonColor: "#7B5A52",
         });
         dispatch(deleteCart());
       } catch (error) {
