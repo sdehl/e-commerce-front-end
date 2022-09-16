@@ -29,15 +29,28 @@
 .register-btn,
 .save-btn,
 .logout-btn {
-  background-color: transparent;
+  background: linear-gradient(to left, white 50%, black 50%);
+  background-size: 200% 100%;
+  background-position: right bottom;
+  transition: all 1s ease;
   border: 1px solid black;
   color: black;
-  padding: 10px 65px;
+  padding: 15px 40px;
   text-align: center;
   text-decoration: none;
-  font-size: 11px;
+  font-size: 14px;
+  font-weight: 500;
   letter-spacing: 0.2rem;
 }
+
+.login-btn:hover,
+.register-btn:hover,
+.save-btn:hover,
+.logout-btn:hover {
+  background-position: left bottom;
+  color: white;
+}
+
 .rememberMe,
 .forgetPassword {
   font-size: 16px;
@@ -68,4 +81,8 @@
 
 .userEdited {
   width: 280px;
+}
+
+.userOrders {
+  margin-top: 4rem;
 }

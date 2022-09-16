@@ -58,10 +58,6 @@
   background-color: #faf6f2 !important;
 }
 
-.dropdowns-container {
-  border-bottom: 1px #ebebeb solid;
-}
-
 @media screen and (max-width: 768px) {
   .navbar-nav {
     background-color: #faf6f2;
@@ -125,4 +121,8 @@
     margin-left: 2%;
     margin-right: 2%;
   }
+}
+
+.allNavbar {
+  border-bottom: #d6d6d6 solid 0.8px;
 }

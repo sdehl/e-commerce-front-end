@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import plus from "../../svg/plus-solid.svg";
+import minus from "../../svg/minus-solid.svg";
 
 function UserOrder({ products, order, index }) {
   const [moreInfoProducts, setMoreInfoProducts] = useState(false);
@@ -37,7 +39,7 @@ function UserOrder({ products, order, index }) {
                 setMoreInfoProducts(true);
               }}
             >
-              +
+              <img className="plus-icon" src={plus} alt="plus icon" />
             </button>
           </div>
         ) : (
@@ -49,7 +51,7 @@ function UserOrder({ products, order, index }) {
                 setMoreInfoProducts(false);
               }}
             >
-              -
+              <img className="minus-icon" src={minus} alt="minus icon" />
             </button>
           </div>
         )}

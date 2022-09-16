@@ -23,17 +23,17 @@
   background-color: #e2b7ac1a !important;
 }
 
-.bottonCategoria{
+.bottonCategoria {
   background-color: transparent;
   border: 0px;
-  color:gray
+  color: gray;
 }
 
-.bottonCategoria:hover{
-  color:#99846caf;
+.bottonCategoria:hover {
+  color: #99846caf;
 }
 
-.titlesTable{
+.titlesTable {
   background-color: #c7af9533;
 }
 
@@ -68,9 +68,9 @@
   font-weight: 500;
 }
 
-.titulo-Pedido{
-    font-weight: 601;
-    margin-right: 10px;
+.titulo-Pedido {
+  font-weight: 601;
+  margin-right: 10px;
 }
 
 .irAtras:hover {
@@ -144,19 +144,19 @@
 }
 
 .update {
-  margin-top: 10px;
-  margin-right: 20px;
+  /* margin-top: 10px;
+  margin-right: 20px; */
   background: linear-gradient(to left, transparent 50%, black 50%);
   background-size: 200% 100%;
   background-position: right bottom;
   transition: all 2s ease;
   border: 1px solid black;
   color: black;
-  padding: 15px 32px;
+  padding: 15px 30px;
   text-align: center;
   text-decoration: none;
   font-size: 16px;
-  width: fit-content;
+  width: 160px;
 }
 
 .update:hover {
@@ -187,7 +187,9 @@
 .delete-icon,
 .edit-icon,
 .arrow-icon,
-.show-more-icon {
+.show-more-icon,
+.plus-icon,
+.minus-icon {
   align-items: center;
   height: 20px;
   width: 20px;
