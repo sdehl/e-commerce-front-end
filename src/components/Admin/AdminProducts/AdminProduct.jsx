@@ -40,6 +40,7 @@ function AdminProduct() {
           setCorrectlyUpdated("Not correctly added");
         } else if (response.status === 200) {
           setCorrectlyUpdated("Correctly added");
+          setOriginalName(product.name);
         }
       } catch (error) {
         console.log(error);
