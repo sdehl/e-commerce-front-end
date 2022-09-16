@@ -48,6 +48,7 @@ function Search() {
           type="text"
           placeholder="TYPE HERE"
           value={productName}
+          autofocus="autofocus"
           onChange={(e) => {
             setProductName(e.target.value);
           }}

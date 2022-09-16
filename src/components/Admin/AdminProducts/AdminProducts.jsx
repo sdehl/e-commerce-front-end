@@ -6,6 +6,8 @@ import trash from "../../svg/trash-solid.svg";
 import edit from "../../svg/pen-to-square-regular.svg";
 import backArrow from "../../svg/arrow-left-solid.svg";
 import Alert from "@mui/material/Alert";
+import check from "../../svg/check-solid.svg";
+import cancel from "../../svg/xmark-solid.svg";
 import "../../styles/AdminStyles.css";
 
 function AdminProducts() {
@@ -121,26 +123,28 @@ function IndividualProduct({ product, handle }) {
           )}
 
           {verifyDeleted && (
-            <div className="d-flex justify-content-between">
-              <Alert severity="warning">Are you sure you want to delete this item?</Alert>
+            <div className="d-flex justify-content-between confirmationContainer">
+              <Alert className="px-2" severity="warning">
+                Está seguro?
+              </Alert>
               <button
-                className="bottonConfiramtionDelete"
+                className=" check-button"
                 onClick={() => {
                   handle.deleteProduct(product.slug);
                   setDeleteProduct(true);
                   setVerifyDeleted(false);
                 }}
               >
-                Yes
+                <img className="check-icon" src={check} alt="check icon" />
               </button>
               <button
-                className="bottonConfiramtionDelete"
+                className=" cancel-button"
                 onClick={() => {
                   setDeleteProduct(false);
                   setVerifyDeleted(false);
                 }}
               >
-                No
+                <img className="cancel-icon" src={cancel} alt="x icon" />
               </button>
             </div>
           )}
