@@ -24,7 +24,6 @@ function Profile() {
   const [phone, setPhone] = useState("");
   const [adress, setAdress] = useState("");
 
-  // console.log(userInfo.orderHistory);
   const navigate = useNavigate();
 
   const dispatch = useDispatch();

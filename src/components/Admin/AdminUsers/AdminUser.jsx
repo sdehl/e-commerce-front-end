@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { Modal } from "react-bootstrap";
 import "../../styles/AdminStyles.css";
 import UserOrder from "./AdminUserOrder";
@@ -13,7 +14,6 @@ function User({ show, handleClose, user }) {
       }}
     />
   );
-
   return (
     user && (
       <>
@@ -29,7 +29,7 @@ function User({ show, handleClose, user }) {
                     <div className="d-flex">
                       <h5 className="textElementInModal mt-1">Nombre:</h5>
                       <p className="itemsTextOfModal">
-                        {user.name ? user.name : "No se ha registrado"}
+                        {user.firstname ? user.firstname : "No se ha registrado"}
                       </p>
                     </div>
                     <ColoredLine color="gray" />

@@ -8,6 +8,7 @@ import showMore from "../../svg/ellipsis-solid.svg";
 import trash from "../../svg/trash-solid.svg";
 
 function Users() {
+  const gema = useSelector((state) => state.gema);
   const [show, setShow] = useState(false);
   const [productForModal, setProductForModal] = useState(null);
   const [users, setUsers] = useState();
@@ -76,19 +77,22 @@ function Users() {
               {users.map((user) => {
                 return (
                   <tr key={user._id}>
-                    <td>{user.name ? user : "No se ha registrado un nombre aún"}</td>
+                    <td>{user.firstname ? user.firstname : "No se ha registrado un nombre aún"}</td>
                     <td>{user.username ? user.username : user.email}</td>
                     <td>{user.phone ? user.phone : "No se ha registrado un teléfono aún"}</td>
                     <td className="textCenter">{user.orderHistory.length}</td>
                     <td>
-                      <button
-                        className="buttonCrud m-1"
-                        onClick={() => {
-                          handle.deleteUser(user._id);
-                        }}
-                      >
-                        <img className="delete-icon" src={trash} alt="delete icon" />
-                      </button>
+                      {gema.userData.userId !== user._id && (
+                        <button
+                          className="buttonCrud m-1"
+                          onClick={() => {
+                            handle.deleteUser(user._id);
+                          }}
+                        >
+                          <img className="delete-icon" src={trash} alt="delete icon" />
+                        </button>
+                      )}
+
                       <button
                         className="buttonCrud m-1"
                         onClick={() => {
