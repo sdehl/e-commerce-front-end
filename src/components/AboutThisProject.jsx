@@ -123,7 +123,7 @@ function About() {
       </div>
 
       <div className="row text-center m-5 py-5">
-        <h2 className="m-5 p-5 fw-bold">Tecnologías utilizadas</h2>
+        <h2 className="my-5 py-5 fw-bold">Tecnologías utilizadas</h2>
         <div className="col">
           <img src={react} className="icons8-react-native " alt="logo react" />
         </div>
