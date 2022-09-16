@@ -180,7 +180,7 @@ function AdminProduct() {
           <div className="col-6 d-flex align-items-center flex-wrap justify-content-center">
             {product.pictures.map((picture, index) => {
               return (
-                <div className="d-flex flex-column align-items-center">
+                <div key={index} className="d-flex flex-column align-items-center">
                   <div className="imagesOfProduct d-flex align-items-center m-3">
                     {index === 0 ? (
                       <img

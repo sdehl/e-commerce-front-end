@@ -18,9 +18,9 @@ function User({ show, handleClose, user }) {
     user && (
       <>
         <Modal show={show} onHide={handleClose} size="lg">
-          <div class="modal-body">
-            <div class="container-fluid">
-              <div class="row">
+          <div className="modal-body">
+            <div className="container-fluid">
+              <div className="row">
                 <div className="d-flex flex-column">
                   <div className="d-flex flex-column">
                     <h1 className="textCenter mb-4">
@@ -72,7 +72,7 @@ function User({ show, handleClose, user }) {
                     user.orderHistory.map((order, index) => {
                       return (
                         <UserOrder
-                          key={index}
+                          key={order._id}
                           order={order}
                           index={index}
                           products={user.orderHistory[index].products}

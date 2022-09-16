@@ -48,6 +48,7 @@ function Search() {
           type="text"
           placeholder="TYPE HERE"
           value={productName}
+          autofocus="autofocus"
           onChange={(e) => {
             setProductName(e.target.value);
           }}
@@ -59,7 +60,7 @@ function Search() {
           {products &&
             (products.length > 0 ? (
               products.map((product) => {
-                return <SearchProduct product={product} />;
+                return <SearchProduct key={product._id} product={product} />;
               })
             ) : (
               <>

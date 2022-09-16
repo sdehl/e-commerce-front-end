@@ -23,21 +23,23 @@ function ProductCard({ product, handleShow }) {
       ></img>
 
       <div id="button-div" className="d-flex flex-column align-items-center">
-        <button
-          className="addToCart"
-          onClick={() => {
-            if (buttonCart !== "Agregar al carrito") {
-              navigate("/cart");
-            } else {
-              dispatch(addProductToCart({ id: product._id, cant: 1, slug: product.slug }));
-              dispatch(updateCantProducts(1));
-              dispatch(updateTotalPrice(product.price));
-              setButtonCart("Ver carrito");
-            }
-          }}
-        >
-          {buttonCart.toUpperCase()}
-        </button>
+        {product.stock > 0 && (
+          <button
+            className="addToCart"
+            onClick={() => {
+              if (buttonCart !== "Agregar al carrito") {
+                navigate("/cart");
+              } else {
+                dispatch(addProductToCart({ id: product._id, cant: 1, slug: product.slug }));
+                dispatch(updateCantProducts(1));
+                dispatch(updateTotalPrice(product.price));
+                setButtonCart("Ver carrito");
+              }
+            }}
+          >
+            {buttonCart.toUpperCase()}
+          </button>
+        )}
         <button
           className="addToCart"
           onClick={() => {

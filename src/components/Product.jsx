@@ -117,7 +117,6 @@ function Product() {
                     +
                   </span>
                 </div>
-
                 <button
                   className="addToCartBtn"
                   onClick={() => {

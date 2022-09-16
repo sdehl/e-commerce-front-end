@@ -61,7 +61,7 @@ function Users() {
             </Link>
           </div>
 
-          <table class="table table-hover mt-2 ">
+          <table className="table table-hover mt-2 ">
             <AdminUser show={show} handleClose={handleClose} user={productForModal} />
             <thead>
               <tr className="titlesTable">
@@ -75,7 +75,7 @@ function Users() {
             <tbody>
               {users.map((user) => {
                 return (
-                  <tr>
+                  <tr key={user._id}>
                     <td>{user.name ? user : "No se ha registrado un nombre aún"}</td>
                     <td>{user.username ? user.username : user.email}</td>
                     <td>{user.phone ? user.phone : "No se ha registrado un teléfono aún"}</td>

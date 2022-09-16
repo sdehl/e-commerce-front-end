@@ -77,8 +77,8 @@ function Cart() {
           </section>
           {cart.map((property, index) => {
             return (
-              <div className="listCart">
-                <section key={property.product._id} className="mt-4 mb-4">
+              <div key={property.product._id} className="listCart">
+                <section className="mt-4 mb-4">
                   <CartProduct product={property.product} cant={property.cant} position={index} />
                 </section>
                 <ColoredLine color="gray" />

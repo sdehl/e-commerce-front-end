@@ -55,7 +55,7 @@ function CartProduct({ product, cant }) {
           <img
             src={filteredPicture ? filteredPicture : "https://wallpaperaccess.com/full/1756496.jpg"}
             className="imageCart"
-            alt="..."
+            alt="imageCart"
           ></img>
         </div>
         <Link className="product-link" to={`/product/${product.slug}`}>

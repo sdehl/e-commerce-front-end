@@ -45,12 +45,10 @@ function Billing() {
     updateCart: async () => {
       try {
         const obj = [];
-        let tot = 0;
         for (const prod of gema.cart) {
           if (prod.cant > 0) {
             let productObject = await handle.apiCall(prod.slug);
             obj.push({ product: productObject, cant: prod.cant });
-            tot += productObject.price * prod.cant;
           }
         }
         setCart(obj);
@@ -276,21 +274,20 @@ function Billing() {
             <h3 className="mt-4 mb-3">TU PEDIDO</h3>
             <div className="order">
               <div className="row">
-                {" "}
                 <h5 className="col-2"></h5>
                 <h5 className="col-6 ">PRODUCTO</h5>
                 <h5 className="col-2">SUBTOTAL</h5>
               </div>
               {cart.map((property) => {
                 return (
-                  <>
+                  <div key={property.product._id}>
                     <ColoredLine color="gray" />
                     <div className="row marginProducts">
                       <h5 className="col-2 d-flex justify-content-center">{property.cant} x</h5>
                       <h5 className="col-6">{property.product.name}</h5>
                       <h5 className="col-2">U$S {property.product.price}</h5>
                     </div>
-                  </>
+                  </div>
                 );
               })}
               <div className="d-flex mt-5 ">
@@ -312,12 +309,16 @@ function Billing() {
                   {missingProducts &&
                     missingProducts.map((product) => {
                       return (
-                        <>
+                        <div key={product._id}>
                           <ColoredLine color="gray" />
                           <div className="d-flex mt-4 mb-4 productosFaltantes">
                             <div>
                               {" "}
-                              <img className="sizeImageOutOfStock" src={product.picture}></img>
+                              <img
+                                className="sizeImageOutOfStock"
+                                src={product.picture}
+                                alt="productPicture"
+                              ></img>
                             </div>
                             <div className="d-flex flex-column justify-content-center">
                               {" "}
@@ -327,7 +328,7 @@ function Billing() {
                               </h6>
                             </div>
                           </div>
-                        </>
+                        </div>
                       );
                     })}
                 </div>

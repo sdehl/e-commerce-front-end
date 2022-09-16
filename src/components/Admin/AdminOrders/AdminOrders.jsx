@@ -53,7 +53,7 @@ function AllOrders() {
             </Link>
           </div>
           {allOrders.map((order, index) => {
-            return <UserOrder order={order} index={index} products={order.products} />;
+            return <UserOrder key={order._id} order={order} index={index} products={order.products} />;
           })}
         </div>
       </>

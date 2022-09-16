@@ -236,13 +236,8 @@ function Profile() {
 
                 {userInfo.orderHistory.map((order, index) => {
                   return (
-                    <div className="userOrders">
-                      <UserOrder
-                        order={order}
-                        index={index}
-                        products={order.products}
-                        key={order._id}
-                      />
+                    <div key={order._id} className="userOrders">
+                      <UserOrder order={order} index={index} products={order.products} />
                     </div>
                   );
                 })}

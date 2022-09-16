@@ -10,7 +10,7 @@ function Home() {
           <img
             src={"https://www.gemainteriores.com/wp-content/uploads/2021/05/Portada-2-scaled.jpg"}
             className="d-inline-block w-100"
-            alt=""
+            alt="logo"
           />
         </div>
         <div className="col-lg-5 col-12 p-5">
@@ -22,7 +22,7 @@ function Home() {
                     "https://www.gemainteriores.com/wp-content/uploads/2021/02/G02-TOP-SIMP-BZ-6.jpeg"
                   }
                   id="imageHome"
-                  alt=""
+                  alt="logo"
                 />
 
                 <div className="div-column d-flex flex-column justify-content-center align-items-center p-3">
@@ -106,6 +106,7 @@ function Home() {
           >
             <img
               className="logoGemaHome m-1"
+              alt="logoHomeGema"
               src="https://www.gemainteriores.com/wp-content/uploads/sb-instagram-feed-images/gemainteriores.jpg"
             ></img>
             <h6 className="m-1 fw-bold d-inline linkDeco">GEMAINTERIORES</h6>
