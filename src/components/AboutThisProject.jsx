@@ -69,22 +69,20 @@ function About() {
               cantidad de llamadas a la base de datos. El E-commerce cuenta con una página Home, una
               página con todos los productos, y un panel de administración donde el usuario con
               permisos de administrador podrá crear, consultar, modificar/actualizar y borrar
-              artículos. Inspiramos la plantilla de nuestro e-store con la de Gema, un sitio web
-              minorista de accesorios de interiores cuidadosamente diseñado. Nutrimos nuestra base
-              de datos con imágenes, descripciones, nombres y precios del propio website.
+              artículos.
             </p>
           </div>
         </div>
         <div className="row">
           <div className="col mt-5">
-            <h4 className="fw-bold">Concepción del proyecto</h4>
+            <h4 className="fw-bold">Concepción del proyecto e inspiración</h4>
             <p>
               Uno de los primeros desafíos de nuestro proyecto fue el desarrollo de un diagrama de
               relaciones de entidad cuidadosamente pensado. Aquí definimos las principales
-              relaciones entre las siguientes entidades: …… 2 - Diseño e Inspiración Inspiramos la
-              plantilla de nuestro sitio web con la de Gema, un sitio web minorista de accesorios
-              ??? cuidadosamente diseñado. Nutrimos nuestra base de datos con imágenes,
-              descripciones, nombres y precios del propio website.
+              relaciones entre las siguientes entidades: User, Order, Product y Caegory. Inspiramos
+              la plantilla de nuestro sitio web con la de Gema, un sitio web minorista de minorista
+              de accesorios para interiores, cuidadosamente diseñado. Nutrimos nuestra base de datos
+              con imágenes, descripciones, nombres y precios del propio website.
             </p>
           </div>
           <div className="col">
