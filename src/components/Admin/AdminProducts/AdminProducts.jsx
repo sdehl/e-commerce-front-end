@@ -10,18 +10,22 @@ import check from "../../svg/check-solid.svg";
 import cancel from "../../svg/xmark-solid.svg";
 import "../../styles/AdminStyles.css";
 
-function AdminProducts() {
+function AdminProducts({ allProducts }) {
   const token = useSelector((state) => state.gema.userData.token);
   const [products, setProducts] = useState(null);
 
   const handle = {
     apiCall: async () => {
-      const response = await axios({
-        method: "get",
-        url: `${process.env.REACT_APP_API_URL}/products`,
-        headers: { Authorization: `Bearer ${token}` },
-      });
-      setProducts(response.data);
+      if (allProducts) {
+        setProducts(allProducts.products);
+      } else {
+        const response = await axios({
+          method: "get",
+          url: `${process.env.REACT_APP_API_URL}/products`,
+          headers: { Authorization: `Bearer ${token}` },
+        });
+        setProducts(response.data);
+      }
     },
     deleteProduct: async (slug) => {
       const response = axios({

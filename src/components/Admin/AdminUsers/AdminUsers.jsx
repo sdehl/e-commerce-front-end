@@ -9,10 +9,10 @@ import trash from "../../svg/trash-solid.svg";
 
 function Users() {
   const gema = useSelector((state) => state.gema);
+  const token = useSelector((state) => state.gema.userData.token);
   const [show, setShow] = useState(false);
   const [productForModal, setProductForModal] = useState(null);
   const [users, setUsers] = useState();
-  const token = useSelector((state) => state.gema.userData.token);
 
   const handleClose = () => setShow(false);
   const handleShow = (user) => {

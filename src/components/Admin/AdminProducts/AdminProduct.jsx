@@ -207,10 +207,18 @@ function AdminProduct() {
               </button>
             )}
             {correctlyUpdated === "Correctly added" && (
-              <Alert severity="success">Se ha actualizado correctamente</Alert>
+              <div className="m-3">
+                {" "}
+                <Alert severity="success">Se ha actualizado correctamente</Alert>
+              </div>
             )}
             {correctlyUpdated === "Not correctly added" && (
-              <Alert severity="error">ERROR! Verifique que el nombre del producto sea único</Alert>
+              <div className="m-3">
+                {" "}
+                <Alert severity="error">
+                  ERROR! Verifique que el nombre del producto sea único
+                </Alert>
+              </div>
             )}
           </div>
         </div>

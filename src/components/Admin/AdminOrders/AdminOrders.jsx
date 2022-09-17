@@ -44,7 +44,7 @@ function AllOrders() {
       <>
         <h1 className="m-4 d-flex justify-content-center">ORDENES</h1>
         <div className="container">
-          <div className="mb-3 d-flex justify-content-between ">
+          <div className="m-3 d-flex justify-content-between ">
             <Link className="link-admin-center" to={`/admin`}>
               <button className=" d-flex align-items-center irAtras px-0">
                 {" "}

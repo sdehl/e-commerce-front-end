@@ -20,7 +20,8 @@ import AdminOrders from "./components/Admin/AdminOrders/AdminOrders";
 //import AdminOrder from "./components/Admin/AdminOrders/AdminOrder";
 import AdminIndex from "./components/Admin/AdminIndex.jsx";
 import About from "./components/AboutThisProject";
-
+import AdminCategories from "./components/Admin/AdminCategories/AdminCategories";
+import AdminCategoriesProducts from "./components/Admin/AdminCategories/AdminProductsCategory";
 import "./App.css";
 
 function App() {
@@ -36,10 +37,6 @@ function App() {
         <Route path="/cart" element={<Cart />}></Route>
         <Route path="/search" element={<Search />}></Route>
         <Route path="/about" element={<About />}></Route>
-        {/* <Route element={<ProtectedRouteBilling />}>
-          <Route path="/billing" element={<Billing />}></Route>
-        </Route> */}
-
         {
           //protect route if user is logged
         }
@@ -71,6 +68,12 @@ function App() {
         </Route>
         <Route element={<ProtectedRouteAdmin />}>
           <Route path="/admin/orders" element={<AdminOrders />}></Route>
+        </Route>
+        <Route element={<ProtectedRouteAdmin />}>
+          <Route path="/admin/categories" element={<AdminCategories />}></Route>
+        </Route>
+        <Route element={<ProtectedRouteAdmin />}>
+          <Route path="/admin/categories/:categoryName" element={<AdminCategoriesProducts />}></Route>
         </Route>
 
         <Route path="*" element={<ErrorPage />}></Route>

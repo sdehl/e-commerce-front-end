@@ -11,6 +11,12 @@
   font-weight: 301;
 }
 
+@media screen and (max-width: 763px) {
+  .divAllButtonsIndex {
+    margin-bottom: 40%;
+  }
+}
+
 .titleIndexAdmin {
   margin-top: 3%;
   text-align: center;
@@ -229,6 +235,23 @@
   font-weight: bold !important;
   margin-right: 20px;
 }
+@media screen and (max-width: 760px) {
+  .orderItemsName {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 8ch;
+  }
+}
+
+@media screen and (max-width: 395px) {
+  .idCodigo {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 8ch;
+  }
+}
 
 .itemsTextOfModal {
   margin-top: 0.8%;
@@ -251,3 +274,24 @@
 }
 
 /* USER STYLES */
+
+.buttonCategory{
+  display: inline;
+  margin: 20px;
+  align-items: center;
+}
+
+.addCategory{
+  background-color: transparent;
+  border: none;
+  padding: 10px;
+}
+
+.addCategory:hover{
+  color:#ccad9c;
+}
+
+.divCategory{
+  margin-bottom: 10%;
+}
+

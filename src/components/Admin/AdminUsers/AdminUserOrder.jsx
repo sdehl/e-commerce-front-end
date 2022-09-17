@@ -10,10 +10,10 @@ function UserOrder({ products, order, index }) {
   };
   return (
     <>
-      <div className="infoOrder m-3 ">
-        <div className="d-flex align-items-center m-4">
+      <div className="infoOrder m-3">
+        <div className="d-flex align-items-center m-4 ">
           <h5 className="titulo-Pedido">Código de pedido: </h5>
-          <h6 className="mt-1 mr-3">#{order._id}</h6>
+          <h6 className="mt-1 mr-3 idCodigo ">#{order._id}</h6>
         </div>
 
         <div className="d-flex align-items-center m-4">
@@ -56,20 +56,29 @@ function UserOrder({ products, order, index }) {
         {moreInfoProducts &&
           products.map((product) => {
             return (
-              <div
-                key={product.product._id}
-                className="d-flex justify-content-around align-items-center m-4"
-              >
-                <h6 className="m-2">{product.cant}</h6>
-                <h6 className="m-2">U$S {product.product.price}</h6>
-                <Link to={`/admin/products/${product.product.slug}`}>
-                  <button className="irAtras"> {product.product.name}</button>
-                </Link>
-                <img
-                  className="imageOrder"
-                  alt="prodImage"
-                  src={handle.grabPicture(product.product)}
-                ></img>
+              <div key={product.product._id} className="row m-4">
+                <div className="col-2 d-flex justify-content-center align-items-center">
+                  {" "}
+                  <h6>{product.cant}</h6>
+                </div>
+                <div className="col-2 d-flex justify-content-center align-items-center">
+                  {" "}
+                  <h6>U$S {product.product.price}</h6>
+                </div>
+                <div className="col-5 d-flex justify-content-center align-items-center ">
+                  {" "}
+                  <Link to={`/admin/products/${product.product.slug}`}>
+                    <button className="irAtras orderItemsName"> {product.product.name}</button>
+                  </Link>
+                </div>
+                <div className="col-3 d-flex justify-content-center align-items-center">
+                  {" "}
+                  <img
+                    className="imageOrder"
+                    alt="prodImage"
+                    src={handle.grabPicture(product.product)}
+                  ></img>
+                </div>
               </div>
             );
           })}
