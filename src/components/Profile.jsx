@@ -68,7 +68,7 @@ function Profile() {
         setLoginPassword("");
         setLoginStatus(response.status);
       } catch (error) {
-        console.log(error.response.status);
+        console.log(error.response);
         setLoginStatus(error.response.status);
       }
     },
@@ -216,6 +216,7 @@ function Profile() {
                       GUARDAR
                     </button>
                     <button
+                      type="button"
                       className="logout-btn my-5"
                       onClick={() => {
                         dispatch(deleteUserData());
