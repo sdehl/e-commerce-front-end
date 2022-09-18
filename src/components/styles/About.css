@@ -9,7 +9,7 @@
   min-height: 336px;
 }
 .profile-image {
-  border-radius: 50%;
+  border-radius: 50% 50% 50% 50%;
   margin: auto;
 }
 .icons8-redux {
@@ -64,9 +64,6 @@
   display: inline-block;
   width: 96px;
   height: 96px;
-  background: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHg9IjBweCIgeT0iMHB4Igp3aWR0aD0iOTYiIGhlaWdodD0iOTYiCnZpZXdCb3g9IjAgMCA0OCA0OCIKc3R5bGU9IiBmaWxsOiMwMDAwMDA7Ij48cGF0aCBmaWxsPSIjOGM5ZWZmIiBkPSJNNDAsMTJjMCwwLTQuNTg1LTMuNTg4LTEwLTRsLTAuNDg4LDAuOTc2QzM0LjQwOCwxMC4xNzQsMzYuNjU0LDExLjg5MSwzOSwxNGMtNC4wNDUtMi4wNjUtOC4wMzktNC0xNS00cy0xMC45NTUsMS45MzUtMTUsNGMyLjM0Ni0yLjEwOSw1LjAxOC00LjAxNSw5LjQ4OC01LjAyNEwxOCw4Yy01LjY4MSwwLjUzNy0xMCw0LTEwLDRzLTUuMTIxLDcuNDI1LTYsMjJjNS4xNjIsNS45NTMsMTMsNiwxMyw2bDEuNjM5LTIuMTg1QzEzLjg1NywzNi44NDgsMTAuNzE1LDM1LjEyMSw4LDMyYzMuMjM4LDIuNDUsOC4xMjUsNSwxNiw1czEyLjc2Mi0yLjU1LDE2LTVjLTIuNzE1LDMuMTIxLTUuODU3LDQuODQ4LTguNjM5LDUuODE1TDMzLDQwYzAsMCw3LjgzOC0wLjA0NywxMy02QzQ1LjEyMSwxOS40MjUsNDAsMTIsNDAsMTJ6IE0xNy41LDMwYy0xLjkzMywwLTMuNS0xLjc5MS0zLjUtNGMwLTIuMjA5LDEuNTY3LTQsMy41LTRzMy41LDEuNzkxLDMuNSw0QzIxLDI4LjIwOSwxOS40MzMsMzAsMTcuNSwzMHogTTMwLjUsMzBjLTEuOTMzLDAtMy41LTEuNzkxLTMuNS00YzAtMi4yMDksMS41NjctNCwzLjUtNHMzLjUsMS43OTEsMy41LDRDMzQsMjguMjA5LDMyLjQzMywzMCwzMC41LDMweiI+PC9wYXRoPjwvc3ZnPg==")
-    50% 50% no-repeat;
-  background-size: 100%;
 }
 .icons8-microsoft-teams-2019 {
   display: inline-block;
@@ -91,6 +88,7 @@
 }
 .paragraph {
   color: rgb(65, 65, 65);
+  line-height: 32px;
 }
 
 .icons8-linkedin {
