@@ -25,13 +25,13 @@ function NavigationBar() {
           <img className="icons mx-2" src={rocket} alt="rocket icon" />
         </div>
         <div>
-          <button
+          {/* <button
             onClick={() => {
               dispatch(deleteUserData());
             }}
           >
             Logout
-          </button>
+          </button> */}
         </div>
         <div>
           <span>Envios a Montevideo y al Interior del Uruguay</span>{" "}

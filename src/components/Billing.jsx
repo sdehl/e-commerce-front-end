@@ -115,7 +115,9 @@ function Billing() {
               <div className="row">
                 <div className="col-6 d-flex flex-column ml-4">
                   {" "}
-                  <label>First Name *</label>
+                  <label>
+                    First Name <span className="obligatoryBilling">*</span>{" "}
+                  </label>
                   <input
                     required
                     type="text"
@@ -135,7 +137,9 @@ function Billing() {
                 </div>
                 <div className="col-6 d-flex flex-column">
                   {" "}
-                  <label>Last Name *</label>
+                  <label>
+                    Last Name <span className="obligatoryBilling">*</span>{" "}
+                  </label>
                   <input required className="inputListCheckout"></input>
                 </div>
               </div>
@@ -158,7 +162,9 @@ function Billing() {
                 ></input>
               </div>
               <div className="listInfo d-flex flex-column">
-                <label>Dirección de la calle *</label>
+                <label>
+                  Dirección de la calle <span className="obligatoryBilling">*</span>{" "}
+                </label>
                 <input
                   required
                   type="text"
@@ -178,7 +184,10 @@ function Billing() {
                 ></input>
               </div>
               <div className="listInfo d-flex flex-column">
-                <label> Localidad / Ciudad *</label>
+                <label>
+                  {" "}
+                  Localidad / Ciudad <span className="obligatoryBilling">*</span>{" "}
+                </label>
                 <input
                   required
                   type="text"
@@ -197,7 +206,9 @@ function Billing() {
                 ></input>
               </div>
               <div className="listInfo d-flex flex-column">
-                <label>Código postal *</label>
+                <label>
+                  Código postal <span className="obligatoryBilling">*</span>{" "}
+                </label>
                 <input
                   required
                   type="text"
@@ -216,7 +227,9 @@ function Billing() {
                 ></input>
               </div>
               <div className="listInfo d-flex flex-column">
-                <label>Teléfono *</label>
+                <label>
+                  Teléfono <span className="obligatoryBilling">*</span>{" "}
+                </label>
                 <input
                   required
                   type="text"
@@ -235,7 +248,9 @@ function Billing() {
                 ></input>
               </div>
               <div className="listInfo d-flex flex-column">
-                <label>Correo electrónico *</label>
+                <label>
+                  Correo electrónico <span className="obligatoryBilling">*</span>{" "}
+                </label>
                 <input
                   required
                   type="email"

@@ -3,6 +3,7 @@ import { ProtectedRouteAdmin, ProtectedRouteUser } from "./components/ProtectedR
 import NavigationBar from "./components/NavigationBar";
 import Profile from "./components/Profile";
 import Footer from "./components/Footer";
+import AbsoluteIcons from "./components/AbsoluteIcons";
 import Home from "./components/Home";
 import Products from "./components/Products";
 import Product from "./components/Product";
@@ -28,6 +29,7 @@ function App() {
   return (
     <div className="App">
       <NavigationBar />
+      <AbsoluteIcons />
       <Routes>
         <Route path="/" element={<Home />}></Route>
         <Route path="/products" element={<Products />}></Route>
@@ -73,7 +75,10 @@ function App() {
           <Route path="/admin/categories" element={<AdminCategories />}></Route>
         </Route>
         <Route element={<ProtectedRouteAdmin />}>
-          <Route path="/admin/categories/:categoryName" element={<AdminCategoriesProducts />}></Route>
+          <Route
+            path="/admin/categories/:categoryName"
+            element={<AdminCategoriesProducts />}
+          ></Route>
         </Route>
 
         <Route path="*" element={<ErrorPage />}></Route>
