@@ -12,6 +12,12 @@ import discord from "./img/discord.svg";
 import mongodb from "./img/mongodb.svg";
 import mongoose from "./img/mongoose.svg";
 import teams from "./img/microsoft-teams.svg";
+import bronce1 from "./img/1.jpg";
+import bronce2 from "./img/2.jpg";
+import bronce3 from "./img/3.jpg";
+import bronce4 from "./img/4.jpg";
+import bronce5 from "./img/5.jpg";
+import bronce6 from "./img/6.jpg";
 
 function About() {
   return (
@@ -25,7 +31,7 @@ function About() {
       </div>
       <div className="container">
         <div className="row">
-          <div className="col mt-4">
+          <div className="col mt-5">
             <h4>Sobre este proyecto</h4>
             <p className="paragraph">
               Este E-commerce es el proyecto final desarrollado por Mercedes Torrendell, Santiago
@@ -39,7 +45,7 @@ function About() {
           </div>
           <div className="col">
             <img
-              src="https://www.gemainteriores.com/wp-content/uploads/2021/04/H02-TUR-BZ-1-1.jpg"
+              src={bronce1}
               className="image about-image w-100 my-4"
               alt="tiradores de bronce irregulares"
             />
@@ -48,12 +54,12 @@ function About() {
         <div className="row">
           <div className="col">
             <img
-              src={"https://www.gemainteriores.com/wp-content/uploads/2021/04/H02-CUA-BZ-1.jpg"}
+              src={bronce2}
               className="image about-image d-inline-block w-100 my-4"
               alt="tiradores de bronce en cajonera marrón"
             />
           </div>
-          <div className="col mt-4">
+          <div className="col mt-5 pt-4">
             <h4>Aspectos organizacionales & MER</h4>
             <p className="paragraph">
               Se utilizó Trello, para controlar el flujo y la asignación de tareas y Figma, para
@@ -67,7 +73,7 @@ function About() {
           </div>
         </div>
         <div className="row">
-          <div className="col mt-4">
+          <div className="col mt-5 ">
             <h4>Concepción del proyecto e inspiración</h4>
             <p className="paragraph">
               Uno de los primeros desafíos de nuestro proyecto fue el desarrollo de un
@@ -82,7 +88,7 @@ function About() {
           </div>
           <div className="col">
             <img
-              src="https://www.gemainteriores.com/wp-content/uploads/2021/04/H01-PIR-18-BZ-3.jpg"
+              src={bronce3}
               className="image about-image d-inline-block w-100 my-4"
               alt="tirador pequeño de bronce para puerta"
             />
@@ -91,7 +97,7 @@ function About() {
         <div className="row">
           <div className="col">
             <img
-              src={"https://www.gemainteriores.com/wp-content/uploads/2021/04/H02-TUR-BZ-5.jpg"}
+              src={bronce4}
               className="image about-image d-inline-block w-100 my-4"
               alt="dos pares de tiradores en bronce sobre fondo crema"
             />
@@ -99,17 +105,15 @@ function About() {
           <div className="col mt-4">
             <h4>Metodología de trabajo</h4>
             <p className="paragraph ">
-              Organizamos nuestro trabajo en tres sprints, utilizando Metodología Ágile. Cada sprint
-              tenía tareas que se organizaban y desarrollaban individualmente o en grupo, usando
-              Trello para determinar la evolución y finalización de las tareas. Cada interacción
-              entre los desarrolladores, y por extensión, todo el proyecto, se realizó en línea
-              usando Discord. Frameworks y Tecnologías Usamos la pila MERN. Lo que significa que
-              nuestro proyecto utilizó una base de datos no relacional y que trabajamos con Mongo,
-              MongoDB, Mongo Atlas, Mongo Compass y Mongoose, además de Supabase para importar
-              imágenes. Express, React y Node como nuestros marcos de aplicación. En el desarrollo
+              Organizamos nuestro trabajo en tres sprints utilizando Metodología Ágile. Cada sprint
+              organizaba sus taréas individualmente o en grupo, usando Trello para controlar la
+              evolución y finalización. En cuanto a frameworks y tecnologías usamos la pila MERN, lo
+              que significa que nuestro proyecto utilizó una base de datos no relacional y que
+              trabajamos con Mongo, MongoDB y Mongoose, además de Supabase para importar imágenes.
+              Express, React y Node fueron nuestros marcos de aplicación. En el desarrollo
               utilizamos tecnologías conocidas que rodean este stack, como React Bootstrap, Hooks,
               Formidable, etc. Cada interacción entre sus desarrolladores, y por extensión, todo el
-              proyecto, se realizó en línea usando Discord.
+              proyecto, se realizó mediante Discord.
             </p>
           </div>
         </div>
