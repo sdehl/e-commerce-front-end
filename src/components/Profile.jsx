@@ -41,6 +41,7 @@ function Profile() {
           },
         });
         dispatch(storeUserData(result.data));
+        navigate("/cart");
         setUserStatus(result.status);
         setEmail("");
         setPassword("");
@@ -62,12 +63,12 @@ function Profile() {
         });
 
         dispatch(storeUserData(response.data));
-        navigate(-1);
+        navigate("/cart");
         setLoginEmailorUsername("");
         setLoginPassword("");
         setLoginStatus(response.status);
       } catch (error) {
-        console.log(error.response.status);
+        console.log(error.response);
         setLoginStatus(error.response.status);
       }
     },
@@ -97,7 +98,10 @@ function Profile() {
       const newData = await axios({
         method: "PATCH",
         url: `${process.env.REACT_APP_API_URL}/users/${gema.userData.userId}`,
-        headers: { Authorization: `Bearer ${gema.userData.token}` },
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${gema.userData.token}`,
+        },
         data: {
           firstname: firstname,
           lastname: lastname,
@@ -106,6 +110,7 @@ function Profile() {
           adress: adress,
         },
       });
+
       setUserStatus(newData.status);
     } catch (error) {
       console.log(error);
@@ -119,7 +124,12 @@ function Profile() {
           <div className="container profileForm">
             <div className="row editForm">
               <div className="col-12 col-lg-6">
-                <form>
+                <form
+                  onSubmit={(e) => {
+                    e.preventDefault();
+                    editProfile();
+                  }}
+                >
                   <strong>
                     <h2>PERFIL DEL USUARIO</h2>
                   </strong>
@@ -172,11 +182,12 @@ function Profile() {
                     <input
                       required
                       defaultValue={userInfo.phone}
-                      type="number"
+                      type="tel"
                       name="phone"
                       className="form-control"
                       id="phone"
-                      placeholder="+598 xx xxx xxx"
+                      // pattern="[+]{1}[0-9]{3} [0-9]{3} [0-9]{3}"
+                      placeholder="09x xxx xxx"
                       onChange={(e) => setPhone(e.target.value)}
                     />
                   </div>
@@ -196,7 +207,7 @@ function Profile() {
                   </div>
                   <div className="d-flex align-items-center justify-content-between">
                     <button
-                      type="button"
+                      type="submit"
                       className="save-btn "
                       onClick={() => {
                         editProfile();
@@ -205,6 +216,7 @@ function Profile() {
                       GUARDAR
                     </button>
                     <button
+                      type="button"
                       className="logout-btn my-5"
                       onClick={() => {
                         dispatch(deleteUserData());

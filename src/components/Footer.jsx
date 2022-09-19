@@ -4,14 +4,14 @@ import ig from "./svg/instagram.svg";
 import search from "./svg/magnifying-glass-solid.svg";
 import pinterest from "./svg/pinterest-p.svg";
 import { Link } from "react-router-dom";
-import "./styles/FooterStyles.css";
 import { useNavigate } from "react-router";
+import "./styles/FooterStyles.css";
 
 function Footer() {
   const navigate = useNavigate();
 
   return (
-    <div className="footerComponent mt-5">
+    <div className="footerComponent  mt-5">
       <div className="container my-1">
         <div className="row">
           <div className="col-12 col-lg-3">
@@ -60,7 +60,11 @@ function Footer() {
           <div className="col-12 col-lg-3">
             <ul>
               <h5>NOSOTROS</h5>
-              <li>Quiénes Somos</li>
+              <li>
+                <Link className="aboutUs" to="/about">
+                  Quiénes Somos
+                </Link>
+              </li>
               <li>Contacto</li>
             </ul>
             <div className="preciosIVA">Precios con IVA incluido</div>

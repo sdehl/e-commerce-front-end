@@ -1,5 +1,10 @@
 .footerComponent {
   margin-top: auto;
+  /* position: absolute;
+  bottom: 0;
+  width: 100%;
+  line-height: 60px;
+  height: 30px; */
 }
 
 ul {
@@ -75,4 +80,13 @@ ul h5 {
   font-family: Cormorant;
   color: #7b5a52;
   font-weight: 50;
+}
+
+.aboutUs {
+  text-decoration: none;
+  color: #7a7a7a;
+  font-weight: 500;
+}
+.aboutUs:hover {
+  color: #4c4c4c;
 }

@@ -90,3 +90,7 @@
 .swal2-styled.swal2-confirm:focus {
   box-shadow: 0 0 0 3px rgb(171 131 110 / 50%) !important;
 }
+
+.obligatoryBilling {
+  color: #c05b33;
+}
