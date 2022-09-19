@@ -78,7 +78,7 @@ function About() {
             <p className="paragraph">
               Uno de los primeros desafíos de nuestro proyecto fue el desarrollo de un
               cuidadosamente pensado diagrama de relaciones de entidad. Aquí definimos las
-              principales relaciones entre las siguientes entidades: User, Order, Product y Caegory.
+              principales relaciones entre las siguientes entidades: User, Order, Product y Category.
               Inspiramos la plantilla de nuestro sitio web con la de Gema, un sitio web minorista de
               accesorios para interiores, cuidadosamente diseñado. Nutrimos nuestra base de datos
               con imágenes, descripciones, nombres y precios del propio website. El E-commerce

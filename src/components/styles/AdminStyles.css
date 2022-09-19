@@ -3,7 +3,7 @@
 .contDiv {
   margin-left: 20%;
   margin-right: 20%;
-  height: 30vh;
+  height: 40vh;
 }
 .subText {
   margin-top: 2%;
@@ -13,7 +13,7 @@
 
 @media screen and (max-width: 763px) {
   .divAllButtonsIndex {
-    margin-bottom: 40%;
+    margin-bottom: 80%;
   }
 }
 
@@ -162,7 +162,7 @@
   text-align: center;
   text-decoration: none;
   font-size: 16px;
-  width: 160px;
+  width:fit-content;
 }
 
 .update:hover {

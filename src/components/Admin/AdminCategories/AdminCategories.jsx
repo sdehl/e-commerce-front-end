@@ -41,15 +41,15 @@ function AllCategories() {
               </button>
             </Link>
           </div>
-          <div className="row d-flex justify-content-center m-5">
+          <div className="d-flex justify-content-center m-5 flex-column align-items-center flex-lg-row">
             {allCategories.map((category) => {
               return (
                 <div
                   key={category._id}
-                  className="buttonCategory col-sm-2 col-12 m-4 d-flex justify-content-center"
+                  className="buttonCategory d-flex justify-content-between"
                 >
                   <button
-                    className="update"
+                    className="update m-3"
                     onClick={() => {
                       navigate(`/admin/categories/${category.name}`);
                     }}
