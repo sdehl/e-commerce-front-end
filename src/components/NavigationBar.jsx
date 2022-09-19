@@ -22,12 +22,24 @@ function NavigationBar() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    setCategories(gema.categories);
+    async function getCategories() {
+      try {
+        const response = await axios({
+          method: "get",
+          url: `${process.env.REACT_APP_API_URL}/categories`,
+        });
+        setCategories(response.data);
+      } catch (error) {
+        console.log(error);
+      }
+    }
+    getCategories();
   }, []);
 
   return (
     categories && (
       <div className="allNavbar">
+        {console.log(categories)}
         <div className="top-banner d-none d-md-flex justify-content-center align-items-center">
           {" "}
           <div>
@@ -130,7 +142,7 @@ function NavigationBar() {
                       navigate("/products/Tiradores");
                     }}
                   >
-                    <span className="underline-animation"> {categories[0].toUpperCase()}</span>
+                    <span className="underline-animation"> {categories[0].name.toUpperCase()}</span>
                   </Nav.Link>
                   <Nav.Link
                     className="mx-3"
@@ -138,7 +150,7 @@ function NavigationBar() {
                       navigate("/products/Herrajes");
                     }}
                   >
-                    <span className="underline-animation">{categories[1].toUpperCase()} </span>
+                    <span className="underline-animation">{categories[1].name.toUpperCase()} </span>
                   </Nav.Link>
 
                   <Nav.Link
@@ -147,7 +159,7 @@ function NavigationBar() {
                       navigate("/products/Grifería");
                     }}
                   >
-                    <span className="underline-animation">{categories[2].toUpperCase()} </span>
+                    <span className="underline-animation">{categories[2].name.toUpperCase()} </span>
                   </Nav.Link>
                   <Nav.Link
                     className="mx-3 d-md-none"
