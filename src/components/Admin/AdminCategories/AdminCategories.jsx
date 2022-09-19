@@ -11,15 +11,18 @@ function AllCategories() {
   const token = useSelector((state) => state.gema.userData.token);
   const navigate = useNavigate();
 
-
   const handle = {
     apiCall: async () => {
-      const response = await axios({
-        method: "get",
-        url: `${process.env.REACT_APP_API_URL}/categories`,
-        headers: { Authorization: `Bearer ${token}` },
-      });
-      setAllCategories(response.data);
+      try {
+        const response = await axios({
+          method: "get",
+          url: `${process.env.REACT_APP_API_URL}/categories`,
+          headers: { Authorization: `Bearer ${token}` },
+        });
+        setAllCategories(response.data);
+      } catch (error) {
+        console.log(error);
+      }
     },
   };
 
@@ -44,10 +47,7 @@ function AllCategories() {
           <div className="d-flex justify-content-center m-5 flex-column align-items-center flex-lg-row">
             {allCategories.map((category) => {
               return (
-                <div
-                  key={category._id}
-                  className="buttonCategory d-flex justify-content-between"
-                >
+                <div key={category._id} className="buttonCategory d-flex justify-content-between">
                   <button
                     className="update m-3"
                     onClick={() => {

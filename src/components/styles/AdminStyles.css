@@ -162,7 +162,7 @@
   text-align: center;
   text-decoration: none;
   font-size: 16px;
-  width:fit-content;
+  width: fit-content;
 }
 
 .update:hover {
@@ -275,6 +275,8 @@
 
 /* USER STYLES */
 
+/*CATEGORY STYLES */
+
 .buttonCategory {
   display: inline;
   margin: 20px;
@@ -297,4 +299,9 @@
 
 .divCategory {
   margin-bottom: 10%;
+}
+
+.errorMessagCategory {
+  width: fit-content;
+  padding: 5px;
 }
