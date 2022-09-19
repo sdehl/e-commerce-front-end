@@ -139,7 +139,7 @@ function NavigationBar() {
                   <Nav.Link
                     className="mx-3"
                     onClick={() => {
-                      navigate("/products/Tiradores");
+                      navigate(`/products/${categories[0].name}`);
                     }}
                   >
                     <span className="underline-animation"> {categories[0].name.toUpperCase()}</span>
@@ -147,7 +147,7 @@ function NavigationBar() {
                   <Nav.Link
                     className="mx-3"
                     onClick={() => {
-                      navigate("/products/Herrajes");
+                      navigate(`/products/${categories[1].name}`);
                     }}
                   >
                     <span className="underline-animation">{categories[1].name.toUpperCase()} </span>
@@ -156,7 +156,7 @@ function NavigationBar() {
                   <Nav.Link
                     className="mx-3"
                     onClick={() => {
-                      navigate("/products/Grifería");
+                      navigate(`/products/${categories[2].name}`);
                     }}
                   >
                     <span className="underline-animation">{categories[2].name.toUpperCase()} </span>
