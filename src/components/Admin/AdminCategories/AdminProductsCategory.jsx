@@ -3,8 +3,6 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { useSelector } from "react-redux";
 import { Link, useParams } from "react-router-dom";
-
-
 import "../../styles/AdminStyles.css";
 
 function ProductsCategory() {

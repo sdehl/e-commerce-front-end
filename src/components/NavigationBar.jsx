@@ -39,7 +39,6 @@ function NavigationBar() {
   return (
     categories && (
       <div className="allNavbar">
-        {console.log(categories)}
         <div className="top-banner d-none d-md-flex justify-content-center align-items-center">
           {" "}
           <div>

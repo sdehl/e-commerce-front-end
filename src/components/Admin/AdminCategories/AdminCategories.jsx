@@ -1,19 +1,16 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { useNavigate, useParams } from "react-router";
-
+import { useNavigate } from "react-router";
 import backArrow from "../../svg/arrow-left-solid.svg";
 import "../../styles/AdminStyles.css";
 
 function AllCategories() {
   const [allCategories, setAllCategories] = useState(null);
   const token = useSelector((state) => state.gema.userData.token);
-  const params = useParams();
-
   const navigate = useNavigate();
+
 
   const handle = {
     apiCall: async () => {
@@ -62,17 +59,6 @@ function AllCategories() {
                 </div>
               );
             })}
-            {allCategories.length < 5 ? (
-              <div className="buttonCategory col-sm-2 col-12 m-4 d-flex justify-content-center">
-                {" "}
-                <button className="addCategory">
-                  {" "}
-                  <h6>Agregar Categoria</h6>
-                </button>
-              </div>
-            ) : (
-              <h6>NO se puede agregar mas categorias</h6>
-            )}
           </div>
         </div>
       </div>
