@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { useNavigate } from "react-router";
+import { useNavigate, useParams } from "react-router";
 
 import backArrow from "../../svg/arrow-left-solid.svg";
 import "../../styles/AdminStyles.css";
@@ -10,6 +11,8 @@ import "../../styles/AdminStyles.css";
 function AllCategories() {
   const [allCategories, setAllCategories] = useState(null);
   const token = useSelector((state) => state.gema.userData.token);
+  const params = useParams();
+
   const navigate = useNavigate();
 
   const handle = {
@@ -19,7 +22,6 @@ function AllCategories() {
         url: `${process.env.REACT_APP_API_URL}/categories`,
         headers: { Authorization: `Bearer ${token}` },
       });
-      console.log(response.data);
       setAllCategories(response.data);
     },
   };
@@ -43,9 +45,12 @@ function AllCategories() {
             </Link>
           </div>
           <div className="row d-flex justify-content-center m-5">
-            {allCategories.map((category, index) => {
+            {allCategories.map((category) => {
               return (
-                <div className="buttonCategory col-sm-2 col-12 m-4 d-flex justify-content-center">
+                <div
+                  key={category._id}
+                  className="buttonCategory col-sm-2 col-12 m-4 d-flex justify-content-center"
+                >
                   <button
                     className="update"
                     onClick={() => {

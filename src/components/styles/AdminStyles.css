@@ -275,23 +275,26 @@
 
 /* USER STYLES */
 
-.buttonCategory{
+.buttonCategory {
   display: inline;
   margin: 20px;
   align-items: center;
 }
 
-.addCategory{
+.addCategory {
   background-color: transparent;
   border: none;
   padding: 10px;
 }
 
-.addCategory:hover{
-  color:#ccad9c;
+.inputCategoryName {
+  border: 0.1px solid rgba(128, 128, 128, 0.287);
 }
 
-.divCategory{
+.addCategory:hover {
+  color: #ccad9c;
+}
+
+.divCategory {
   margin-bottom: 10%;
 }
-

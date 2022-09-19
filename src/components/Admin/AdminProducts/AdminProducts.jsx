@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import trash from "../../svg/trash-solid.svg";
 import edit from "../../svg/pen-to-square-regular.svg";
@@ -8,35 +8,70 @@ import backArrow from "../../svg/arrow-left-solid.svg";
 import Alert from "@mui/material/Alert";
 import check from "../../svg/check-solid.svg";
 import cancel from "../../svg/xmark-solid.svg";
+import { editCategories } from "../../../redux/slices/gemaSlice";
+import { useDispatch } from "react-redux";
 import "../../styles/AdminStyles.css";
 
-function AdminProducts({ allProducts }) {
+function AdminProducts({ categoryName }) {
   const token = useSelector((state) => state.gema.userData.token);
   const [products, setProducts] = useState(null);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const [newCategoryName, setNewCategoryName] = useState("");
 
   const handle = {
     apiCall: async () => {
-      if (allProducts) {
-        setProducts(allProducts.products);
-      } else {
-        const response = await axios({
-          method: "get",
-          url: `${process.env.REACT_APP_API_URL}/products`,
-          headers: { Authorization: `Bearer ${token}` },
-        });
-        setProducts(response.data);
+      try {
+        if (categoryName) {
+          const response = await axios({
+            method: "get",
+            url: `${process.env.REACT_APP_API_URL}/categories/products/${categoryName}`,
+            headers: { Authorization: `Bearer ${token}` },
+          });
+          setNewCategoryName(categoryName);
+          setProducts(response.data.products);
+        } else {
+          const response = await axios({
+            method: "get",
+            url: `${process.env.REACT_APP_API_URL}/products`,
+            headers: { Authorization: `Bearer ${token}` },
+          });
+          setProducts(response.data);
+        }
+      } catch (error) {
+        console.log(error);
       }
     },
     deleteProduct: async (slug) => {
-      const response = axios({
-        method: "delete",
-        url: `${process.env.REACT_APP_API_URL}/products/${slug}`,
-        headers: { Authorization: `Bearer ${token}` },
-      });
-      const newProducts = products.filter((e) => {
-        return e.slug !== slug;
-      });
-      setProducts(newProducts);
+      try {
+        axios({
+          method: "delete",
+          url: `${process.env.REACT_APP_API_URL}/products/${slug}`,
+          headers: { Authorization: `Bearer ${token}` },
+        });
+        const newProducts = products.filter((e) => {
+          return e.slug !== slug;
+        });
+        setProducts(newProducts);
+      } catch (error) {
+        console.log(error);
+      }
+    },
+    updateCategoryName: async () => {
+      try {
+        axios({
+          method: "patch",
+          url: `${process.env.REACT_APP_API_URL}/categories/${categoryName}`,
+          data: { newCategoryName },
+          headers: { Authorization: `Bearer ${token}` },
+        });
+        const newProducts = products.map((product) => {
+          return { ...product, category: newCategoryName };
+        });
+        setProducts(newProducts);
+      } catch (error) {
+        console.log(error);
+      }
     },
   };
 
@@ -48,15 +83,48 @@ function AdminProducts({ allProducts }) {
     products && (
       <>
         <h1 className="m-4 d-flex justify-content-center">PRODUCTOS</h1>
+        {categoryName && (
+          <div className="d-flex justify-content-center align-items-center">
+            <input
+              className="inputCategoryName mt-2"
+              value={newCategoryName}
+              placeholder={newCategoryName}
+              onChange={(e) => {
+                setNewCategoryName(e.target.value);
+              }}
+            ></input>
+            <button
+              className="edit-button m-1"
+              onClick={() => {
+                handle.updateCategoryName();
+                dispatch(editCategories({ categoryName, newCategoryName }));
+                navigate(`/admin/categories/${newCategoryName}`)
+                window.location.reload();
+              }}
+            >
+              <img className="edit-icon" src={edit} alt="edit-icon" />
+            </button>
+          </div>
+        )}
         <div className="container mt-4">
           <div className="mb-3 d-flex justify-content-between ">
-            <Link className="link-admin-center" to={`/admin`}>
-              <button className=" d-flex align-items-center irAtras px-0">
-                {" "}
-                <img className="arrow-icon " src={backArrow} alt="back arrow icon" />{" "}
-                <span className="mx-2">CENTRO ADMINISTRATIVO </span>
-              </button>
-            </Link>
+            {categoryName ? (
+              <Link className="link-admin-center" to={`/admin/categories`}>
+                <button className=" d-flex align-items-center irAtras px-0">
+                  {" "}
+                  <img className="arrow-icon " src={backArrow} alt="back arrow icon" />{" "}
+                  <span className="mx-2">CATEGORÍAS</span>
+                </button>
+              </Link>
+            ) : (
+              <Link className="link-admin-center" to={`/admin`}>
+                <button className=" d-flex align-items-center irAtras px-0">
+                  {" "}
+                  <img className="arrow-icon " src={backArrow} alt="back arrow icon" />{" "}
+                  <span className="mx-2">CENTRO ADMINISTRATIVO </span>
+                </button>
+              </Link>
+            )}
             <Link to={`/admin/products/create`}>
               <button className="buttonCrud px-0"> CREAR PRODUCTO</button>
             </Link>

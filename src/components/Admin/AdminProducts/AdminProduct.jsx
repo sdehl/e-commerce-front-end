@@ -5,6 +5,7 @@ import { useNavigate, useParams } from "react-router";
 import { useSelector } from "react-redux";
 import Alert from "@mui/material/Alert";
 import backArrow from "../../svg/arrow-left-solid.svg";
+
 import "../../styles/AdminStyles.css";
 
 function AdminProduct() {
@@ -15,6 +16,9 @@ function AdminProduct() {
   const [product, setProduct] = useState(null);
   const [correctlyUpdated, setCorrectlyUpdated] = useState(false);
   const [originalName, setOriginalName] = useState("");
+  const [originalCategory, setOriginalCategory] = useState("");
+  const [allCategories, setAllCategories] = useState("");
+
   const navigate = useNavigate();
 
   const ColoredLine = ({ color }) => (
@@ -33,7 +37,7 @@ function AdminProduct() {
         const response = await axios({
           method: "patch",
           url: `${process.env.REACT_APP_API_URL}/products/${product.slug}`,
-          data: { product, originalName },
+          data: { product, originalName, originalCategory },
           headers: { Authorization: `Bearer ${token}` },
         });
         if (response.data === 409) {
@@ -45,6 +49,14 @@ function AdminProduct() {
       } catch (error) {
         console.log(error);
       }
+    },
+    getCategories: async () => {
+      const response = await axios({
+        method: "get",
+        url: `${process.env.REACT_APP_API_URL}/categories`,
+        headers: { Authorization: `Bearer ${token}` },
+      });
+      setAllCategories(response.data);
     },
   };
 
@@ -59,6 +71,7 @@ function AdminProduct() {
         if (response.data !== "El producto no existe! Ha sido eliminado") {
           setProduct(response.data);
           setOriginalName(response.data.name);
+          setOriginalCategory(response.data.category);
         }
       } catch (error) {
         console.log(error);
@@ -69,9 +82,10 @@ function AdminProduct() {
 
   useEffect(() => {
     setCorrectlyUpdated(false);
+    handle.getCategories();
   }, [product]);
 
-  return product ? (
+  return allCategories && product ? (
     <div className="container mt-4">
       <form
         onSubmit={(e) => {
@@ -154,12 +168,12 @@ function AdminProduct() {
                   });
                 }}
               >
-                <option value="none" selected disabled hidden>
+                <option value={product.category} selected disabled hidden>
                   {product.category}
                 </option>
-                <option value="Herrajes">Herrajes</option>
-                <option value="Tiradores">Tiradores</option>
-                <option value="Grifería">Grifería</option>
+                <option value={allCategories[0].name}>{allCategories[0].name}</option>
+                <option value={allCategories[1].name}>{allCategories[1].name}</option>
+                <option value={allCategories[2].name}>{allCategories[2].name}</option>
               </select>
             </div>
             <ColoredLine color="gray" />
@@ -225,7 +239,7 @@ function AdminProduct() {
         <button
           className="d-flex align-items-center back-button buttonGoBack m-4"
           onClick={() => {
-            navigate(-1);
+            navigate(`/admin/categories/${originalCategory}`);
           }}
         >
           <img className="arrow-icon mx-2" src={backArrow} alt="back arrow icon" /> ATRAS

@@ -18,7 +18,6 @@ function Index() {
         url: `${process.env.REACT_APP_API_URL}/users/${gema.userData.userId}`,
         headers: { Authorization: `Bearer ${token}` },
       });
-      console.log(response);
       setAdminUser(`  ${response.data.user.firstname} ${response.data.user.lastname}`);
     },
   };

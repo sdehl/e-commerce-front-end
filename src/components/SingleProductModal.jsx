@@ -46,7 +46,7 @@ function SingleProductModal({ show, handleClose, product }) {
                 <h5>U$S {product.price}</h5>
                 <p className="productStock mb-5">
                   {" "}
-                  {product.stock > 0 ? "HAY STOCK" : "PRODUCTO NO DISPONIBLE"}
+                  {product.stock > 0 ? "HAY STOCK" : "NO HAY STOCK"}
                 </p>
                 {product.stock > 0 && (
                   <>

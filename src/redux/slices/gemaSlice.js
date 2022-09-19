@@ -5,6 +5,7 @@ const gemaSlice = createSlice({
   initialState: {
     cart: [],
     cantProductsCart: 0,
+    categories: ["Grifería", "Tiradores", "Herrajes"],
     totalPrice: 0,
     userData: {},
   },
@@ -34,6 +35,13 @@ const gemaSlice = createSlice({
           cant: action.payload.cant,
           slug: action.payload.slug,
         });
+      }
+    },
+    editCategories(state, action) {
+      for (let i = 0; i < state.categories.length; i++) {
+        if (state.categories[i] === action.payload.categoryName) {
+          state.categories[i] = action.payload.newCategoryName;
+        }
       }
     },
     updateCantProducts(state, action) {
@@ -76,6 +84,7 @@ export const {
   updateTotalPrice,
   storeUserData,
   deleteUserData,
+  editCategories,
 } = actions;
 
 export default reducer;

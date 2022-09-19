@@ -1,7 +1,7 @@
 import { configureStore } from "@reduxjs/toolkit";
-import gemReducer from "./slices/gemaSlice";
 import { combineReducers } from "redux";
 import gemaSlice from "./slices/gemaSlice";
+
 
 import {
   persistStore,

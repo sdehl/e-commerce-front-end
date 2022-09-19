@@ -3,9 +3,11 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { useSelector } from "react-redux";
 import { Link, useParams } from "react-router-dom";
+
+
 import "../../styles/AdminStyles.css";
 
-function ProductsCateogry() {
+function ProductsCategory() {
   const [productsByCategory, setProductsByCategory] = useState();
   const token = useSelector((state) => state.gema.userData.token);
 
@@ -17,7 +19,6 @@ function ProductsCateogry() {
         url: `${process.env.REACT_APP_API_URL}/categories/products/${params.categoryName}`,
         headers: { Authorization: `Bearer ${token}` },
       });
-      console.log(response.data);
       setProductsByCategory(response.data);
     },
   };
@@ -29,10 +30,10 @@ function ProductsCateogry() {
   return (
     productsByCategory && (
       <>
-        <AllProducts allProducts={productsByCategory} />
+        <AllProducts categoryName={params.categoryName} />
       </>
     )
   );
 }
 
-export default ProductsCateogry;
+export default ProductsCategory;
