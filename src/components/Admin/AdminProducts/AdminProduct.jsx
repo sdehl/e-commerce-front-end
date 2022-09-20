@@ -209,7 +209,7 @@ function AdminProduct() {
                     )}
                   </div>
                   <div>
-                    <button className="buttonUpdate">Eliminar</button>
+                    <button className="buttonUpdate m-0">Eliminar</button>
                     <button className="buttonUpdate">Modificar</button>
                   </div>
                 </div>
@@ -239,7 +239,7 @@ function AdminProduct() {
           </div>
         </div>
         <button
-          className="d-flex align-items-center back-button buttonGoBack m-4"
+          className="d-flex align-items-center back-button buttonGoBack mt-4"
           onClick={() => {
             navigate(`/admin/categories/${originalCategory}`);
           }}

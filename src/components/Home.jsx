@@ -37,14 +37,18 @@ function Home() {
           <div className="col-lg-5 col-12 p-5">
             <div className="d-flex flex-column">
               <div className=" div-column justify-content-center p-3">
-                <div className="row ">
-                  <img
-                    src={
-                      "https://www.gemainteriores.com/wp-content/uploads/2021/02/G02-TOP-SIMP-BZ-6.jpeg"
-                    }
-                    id="imageHome"
-                    alt="logo"
-                  />
+                <div className="row d-flex flex-column">
+                  <div className="imageHomeDiv">
+                    {" "}
+                    <img
+                    className="imageHomeStock"
+                      src={
+                        "https://www.gemainteriores.com/wp-content/uploads/2021/02/G02-TOP-SIMP-BZ-6.jpeg"
+                      }
+                      id="imageHome"
+                      alt="logo"
+                    />
+                  </div>
 
                   <div className="div-column d-flex flex-column justify-content-center align-items-center p-3">
                     <h4 className="enStock mb-3">EN STOCK</h4>

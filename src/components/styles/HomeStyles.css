@@ -12,6 +12,19 @@
   backface-visibility: hidden;
 }
 
+.imageHomeDiv {
+  height: 500px;
+}
+
+.imageHomeStock {
+  width: 90%;
+  height: 100%;
+}
+
+.animatedImages {
+  animation: slideInFromRight 3s ease-in;
+}
+
 @keyframes slideInFromRight {
   0% {
     transform: translateX(100%);
@@ -19,19 +32,6 @@
 
   100% {
     transform: translateX(0);
-  }
-}
-
-.animatedImages {
-  animation: slideInFromRight 3s ease-in;
-  @keyframes slideInFromRight {
-    0% {
-      transform: translateX(100%);
-    }
-
-    100% {
-      transform: translateX(0);
-    }
   }
 }
 

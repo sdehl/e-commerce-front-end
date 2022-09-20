@@ -161,6 +161,7 @@ function NewProduct() {
               <textarea
                 type="text"
                 name="description"
+                placeholder="Descripción del producto"
                 id="description"
                 className="texAreaProduct"
                 value={product ? product.description : ""}
@@ -179,7 +180,7 @@ function NewProduct() {
               <div className="d-flex flex-column align-items-center">
                 <div className="imagesNewProduct d-flex align-items-center m-3"></div>
                 <div>
-                  <button className="buttonUpdate">Agregar Imágen</button>
+                  <button className="buttonUpdate m-0">Agregar Imágen</button>
                 </div>
               </div>
             </div>
