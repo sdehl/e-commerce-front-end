@@ -16,8 +16,7 @@ import bronce1 from "./img/1.jpg";
 import bronce2 from "./img/2.jpg";
 import bronce3 from "./img/3.jpg";
 import bronce4 from "./img/4.jpg";
-import bronce5 from "./img/5.jpg";
-import bronce6 from "./img/6.jpg";
+import wood from "./img/wood3.jpg";
 
 function About() {
   return (
@@ -37,10 +36,14 @@ function About() {
               Este E-commerce es el proyecto final desarrollado por Mercedes Torrendell, Santiago
               Dehl y Marcos Rossi en el marco del Bootcamp-Grupo 2207 de Hack Academy, una
               institución educativa especializada en programación, ubicada en Montevideo, Uruguay
-              que imparte cursos desde 2016. El bootcamp es un curso de tiempo completo que capacita
-              a desarrolladores como Full Stack Jr. El objetivo del proyecto final es poner en
-              práctica los conocimientos adquiridos utilizando diversas tecnologías. Durante las
-              tres semanas que duró insumió una carga horaria de circa 180 hrs por integrante.
+              que imparte cursos desde 2016.
+            </p>
+            <p>
+              {" "}
+              El bootcamp es un curso de tiempo completo que capacita a desarrolladores como Full
+              Stack Jr. El objetivo del proyecto final es poner en práctica los conocimientos
+              adquiridos utilizando diversas tecnologías. Durante las tres semanas que duró insumió
+              una carga horaria de circa 180 hrs por integrante.
             </p>
           </div>
           <div className="col">
@@ -65,10 +68,13 @@ function About() {
               Se utilizó Trello, para controlar el flujo y la asignación de tareas y Figma, para
               maquetar modelar y diagramar. Se utilizó el modelo Entidad-Relación (MER). Se adoptó
               la metodología Scrum, donde se llevó el proyecto sobre los estándares de MVP,
-              presentando una demo al final de cada semana. Se ha buscado respetar las buenas
-              prácticas en cuanto a organización de las carpetas, consistencia en los idiomas,
-              legibilidad/nomenclatura en los archivos y hacer la posible menor cantidad de llamadas
-              a la base de datos.
+              presentando una demo al final de cada semana.
+            </p>
+            <p>
+              {" "}
+              Se ha buscado respetar las buenas prácticas en cuanto a organización de las carpetas,
+              consistencia en los idiomas, legibilidad/nomenclatura en los archivos y hacer la
+              posible menor cantidad de llamadas a la base de datos.
             </p>
           </div>
         </div>
@@ -78,12 +84,13 @@ function About() {
             <p className="paragraph">
               Uno de los primeros desafíos de nuestro proyecto fue el desarrollo de un
               cuidadosamente pensado diagrama de relaciones de entidad. Aquí definimos las
-              principales relaciones entre las siguientes entidades: User, Order, Product y Category.
+              principales relaciones entre las siguientes entidades: User, Order, Product y
+              Category.
+            </p>
+            <p>
               Inspiramos la plantilla de nuestro sitio web con la de Gema, un sitio web minorista de
               accesorios para interiores, cuidadosamente diseñado. Nutrimos nuestra base de datos
-              con imágenes, descripciones, nombres y precios del propio website. El E-commerce
-              cuenta con un panel de administración, donde el usuario (con permisos de
-              administrador) podrá crear, consultar, modificar/actualizar y borrar artículos.
+              con imágenes, descripciones, nombres y precios del propio website.
             </p>
           </div>
           <div className="col">
@@ -110,6 +117,8 @@ function About() {
               evolución y finalización. En cuanto a frameworks y tecnologías usamos la pila MERN, lo
               que significa que nuestro proyecto utilizó una base de datos no relacional y que
               trabajamos con Mongo, MongoDB y Mongoose, además de Supabase para importar imágenes.
+            </p>
+            <p>
               Express, React y Node fueron nuestros marcos de aplicación. En el desarrollo
               utilizamos tecnologías conocidas que rodean este stack, como React Bootstrap, Hooks,
               Formidable, etc. Cada interacción entre sus desarrolladores, y por extensión, todo el
@@ -118,33 +127,67 @@ function About() {
           </div>
         </div>
       </div>
+      <div className="container w-75 mt-5 pt-5">
+        <img
+          src={wood}
+          className="banner w-100 my-4 pb-5 mb-5"
+          alt="dos pares de tiradores en bronce sobre fondo crema"
+        />
+      </div>
+      <div className="container">
+        <h4 className="text-center fw-bold mt-5">FUNCIONALIDADES ADMINISTRATIVAS</h4>
+        <div className="row">
+          <div className="col-2"></div>
+          <div className="col pt-5 mt-5">
+            <p className="paragraph">
+              El E-commerce cuenta con un panel de administración-dashboard, donde el usuario (con
+              permisos de administrador) podrá acceder a crear, consultar, modificar/actualizar y
+              borrar productos, categorías, usuarios y órdenes.
+            </p>
+            <p>
+              Para acceder al mismo deberá ingresar mediante el botón lateral "about this project"
+              con el usuario de pruebas "admin@admin" y la contraseña "123". Dispondran de absoluta
+              libertad para hacer modificaciones ya que cuando lo deseen podrá re establecer la base
+              de datos inicial(?).
+            </p>
+          </div>
+          <div className="col-2"></div>
+        </div>
+      </div>
 
-      <div className="row text-center m-5 py-5">
+      <div className="row text-center mb-5 pb-5">
         <h4 className="my-5 py-5 fw-bold">TECNOLOGÍAS UTILIZADAS</h4>
         <div className="col">
           <img src={react} className="icons8-react-native zoom" alt="logo react" />
+          <h4 className="mt-4">React</h4>
         </div>
 
         <div className="col">
           <img src={redux} className="icons8-redux zoom" alt="logo redux" />
+          <h4 className="mt-4">Redux</h4>
         </div>
 
         <div className="col">
           <img src={js} className="zoom js" alt="logo javascript" />
+          <h4 className="mt-4">JavaScript</h4>
         </div>
         <div className="col">
           <img src={node} className="zoom icons8-nodejs " alt="logo nodejs" />
+          <h4 className="mt-4">NodeJS</h4>
         </div>
       </div>
       <div className="row text-center m-5 py-5">
         <div className="col">
           <img src={mongodb} className="zoom icons8-mongodb " alt="logo mongodb" />
+          <h4 className="mt-4">MongoDB</h4>
         </div>
         <div className="col">
           <img src={mongoose} className="zoom icons8-mongoose " alt="logo mongoose" />
+          <h4 className="mt-4">Mongoose</h4>
         </div>
         <div className="col">
           <img src={discord} className="zoom icons8-discord " alt="logo discord" />
+          <h4 className="mt-4">Discord</h4>
         </div>
         <div className="col">
           <img
@@ -152,6 +195,7 @@ function About() {
             className="zoom icons8-microsoft-teams-2019 "
             alt="logo microsoft teams"
           />
+          <h4 className="mt-4">Microsoft Teams</h4>
         </div>
         <div className="row pt-5 py-5 my-5 mt-5">
           <>
@@ -159,7 +203,6 @@ function About() {
             <div className="col-3 "></div>
             <div className="col-3 ">
               <>
-                <h3></h3>
                 <a
                   className="icons8-trello"
                   href="https://trello.com/b/iMKgVZ0d/e-commerce"
@@ -168,6 +211,7 @@ function About() {
                 >
                   <img src={trello} className="zoom" alt="logotipo Trello" />{" "}
                 </a>
+                <h4 className="mt-5">Trello</h4>
               </>
             </div>
             <div className="col-3">
@@ -179,13 +223,14 @@ function About() {
               >
                 <img src={figma} className="zoom" alt="logotipo Figma" />{" "}
               </a>
+              <h4 className="mt-5">Figma</h4>
             </div>
             <div className="col-3"></div>
           </>
         </div>
       </div>
       <div className="container w-75">
-        <div className="row d.flex card-group p-5 text-center">
+        <div className="row d.flex card-group pb-5 text-center">
           <h3 className="mb-5 pb-5 fw-bold">NUESTRO EQUIPO:</h3>
 
           <div className="col text-center">
@@ -240,7 +285,7 @@ function About() {
               {" "}
             </a>
           </div>
-          <div className="col text-center">
+          <div className="col text-center mx-5">
             {" "}
             <img
               src={marc}
@@ -249,24 +294,22 @@ function About() {
             />
             <p className="mt-5">Marcos Rossi</p>
             <p className="mt-4">Full Stack Developer Jr</p>
-            <div className="row">
-              <a
-                className="icons8-linkedin"
-                href="https://www.linkedin.com/in/marcos-rossi-prado/"
-                target="_blank"
-                rel="noreferrer"
-              >
-                {" "}
-              </a>
-              <a
-                className="icons8-github mx-2"
-                href="https://github.com/gurrucha"
-                target="_blank"
-                rel="noreferrer"
-              >
-                {" "}
-              </a>{" "}
-            </div>
+            <a
+              className="icons8-linkedin"
+              href="https://www.linkedin.com/in/marcos-rossi-prado/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              {" "}
+            </a>
+            <a
+              className="icons8-github mx-2"
+              href="https://github.com/gurrucha"
+              target="_blank"
+              rel="noreferrer"
+            >
+              {" "}
+            </a>{" "}
           </div>
         </div>
       </div>
