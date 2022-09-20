@@ -1,8 +1,23 @@
 import { Modal } from "react-bootstrap";
 import "../../styles/AdminStyles.css";
 import UserOrder from "./AdminUserOrder";
+import { useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import Alert from "@mui/material/Alert";
+import check from "../../svg/check-solid.svg";
+import cancel from "../../svg/xmark-solid.svg";
+import axios from "axios";
+import { useSelector } from "react-redux";
+import trash from "../../svg/trash-solid.svg";
 
-function User({ show, handleClose, user }) {
+function User({ show, handleClose, user, setUser }) {
+  const gema = useSelector((state) => state.gema);
+  const token = useSelector((state) => state.gema.userData.token);
+
+  const [verifyDeleted, setVerifyDeleted] = useState(false);
+  const [deleteUser, setDeleteUser] = useState(false);
+  const [deleteSuccess, setDeleteSuccess] = useState(false);
+
   const ColoredLine = ({ color }) => (
     <hr
       style={{
@@ -13,6 +28,26 @@ function User({ show, handleClose, user }) {
       }}
     />
   );
+
+  useEffect(() => {
+    setDeleteSuccess(false);
+  }, [show]);
+
+  const handle = {
+    deleteUser: async (id) => {
+      try {
+        const response = await axios({
+          method: "delete",
+          url: `${process.env.REACT_APP_API_URL}/users/${id}`,
+          headers: { Authorization: `Bearer ${token}` },
+        });
+        setUser(response.data);
+      } catch (error) {
+        return console.log(error);
+      }
+    },
+  };
+
   return (
     user && (
       <>
@@ -22,9 +57,51 @@ function User({ show, handleClose, user }) {
               <div className="row">
                 <div className="d-flex flex-column">
                   <div className="d-flex flex-column">
-                    <h1 className="textCenter mb-4">
-                      {user.username ? user.username : user.email}
-                    </h1>
+                    <div className="d-flex justify-content-between mb-4">
+                      <h1 className="textCenter">{user.username ? user.username : user.email}</h1>
+                      {gema.userData.userId !== user._id && !verifyDeleted && !deleteSuccess && (
+                        <button
+                          className="trash-button m-1"
+                          onClick={() => {
+                            setVerifyDeleted(true);
+                          }}
+                        >
+                          <img className="delete-icon" src={trash} alt="delete icon" />
+                        </button>
+                      )}
+                      {verifyDeleted && !deleteSuccess && (
+                        <div className="d-flex justify-content-between confirmationContainer">
+                          <Alert className="px-2" severity="warning">
+                            Estás seguro de borrar a este usuario?
+                          </Alert>
+                          <button
+                            className="check-button"
+                            onClick={() => {
+                              handle.deleteUser(user._id);
+                              setDeleteSuccess(true);
+                              setDeleteUser(true);
+                              setVerifyDeleted(false);
+                            }}
+                          >
+                            <img className="check-icon" src={check} alt="check icon" />
+                          </button>
+                          <button
+                            className=" cancel-button"
+                            onClick={() => {
+                              setDeleteUser(false);
+                              setVerifyDeleted(false);
+                            }}
+                          >
+                            <img className="cancel-icon" src={cancel} alt="x icon" />
+                          </button>
+                        </div>
+                      )}
+                      {gema.userData.userId !== user._id && deleteSuccess && (
+                        <Alert icon={false} severity="success">
+                          Se ha borrado exitosamente
+                        </Alert>
+                      )}
+                    </div>
                     <div className="d-flex">
                       <h5 className="textElementInModal mt-1">Nombre:</h5>
                       <p className="itemsTextOfModal">

@@ -8,13 +8,10 @@ import backArrow from "../../svg/arrow-left-solid.svg";
 import Alert from "@mui/material/Alert";
 import check from "../../svg/check-solid.svg";
 import cancel from "../../svg/xmark-solid.svg";
-import { editCategories } from "../../../redux/slices/gemaSlice";
-import { useDispatch } from "react-redux";
 import "../../styles/AdminStyles.css";
 
 function AdminProducts({ categoryName }) {
   const token = useSelector((state) => state.gema.userData.token);
-  const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const [products, setProducts] = useState(null);
@@ -107,7 +104,6 @@ function AdminProducts({ categoryName }) {
                 onClick={() => {
                   if (newCategoryName.length !== 0) {
                     handle.updateCategoryName();
-                    dispatch(editCategories({ categoryName, newCategoryName }));
                     navigate(`/admin/categories/${newCategoryName}`);
                     window.location.reload();
                   } else {
@@ -172,7 +168,7 @@ function AdminProducts({ categoryName }) {
             </thead>
             <tbody>
               {products.map((product) => {
-                return <IndividualProduct product={product} handle={handle} />;
+                return <IndividualProduct key={product._id} product={product} handle={handle} />;
               })}
             </tbody>
           </table>

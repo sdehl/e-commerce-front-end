@@ -8,7 +8,6 @@ import showMore from "../../svg/ellipsis-solid.svg";
 import trash from "../../svg/trash-solid.svg";
 
 function Users() {
-  const gema = useSelector((state) => state.gema);
   const token = useSelector((state) => state.gema.userData.token);
   const [show, setShow] = useState(false);
   const [productForModal, setProductForModal] = useState(null);
@@ -28,18 +27,6 @@ function Users() {
         headers: { Authorization: `Bearer ${token}` },
       });
       setUsers(response.data);
-    },
-    deleteUser: async (id) => {
-      try {
-        const response = await axios({
-          method: "delete",
-          url: `${process.env.REACT_APP_API_URL}/users/${id}`,
-          headers: { Authorization: `Bearer ${token}` },
-        });
-        setUsers(response.data);
-      } catch (error) {
-        return console.log(error);
-      }
     },
   };
 
@@ -63,36 +50,44 @@ function Users() {
           </div>
 
           <table className="table table-hover mt-2 ">
-            <AdminUser show={show} handleClose={handleClose} user={productForModal} />
+            <AdminUser
+              show={show}
+              handleClose={handleClose}
+              user={productForModal}
+              setUser={setUsers}
+            />
             <thead>
               <tr className="titlesTable">
-                <th className="textCenter" scope="col">Nombre</th>
-                <th className="textCenter" scope="col">Identificador</th>
-                <th className="textCenter" scope="col">Teléfono</th>
-                <th className="textCenter" scope="col">Órdenes</th>
-                <th className="textCenter" scope="col">Modificar</th>
+                <th className="textCenter" scope="col">
+                  Nombre
+                </th>
+                <th className="textCenter" scope="col">
+                  Identificador
+                </th>
+                <th className="textCenter" scope="col">
+                  Teléfono
+                </th>
+                <th className="textCenter" scope="col">
+                  Órdenes
+                </th>
+                <th className="textCenter" scope="col">
+                  Modificar
+                </th>
               </tr>
             </thead>
             <tbody>
               {users.map((user) => {
                 return (
                   <tr key={user._id}>
-                    <td className="textCenter">{user.firstname ? user.firstname : "No se ha registrado un nombre aún"}</td>
+                    <td className="textCenter">
+                      {user.firstname ? user.firstname : "No se ha registrado un nombre aún"}
+                    </td>
                     <td className="textCenter">{user.username ? user.username : user.email}</td>
-                    <td className="textCenter">{user.phone ? user.phone : "No se ha registrado un teléfono aún"}</td>
+                    <td className="textCenter">
+                      {user.phone ? user.phone : "No se ha registrado un teléfono aún"}
+                    </td>
                     <td className="textCenter">{user.orderHistory.length}</td>
                     <td className="textCenter">
-                      {gema.userData.userId !== user._id && (
-                        <button
-                          className="buttonCrud m-1"
-                          onClick={() => {
-                            handle.deleteUser(user._id);
-                          }}
-                        >
-                          <img className="delete-icon" src={trash} alt="delete icon" />
-                        </button>
-                      )}
-
                       <button
                         className="buttonCrud m-1"
                         onClick={() => {

@@ -16,7 +16,7 @@ function AbsoluteIcons() {
           navigate("/about");
         }}
       >
-        <h6>AboutThisProyect</h6>
+        <h6>Sobre este proyecto</h6>
       </div>
       <div>
         <ScrollToTop smooth top={200} component={<ArrowUp />} />
