@@ -16,7 +16,7 @@ import bronce1 from "./img/1.jpg";
 import bronce2 from "./img/2.jpg";
 import bronce3 from "./img/3.jpg";
 import bronce4 from "./img/4.jpg";
-import wood from "./img/11.jpg";
+import porcelain from "./img/11.jpg";
 
 function About() {
   return (
@@ -30,7 +30,7 @@ function About() {
       </div>
       <div className="container">
         <div className="row">
-          <div className="col mt-5">
+          <div className="col-lg-6 col-12 mt-5">
             <h4>Sobre este proyecto</h4>
             <p className="paragraph">
               Este E-commerce es el proyecto final desarrollado por Mercedes Torrendell, Santiago
@@ -46,7 +46,7 @@ function About() {
               una carga horaria de circa 180 hrs por integrante.
             </p>
           </div>
-          <div className="col">
+          <div className="col-lg-6 col-12">
             <img
               src={bronce1}
               className="image about-image w-100 my-4"
@@ -55,14 +55,14 @@ function About() {
           </div>
         </div>
         <div className="row">
-          <div className="col">
+          <div className="col-lg-6 col-12">
             <img
               src={bronce2}
               className="image about-image d-inline-block w-100 my-4"
               alt="tiradores de bronce en cajonera marrón"
             />
           </div>
-          <div className="col mt-5 pt-4">
+          <div className="col-lg-6 col-12 mt-5 pt-4">
             <h4>Aspectos organizacionales & MER</h4>
             <p className="paragraph">
               Se utilizó Trello, para controlar el flujo y la asignación de tareas y Figma, para
@@ -79,7 +79,7 @@ function About() {
           </div>
         </div>
         <div className="row">
-          <div className="col mt-5 ">
+          <div className="col-lg-6 col-12 mt-5 ">
             <h4>Concepción del proyecto e inspiración</h4>
             <p className="paragraph">
               Uno de los primeros desafíos de nuestro proyecto fue el desarrollo de un
@@ -93,7 +93,7 @@ function About() {
               con imágenes, descripciones, nombres y precios del propio website.
             </p>
           </div>
-          <div className="col">
+          <div className="col-lg-6 col-12">
             <img
               src={bronce3}
               className="image about-image d-inline-block w-100 my-4"
@@ -102,14 +102,14 @@ function About() {
           </div>
         </div>
         <div className="row">
-          <div className="col">
+          <div className="col-lg-6 col-12">
             <img
               src={bronce4}
               className="image about-image d-inline-block w-100 my-4"
               alt="dos pares de tiradores en bronce sobre fondo crema"
             />
           </div>
-          <div className="col mt-4">
+          <div className="col-lg-6 col-12 mt-4">
             <h4>Metodología de trabajo</h4>
             <p className="paragraph">
               Organizamos nuestro trabajo en tres sprints utilizando Metodología Ágile. Cada sprint
@@ -128,11 +128,7 @@ function About() {
         </div>
       </div>
       <div className="container mt-5 pt-5">
-        <img
-          src={wood}
-          className="banner w-100 my-4 pb-5 mb-5"
-          alt="dos pares de tiradores en bronce sobre fondo crema"
-        />
+        <img src={porcelain} className="banner w-100 my-4 pb-5 mb-5" alt="Old wood floor" />
       </div>
       <div className="container">
         <h4 className="text-center fw-bold mt-5">FUNCIONALIDADES ADMINISTRATIVAS</h4>
@@ -233,14 +229,14 @@ function About() {
         <div className="row d.flex card-group pb-5 text-center">
           <h3 className="mb-5 pb-5 fw-bold">NUESTRO EQUIPO:</h3>
 
-          <div className="col text-center">
+          <div className="col text-center mx-5">
             {" "}
             <img
               src={mer}
               className="imgzoom profile-image d-inline-block w-100 my-4"
               alt="Foto de perfil"
             />
-            <p className="mt-5">Mercedes Torrendell</p>
+            <h3 className="mt-5">Mercedes Torrendell</h3>
             <p className="mt-4">Full Stack Developer Jr</p>
             <a
               className="icons8-linkedin"
@@ -266,7 +262,9 @@ function About() {
               className="imgzoom profile-image d-inline-block w-100 my-4"
               alt="Foto de perfil"
             />
-            <p className="mt-5">Santiago Dehl</p>
+            <h3 className="mt-5">
+              Santiago <br></br>Dehl
+            </h3>
             <p className="mt-4">Full Stack Developer Jr</p>
             <a
               className="icons8-linkedin"
@@ -292,7 +290,9 @@ function About() {
               className="imgzoom profile-image d-inline-block w-100 my-4"
               alt="Foto de perfil"
             />
-            <p className="mt-5">Marcos Rossi</p>
+            <h3 className="mt-5">
+              Marcos <br></br>Rossi
+            </h3>
             <p className="mt-4">Full Stack Developer Jr</p>
             <a
               className="icons8-linkedin"
