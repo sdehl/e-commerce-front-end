@@ -1,7 +1,7 @@
 import React from "react";
 import { Container, Nav, Navbar } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import { useNavigate } from "react-router";
+import { useLocation, useNavigate } from "react-router";
 import { deleteUserData } from "../redux/slices/gemaSlice";
 
 import gemaLogo from "./img/gema-logo.png";
@@ -18,6 +18,8 @@ import "./styles/NavigationBarStyles.css";
 function NavigationBar() {
   const gema = useSelector((state) => state.gema);
   const [categories, setCategories] = useState("");
+  const [elementToSearch, setElementToSearch] = useState("");
+  const location = useLocation();
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
@@ -59,24 +61,43 @@ function NavigationBar() {
         </div>
         <div className="row align-items-center my-4  ">
           <div className="col-4 navbarCol4 d-none d-md-flex">
-            <div>
-              {/* <input
-              className="headerSearch"
-              type="text"
-              onClick={() => {
-                navigate("/search");
-              }}
-            />{" "} */}
-              <p
-                className="searchUnderline"
-                onClick={() => {
-                  navigate("/search");
-                }}
-              >
-                ______________
-              </p>
-              <img className="icons mx-2" src={search} alt="search icon" />
-            </div>
+            {location.pathname !== "/search" ? (
+              <div>
+                <input
+                  className="headerSearch"
+                  type="text"
+                  value={elementToSearch}
+                  onChange={(e) => {
+                    setElementToSearch(e.target.value);
+                  }}
+                />{" "}
+                <img
+                  className="icons mx-2"
+                  src={search}
+                  alt="search icon"
+                  onClick={() => {
+                    setElementToSearch("");
+                    navigate("/search", {
+                      state: {
+                        elementToSearch: elementToSearch,
+                      },
+                    });
+                  }}
+                />
+              </div>
+            ) : (
+              <div>
+                <p
+                  className="searchUnderline"
+                  onClick={() => {
+                    navigate("/search");
+                  }}
+                >
+                  ______________
+                </p>
+                <img className="icons mx-2" src={search} alt="search icon" />
+              </div>
+            )}
           </div>
           <div className="col-12 navbarCol12 justify-content-center col-md-4 ">
             <Link to="/">
