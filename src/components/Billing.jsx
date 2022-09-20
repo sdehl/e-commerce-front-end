@@ -10,7 +10,7 @@ function Billing() {
   const gema = useSelector((state) => state.gema);
   const token = useSelector((state) => state.gema.userData.token);
   const dispatch = useDispatch();
-  const navigate = useNavigate();
+
   //states
   const [cart, setCart] = useState(null);
   const [errorMessage, setErrorMessage] = useState(false);

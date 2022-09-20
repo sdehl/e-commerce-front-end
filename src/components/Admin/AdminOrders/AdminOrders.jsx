@@ -22,7 +22,7 @@ function AllOrders() {
         url: `${process.env.REACT_APP_API_URL}/orders`,
         headers: { Authorization: `Bearer ${token}` },
       });
-      await setAllOrders(response.data);
+      setAllOrders(response.data);
     },
     filterOrders: (filterBy) => {
       if (filterBy === "quantity") {

@@ -305,3 +305,21 @@
   width: fit-content;
   padding: 5px;
 }
+
+/* ORDERS */
+
+.statusInput {
+  padding: 7px;
+  border: 0.2px solid rgba(128, 128, 128, 0.164);
+  background-color: rgb(251, 251, 251);
+}
+
+.statusInput:focus {
+  outline: none !important;
+  border-color: #ca9588;
+}
+
+.buttonStatusOrder {
+  background-color: transparent;
+  border: none;
+}

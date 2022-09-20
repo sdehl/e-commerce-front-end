@@ -133,7 +133,7 @@ function Cart() {
               </div>
               <div className="d-flex justify-content-start divButton mt-4">
                 <Link to="/">
-                  <button className="endOrderBtn">Volver a la tienda</button>
+                  <button className="m-2 buttonGoBack">Volver a la tienda</button>
                 </Link>
               </div>
             </div>
