@@ -5,10 +5,13 @@ import search from "./svg/magnifying-glass-solid.svg";
 import pinterest from "./svg/pinterest-p.svg";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router";
+import { ToastContainer, toast } from "react-toastify";
 import "./styles/FooterStyles.css";
+import "react-toastify/dist/ReactToastify.css";
 
 function Footer() {
   const navigate = useNavigate();
+  const notify = () => toast("Esto sobrepasa el alcance de nuestro proyecto!");
 
   return (
     <div className="footerComponent  mt-5">
@@ -40,8 +43,8 @@ function Footer() {
           <div className="col-12 col-lg-3">
             <ul>
               <h5>CONTACTO</h5>
-              <li>info@ecommercegema.com.uy</li>
-              <li>Montevideo, Uruguay</li>
+              <li onClick={notify}>info@ecommercegema.com.uy</li>
+              <li onClick={notify}>Montevideo, Uruguay</li>
             </ul>
             <div className="sn-icons">
               <a href="https://www.facebook.com/gemainteriores/?_rdc=4&_rdr" target="_blank">
@@ -65,17 +68,18 @@ function Footer() {
                   Quiénes Somos
                 </Link>
               </li>
-              <li>Contacto</li>
+              <li onClick={notify}>Contacto</li>
             </ul>
             <div className="preciosIVA">Precios con IVA incluido</div>
           </div>
           <div className="col-3">
             <ul>
+              <ToastContainer />
               <h5>AYUDA</h5>
-              <li>Envíos</li>
-              <li>Políticas</li>
-              <li>Como Comprar</li>
-              <li>Mantenimiento y Cuidados</li>
+              <li onClick={notify}>Envíos</li>
+              <li onClick={notify}>Políticas</li>
+              <li onClick={notify}>Como Comprar</li>
+              <li onClick={notify}>Mantenimiento y Cuidados</li>
             </ul>
           </div>
         </div>

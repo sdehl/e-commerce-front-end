@@ -121,7 +121,7 @@ function Billing() {
           }}
         >
           <div className="row">
-            <div className="col-6">
+            <div className="col-md-6 col-12">
               <div className="row">
                 <div className="col-6 d-flex flex-column ml-4">
                   {" "}
@@ -291,7 +291,7 @@ function Billing() {
                 </p>
               </div>
             </div>
-            <div className="col-6">
+            <div className="col-md-6 col-12">
               <div className="m-0 d-flex flex-column listProducts">
                 <label>Notas del pedido (opcional)</label>
                 <textarea
@@ -348,7 +348,7 @@ function Billing() {
                   <h5 className="totalPrice mt-1 m-2">Transferencia Bancaria en Dólares</h5>
                 </div>
                 {dolarsSelected && (
-                  <h5>
+                  <h5 className="textLighter">
                     Realiza tu pago directamente en nuestra cuenta bancaria, Itaú. Por favor,
                     utiliza el número de pedido y nombre como referencia de pago. Tu pedido no se
                     procesará hasta que se haya recibido el importe en nuestra cuenta. Luego mande
@@ -369,31 +369,31 @@ function Billing() {
                       setPesosSelected(true);
                     }}
                   />
-                  <h5 className="totalPrice mt-1 m-2">
+                  <h5 className="totalPrice mt-1 m-2 ">
                     Mercado Pago en Pesos Mercado Pago en Pesos
                   </h5>
                 </div>
                 {pesosSelected && (
                   <div className="mt-4">
-                    <h3>Paga más rápido con Mercado Pago</h3>
+                    <h5 className="textLighter">Paga más rápido con Mercado Pago</h5>
                     <div className="d-flex">
                       {" "}
                       <img className="check-icon m-2" src={check} alt="check icon" />
-                      <h5 className="m-2">Pago seguro</h5>
+                      <h5 className="m-2 textLighter">Pago seguro</h5>
                     </div>
                     <div className="d-flex">
                       {" "}
                       <img className="check-icon m-2" src={check} alt="check icon" />
-                      <h5 className="m-2">Sin cargar datos</h5>
+                      <h5 className="m-2 textLighter">Sin cargar datos</h5>
                     </div>
                     <div className="d-flex">
                       {" "}
                       <img className="check-icon m-2" src={check} alt="check icon" />
-                      <h5 className="m-2">Cutoas disponibles</h5>
+                      <h5 className="m-2 textLighter">Cutoas disponibles</h5>
                     </div>
                     <div className="d-flex align-items-center mt-4">
                       {" "}
-                      <h5 className="m-2">Tarjetas de crédito</h5>
+                      <h5 className="m-2 textLighter">Tarjetas de crédito</h5>
                       <div className="m-2 greenbackground">HASTA 1 CUOTAS</div>
                     </div>
 
@@ -439,10 +439,10 @@ function Billing() {
                           alt="check icon"
                         />
                       </div>
-                      <h5 className="mt-3">
+                      <h5 className="mt-3 textLighter">
                         Al confirmar tu compra, te redirigiremos a tu cuenta de Mercado Pago
                       </h5>
-                      <h6 className="mt-3">
+                      <h6 className="mt-3 textLighter">
                         Al continuar, aceptas nuestros Términos y condiciones
                       </h6>
                     </div>

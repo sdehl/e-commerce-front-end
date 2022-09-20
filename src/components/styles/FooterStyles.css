@@ -90,3 +90,9 @@ ul h5 {
 .aboutUs:hover {
   color: #4c4c4c;
 }
+
+.Toastify__progress-bar-theme--light{
+  background: #6d443a86 !important;
+}
+
+
