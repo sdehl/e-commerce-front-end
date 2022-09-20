@@ -16,7 +16,7 @@ import bronce1 from "./img/1.jpg";
 import bronce2 from "./img/2.jpg";
 import bronce3 from "./img/3.jpg";
 import bronce4 from "./img/4.jpg";
-import wood from "./img/wood3.jpg";
+import wood from "./img/11.jpg";
 
 function About() {
   return (
@@ -38,7 +38,7 @@ function About() {
               institución educativa especializada en programación, ubicada en Montevideo, Uruguay
               que imparte cursos desde 2016.
             </p>
-            <p>
+            <p className="paragraph">
               {" "}
               El bootcamp es un curso de tiempo completo que capacita a desarrolladores como Full
               Stack Jr. El objetivo del proyecto final es poner en práctica los conocimientos
@@ -70,7 +70,7 @@ function About() {
               la metodología Scrum, donde se llevó el proyecto sobre los estándares de MVP,
               presentando una demo al final de cada semana.
             </p>
-            <p>
+            <p className="paragraph">
               {" "}
               Se ha buscado respetar las buenas prácticas en cuanto a organización de las carpetas,
               consistencia en los idiomas, legibilidad/nomenclatura en los archivos y hacer la
@@ -87,7 +87,7 @@ function About() {
               principales relaciones entre las siguientes entidades: User, Order, Product y
               Category.
             </p>
-            <p>
+            <p className="paragraph">
               Inspiramos la plantilla de nuestro sitio web con la de Gema, un sitio web minorista de
               accesorios para interiores, cuidadosamente diseñado. Nutrimos nuestra base de datos
               con imágenes, descripciones, nombres y precios del propio website.
@@ -111,14 +111,14 @@ function About() {
           </div>
           <div className="col mt-4">
             <h4>Metodología de trabajo</h4>
-            <p className="paragraph ">
+            <p className="paragraph">
               Organizamos nuestro trabajo en tres sprints utilizando Metodología Ágile. Cada sprint
               organizaba sus taréas individualmente o en grupo, usando Trello para controlar la
               evolución y finalización. En cuanto a frameworks y tecnologías usamos la pila MERN, lo
               que significa que nuestro proyecto utilizó una base de datos no relacional y que
               trabajamos con Mongo, MongoDB y Mongoose, además de Supabase para importar imágenes.
             </p>
-            <p>
+            <p className="paragraph">
               Express, React y Node fueron nuestros marcos de aplicación. En el desarrollo
               utilizamos tecnologías conocidas que rodean este stack, como React Bootstrap, Hooks,
               Formidable, etc. Cada interacción entre sus desarrolladores, y por extensión, todo el
@@ -127,7 +127,7 @@ function About() {
           </div>
         </div>
       </div>
-      <div className="container w-75 mt-5 pt-5">
+      <div className="container mt-5 pt-5">
         <img
           src={wood}
           className="banner w-100 my-4 pb-5 mb-5"
@@ -144,11 +144,11 @@ function About() {
               permisos de administrador) podrá acceder a crear, consultar, modificar/actualizar y
               borrar productos, categorías, usuarios y órdenes.
             </p>
-            <p>
-              Para acceder al mismo deberá ingresar mediante el botón lateral "about this project"
-              con el usuario de pruebas "admin@admin" y la contraseña "123". Dispondran de absoluta
-              libertad para hacer modificaciones ya que cuando lo deseen podrá re establecer la base
-              de datos inicial(?).
+            <p className="paragraph">
+              Para acceder al dashboard con permisos de administrador deberá ingresar en el navbar
+              con el usuario de pruebas "admin@admin" y la contraseña "123". Dispondrán de absoluta
+              libertad para hacer modificaciones, ya que cuando lo deseen podrá re establecer la
+              base de datos inicial.
             </p>
           </div>
           <div className="col-2"></div>
