@@ -66,22 +66,22 @@ function Users() {
             <AdminUser show={show} handleClose={handleClose} user={productForModal} />
             <thead>
               <tr className="titlesTable">
-                <th scope="col">Nombre</th>
-                <th scope="col">Identificador</th>
-                <th scope="col">Teléfono</th>
-                <th scope="col">Cantidad de órdenes</th>
-                <th scope="col">Modificar</th>
+                <th className="textCenter" scope="col">Nombre</th>
+                <th className="textCenter" scope="col">Identificador</th>
+                <th className="textCenter" scope="col">Teléfono</th>
+                <th className="textCenter" scope="col">Órdenes</th>
+                <th className="textCenter" scope="col">Modificar</th>
               </tr>
             </thead>
             <tbody>
               {users.map((user) => {
                 return (
                   <tr key={user._id}>
-                    <td>{user.firstname ? user.firstname : "No se ha registrado un nombre aún"}</td>
-                    <td>{user.username ? user.username : user.email}</td>
-                    <td>{user.phone ? user.phone : "No se ha registrado un teléfono aún"}</td>
+                    <td className="textCenter">{user.firstname ? user.firstname : "No se ha registrado un nombre aún"}</td>
+                    <td className="textCenter">{user.username ? user.username : user.email}</td>
+                    <td className="textCenter">{user.phone ? user.phone : "No se ha registrado un teléfono aún"}</td>
                     <td className="textCenter">{user.orderHistory.length}</td>
-                    <td>
+                    <td className="textCenter">
                       {gema.userData.userId !== user._id && (
                         <button
                           className="buttonCrud m-1"

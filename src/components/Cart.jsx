@@ -60,70 +60,94 @@ function Cart() {
   return (
     cart && (
       <div>
-        <div className="productList d-flex flex-column">
-          <section className="listCart">
-            <div className="d-flex justify-content-between">
-              <div className="d-flex align-items-center justify-content-center">
-                <p className="m-4">PRODUCT</p>
+        {cart.length > 0 ? (
+          <div className="productList d-flex flex-column">
+            <section className="listCart">
+              <div className="d-flex justify-content-between">
+                <div className="d-flex align-items-center justify-content-center">
+                  <p className="m-4">PRODUCT</p>
+                </div>
+                <div className="d-flex align-items-center justify-content-center">
+                  {" "}
+                  <p className="m-4">PRECIO</p>
+                  <div className="d-flex m-4 ">CANTIDAD</div>
+                  <p className="m-4 ">SUBTOTAL</p>
+                </div>
               </div>
-              <div className="d-flex align-items-center justify-content-center">
-                {" "}
-                <p className="m-4">PRECIO</p>
-                <div className="d-flex m-4 ">CANTIDAD</div>
-                <p className="m-4 ">SUBTOTAL</p>
+              <ColoredLine color="gray" />
+            </section>
+            {cart.map((property, index) => {
+              return (
+                <div key={property.product._id} className="listCart">
+                  <section className="mt-4 mb-4">
+                    <CartProduct product={property.product} cant={property.cant} position={index} />
+                  </section>
+                  <ColoredLine color="gray" />
+                </div>
+              );
+            })}
+            <div className="listCart">
+              <h3 className="ml-4 mt-5 mb-0 titleTotalCart ">TOTAL DEL CARRITO</h3>
+              <ColoredLine color="gray" />
+              <div className="row m-4">
+                <div className="col-2">
+                  {" "}
+                  <h5>ENVIO</h5> {" "}
+                </div>
+                <div className="col-8">
+                  <input type="radio" name="adress" value="userAdress" className="mb-4"></input> {" "}
+                  <label htmlFor="userAdress">Pick-up - Carrasco Sur</label>
+                  <br></br>
+                  <input
+                    type="radio"
+                    name="adress"
+                    value="userAdress"
+                    className="mb-4"
+                  ></input>  <label htmlFor="userAdress">Envios a Maldonado por DePunta</label>
+                  <br></br>
+                  <input
+                    type="radio"
+                    name="adress"
+                    value="userAdress"
+                    className="mb-4"
+                  ></input>  <label htmlFor="userAdress">Envios al Interior por DAC</label>
+                  <br></br>
+                </div>
+              </div>
+              <ColoredLine color="gray" />
+              <div className="row m-4">
+                <div className="col-2">
+                  {" "}
+                  <h5 className="font-weight-bold">TOTAL</h5>
+                </div>
+                <div className="col-8">
+                  {" "}
+                  <h5>{`U$S: ${total}`}</h5>
+                </div>
+              </div>
+              <ColoredLine color="gray" />
+              <div className="d-flex justify-content-start divButton mt-4">
+                <Link to={gema.cart.length !== 0 ? "/billing" : "/cart"}>
+                  <button className="endOrderBtn">IR A FINALIZAR LA COMPRA</button>
+                </Link>
+              </div>
+              <div className="d-flex justify-content-start divButton mt-4">
+                <Link to="/">
+                  <button className="m-2 buttonGoBack">Volver a la tienda</button>
+                </Link>
               </div>
             </div>
-            <ColoredLine color="gray" />
-          </section>
-          {cart.map((property, index) => {
-            return (
-              <div key={property.product._id} className="listCart">
-                <section className="mt-4 mb-4">
-                  <CartProduct product={property.product} cant={property.cant} position={index} />
-                </section>
-                <ColoredLine color="gray" />
-              </div>
-            );
-          })}
-          <div className="listCart">
-            <h3 className="ml-4 mt-5 mb-0 titleTotalCart ">TOTAL DEL CARRITO</h3>
-            <ColoredLine color="gray" />
-            <div className="row m-4">
-              <div className="col-2">
-                {" "}
-                <h5>ENVIO</h5> {" "}
-              </div>
-              <div className="col-8">
-                <input type="radio" name="adress" value="userAdress" className="mb-4"></input> {" "}
-                <label htmlFor="userAdress">Pick-up - Carrasco Sur</label>
-                <br></br>
-                <input type="radio" name="adress" value="userAdress" className="mb-4"></input> {" "}
-                <label htmlFor="userAdress">Envios a Maldonado por DePunta</label>
-                <br></br>
-                <input type="radio" name="adress" value="userAdress" className="mb-4"></input> {" "}
-                <label htmlFor="userAdress">Envios al Interior por DAC</label>
-                <br></br>
-              </div>
-            </div>
-            <ColoredLine color="gray" />
-            <div className="row m-4">
-              <div className="col-2">
-                {" "}
-                <h5 className="font-weight-bold">TOTAL</h5>
-              </div>
-              <div className="col-8">
-                {" "}
-                <h5>{`U$S: ${total}`}</h5>
-              </div>
-            </div>
-            <ColoredLine color="gray" />
-            <div className="d-flex justify-content-start divButton mt-4">
-              <Link to={gema.cart.length !== 0 ? "/billing" : "/cart"}>
-                <button className="endOrderBtn">IR A FINALIZAR LA COMPRA</button>
+          </div>
+        ) : (
+          <div className="d-flex flex-column justify-content-center align-items-center">
+            <h5 className="m-5"> TU CARRITO ESTA VACÍO </h5>
+            <div className="d-flex justify-content-start divButton">
+              <Link to="/">
+                <button className="endOrderBtn">Volver a la tienda</button>
               </Link>
             </div>
           </div>
-        </div>
+        )}
       </div>
     )
   );

@@ -3,7 +3,7 @@
 .contDiv {
   margin-left: 20%;
   margin-right: 20%;
-  height: 30vh;
+  height: 40vh;
 }
 .subText {
   margin-top: 2%;
@@ -13,7 +13,7 @@
 
 @media screen and (max-width: 763px) {
   .divAllButtonsIndex {
-    margin-bottom: 40%;
+    margin-bottom: 80%;
   }
 }
 
@@ -162,7 +162,7 @@
   text-align: center;
   text-decoration: none;
   font-size: 16px;
-  width: 160px;
+  width: fit-content;
 }
 
 .update:hover {
@@ -275,6 +275,8 @@
 
 /* USER STYLES */
 
+/*CATEGORY STYLES */
+
 .buttonCategory {
   display: inline;
   margin: 20px;
@@ -297,4 +299,27 @@
 
 .divCategory {
   margin-bottom: 10%;
+}
+
+.errorMessagCategory {
+  width: fit-content;
+  padding: 5px;
+}
+
+/* ORDERS */
+
+.statusInput {
+  padding: 7px;
+  border: 0.2px solid rgba(128, 128, 128, 0.164);
+  background-color: rgb(251, 251, 251);
+}
+
+.statusInput:focus {
+  outline: none !important;
+  border-color: #ca9588;
+}
+
+.buttonStatusOrder {
+  background-color: transparent;
+  border: none;
 }

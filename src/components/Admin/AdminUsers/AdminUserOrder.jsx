@@ -1,15 +1,56 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import plus from "../../svg/plus-solid.svg";
 import less from "../../svg/minus-solid.svg";
+import { useSelector } from "react-redux";
+import Alert from "@mui/material/Alert";
+import check from "../../svg/check-solid.svg";
+import axios from "axios";
 
-function UserOrder({ products, order, index }) {
+function UserOrder({ products, order }) {
+  const token = useSelector((state) => state.gema.userData.token);
   const [moreInfoProducts, setMoreInfoProducts] = useState(false);
+  const [updateState, setUpdateState] = useState(false);
+  const [stateOrder, setStateOrder] = useState(order.state);
+
   const handle = {
     grabPicture: (product) => {
       return product.pictures[0].replaceAll(`"`, ``);
     },
+    updateOrderStatus: async () => {
+      try {
+        await axios({
+          method: "patch",
+          url: `${process.env.REACT_APP_API_URL}/orders/${order._id}`,
+          data: { stateOrder },
+          headers: { Authorization: `Bearer ${token}` },
+        });
+      } catch (error) {
+        console.log(error);
+      }
+    },
+    getNewStatus: async () => {
+      try {
+        const response = await axios({
+          method: "get",
+          url: `${process.env.REACT_APP_API_URL}/orders/${order._id}`,
+          headers: { Authorization: `Bearer ${token}` },
+        });
+        setStateOrder(response.data.state);
+      } catch (error) {
+        console.log(error);
+      }
+    },
   };
+
+  useEffect(() => {
+    handle.getNewStatus();
+  }, []);
+
+  useEffect(() => {
+    setUpdateState(false);
+  }, [stateOrder]);
+
   return (
     <>
       <div className="infoOrder m-3">
@@ -25,6 +66,29 @@ function UserOrder({ products, order, index }) {
         <div className="d-flex align-items-center m-4">
           <h5 className="titulo-Pedido">Precio total: </h5>
           <h6 className="mt-1 mr-3"> U$S {order.totalPrice}</h6>
+        </div>
+        <div className="d-flex align-items-center m-4">
+          <h5 className="titulo-Pedido">Estado del pedido </h5>
+          <input
+            type="text"
+            className="statusInput"
+            value={stateOrder}
+            onChange={(e) => {
+              setStateOrder(e.target.value);
+            }}
+          />
+          <button
+            className="buttonStatusOrder"
+            onClick={() => {
+              handle.updateOrderStatus();
+              setUpdateState(true);
+            }}
+          >
+            <img className="check-icon" src={check} alt="check icon" />
+          </button>
+          {updateState && (
+            <Alert severity="success">Se ha actualizado el estado correctamente</Alert>
+          )}
         </div>
         <div className="d-flex align-items-center m-4">
           <h5 className="titulo-Pedido">Cantidad de productos: </h5>

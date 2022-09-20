@@ -14,9 +14,11 @@ import "../../styles/AdminStyles.css";
 
 function AdminProducts({ categoryName }) {
   const token = useSelector((state) => state.gema.userData.token);
-  const [products, setProducts] = useState(null);
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
+  const [products, setProducts] = useState(null);
+  const [categoryEmptyMessage, setCategoryEmptyMessage] = useState(false);
   const [newCategoryName, setNewCategoryName] = useState("");
 
   const handle = {
@@ -79,31 +81,50 @@ function AdminProducts({ categoryName }) {
     handle.apiCall();
   }, []);
 
+  useEffect(() => {
+    if (newCategoryName.length > 0) {
+      setCategoryEmptyMessage(false);
+    }
+  }, [newCategoryName]);
+
   return (
     products && (
       <>
         <h1 className="m-4 d-flex justify-content-center">PRODUCTOS</h1>
         {categoryName && (
-          <div className="d-flex justify-content-center align-items-center">
-            <input
-              className="inputCategoryName mt-2"
-              value={newCategoryName}
-              placeholder={newCategoryName}
-              onChange={(e) => {
-                setNewCategoryName(e.target.value);
-              }}
-            ></input>
-            <button
-              className="edit-button m-1"
-              onClick={() => {
-                handle.updateCategoryName();
-                dispatch(editCategories({ categoryName, newCategoryName }));
-                navigate(`/admin/categories/${newCategoryName}`)
-                window.location.reload();
-              }}
-            >
-              <img className="edit-icon" src={edit} alt="edit-icon" />
-            </button>
+          <div className="d-flex flex-column align-items-center justify-content-center">
+            <div className="d-flex justify-content-center align-items-center">
+              <input
+                className="inputCategoryName mt-2"
+                value={newCategoryName}
+                placeholder={newCategoryName}
+                onChange={(e) => {
+                  setNewCategoryName(e.target.value);
+                }}
+              ></input>
+              <button
+                className="edit-button m-1"
+                onClick={() => {
+                  if (newCategoryName.length !== 0) {
+                    handle.updateCategoryName();
+                    dispatch(editCategories({ categoryName, newCategoryName }));
+                    navigate(`/admin/categories/${newCategoryName}`);
+                    window.location.reload();
+                  } else {
+                    setCategoryEmptyMessage(true);
+                  }
+                }}
+              >
+                <img className="edit-icon" src={edit} alt="edit-icon" />
+              </button>
+            </div>
+            {categoryEmptyMessage && (
+              <div className="errorMessagCategory m-3 d-flex">
+                <Alert className="px-2" severity="warning">
+                  Casillero vacío! Se le debe asignar nombre a la categoría.
+                </Alert>
+              </div>
+            )}
           </div>
         )}
         <div className="container mt-4">
