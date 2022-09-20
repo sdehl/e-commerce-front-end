@@ -5,8 +5,15 @@ import axios from "axios";
 import Swal from "sweetalert2";
 import "./styles/BillingStyles.css";
 import { useNavigate } from "react-router-dom";
+import check from "../components/svg/check-solid.svg";
+
+import { Link } from "react-router-dom";
+import Calendar from "react-calendar";
+import "react-calendar/dist/Calendar.css";
 
 function Billing() {
+  const [value, onChange] = useState(new Date());
+
   const gema = useSelector((state) => state.gema);
   const token = useSelector((state) => state.gema.userData.token);
   const dispatch = useDispatch();
@@ -16,6 +23,9 @@ function Billing() {
   const [errorMessage, setErrorMessage] = useState(false);
   const [order, setOrder] = useState({});
   const [missingProducts, setMissingProducts] = useState(null);
+
+  const [dolarsSelected, setDolarsSelected] = useState(false);
+  const [pesosSelected, setPesosSelected] = useState(false);
 
   const ColoredLine = ({ color }) => (
     <hr
@@ -268,6 +278,18 @@ function Billing() {
                   }}
                 ></input>
               </div>
+              <div className="listInfo d-flex flex-column">
+                <lable>
+                  {" "}
+                  Fecha de entrega <span className="obligatoryBilling">*</span>{" "}
+                </lable>
+                <div>
+                  <Calendar className="calender" onChange={onChange} value={value} />
+                </div>
+                <p className="messageForCalender">
+                  Haremos todo lo posible para entregar su pedido en la fecha especificada.
+                </p>
+              </div>
             </div>
             <div className="col-6">
               <div className="m-0 d-flex flex-column listProducts">
@@ -287,7 +309,7 @@ function Billing() {
               </div>
             </div>
             <h3 className="mt-4 mb-3">TU PEDIDO</h3>
-            <div className="order">
+            <div className="order p-5">
               <div className="row">
                 <h5 className="col-2"></h5>
                 <h5 className="col-6 ">PRODUCTO</h5>
@@ -305,12 +327,140 @@ function Billing() {
                   </div>
                 );
               })}
+              <ColoredLine color="gray" />
               <div className="d-flex mt-5 ">
                 <h3 className="totalPrice">TOTAL PRICE</h3>
                 <h4 className="mt-1">U$S {gema.totalPrice}</h4>
               </div>
+
+              <div className="d-flex flex-column mt-5 mb-3">
+                <div className="d-flex align-items-center mb-2">
+                  <input
+                    type="radio"
+                    name="moneyDiposite"
+                    value="moneyDiposite"
+                    className="mr-3"
+                    onClick={() => {
+                      setDolarsSelected(true);
+                      setPesosSelected(false);
+                    }}
+                  />
+                  <h5 className="totalPrice mt-1 m-2">Transferencia Bancaria en Dólares</h5>
+                </div>
+                {dolarsSelected && (
+                  <h5>
+                    Realiza tu pago directamente en nuestra cuenta bancaria, Itaú. Por favor,
+                    utiliza el número de pedido y nombre como referencia de pago. Tu pedido no se
+                    procesará hasta que se haya recibido el importe en nuestra cuenta. Luego mande
+                    captura de pantalla al Whatsapp: +598 99 149 592
+                  </h5>
+                )}
+              </div>
+              <ColoredLine color="gray" />
+              <div className="mt-3 mb-3">
+                <div className="d-flex align-items-center">
+                  <input
+                    type="radio"
+                    name="moneyDiposite"
+                    value="moneyDiposite"
+                    className="mr-3"
+                    onClick={() => {
+                      setDolarsSelected(false);
+                      setPesosSelected(true);
+                    }}
+                  />
+                  <h5 className="totalPrice mt-1 m-2">
+                    Mercado Pago en Pesos Mercado Pago en Pesos
+                  </h5>
+                </div>
+                {pesosSelected && (
+                  <div className="mt-4">
+                    <h3>Paga más rápido con Mercado Pago</h3>
+                    <div className="d-flex">
+                      {" "}
+                      <img className="check-icon m-2" src={check} alt="check icon" />
+                      <h5 className="m-2">Pago seguro</h5>
+                    </div>
+                    <div className="d-flex">
+                      {" "}
+                      <img className="check-icon m-2" src={check} alt="check icon" />
+                      <h5 className="m-2">Sin cargar datos</h5>
+                    </div>
+                    <div className="d-flex">
+                      {" "}
+                      <img className="check-icon m-2" src={check} alt="check icon" />
+                      <h5 className="m-2">Cutoas disponibles</h5>
+                    </div>
+                    <div className="d-flex align-items-center mt-4">
+                      {" "}
+                      <h5 className="m-2">Tarjetas de crédito</h5>
+                      <div className="m-2 greenbackground">HASTA 1 CUOTAS</div>
+                    </div>
+
+                    <div className="m-2 d-flex">
+                      <div className="logosSize">
+                        {" "}
+                        <img
+                          className="logoImageSize"
+                          src="https://mvdstore.uy/wp-content/themes/thegem-child/src/img/logo-creditel.png"
+                          alt="logo icon"
+                        />
+                      </div>
+                      <div className="logosSize">
+                        {" "}
+                        <img
+                          className="logoImageSize"
+                          src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Visa_Inc._logo.svg/2560px-Visa_Inc._logo.svg.png"
+                          alt="logo icon"
+                        />
+                      </div>
+                      <div className="logosSize">
+                        {" "}
+                        <img
+                          className="logoImageSize"
+                          src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Mastercard-logo.svg/2560px-Mastercard-logo.svg.png"
+                          alt="logo icon"
+                        />
+                      </div>
+                      <div className="logosSize">
+                        {" "}
+                        <img
+                          className="logoImageSize"
+                          src="https://oca.uy/src/img/logo-og.png"
+                          alt="logo icon"
+                        />
+                      </div>
+                    </div>
+                    <div className="d-flex flex-column justify-content-center align-items-center">
+                      <div className="mt-4 mb-3 mercadoPagoDiv">
+                        <img
+                          className="mercadoPagoLogo"
+                          src="https://tuquejasuma.com/media/images/entity576_bSwSaRU.png"
+                          alt="check icon"
+                        />
+                      </div>
+                      <h5 className="mt-3">
+                        Al confirmar tu compra, te redirigiremos a tu cuenta de Mercado Pago
+                      </h5>
+                      <h6 className="mt-3">
+                        Al continuar, aceptas nuestros Términos y condiciones
+                      </h6>
+                    </div>
+                  </div>
+                )}
+              </div>
+              <ColoredLine color="gray" />
+              <div className="d-flex align-items-center mt-3">
+                <input type="checkbox"></input>
+                <h6 className="mt-1 m-2">He leído y acepto el sitio web términos y condiciones</h6>
+              </div>
             </div>
             <button className="createOrder m-4">MANDAR PEDIDO</button>
+            <div className="d-flex justify-content-start divButton mt-1">
+              <Link to="/">
+                <button className="m-2 buttonGoBack">Volver a la tienda</button>
+              </Link>
+            </div>
             {errorMessage && (
               <>
                 <p className="m-2 fst-italic">

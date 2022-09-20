@@ -141,11 +141,11 @@ function Cart() {
         ) : (
           <div className="d-flex flex-column justify-content-center align-items-center">
             <h5 className="m-5"> TU CARRITO ESTA VACÍO </h5>
-            <div className="d-flex justify-content-start divButton">
-              <Link to="/">
-                <button className="endOrderBtn">Volver a la tienda</button>
-              </Link>
-            </div>
+            <div className="d-flex justify-content-start divButton mt-2 mb-5">
+                <Link to="/">
+                  <button className="m-2 endOrderBtn">Volver a la tienda</button>
+                </Link>
+              </div>
           </div>
         )}
       </div>

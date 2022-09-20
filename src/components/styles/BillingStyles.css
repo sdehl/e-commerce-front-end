@@ -94,3 +94,68 @@
 .obligatoryBilling {
   color: #c05b33;
 }
+.calender {
+  border: none !important;
+  margin-top: 20px;
+}
+
+.calender button {
+  margin: 3px;
+  background-color: #e2b7ac1a;
+  margin: 1px;
+  padding: 5px 0;
+}
+
+.react-calendar__month-view__weekdays {
+  text-align: center;
+  outline: 0 !important;
+}
+
+.calender button:hover {
+  background-color: #c7af953f !important;
+}
+
+.calender button:focus {
+  background-color: #b8855b69 !important;
+  color: black !important;
+}
+
+.messageForCalender {
+  color: rgba(128, 128, 128, 0.678);
+  margin-top: 30px;
+  margin-bottom: 0;
+  font-size: smaller;
+}
+
+.logosSize {
+  width: 50px;
+  height: 30px;
+  margin: 20px;
+  padding: 4px;
+}
+
+.logoImageSize {
+  width: 100%;
+  height: 100%;
+}
+
+.greenbackground {
+  background-color: rgba(0, 128, 0, 0.774) !important;
+  color: white;
+  border-radius: 3px;
+  display: inline;
+  padding: 4px 8px;
+  font-size: x-small;
+}
+
+.mercadoPagoDiv {
+  height: 60px;
+  width: 180px;
+  border: 0.5px solid rgba(128, 128, 128, 0.212);
+  padding: 10px;
+}
+
+.mercadoPagoLogo {
+  height: 100%;
+  width: 100%;
+}
