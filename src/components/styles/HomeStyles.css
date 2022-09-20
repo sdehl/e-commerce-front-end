@@ -346,3 +346,8 @@ p a {
     display: none;
   }
 }
+.transition {
+  width: 100%;
+  float: left;
+  box-sizing: border-box;
+}
