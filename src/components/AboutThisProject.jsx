@@ -16,8 +16,7 @@ import bronce1 from "./img/1.jpg";
 import bronce2 from "./img/2.jpg";
 import bronce3 from "./img/3.jpg";
 import bronce4 from "./img/4.jpg";
-import bronce5 from "./img/5.jpg";
-import bronce6 from "./img/6.jpg";
+import wood from "./img/wood3.jpg";
 
 function About() {
   return (
@@ -78,12 +77,10 @@ function About() {
             <p className="paragraph">
               Uno de los primeros desafíos de nuestro proyecto fue el desarrollo de un
               cuidadosamente pensado diagrama de relaciones de entidad. Aquí definimos las
-              principales relaciones entre las siguientes entidades: User, Order, Product y Category.
-              Inspiramos la plantilla de nuestro sitio web con la de Gema, un sitio web minorista de
-              accesorios para interiores, cuidadosamente diseñado. Nutrimos nuestra base de datos
-              con imágenes, descripciones, nombres y precios del propio website. El E-commerce
-              cuenta con un panel de administración, donde el usuario (con permisos de
-              administrador) podrá crear, consultar, modificar/actualizar y borrar artículos.
+              principales relaciones entre las siguientes entidades: User, Order, Product y
+              Category. Inspiramos la plantilla de nuestro sitio web con la de Gema, un sitio web
+              minorista de accesorios para interiores, cuidadosamente diseñado. Nutrimos nuestra
+              base de datos con imágenes, descripciones, nombres y precios del propio website.
             </p>
           </div>
           <div className="col">
@@ -118,33 +115,64 @@ function About() {
           </div>
         </div>
       </div>
+      <div className="container w-75 mt-5 pt-5">
+        <img
+          src={wood}
+          className="banner w-100 my-4 pb-5 mb-5"
+          alt="dos pares de tiradores en bronce sobre fondo crema"
+        />
+      </div>
+      <div className="container">
+        <h4 className="text-center fw-bold mt-5">FUNCIONALIDADES ADMINISTRATIVAS</h4>
+        <div className="row">
+          <div className="col-2"></div>
+          <div className="col pt-5 mt-5">
+            <p className="paragraph">
+              El E-commerce cuenta con un panel de administración-dashboard, donde el usuario (con
+              permisos de administrador) podrá crear, consultar, modificar/actualizar y borrar
+              productos, categorías, usuarios y órdenes. Para acceder al mismo deberá ingresar
+              mediante el botón lateral "about this project" con el usuario de pruebas "admin@admin"
+              y la contraseña "123". ¿¿¿ Dispondran de absoluta libertad para hacer modificaciones
+              ya que cuando lo deseen podrá re establecer la base de datos inicial???.
+            </p>
+          </div>
+          <div className="col-2"></div>
+        </div>
+      </div>
 
-      <div className="row text-center m-5 py-5">
+      <div className="row text-center mb-5 pb-5">
         <h4 className="my-5 py-5 fw-bold">TECNOLOGÍAS UTILIZADAS</h4>
         <div className="col">
           <img src={react} className="icons8-react-native zoom" alt="logo react" />
+          <h4 className="mt-4">React</h4>
         </div>
 
         <div className="col">
           <img src={redux} className="icons8-redux zoom" alt="logo redux" />
+          <h4 className="mt-4">Redux</h4>
         </div>
 
         <div className="col">
           <img src={js} className="zoom js" alt="logo javascript" />
+          <h4 className="mt-4">JavaScript</h4>
         </div>
         <div className="col">
           <img src={node} className="zoom icons8-nodejs " alt="logo nodejs" />
+          <h4 className="mt-4">NodeJS</h4>
         </div>
       </div>
       <div className="row text-center m-5 py-5">
         <div className="col">
           <img src={mongodb} className="zoom icons8-mongodb " alt="logo mongodb" />
+          <h4 className="mt-4">MongoDB</h4>
         </div>
         <div className="col">
           <img src={mongoose} className="zoom icons8-mongoose " alt="logo mongoose" />
+          <h4 className="mt-4">Mongoose</h4>
         </div>
         <div className="col">
           <img src={discord} className="zoom icons8-discord " alt="logo discord" />
+          <h4 className="mt-4">Discord</h4>
         </div>
         <div className="col">
           <img
@@ -152,6 +180,7 @@ function About() {
             className="zoom icons8-microsoft-teams-2019 "
             alt="logo microsoft teams"
           />
+          <h4 className="mt-4">Microsoft Teams</h4>
         </div>
         <div className="row pt-5 py-5 my-5 mt-5">
           <>
@@ -159,7 +188,6 @@ function About() {
             <div className="col-3 "></div>
             <div className="col-3 ">
               <>
-                <h3></h3>
                 <a
                   className="icons8-trello"
                   href="https://trello.com/b/iMKgVZ0d/e-commerce"
@@ -168,6 +196,7 @@ function About() {
                 >
                   <img src={trello} className="zoom" alt="logotipo Trello" />{" "}
                 </a>
+                <h4 className="mt-5">Trello</h4>
               </>
             </div>
             <div className="col-3">
@@ -179,13 +208,14 @@ function About() {
               >
                 <img src={figma} className="zoom" alt="logotipo Figma" />{" "}
               </a>
+              <h4 className="mt-5">Figma</h4>
             </div>
             <div className="col-3"></div>
           </>
         </div>
       </div>
       <div className="container w-75">
-        <div className="row d.flex card-group p-5 text-center">
+        <div className="row d.flex card-group pb-5 text-center">
           <h3 className="mb-5 pb-5 fw-bold">NUESTRO EQUIPO:</h3>
 
           <div className="col text-center">
@@ -240,7 +270,7 @@ function About() {
               {" "}
             </a>
           </div>
-          <div className="col text-center">
+          <div className="col text-center mx-5">
             {" "}
             <img
               src={marc}
@@ -249,24 +279,22 @@ function About() {
             />
             <p className="mt-5">Marcos Rossi</p>
             <p className="mt-4">Full Stack Developer Jr</p>
-            <div className="row">
-              <a
-                className="icons8-linkedin"
-                href="https://www.linkedin.com/in/marcos-rossi-prado/"
-                target="_blank"
-                rel="noreferrer"
-              >
-                {" "}
-              </a>
-              <a
-                className="icons8-github mx-2"
-                href="https://github.com/gurrucha"
-                target="_blank"
-                rel="noreferrer"
-              >
-                {" "}
-              </a>{" "}
-            </div>
+            <a
+              className="icons8-linkedin"
+              href="https://www.linkedin.com/in/marcos-rossi-prado/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              {" "}
+            </a>
+            <a
+              className="icons8-github mx-2"
+              href="https://github.com/gurrucha"
+              target="_blank"
+              rel="noreferrer"
+            >
+              {" "}
+            </a>{" "}
           </div>
         </div>
       </div>
