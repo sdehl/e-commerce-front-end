@@ -36,10 +36,14 @@ function About() {
               Este E-commerce es el proyecto final desarrollado por Mercedes Torrendell, Santiago
               Dehl y Marcos Rossi en el marco del Bootcamp-Grupo 2207 de Hack Academy, una
               institución educativa especializada en programación, ubicada en Montevideo, Uruguay
-              que imparte cursos desde 2016. El bootcamp es un curso de tiempo completo que capacita
-              a desarrolladores como Full Stack Jr. El objetivo del proyecto final es poner en
-              práctica los conocimientos adquiridos utilizando diversas tecnologías. Durante las
-              tres semanas que duró insumió una carga horaria de circa 180 hrs por integrante.
+              que imparte cursos desde 2016.
+            </p>
+            <p>
+              {" "}
+              El bootcamp es un curso de tiempo completo que capacita a desarrolladores como Full
+              Stack Jr. El objetivo del proyecto final es poner en práctica los conocimientos
+              adquiridos utilizando diversas tecnologías. Durante las tres semanas que duró insumió
+              una carga horaria de circa 180 hrs por integrante.
             </p>
           </div>
           <div className="col">
@@ -64,10 +68,13 @@ function About() {
               Se utilizó Trello, para controlar el flujo y la asignación de tareas y Figma, para
               maquetar modelar y diagramar. Se utilizó el modelo Entidad-Relación (MER). Se adoptó
               la metodología Scrum, donde se llevó el proyecto sobre los estándares de MVP,
-              presentando una demo al final de cada semana. Se ha buscado respetar las buenas
-              prácticas en cuanto a organización de las carpetas, consistencia en los idiomas,
-              legibilidad/nomenclatura en los archivos y hacer la posible menor cantidad de llamadas
-              a la base de datos.
+              presentando una demo al final de cada semana.
+            </p>
+            <p>
+              {" "}
+              Se ha buscado respetar las buenas prácticas en cuanto a organización de las carpetas,
+              consistencia en los idiomas, legibilidad/nomenclatura en los archivos y hacer la
+              posible menor cantidad de llamadas a la base de datos.
             </p>
           </div>
         </div>
@@ -78,9 +85,12 @@ function About() {
               Uno de los primeros desafíos de nuestro proyecto fue el desarrollo de un
               cuidadosamente pensado diagrama de relaciones de entidad. Aquí definimos las
               principales relaciones entre las siguientes entidades: User, Order, Product y
-              Category. Inspiramos la plantilla de nuestro sitio web con la de Gema, un sitio web
-              minorista de accesorios para interiores, cuidadosamente diseñado. Nutrimos nuestra
-              base de datos con imágenes, descripciones, nombres y precios del propio website.
+              Category.
+            </p>
+            <p>
+              Inspiramos la plantilla de nuestro sitio web con la de Gema, un sitio web minorista de
+              accesorios para interiores, cuidadosamente diseñado. Nutrimos nuestra base de datos
+              con imágenes, descripciones, nombres y precios del propio website.
             </p>
           </div>
           <div className="col">
@@ -107,6 +117,8 @@ function About() {
               evolución y finalización. En cuanto a frameworks y tecnologías usamos la pila MERN, lo
               que significa que nuestro proyecto utilizó una base de datos no relacional y que
               trabajamos con Mongo, MongoDB y Mongoose, además de Supabase para importar imágenes.
+            </p>
+            <p>
               Express, React y Node fueron nuestros marcos de aplicación. En el desarrollo
               utilizamos tecnologías conocidas que rodean este stack, como React Bootstrap, Hooks,
               Formidable, etc. Cada interacción entre sus desarrolladores, y por extensión, todo el
@@ -129,11 +141,14 @@ function About() {
           <div className="col pt-5 mt-5">
             <p className="paragraph">
               El E-commerce cuenta con un panel de administración-dashboard, donde el usuario (con
-              permisos de administrador) podrá crear, consultar, modificar/actualizar y borrar
-              productos, categorías, usuarios y órdenes. Para acceder al mismo deberá ingresar
-              mediante el botón lateral "about this project" con el usuario de pruebas "admin@admin"
-              y la contraseña "123". ¿¿¿ Dispondran de absoluta libertad para hacer modificaciones
-              ya que cuando lo deseen podrá re establecer la base de datos inicial???.
+              permisos de administrador) podrá acceder a crear, consultar, modificar/actualizar y
+              borrar productos, categorías, usuarios y órdenes.
+            </p>
+            <p>
+              Para acceder al mismo deberá ingresar mediante el botón lateral "about this project"
+              con el usuario de pruebas "admin@admin" y la contraseña "123". Dispondran de absoluta
+              libertad para hacer modificaciones ya que cuando lo deseen podrá re establecer la base
+              de datos inicial(?).
             </p>
           </div>
           <div className="col-2"></div>
