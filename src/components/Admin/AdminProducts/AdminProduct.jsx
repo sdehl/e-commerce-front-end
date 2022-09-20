@@ -95,11 +95,12 @@ function AdminProduct() {
       >
         <div className="row">
           <div className="col-6 d-flex flex-column">
+            <lable className="m-2">NOMBRE</lable>
             <input
               required
               type="text"
               name="name"
-              className="nameIndividualProduct"
+              className="nameIndividualProduct "
               value={product.name}
               onChange={(e) => {
                 setProduct((current) => {
@@ -110,6 +111,7 @@ function AdminProduct() {
                 });
               }}
             ></input>
+
             <ColoredLine color="gray" />
 
             <div className="d-flex justify-content-around flex-wrap  mt-5 mb-4">
@@ -216,7 +218,7 @@ function AdminProduct() {
           </div>
           <div className="d-flex align-items-center itemsUpdate">
             {!correctlyUpdated && (
-              <button className="update" type="submit">
+              <button className="update mt-3" type="submit">
                 ACTUALIZAR
               </button>
             )}

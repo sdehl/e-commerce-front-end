@@ -12,6 +12,29 @@
   backface-visibility: hidden;
 }
 
+@keyframes slideInFromRight {
+  0% {
+    transform: translateX(100%);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.animatedImages {
+  animation: slideInFromRight 3s ease-in;
+  @keyframes slideInFromRight {
+    0% {
+      transform: translateX(100%);
+    }
+
+    100% {
+      transform: translateX(0);
+    }
+  }
+}
+
 .container:hover .image {
   opacity: 0.8;
 }

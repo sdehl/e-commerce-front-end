@@ -63,14 +63,14 @@ function Home() {
             </div>
           </div>
         </div>
-        <div className="row p-5 m-5">
+        <div className="row animatedImages p-5 m-5">
           <div className="col-md-4 col-12 d-flex flex-column justify-content-center text-center p-3">
             <div>
               <img
                 src={
                   "https://www.gemainteriores.com/wp-content/uploads/2021/02/G02-TOP-SIMP-BZ-6.jpeg"
                 }
-                className="d-inline-block w-100 mb-4"
+                className="d-inline-block w-100 mb-4 imageAnimated"
                 alt=""
               />
               <h5 className="fw-bold pb-3">{categories[1].name}</h5>
@@ -85,7 +85,7 @@ function Home() {
                 src={
                   "https://www.gemainteriores.com/wp-content/uploads/2021/02/G01-OPA-PARED-BZ-7.jpg"
                 }
-                className="d-block w-100 mb-4"
+                className="d-block w-100 mb-4 imageAnimated"
                 alt=""
               />
               <h5 className="fw-bold pb-3">{categories[2].name}</h5>

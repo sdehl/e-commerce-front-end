@@ -75,6 +75,7 @@ function NewProduct() {
         >
           <div className="row">
             <div className="col-6 d-flex flex-column">
+              <lable className="m-2">NOMBRE</lable>
               <input
                 required
                 type="text"
@@ -161,7 +162,7 @@ function NewProduct() {
                 type="text"
                 name="description"
                 id="description"
-                className="nameIndividualProduct"
+                className="texAreaProduct"
                 value={product ? product.description : ""}
                 onChange={(e) => {
                   setProduct((current) => {
@@ -184,7 +185,7 @@ function NewProduct() {
             </div>
             <div className="d-flex align-items-center itemsUpdate">
               {(correctlyCreated === "" || correctlyCreated === "Not correctly added") && (
-                <button className="update" type="submit">
+                <button className="update mt-3" type="submit">
                   CREAR
                 </button>
               )}

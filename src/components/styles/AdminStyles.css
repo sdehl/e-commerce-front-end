@@ -87,9 +87,13 @@
   text-align: center;
 }
 
+.textCenter{
+  align-items: center;
+}
 .nameIndividualProduct {
   font-size: x-large;
   padding: 20px;
+  
   border: 1px solid rgba(128, 128, 128, 0.226);
   margin-bottom: 40px;
   margin-top: 20px;

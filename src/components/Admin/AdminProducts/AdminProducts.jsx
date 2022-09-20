@@ -155,10 +155,10 @@ function AdminProducts({ categoryName }) {
                 <th className="fw-bold d-flex justify-content-center" scope="col">
                   Categoría
                 </th>
-                <th className="fw-bold" scope="col">
+                <th className="fw-bold textCenter" scope="col">
                   Precio
                 </th>
-                <th className="fw-bold" scope="col">
+                <th className="fw-bold textCenter" scope="col">
                   Stock
                 </th>
                 <th className="fw-bold " scope="col">
