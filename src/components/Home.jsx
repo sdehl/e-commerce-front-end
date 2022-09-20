@@ -1,5 +1,4 @@
 import { Link, useNavigate } from "react-router-dom";
-import { useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import "./styles/HomeStyles.css";
@@ -41,7 +40,7 @@ function Home() {
                   <div className="imageHomeDiv">
                     {" "}
                     <img
-                    className="imageHomeStock"
+                      className="imageHomeStock"
                       src={
                         "https://www.gemainteriores.com/wp-content/uploads/2021/02/G02-TOP-SIMP-BZ-6.jpeg"
                       }
@@ -128,6 +127,7 @@ function Home() {
               href="https://www.instagram.com/gemainteriores/"
               className="removeLinkDeco"
               target="_blank"
+              rel="noreferrer"
             >
               <img
                 className="logoGemaHome m-1"
@@ -138,7 +138,7 @@ function Home() {
             </a>
           </div>
           <div styles="image" className="container col-md-6 col-12 col-lg-3">
-            <a href="https://www.instagram.com/p/CY5Ip1vtKI4/" target="_blank">
+            <a href="https://www.instagram.com/p/CY5Ip1vtKI4/" target="_blank" rel="noreferrer">
               <img
                 src={
                   "https://www.gemainteriores.com/wp-content/uploads/2021/02/G01-OPA-PARED-BZ-3.jpg"
@@ -149,7 +149,7 @@ function Home() {
             </a>
           </div>
           <div styles="image" className="container col-md-6 col-12 col-lg-3">
-            <a href="https://www.instagram.com/p/CZX6EcRlAnV/" target="_blank">
+            <a href="https://www.instagram.com/p/CZX6EcRlAnV/" target="_blank" rel="noreferrer">
               <img
                 src={
                   "https://www.gemainteriores.com/wp-content/uploads/2021/02/G02-TOP-SIMP-BK-5.jpeg"
@@ -160,7 +160,7 @@ function Home() {
             </a>
           </div>
           <div styles="image" className="container col-md-6 col-12 col-lg-3">
-            <a href="https://www.instagram.com/p/Chk9zV-srt9/" target="_blank">
+            <a href="https://www.instagram.com/p/Chk9zV-srt9/" target="_blank" rel="noreferrer">
               <img
                 src={
                   "https://www.gemainteriores.com/wp-content/uploads/2021/02/G01-OPA-PARED-BZ-7.jpg"
@@ -172,7 +172,7 @@ function Home() {
             </a>
           </div>
           <div styles="image" className="container col-md-6 col-12 col-lg-3">
-            <a href="https://www.instagram.com/p/CYSWP-hsnCj/" target="_blank">
+            <a href="https://www.instagram.com/p/CYSWP-hsnCj/" target="_blank" rel="noreferrer">
               <img
                 src={
                   "https://www.gemainteriores.com/wp-content/uploads/2021/02/G01-OPA-PARED-BZ-5.jpg"
