@@ -3,11 +3,12 @@ import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { deleteUserData, storeUserData } from "../redux/slices/gemaSlice";
+import { useForm } from "react-hook-form";
+import UserOrder from "./Admin/AdminUsers/AdminUserOrder";
 import Alert from "@mui/material/Alert";
 import cart from "./svg/cart-shopping-solid.svg";
 import home from "./svg/house-solid.svg";
 import "./styles/ProfileStyles.css";
-import UserOrder from "./Admin/AdminUsers/AdminUserOrder";
 
 function Profile() {
   const gema = useSelector((state) => state.gema);
@@ -18,11 +19,6 @@ function Profile() {
   const [userStatus, setUserStatus] = useState("");
   const [loginStatus, setLoginStatus] = useState("");
   const [userInfo, setUserInfo] = useState(null);
-  const [firstname, setFirstname] = useState("");
-  const [lastname, setLastname] = useState("");
-  const [username, setUsername] = useState("");
-  const [phone, setPhone] = useState("");
-  const [adress, setAdress] = useState("");
 
   const navigate = useNavigate();
 
@@ -93,8 +89,9 @@ function Profile() {
     }
   }, [userInfo]);
 
-  async function editProfile() {
+  async function editProfile(data) {
     try {
+      console.log(data);
       const newData = await axios({
         method: "PATCH",
         url: `${process.env.REACT_APP_API_URL}/users/${gema.userData.userId}`,
@@ -103,11 +100,13 @@ function Profile() {
           Authorization: `Bearer ${gema.userData.token}`,
         },
         data: {
-          firstname: firstname,
-          lastname: lastname,
-          username: username,
-          phone: phone,
-          adress: adress,
+          firstname: data.firstname,
+          lastname: data.lastname,
+          username: data.username,
+          phone: data.phone,
+          adress: data.adress,
+          currentPassword: data.currentPassword,
+          newPassword: data.newPassword,
         },
       });
 
@@ -117,6 +116,12 @@ function Profile() {
     }
   }
 
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+
   return (
     <>
       {gema.userData.token ? (
@@ -125,10 +130,9 @@ function Profile() {
             <div className="row editForm">
               <div className="col-12 col-lg-6">
                 <form
-                  onSubmit={(e) => {
-                    e.preventDefault();
-                    editProfile();
-                  }}
+                  onSubmit={handleSubmit((data) => {
+                    editProfile(data);
+                  })}
                 >
                   <strong>
                     <h2>PERFIL DEL USUARIO</h2>
@@ -138,49 +142,48 @@ function Profile() {
                       Nombre
                     </label>
                     <input
-                      required
+                      {...register("firstname", { required: "Debe agregar su nombre." })}
                       type="text"
                       defaultValue={userInfo.firstname}
                       className="form-control"
-                      name="firstname"
                       id="firstname"
-                      onChange={(e) => setFirstname(e.target.value)}
                     />
+                    <p className="requireMessage"> {errors.firstname?.message}</p>
                   </div>
                   <div className="my-5 ">
                     <label htmlFor="lastname" className="form-label">
                       Apellido
                     </label>
                     <input
-                      required
+                      {...register("lastname", { required: "Debe agregar su apellido." })}
                       type="text"
                       defaultValue={userInfo.lastname}
                       className="form-control"
                       name="lastname"
                       id="lastname"
-                      onChange={(e) => setLastname(e.target.value)}
                     />
+                    <p className="requireMessage"> {errors.lastname?.message}</p>
                   </div>
                   <div className="my-5 ">
                     <label htmlFor="username" className="form-label">
                       Nombre de usuario
                     </label>
                     <input
-                      required
+                      {...register("username", { required: "Debe agregar un nombre de usuario." })}
                       type="text"
                       defaultValue={userInfo.username}
                       className="form-control"
                       name="username"
                       id="username"
-                      onChange={(e) => setUsername(e.target.value)}
                     />
+                    <p className="requireMessage"> {errors.username?.message}</p>
                   </div>
                   <div className="mb-5">
                     <label htmlFor="phone" className="form-label">
                       Teléfono
                     </label>
                     <input
-                      required
+                      {...register("phone", { required: "Debe agregar un número de contacto." })}
                       defaultValue={userInfo.phone}
                       type="tel"
                       name="phone"
@@ -188,31 +191,53 @@ function Profile() {
                       id="phone"
                       // pattern="[+]{1}[0-9]{3} [0-9]{3} [0-9]{3}"
                       placeholder="09x xxx xxx"
-                      onChange={(e) => setPhone(e.target.value)}
                     />
+                    <p className="requireMessage"> {errors.phone?.message}</p>
                   </div>
                   <div className="mb-5">
                     <label htmlFor="adress" className="form-label">
                       Dirección
                     </label>
                     <input
-                      required
+                      {...register("adress", { required: "Debe agregar una dirección." })}
                       defaultValue={userInfo.adress}
                       type="text"
                       name="adress"
                       className="form-control"
                       id="adress"
-                      onChange={(e) => setAdress(e.target.value)}
                     />
+                    <p className="requireMessage"> {errors.adress?.message}</p>
+                  </div>
+                  <div className="mb-5">
+                    <label htmlFor="currentPassword" className="form-label">
+                      Contraseña actual
+                    </label>
+                    <input
+                      {...register("currentPassword", {
+                        required: "Debe agregar su contraseña.",
+                      })}
+                      type="password"
+                      name="currentPassword"
+                      className="form-control"
+                      id="currentPassword"
+                    />
+                    <p className="requireMessage"> {errors.currentPassword?.message}</p>
+                  </div>
+                  <div className="mb-5">
+                    <label htmlFor="newPassword" className="form-label">
+                      Nueva contraseña
+                    </label>
+                    <input
+                      {...register("newPassword")}
+                      type="password"
+                      name="newPassword"
+                      className="form-control"
+                      id="newPassword"
+                    />
+                    {/* <p className="requireMessage"> {errors.newPassword?.message}</p> */}
                   </div>
                   <div className="d-flex align-items-center justify-content-between">
-                    <button
-                      type="submit"
-                      className="save-btn "
-                      onClick={() => {
-                        editProfile();
-                      }}
-                    >
+                    <button type="submit" className="save-btn ">
                       GUARDAR
                     </button>
                     <button

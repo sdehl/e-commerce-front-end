@@ -3,7 +3,7 @@ import { ProtectedRouteAdmin, ProtectedRouteUser } from "./components/ProtectedR
 import NavigationBar from "./components/NavigationBar";
 import Profile from "./components/Profile";
 import Footer from "./components/Footer";
-import AbsoluteIcons from "./components/AbsoluteIcons";
+import AbsoluteItems from "./components/AbsoluteItems";
 import Home from "./components/Home";
 import Products from "./components/Products";
 import Product from "./components/Product";
@@ -28,8 +28,8 @@ import "./App.css";
 function App() {
   return (
     <div className="App">
+      <AbsoluteItems />
       <NavigationBar />
-      <AbsoluteIcons />
       <Routes>
         <Route path="/" element={<Home />}></Route>
         <Route path="/products" element={<Products />}></Route>

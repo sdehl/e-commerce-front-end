@@ -10,8 +10,9 @@
 .registerForm {
   padding: 100px 0 200px;
 }
-.obligatory {
-  color: #c05b33;
+.obligatory,
+.requireMessage {
+  color: #8f2f26;
 }
 
 .form-control {
