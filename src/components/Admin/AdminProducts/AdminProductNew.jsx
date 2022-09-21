@@ -78,9 +78,8 @@ function NewProduct() {
             e.preventDefault();
 
             handle.createProduct();
-            if (!correctlyCreated) {
-              setIsLoading(true);
-            }
+
+            setIsLoading(true);
           }}
         >
           <div className="row">
@@ -212,8 +211,19 @@ function NewProduct() {
               {/* </div> */}
             </div>
             <div className="d-flex align-items-center itemsUpdate mt-0">
-              {isLoading && !correctlyCreated ? (
-                <ReactLoading className="m-2 mt-0" type={"bubbles"} color={"lightgray"} height={"12%"} width={"12%"} />
+              {console.log("correctly created", correctlyCreated)}
+              {console.log(isLoading)}
+              {isLoading &&
+              (!correctlyCreated ||
+                correctlyCreated === "Not correctly added" ||
+                correctlyCreated !== "Correctly added") ? (
+                <ReactLoading
+                  className="m-2 mt-0"
+                  type={"bubbles"}
+                  color={"lightgray"}
+                  height={"12%"}
+                  width={"12%"}
+                />
               ) : (
                 (correctlyCreated === "" || correctlyCreated === "Not correctly added") && (
                   <button className="update mt-3" type="submit">
