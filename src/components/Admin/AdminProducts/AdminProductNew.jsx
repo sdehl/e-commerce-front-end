@@ -14,6 +14,7 @@ function NewProduct() {
   const navigate = useNavigate();
   const [allCategories, setAllCategories] = useState("");
 
+  console.log(product);
   const ColoredLine = ({ color }) => (
     <hr
       style={{
@@ -32,8 +33,8 @@ function NewProduct() {
         const response = await axios({
           method: "post",
           url: `${process.env.REACT_APP_API_URL}/products`,
-          data: { product },
-          headers: { Authorization: `Bearer ${token}` },
+          data: product,
+          headers: { "Content-Type": "multipart/form-data", Authorization: `Bearer ${token}` },
         });
         if (response.data === 409) {
           setCorrectlyCreated("Not correctly added");
@@ -75,7 +76,7 @@ function NewProduct() {
         >
           <div className="row">
             <div className="col-6 d-flex flex-column">
-              <lable className="m-2">NOMBRE</lable>
+              <label className="m-2">NOMBRE</label>
               <input
                 required
                 type="text"
@@ -95,7 +96,7 @@ function NewProduct() {
               <ColoredLine color="gray" />
               <div className="d-flex justify-content-around flex-wrap  mt-5 mb-4">
                 <div>
-                  <lable className="m-2">PRECIO (U$S)</lable>
+                  <label className="m-2">PRECIO (U$S)</label>
                   <input
                     required
                     type="number"
@@ -114,7 +115,7 @@ function NewProduct() {
                   ></input>
                 </div>
                 <div>
-                  <lable className="m-2 ">STOCK</lable>
+                  <label className="m-2 ">STOCK</label>
                   <input
                     required
                     type="number"
@@ -135,7 +136,7 @@ function NewProduct() {
               </div>
               <ColoredLine color="gray" />
               <div className="mt-5 mb-4">
-                <lable className="m-4">CATEGORÍAS</lable>
+                <label className="m-4">CATEGORÍAS</label>
                 <select
                   className="dropDownCategories p-1 mb-3"
                   name="categories"
@@ -180,7 +181,26 @@ function NewProduct() {
               <div className="d-flex flex-column align-items-center">
                 <div className="imagesNewProduct d-flex align-items-center m-3"></div>
                 <div>
-                  <button className="buttonUpdate m-0">Agregar Imágen</button>
+                  <div className="mb-3">
+                    <label htmlFor="formFile" name="picture" className="form-label">
+                      Default file input example
+                    </label>
+                    <input
+                      className="form-control"
+                      type="file"
+                      id="picture"
+                      onChange={(e) => {
+                        setProduct((current) => {
+                          return {
+                            ...current,
+                            picture: e.target.files[0],
+                          };
+                        });
+                      }}
+                    />
+                  </div>
+
+                  {/* <button className="buttonUpdate m-0">Agregar Imágen</button> */}
                 </div>
               </div>
             </div>
