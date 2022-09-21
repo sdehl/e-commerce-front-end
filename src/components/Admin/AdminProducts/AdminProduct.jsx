@@ -95,11 +95,14 @@ function AdminProduct() {
       >
         <div className="row">
           <div className="col-6 d-flex flex-column">
-            <lable className="m-2">NOMBRE</lable>
+            <lable htmlFor="name" className="m-2">
+              NOMBRE
+            </lable>
             <input
               required
               type="text"
               name="name"
+              id="name"
               className="nameIndividualProduct "
               value={product.name}
               onChange={(e) => {
@@ -116,9 +119,12 @@ function AdminProduct() {
 
             <div className="d-flex justify-content-around flex-wrap  mt-5 mb-4">
               <div>
-                <lable className="m-2">PRECIO (U$S)</lable>
+                <lable htmlFor="price" className="m-2">
+                  PRECIO (U$S)
+                </lable>
                 <input
                   required
+                  id="price"
                   type="number"
                   name="price"
                   className=" elementsInProductIndividual"
@@ -209,8 +215,22 @@ function AdminProduct() {
                     )}
                   </div>
                   <div>
-                    <button className="buttonUpdate m-0">Eliminar</button>
-                    <button className="buttonUpdate">Modificar</button>
+                    <button className="buttonUpdate my-2">Eliminar</button>
+                  </div>
+                  <div>
+                    <label
+                      htmlFor="productNewImg"
+                      type="button"
+                      className="buttonUpdate fakeInputLabel"
+                    >
+                      Modificar
+                      <input
+                        className="d-none"
+                        type="file"
+                        name="productNewImg"
+                        id="productNewImg"
+                      />
+                    </label>
                   </div>
                 </div>
               );

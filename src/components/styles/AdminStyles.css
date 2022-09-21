@@ -87,13 +87,13 @@
   text-align: center;
 }
 
-.textCenter{
+.textCenter {
   align-items: center;
 }
 .nameIndividualProduct {
   font-size: x-large;
   padding: 20px;
-  
+
   border: 1px solid rgba(128, 128, 128, 0.226);
   margin-bottom: 40px;
   margin-top: 20px;
@@ -110,6 +110,11 @@
 
 .divOfImages {
   display: flex;
+}
+
+.newProductImgInput {
+  padding: 0 5px !important;
+  font-weight: normal !important;
 }
 
 .imagesOfProduct {
@@ -135,14 +140,27 @@
 }
 
 .buttonUpdate {
-  margin-left: 10px;
+  width: 80px !important;
   margin-bottom: 20px;
   color: rgb(68, 66, 66);
-  border: 2px solid rgba(128, 128, 128, 0.226);
+  border: 1px solid rgba(128, 128, 128, 0.226);
   background-color: transparent;
 }
 
 .buttonUpdate:hover {
+  background-color: #aa847b27;
+}
+.fakeInputLabel {
+  cursor: pointer;
+  text-align: center;
+
+  margin-bottom: 20px;
+  color: rgb(68, 66, 66);
+  border: 1px solid rgba(128, 128, 128, 0.226);
+  padding: 0 5px;
+  background-color: transparent;
+}
+.fakeInputLabel:hover {
   background-color: #aa847b27;
 }
 
