@@ -177,32 +177,30 @@ function NewProduct() {
               ></textarea>
               <ColoredLine color="gray" />
             </div>
-            <div className="col-6 d-flex align-items-center flex-wrap justify-content-center">
-              <div className="d-flex flex-column align-items-center">
-                <div className="imagesNewProduct d-flex align-items-center m-3"></div>
-                <div>
-                  <div className="mb-3">
-                    <label htmlFor="formFile" name="picture" className="form-label">
-                      Default file input example
-                    </label>
-                    <input
-                      className="form-control"
-                      type="file"
-                      id="picture"
-                      onChange={(e) => {
-                        setProduct((current) => {
-                          return {
-                            ...current,
-                            picture: e.target.files[0],
-                          };
-                        });
-                      }}
-                    />
-                  </div>
-
-                  {/* <button className="buttonUpdate m-0">Agregar Imágen</button> */}
+            <div className="col-6 d-flex ">
+              {/* <div className="d-flex flex-column align-items-center"> */}
+              <div>
+                <div className="mb-3">
+                  <label htmlFor="picture" name="picture" className="form-label fakeInputLabel">
+                    AGREGAR IMAGEN
+                  </label>
+                  <input
+                    className="d-none form-control "
+                    type="file"
+                    id="picture"
+                    name="picture"
+                    onChange={(e) => {
+                      setProduct((current) => {
+                        return {
+                          ...current,
+                          picture: e.target.files[0],
+                        };
+                      });
+                    }}
+                  />
                 </div>
               </div>
+              {/* </div> */}
             </div>
             <div className="d-flex align-items-center itemsUpdate">
               {(correctlyCreated === "" || correctlyCreated === "Not correctly added") && (
