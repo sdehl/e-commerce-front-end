@@ -94,7 +94,8 @@
   .card {
     flex: 0 0 100%;
   }
-  .addToCart{
+  #button-div:hover .addToCart {
     display: none;
+    opacity: 0;
   }
 }

@@ -5,13 +5,17 @@ import { useSelector } from "react-redux";
 import { useNavigate } from "react-router";
 import Alert from "@mui/material/Alert";
 import backArrow from "../../svg/arrow-left-solid.svg";
+import ReactLoading from "react-loading";
+
 import "../../styles/AdminStyles.css";
 
 function NewProduct() {
   const token = useSelector((state) => state.gema.userData.token);
   const [product, setProduct] = useState(null);
   const [correctlyCreated, setCorrectlyCreated] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
+
   const [allCategories, setAllCategories] = useState("");
 
   console.log(product);
@@ -63,6 +67,7 @@ function NewProduct() {
     if (setCorrectlyCreated === "Not correctly added") {
       setCorrectlyCreated("Not correctly added");
     }
+    setIsLoading(false);
   }, [product]);
 
   return (
@@ -71,7 +76,11 @@ function NewProduct() {
         <form
           onSubmit={(e) => {
             e.preventDefault();
+
             handle.createProduct();
+            if (!correctlyCreated) {
+              setIsLoading(true);
+            }
           }}
         >
           <div className="row">
@@ -204,11 +213,15 @@ function NewProduct() {
                 </div>
               </div>
             </div>
-            <div className="d-flex align-items-center itemsUpdate">
-              {(correctlyCreated === "" || correctlyCreated === "Not correctly added") && (
-                <button className="update mt-3" type="submit">
-                  CREAR
-                </button>
+            <div className="d-flex align-items-center itemsUpdate mt-0">
+              {isLoading && !correctlyCreated ? (
+                <ReactLoading className="m-2 mt-0" type={"bubbles"} color={"lightgray"} height={"12%"} width={"12%"} />
+              ) : (
+                (correctlyCreated === "" || correctlyCreated === "Not correctly added") && (
+                  <button className="update mt-3" type="submit">
+                    CREAR
+                  </button>
+                )
               )}
 
               {correctlyCreated === "Correctly added" && (
@@ -218,7 +231,7 @@ function NewProduct() {
                 </div>
               )}
               {correctlyCreated === "Not correctly added" && (
-                <Alert severity="error">
+                <Alert severity="error" className="m-3 mt-4">
                   ERROR! Verifique que el nombre del producto sea único
                 </Alert>
               )}
