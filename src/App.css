@@ -94,29 +94,7 @@
   .card {
     flex: 0 0 100%;
   }
+  .addToCart{
+    display: none;
+  }
 }
-
-/* @media screen and (min-wdth: 600px) {
-  .addToCartBtn:hover {
-    background-position: left bottom;
-    color: white;
-  }
-  .addToCart:hover {
-    background-position: left bottom;
-    color: white;
-  }
-  #button-div {
-    right: 5px;
-    position: absolute;
-    width: 100%;
-    height: 70%;
-    align-items: center;
-    justify-content: center;
-  }
-  #button-div:hover .addToCart {
-    display: inline-block;
-  }
-  #button-div:hover {
-    background-color: rgba(255, 255, 255, 0.582);
-  }
-} */
