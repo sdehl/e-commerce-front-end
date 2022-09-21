@@ -4,16 +4,18 @@ import axios from "axios";
 import { useParams } from "react-router-dom";
 import SingleProductModal from "./SingleProductModal";
 import "./styles/ProductStyles.css";
-//import { useDispatch } from "react-redux";
-//import { deleteCart } from "../redux/slices/gemaSlice";
+import { ToastContainer, toast } from "react-toastify";
+import "./styles/FooterStyles.css";
+import "react-toastify/dist/ReactToastify.css";
 
 function Products() {
   const params = useParams();
   const [products, setProducts] = useState();
   const [show, setShow] = useState(false);
   const [productForModal, setProductForModal] = useState(null);
+  const notify = () => toast("Esto sobrepasa el alcance de nuestro proyecto!");
+
   const handleClose = () => setShow(false);
-  //const dispatch = useDispatch();
   const handleShow = (product) => {
     setProductForModal(product);
     setShow(true);
@@ -21,7 +23,6 @@ function Products() {
 
   useEffect(() => {
     handle.apiCall();
-    //dispatch(deleteCart());
   }, []);
 
   //when params change the api is called again with new category
@@ -47,10 +48,12 @@ function Products() {
         <div className="h-25 d-inline-block"></div>
         <div className="container">
           <SingleProductModal show={show} handleClose={handleClose} product={productForModal} />
-
+          <ToastContainer />
           <div className="mt-5 d-flex justify-content-between">
             <h6 className="textProductsStart">{`Mostrando 1 – ${products.length} productos`}</h6>
-            <h6 className="textProductsStart">Filter</h6>
+            <h6 className="textProductsStart" onClick={notify}>
+              Filter
+            </h6>
           </div>
           <div className="productList">
             {products.map((product) => {
