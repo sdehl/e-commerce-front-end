@@ -51,7 +51,7 @@ function Home() {
 
                   <div className="div-column d-flex flex-column justify-content-center align-items-center p-3">
                     <h4 className="enStock mb-3">EN STOCK</h4>
-                    <h3 className="boldCollection mb-3">COLECCIÓN DE GRIFERÍAS</h3>
+                    <h3 className="boldCollection mb-3">COLECCION DE GRIFERIAS</h3>
                     <button
                       className="homeButton"
                       onClick={() => {
@@ -78,7 +78,7 @@ function Home() {
               />
               <h5 className="fw-bold pb-3">{categories[1].name}</h5>
               <Link to={`/products/${categories[1].name}`}>
-                <p className="fw-bold hover-underline-animation ">IR A COLECCIÓN</p>
+                <p className="fw-bold hover-underline-animation ">IR A COLECCION</p>
               </Link>
             </div>
           </div>
@@ -93,7 +93,7 @@ function Home() {
               />
               <h5 className="fw-bold pb-3">{categories[2].name}</h5>
               <Link to={`/products/${categories[2].name}`}>
-                <p className="fw-bold hover-underline-animation ">IR A COLECCIÓN</p>
+                <p className="fw-bold hover-underline-animation ">IR A COLECCION</p>
               </Link>
             </div>
           </div>
@@ -108,7 +108,7 @@ function Home() {
               />
               <h5 className="fw-bold pb-3">{categories[0].name}</h5>
               <Link to={`/products/${categories[0].name}`}>
-                <p className="fw-bold hover-underline-animation ">IR A COLECCIÓN</p>
+                <p className="fw-bold hover-underline-animation ">IR A COLECCION</p>
               </Link>
             </div>
           </div>

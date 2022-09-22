@@ -101,10 +101,10 @@ function Cart() {
                 <label htmlFor="userAdress">Pick-up - Carrasco Sur</label>
                 <br></br>
                 <input type="radio" name="adress" value="userAdress" className="mb-4"></input> {" "}
-                <label htmlFor="userAdress">Envios a Maldonado por DePunta</label>
+                <label htmlFor="userAdress">Envíos a Maldonado por DePunta</label>
                 <br></br>
                 <input type="radio" name="adress" value="userAdress" className="mb-4"></input> {" "}
-                <label htmlFor="userAdress">Envios al Interior por DAC</label>
+                <label htmlFor="userAdress">Envíos al Interior por DAC</label>
                 <br></br>
               </div>
             </div>

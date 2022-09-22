@@ -6,9 +6,9 @@ function ErrorPage() {
   return (
     <div className="erroPage d-flex flex-column justify-content-center align-items-center">
       <h1 className="my-2">ERROR</h1>
-      <h5 className="my-2">PAGE NOT FOUND</h5>
+      <h5 className="my-2">PAGINA NO ENCONTRADA</h5>
       <p className="my-2">
-        Oops! The page you are looking for does not exist. It might have been moved or deleted.
+        Oops! La página que buscabas no existe. Puede haber sido modificada o eliminada.
       </p>
       <button
         className="buttonHome my-2"
@@ -16,7 +16,7 @@ function ErrorPage() {
           navigate("/");
         }}
       >
-        BACK TO HOME
+        VOLVER A INICIO
       </button>
     </div>
   );

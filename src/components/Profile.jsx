@@ -248,7 +248,7 @@ function Profile() {
                         setUserInfo("");
                       }}
                     >
-                      LOGOUT{" "}
+                      CERRAR SESION{" "}
                     </button>
                   </div>
                   <div className="userEdited">
@@ -294,7 +294,7 @@ function Profile() {
                 }}
               >
                 <strong>
-                  <h2> INICIAR SESIÓN</h2>
+                  <h2> INICIAR SESION</h2>
                 </strong>
                 <div className="my-5 ">
                   <label htmlFor="emailorUsername" className="form-label">
@@ -327,7 +327,7 @@ function Profile() {
                 <div className="d-flex align-items-center justify-content-between mb-3 ">
                   <div>
                     <button type="submit" className="login-btn">
-                      INICIAR SESIÓN
+                      INICIAR SESION
                     </button>
                   </div>
                   <div className="form-check rememberMe">

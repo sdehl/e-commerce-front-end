@@ -71,9 +71,9 @@ function Search() {
                 })
               ) : (
                 <>
-                  <div className="mb-4">Lo sentimos no hay productos con este Nombre</div>
+                  <div className="mb-4">Lo sentimos, no hay productos con este Nombre</div>
                   <div className="recommendations">
-                    <h4>TAMBIÉN TE RECOMENDAMOS...</h4>
+                    <h4>TAMBIEN TE RECOMENDAMOS...</h4>
                     <div className="row">
                       {recomProducts.map((prod) => {
                         return <ProductCard key={prod._id} product={prod} />;
