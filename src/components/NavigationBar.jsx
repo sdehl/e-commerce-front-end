@@ -146,8 +146,8 @@ function NavigationBar() {
           <Navbar expand="md">
             <Container fluid>
               <Navbar.Toggle className="border-0 shadow-none " aria-controls="basic-navbar-nav" />
-              <Navbar.Collapse id="navbarScroll">
-                <Nav className="ms-0 my-2 my-lg-0" style={{ maxHeight: "100px" }} navbarScroll>
+              <Navbar.Collapse id="basic-navbar-nav">
+                <Nav className="me-auto my-2 my-lg-0">
                   <Nav.Link
                     className="mx-3 "
                     onClick={() => {
