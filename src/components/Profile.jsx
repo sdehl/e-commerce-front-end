@@ -268,7 +268,7 @@ function Profile() {
 
               {/* userInfo.orderHistory > 0 */}
               <div className="col-12 col-lg-6">
-                <h3>HISTORIAL DE ORDENES</h3>
+                <h2>HISTORIAL DE ORDENES</h2>
 
                 {userInfo.orderHistory.map((order, index) => {
                   return (

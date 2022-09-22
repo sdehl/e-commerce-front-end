@@ -163,3 +163,11 @@
 .textLighter {
   color: rgba(58, 57, 57, 0.719);
 }
+.form-check-input:checked {
+  background-color: #644c3f !important;
+  border-color: #644c3f !important;
+}
+.form-check-input:focus {
+  box-shadow: none !important;
+  border-color: #989797 !important;
+}

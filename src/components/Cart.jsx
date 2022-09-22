@@ -2,12 +2,14 @@ import { useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import CartProduct from "./CartProduct";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import backArrow from "./svg/arrow-left-solid.svg";
 import "./styles/CartStyles.css";
 
 function Cart() {
   const gema = useSelector((state) => state.gema);
   const token = useSelector((state) => state.gema.token);
+  const navigate = useNavigate();
 
   //Status
   const [cart, setCart] = useState(null);
@@ -132,9 +134,16 @@ function Cart() {
                 </Link>
               </div>
               <div className="d-flex justify-content-start divButton mt-4">
-                <Link to="/">
-                  <button className="m-2 buttonGoBack">Volver a la tienda</button>
-                </Link>
+                <button
+                  className="d-flex align-items-center  back-button buttonGoBack my-4"
+                  type="submit"
+                  onClick={() => {
+                    navigate(-1);
+                  }}
+                >
+                  <img className="arrow-icon mx-2" src={backArrow} alt="back arrow icon" /> VOLVER A
+                  LA TIENDA
+                </button>
               </div>
             </div>
           </div>
@@ -142,10 +151,10 @@ function Cart() {
           <div className="d-flex flex-column justify-content-center align-items-center">
             <h5 className="m-5"> TU CARRITO ESTA VACÍO </h5>
             <div className="d-flex justify-content-start divButton mt-2 mb-5">
-                <Link to="/">
-                  <button className="m-2 endOrderBtn">Volver a la tienda</button>
-                </Link>
-              </div>
+              <Link to="/">
+                <button className="m-2 endOrderBtn">VOLVER A LA TIENDA</button>
+              </Link>
+            </div>
           </div>
         )}
       </div>

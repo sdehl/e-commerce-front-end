@@ -13,7 +13,7 @@ import "react-toastify/dist/ReactToastify.css";
 
 function Footer() {
   const navigate = useNavigate();
-  const [elementToSearch, setElementToSearch] = useState('');
+  const [elementToSearch, setElementToSearch] = useState("");
   const location = useLocation();
   const notify = () => toast("Esto sobrepasa el alcance de nuestro proyecto!");
 
@@ -22,7 +22,7 @@ function Footer() {
       <div className="container my-1">
         <div className="row">
           <div className="col-12 col-lg-3">
-            <div>
+            {/* <div>
               {location.pathname !== "/search" ? (
                 <div>
                   <input
@@ -62,16 +62,16 @@ function Footer() {
               )}
             </div>
 
-            <div className="dividerLine">____</div>
-            <div className="d-flex justify-content-center">
-              <Link to="/">
-                <img
-                  className="gemaLogoFooter"
-                  src="https://www.gemainteriores.com/wp-content/uploads/2021/05/GEMA-LOGO-PaginaWeb-07-1-340x350.png"
-                  alt="gema logo footer"
-                />
-              </Link>
-            </div>
+            <div className="dividerLine">____</div> */}
+            {/* <div className="d-flex justify-content-center"> */}
+            <Link to="/">
+              <img
+                className="gemaLogoFooter"
+                src="https://www.gemainteriores.com/wp-content/uploads/2021/05/GEMA-LOGO-PaginaWeb-07-1-340x350.png"
+                alt="gema logo footer"
+              />
+            </Link>
+            {/* </div> */}
           </div>
           <div className="col-12 col-lg-3">
             <ul>
