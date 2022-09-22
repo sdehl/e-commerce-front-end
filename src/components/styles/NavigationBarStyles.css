@@ -95,14 +95,6 @@
   transform-origin: bottom left;
 }
 
-.navbarCol4 {
-  text-align: center;
-}
-
-.navbarCol12 {
-  text-align: center;
-}
-
 .navIcons {
   justify-content: right;
   position: relative;
@@ -124,16 +116,13 @@
   margin-left: 20px;
   margin-right: 20px;
 }
-@media screen and (max-width: 767px) {
-  .allNavbar {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    margin-left: 2%;
-    margin-right: 2%;
-  }
-}
 
 .allNavbar {
   border-bottom: #d6d6d6 solid 0.8px;
+}
+
+@media screen and (min-width: 768px) {
+  .customNavbarBrand {
+    width: 100%;
+  }
 }

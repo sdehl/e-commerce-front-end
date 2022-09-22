@@ -17,13 +17,18 @@ function ProductCard({ product, handleShow }) {
   return (
     filteredPicture && (
       <div className="card p-3 border-0 cardCss">
+        {/* <Link to={`/product/${product.slug}`}> */}
         <img
           src={filteredPicture ? filteredPicture : "https://wallpaperaccess.com/full/1756496.jpg"}
           className="card-img-top imageProduct"
           alt="..."
+          onClick={() => {
+            navigate(`/product/${product.slug}`);
+          }}
         ></img>
+        {/* </Link> */}
 
-        <div id="button-div" className="d-flex flex-column align-items-center">
+        <div id="button-div" className="d-none d-lg-flex flex-column align-items-center">
           {product.stock > 0 && (
             <button
               className="addToCart"
