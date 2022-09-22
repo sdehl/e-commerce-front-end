@@ -60,7 +60,7 @@
   background-size: 200% 100%;
   background-position: right bottom;
   margin-left: 10px;
-  transition: all 2s ease;
+  transition: all 0.2s ease;
   border: 1px solid black;
   color: black;
   padding: 15px 32px;

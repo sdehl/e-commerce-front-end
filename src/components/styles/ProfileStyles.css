@@ -33,7 +33,7 @@
   background: linear-gradient(to left, white 50%, black 50%);
   background-size: 200% 100%;
   background-position: right bottom;
-  transition: all 1s ease;
+  transition: all 0.2s ease;
   border: 1px solid black;
   color: black;
   padding: 15px 40px;

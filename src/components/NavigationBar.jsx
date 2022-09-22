@@ -1,7 +1,10 @@
 import React from "react";
-import { Container, Nav, Navbar, NavbarBrand } from "react-bootstrap";
+import { useEffect, useState } from "react";
+import axios from "axios";
+import { Container, Nav, Navbar } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { useLocation, useNavigate } from "react-router";
+import { useSelector } from "react-redux";
 import { deleteUserData } from "../redux/slices/gemaSlice";
 
 import gemaLogo from "./img/gema-logo.png";
@@ -10,9 +13,6 @@ import cart from "./svg/cart-shopping-solid.svg";
 import profile from "./svg/user-regular.svg";
 import rocket from "./svg/rocket-solid.svg";
 import admin from "./svg/gear-solid.svg";
-import { useDispatch, useSelector } from "react-redux";
-import { useEffect, useState } from "react";
-import axios from "axios";
 import "./styles/NavigationBarStyles.css";
 
 function NavigationBar() {
@@ -21,7 +21,6 @@ function NavigationBar() {
   const [elementToSearch, setElementToSearch] = useState("");
   const location = useLocation();
   const navigate = useNavigate();
-  const dispatch = useDispatch();
 
   useEffect(() => {
     async function getCategories() {
@@ -106,7 +105,7 @@ function NavigationBar() {
 
                 <div className="col-4">
                   <Link to="/">
-                    <img className="home-logo" src={gemaLogo} alt="gema-logo" />
+                    <img className="home-logo d-flex" src={gemaLogo} alt="gema-logo" />
                   </Link>
                 </div>
 
