@@ -10,7 +10,6 @@ import "../../styles/AdminStyles.css";
 function AdminProduct() {
   const token = useSelector((state) => state.gema.userData.token);
   const params = useParams();
-
   //states
   const [product, setProduct] = useState(null);
   const [correctlyUpdated, setCorrectlyUpdated] = useState(false);
