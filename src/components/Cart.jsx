@@ -97,14 +97,29 @@ function Cart() {
                 <h5>ENVIO</h5> {" "}
               </div>
               <div className="col-8">
-                <input type="radio" name="adress" value="userAdress" className="mb-4 form-check-input"></input> {" "}
-                <label htmlFor="userAdress">Pick-up - Carrasco Sur</label>
+                <input
+                  type="radio"
+                  name="adress"
+                  value="userAdress"
+                  className="mb-4 form-check-input"
+                ></input>
+                  <label htmlFor="userAdress">Pick-up - Carrasco Sur</label>
                 <br></br>
-                <input type="radio" name="adress" value="userAdress" className="mb-4 form-check-input"></input> {" "}
-                <label htmlFor="userAdress">Envios a Maldonado por DePunta</label>
+                <input
+                  type="radio"
+                  name="adress"
+                  value="userAdress"
+                  className="mb-4 form-check-input"
+                ></input>
+                  <label htmlFor="userAdress">Envios a Maldonado por DePunta</label>
                 <br></br>
-                <input type="radio" name="adress" value="userAdress" className="mb-4 form-check-input"></input> {" "}
-                <label htmlFor="userAdress">Envios al Interior por DAC</label>
+                <input
+                  type="radio"
+                  name="adress"
+                  value="userAdress"
+                  className="mb-4 form-check-input"
+                ></input>
+                  <label htmlFor="userAdress">Envios al Interior por DAC</label>
                 <br></br>
               </div>
             </div>
@@ -126,8 +141,6 @@ function Cart() {
               </Link>
             </div>
             <div className="d-flex justify-content-start divButton mt-4">
-         
-
               <button
                 className="d-flex align-items-center  back-button buttonGoBack my-4"
                 type="submit"
@@ -135,7 +148,8 @@ function Cart() {
                   navigate("/products");
                 }}
               >
-                <img className="arrow-icon mx-2" src={backArrow} alt="back arrow icon" /> VOLVER A LA TIENDA
+                <img className="arrow-icon mx-2" src={backArrow} alt="back arrow icon" /> VOLVER A
+                LA TIENDA
               </button>
             </div>
           </div>
@@ -147,9 +161,6 @@ function Cart() {
             <Link to="/">
               <button className="m-2 endOrderBtn">VOLVER A LA TIENDA</button>
             </Link>
-
-
-            
           </div>
         </div>
       )}
