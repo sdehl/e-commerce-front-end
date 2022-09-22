@@ -97,22 +97,29 @@ function Cart() {
                   <h5>ENVIO</h5> {" "}
                 </div>
                 <div className="col-8">
-                  <input type="radio" name="adress" value="userAdress" className="mb-4"></input> {" "}
-                  <label htmlFor="userAdress">Pick-up - Carrasco Sur</label>
+                  <input
+                    type="radio"
+                    name="adress"
+                    value="userAdress"
+                    className="mb-4 form-check-input"
+                  ></input>
+                    <label htmlFor="userAdress">Pick-up - Carrasco Sur</label>
                   <br></br>
                   <input
                     type="radio"
                     name="adress"
                     value="userAdress"
-                    className="mb-4"
-                  ></input>  <label htmlFor="userAdress">Envios a Maldonado por DePunta</label>
+                    className="mb-4 form-check-input"
+                  ></input>
+                    <label htmlFor="userAdress">Envios a Maldonado por DePunta</label>
                   <br></br>
                   <input
                     type="radio"
                     name="adress"
                     value="userAdress"
-                    className="mb-4"
-                  ></input>  <label htmlFor="userAdress">Envios al Interior por DAC</label>
+                    className="mb-4 form-check-input"
+                  ></input>
+                    <label htmlFor="userAdress">Envios al Interior por DAC</label>
                   <br></br>
                 </div>
               </div>
