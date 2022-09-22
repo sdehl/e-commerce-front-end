@@ -248,7 +248,7 @@ function Profile() {
                         setUserInfo("");
                       }}
                     >
-                      CERRAR SESION{" "}
+                      CERRAR SESIÓN{" "}
                     </button>
                   </div>
                   <div className="userEdited">
@@ -268,7 +268,7 @@ function Profile() {
 
               {/* userInfo.orderHistory > 0 */}
               <div className="col-12 col-lg-6">
-                <h2>HISTORIAL DE ORDENES</h2>
+                <h2>HISTORIAL DE ÓRDENES</h2>
 
                 {userInfo.orderHistory.map((order, index) => {
                   return (
@@ -294,7 +294,7 @@ function Profile() {
                 }}
               >
                 <strong>
-                  <h2> INICIAR SESION</h2>
+                  <h2> INICIAR SESIÓN</h2>
                 </strong>
                 <div className="my-5 ">
                   <label htmlFor="emailorUsername" className="form-label">
@@ -327,7 +327,7 @@ function Profile() {
                 <div className="d-flex align-items-center justify-content-between mb-3 ">
                   <div>
                     <button type="submit" className="login-btn">
-                      INICIAR SESION
+                      INICIAR SESIÓN
                     </button>
                   </div>
                   <div className="form-check rememberMe">

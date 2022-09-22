@@ -47,7 +47,7 @@ function ProductCard({ product, handleShow }) {
               handleShow(product);
             }}
           >
-            VISTA RAPIDA
+            VISTA RÁPIDA
           </button>
         </div>
 

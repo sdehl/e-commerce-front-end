@@ -154,7 +154,7 @@ function NavigationBar() {
                       navigate("/products");
                     }}
                   >
-                    <span className="underline-animation">SHOP ALL</span>
+                    <span className="underline-animation">TIENDA</span>
                   </Nav.Link>
                   <Nav.Link
                     className="mx-3"

@@ -140,7 +140,7 @@ function Product() {
           </div>
           <div className="row description ">
             <strong>
-              <div>DESCRIPCION</div>
+              <div>DESCRIPCIÓN</div>
             </strong>
             <hr />
             <div>
@@ -160,13 +160,13 @@ function Product() {
                   – Ver Mantenimiento y Cuidados por más información –{" "}
                 </Link>
               </p>
-              <p className="includes">INCLUYE COMPONENTES CORRESPONDIENTES PARA SU COLOCACION</p>
+              <p className="includes">INCLUYE COMPONENTES CORRESPONDIENTES PARA SU COLOCACIÓN</p>
             </div>
           </div>
         </div>
         <SingleProductModal show={show} handleClose={handleClose} product={productForModal} />
         <div className="recommendations">
-          <h4>TAMBIEN TE RECOMENDAMOS...</h4>
+          <h4>TAMBIÉN TE RECOMENDAMOS...</h4>
           <div className="row">
             {recomProducts.map((prod) => {
               return <ProductCard key={prod._id} product={prod} handleShow={handleShow} />;
