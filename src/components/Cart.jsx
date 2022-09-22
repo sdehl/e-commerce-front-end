@@ -172,8 +172,8 @@ function Cart() {
         className="m-2 mt-0"
         type={"bubbles"}
         color={"lightgray"}
-        height={"50%"}
-        width={"50%"}
+        height={"35%"}
+        width={"35%"}
       />
     </div>
   );

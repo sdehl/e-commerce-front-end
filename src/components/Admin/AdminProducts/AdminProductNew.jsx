@@ -8,9 +8,10 @@ import backArrow from "../../svg/arrow-left-solid.svg";
 import ReactLoading from "react-loading";
 import "../../styles/AdminStyles.css";
 
-function Images({ setImages, amountImages }) {
+function Images({ amountImages }) {
   return amountImages < 8 ? (
     <input
+      required
       className="form-control m-5"
       type="file"
       id={`pictures${amountImages}`}
@@ -104,11 +105,12 @@ function NewProduct() {
           id="newProductForm"
           onSubmit={(e) => {
             e.preventDefault();
+            setIsLoading(true);
             handle.createProduct(e.target);
           }}
         >
           <div className="row">
-            <div className="col-6 d-flex flex-column">
+            <div className="col-md-6 col-12 d-flex flex-column">
               <label className="m-2">NOMBRE</label>
               <input
                 required
@@ -210,7 +212,7 @@ function NewProduct() {
               ></textarea>
               <ColoredLine color="gray" />
             </div>
-            <div className="col-6 d-flex ">
+            <div className="col-md-6 col-12 d-flex mt-3 ">
               {/* <div className="d-flex flex-column align-items-center"> */}
               <div>
                 <div className="mb-2">
@@ -234,7 +236,7 @@ function NewProduct() {
                 correctlyCreated === "Not correctly added" ||
                 correctlyCreated !== "Correctly added") ? (
                 <ReactLoading
-                  className="m-2 mt-0"
+                  className="m-1 mt-0"
                   type={"bubbles"}
                   color={"lightgray"}
                   height={"12%"}
