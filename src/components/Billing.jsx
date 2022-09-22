@@ -93,7 +93,7 @@ function Billing() {
   };
 
   useEffect(() => {
-     handle.updateCart();
+    handle.updateCart();
     // setOrder((current) => {
     //   return {
     //     ...current,
@@ -133,7 +133,7 @@ function Billing() {
                 <div className="col-6 d-flex flex-column ml-4">
                   {" "}
                   <label>
-                    Primer Nombre <span className="obligatoryBilling">*</span>{" "}
+                    Nombre <span className="obligatoryBilling">*</span>{" "}
                   </label>
                   <input
                     required
@@ -155,7 +155,7 @@ function Billing() {
                 <div className="col-6 d-flex flex-column">
                   {" "}
                   <label>
-                    Segundo Nombre <span className="obligatoryBilling">*</span>{" "}
+                    Apellido <span className="obligatoryBilling">*</span>{" "}
                   </label>
                   <input required className="inputListCheckout"></input>
                 </div>
@@ -336,7 +336,7 @@ function Billing() {
               })}
               <ColoredLine color="gray" />
               <div className="d-flex mt-5 ">
-                <h3 className="totalPrice">TOTAL PRICE</h3>
+                <h3 className="totalPrice">PRECIO TOTAL</h3>
                 <h4 className="mt-1">U$S {gema.totalPrice}</h4>
               </div>
 
@@ -401,7 +401,7 @@ function Billing() {
                     <div className="d-flex align-items-center mt-4">
                       {" "}
                       <h5 className="m-2 textLighter">Tarjetas de crédito</h5>
-                      <div className="m-2 greenbackground">HASTA 1 CUOTAS</div>
+                      <div className="m-2 greenbackground">HASTA 1 CUOTA</div>
                     </div>
                     <div className="m-2 d-flex">
                       <div className="logosSize">
@@ -441,7 +441,9 @@ function Billing() {
                     }
                   }}
                 ></input>
-                <h6 className="mt-1 m-2">He leído y acepto el sitio web términos y condiciones</h6>
+                <h6 className="mt-1 m-2">
+                  He leído y acepto los términos y condiciones del sitio web
+                </h6>
                 {leidoCondiciones === false && (
                   <Alert severity="error" className="m-3 mt-4">
                     Debes aceptar los términos y condiciones!
@@ -449,7 +451,7 @@ function Billing() {
                 )}
               </div>
             </div>
-            <button className="createOrder m-4">MANDAR</button>
+            <button className="createOrder m-4">FINALIZAR COMPRA</button>
             <div className="d-flex justify-content-start divButton mt-1">
               {/* <Link to="/">
                 <button className="m-2 buttonGoBack">VOLVER AL</button>
@@ -469,8 +471,8 @@ function Billing() {
             {errorMessage && (
               <>
                 <p className="m-2 fst-italic">
-                  Error en crear orden repase su información. Puede que ya no haya stock de los
-                  productos elegidos
+                  Error en crear orden, repase su información. Puede que ya no haya stock de alguno
+                  de los productos elegidos
                 </p>
                 <div>
                   {missingProducts && (
