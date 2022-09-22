@@ -74,19 +74,27 @@ function Footer() {
           <div className="col-12 col-lg-3">
             <ul>
               <h5>CONTACTO</h5>
-              <li onClick={notify}>info@ecommercegema.com.uy</li>
+              <li onClick={notify}>info@gema.com.uy</li>
               <li onClick={notify}>Montevideo, Uruguay</li>
             </ul>
             <div className="sn-icons">
-              <a href="https://www.facebook.com/gemainteriores/?_rdc=4&_rdr" target="_blank">
+              <a
+                href="https://www.facebook.com/gemainteriores/?_rdc=4&_rdr"
+                target="_blank"
+                rel="noreferrer"
+              >
                 <img className="icons " src={fb} alt="facebook icon" />
               </a>
 
-              <a href="https://www.instagram.com/gemainteriores/" target="_blank">
+              <a href="https://www.instagram.com/gemainteriores/" target="_blank" rel="noreferrer">
                 <img className="icons " src={ig} alt="instagram icon" />
               </a>
 
-              <a href="https://www.pinterest.com/pilartorrendell3/_saved/" target="_blank">
+              <a
+                href="https://www.pinterest.com/pilartorrendell3/_saved/"
+                target="_blank"
+                rel="noreferrer"
+              >
                 <img className="icons " src={pinterest} alt="pinterest icon" />
               </a>
             </div>

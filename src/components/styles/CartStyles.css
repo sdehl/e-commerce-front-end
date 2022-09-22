@@ -73,6 +73,12 @@
   margin-right: 30px;
 }
 
+
+.cross-icon {
+  height: 16px;
+  width: 16px;
+}
+
 .divButton {
   max-width: 100%;
 }

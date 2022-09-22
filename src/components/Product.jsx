@@ -82,10 +82,7 @@ function Product() {
             <h1>{product.name.toUpperCase()}</h1>
             <h3>U$S {product.price}</h3>
             <h6>Categorías: {product.category.toUpperCase()}</h6>{" "}
-            <p className="productStock mb-5">
-              {" "}
-              {product.stock > 0 ? "HAY STOCK" : "NO HAY STOCK"}
-            </p>
+            <p className="productStock mb-5"> {product.stock > 0 ? "HAY STOCK" : "NO HAY STOCK"}</p>
             {product.stock > 0 && (
               <div className="buttons">
                 <div className="quantityBtn">

@@ -248,7 +248,7 @@ function Profile() {
                         setUserInfo("");
                       }}
                     >
-                      LOGOUT{" "}
+                      CERRAR SESIÓN{" "}
                     </button>
                   </div>
                   <div className="userEdited">
@@ -268,7 +268,7 @@ function Profile() {
 
               {/* userInfo.orderHistory > 0 */}
               <div className="col-12 col-lg-6">
-                <h2>HISTORIAL DE ORDENES</h2>
+                <h2>HISTORIAL DE ÓRDENES</h2>
 
                 {userInfo.orderHistory.map((order, index) => {
                   return (

@@ -14,49 +14,51 @@ function ProductCard({ product, handleShow }) {
     filteredPicture = product.pictures[0].replaceAll(`"`, ``);
   }
 
-  return filteredPicture && (
-    <div className="card p-3 border-0 cardCss">
-      <img
-        src={filteredPicture ? filteredPicture : "https://wallpaperaccess.com/full/1756496.jpg"}
-        className="card-img-top imageProduct"
-        alt="..."
-      ></img>
+  return (
+    filteredPicture && (
+      <div className="card p-3 border-0 cardCss">
+        <img
+          src={filteredPicture ? filteredPicture : "https://wallpaperaccess.com/full/1756496.jpg"}
+          className="card-img-top imageProduct"
+          alt="..."
+        ></img>
 
-      <div id="button-div" className="d-flex flex-column align-items-center">
-        {product.stock > 0 && (
+        <div id="button-div" className="d-flex flex-column align-items-center">
+          {product.stock > 0 && (
+            <button
+              className="addToCart"
+              onClick={() => {
+                if (buttonCart !== "Agregar al carrito") {
+                  navigate("/cart");
+                } else {
+                  dispatch(addProductToCart({ id: product._id, cant: 1, slug: product.slug }));
+                  dispatch(updateCantProducts(1));
+                  dispatch(updateTotalPrice(product.price));
+                  setButtonCart("Ver carrito");
+                }
+              }}
+            >
+              {buttonCart.toUpperCase()}
+            </button>
+          )}
           <button
             className="addToCart"
             onClick={() => {
-              if (buttonCart !== "Agregar al carrito") {
-                navigate("/cart");
-              } else {
-                dispatch(addProductToCart({ id: product._id, cant: 1, slug: product.slug }));
-                dispatch(updateCantProducts(1));
-                dispatch(updateTotalPrice(product.price));
-                setButtonCart("Ver carrito");
-              }
+              handleShow(product);
             }}
           >
-            {buttonCart.toUpperCase()}
+            VISTA RÁPIDA
           </button>
-        )}
-        <button
-          className="addToCart"
-          onClick={() => {
-            handleShow(product);
-          }}
-        >
-          QUICK VIEW
-        </button>
-      </div>
+        </div>
 
-      <div className="card-body">
-        <Link className="product-title-link" to={`/product/${product.slug}`}>
-          <h6 className="product-title">{product.name.toUpperCase()}</h6>
-        </Link>
-        <h4 className="product-price mt-4">{`U$S ${product.price}`}</h4>
+        <div className="card-body">
+          <Link className="product-title-link" to={`/product/${product.slug}`}>
+            <h6 className="product-title">{product.name.toUpperCase()}</h6>
+          </Link>
+          <h4 className="product-price mt-4">{`U$S ${product.price}`}</h4>
+        </div>
       </div>
-    </div>
+    )
   );
 }
 export default ProductCard;

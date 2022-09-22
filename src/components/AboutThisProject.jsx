@@ -62,7 +62,7 @@ function About() {
               alt="tiradores de bronce en cajonera marrón"
             />
           </div>
-          <div className="col-lg-6 col-12 mt-5 pt-4">
+          <div className="col-lg-6 col-12 mt-5">
             <h4>Aspectos organizacionales & MER</h4>
             <p className="paragraph">
               Se utilizó Trello, para controlar el flujo y la asignación de tareas y Figma, para
@@ -79,7 +79,7 @@ function About() {
           </div>
         </div>
         <div className="row">
-          <div className="col-lg-6 col-12 mt-5 ">
+          <div className="col-lg-6 col-12 mt-5">
             <h4>Concepción del proyecto e inspiración</h4>
             <p className="paragraph">
               Uno de los primeros desafíos de nuestro proyecto fue el desarrollo de un
@@ -109,7 +109,7 @@ function About() {
               alt="dos pares de tiradores en bronce sobre fondo crema"
             />
           </div>
-          <div className="col-lg-6 col-12 mt-4">
+          <div className="col-lg-6 col-12 mt-5">
             <h4>Metodología de trabajo</h4>
             <p className="paragraph">
               Organizamos nuestro trabajo en tres sprints utilizando Metodología Ágile. Cada sprint
@@ -205,7 +205,7 @@ function About() {
                   target="_blank"
                   rel="noreferrer"
                 >
-                  <img src={trello} className="zoom" alt="logotipo Trello" />{" "}
+                  <img src={trello} className="zoom" alt="logo Trello" />{" "}
                 </a>
                 <h4 className="mt-5">Trello</h4>
               </>
@@ -217,7 +217,7 @@ function About() {
                 target="_blank"
                 rel="noreferrer"
               >
-                <img src={figma} className="zoom" alt="logotipo Figma" />{" "}
+                <img src={figma} className="zoom" alt="logo Figma" />{" "}
               </a>
               <h4 className="mt-5">Figma</h4>
             </div>
@@ -234,7 +234,7 @@ function About() {
             <img
               src={mer}
               className="imgzoom profile-image d-inline-block w-100 my-4"
-              alt="Foto de perfil"
+              alt="Foto de perfil Mercedes Torrendell"
             />
             <h3 className="mt-5">
               Mercedes <br></br>Torrendell
@@ -262,7 +262,7 @@ function About() {
             <img
               src={sant}
               className="imgzoom profile-image d-inline-block w-100 my-4"
-              alt="Foto de perfil"
+              alt="Foto de perfil Santiago Dehl"
             />
             <h3 className="mt-5">
               Santiago <br></br>Dehl
@@ -290,7 +290,7 @@ function About() {
             <img
               src={marc}
               className="imgzoom profile-image d-inline-block w-100 my-4"
-              alt="Foto de perfil"
+              alt="Foto de perfil Marcos Rossi"
             />
             <h3 className="mt-5">
               Marcos <br></br>Rossi
