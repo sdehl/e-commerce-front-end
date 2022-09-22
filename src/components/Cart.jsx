@@ -97,13 +97,13 @@ function Cart() {
                 <h5>ENVIO</h5> {" "}
               </div>
               <div className="col-8">
-                <input type="radio" name="adress" value="userAdress" className="mb-4"></input> {" "}
+                <input type="radio" name="adress" value="userAdress" className="mb-4 form-check-input"></input> {" "}
                 <label htmlFor="userAdress">Pick-up - Carrasco Sur</label>
                 <br></br>
-                <input type="radio" name="adress" value="userAdress" className="mb-4"></input> {" "}
+                <input type="radio" name="adress" value="userAdress" className="mb-4 form-check-input"></input> {" "}
                 <label htmlFor="userAdress">Envios a Maldonado por DePunta</label>
                 <br></br>
-                <input type="radio" name="adress" value="userAdress" className="mb-4"></input> {" "}
+                <input type="radio" name="adress" value="userAdress" className="mb-4 form-check-input"></input> {" "}
                 <label htmlFor="userAdress">Envios al Interior por DAC</label>
                 <br></br>
               </div>
@@ -126,9 +126,17 @@ function Cart() {
               </Link>
             </div>
             <div className="d-flex justify-content-start divButton mt-4">
-              <Link to="/">
-                <button className="m-2 buttonGoBack">Volver a la tienda</button>
-              </Link>
+         
+
+              <button
+                className="d-flex align-items-center  back-button buttonGoBack my-4"
+                type="submit"
+                onClick={() => {
+                  navigate("/products");
+                }}
+              >
+                <img className="arrow-icon mx-2" src={backArrow} alt="back arrow icon" /> VOLVER A LA TIENDA
+              </button>
             </div>
           </div>
         </div>
@@ -137,8 +145,11 @@ function Cart() {
           <h5 className="m-5"> TU CARRITO ESTA VACÍO </h5>
           <div className="d-flex justify-content-start divButton mt-2 mb-5">
             <Link to="/">
-              <button className="m-2 endOrderBtn">Volver a la tienda</button>
+              <button className="m-2 endOrderBtn">VOLVER A LA TIENDA</button>
             </Link>
+
+
+            
           </div>
         </div>
       )}
