@@ -48,20 +48,4 @@
   bottom: 10px !important;
   right: 10px !important;
 }
-@media screen and (max-width: 979px) {
-  .about-this-proyect {
-    transform: rotate(0deg);
-    position: fixed;
-    bottom: 620px;
-    right: 15px;
-  }
-}
 
-@media screen and (max-width: 768px) {
-  .about-this-proyect {
-    transform: rotate(0deg);
-    position: fixed;
-    bottom: 654px;
-    right: 15px;
-  }
-}

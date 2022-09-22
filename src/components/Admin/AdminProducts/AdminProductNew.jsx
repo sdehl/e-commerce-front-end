@@ -8,20 +8,15 @@ import backArrow from "../../svg/arrow-left-solid.svg";
 import ReactLoading from "react-loading";
 import "../../styles/AdminStyles.css";
 
-function Images({ setImages, amountImages }) {
+function Images({ amountImages }) {
   return amountImages < 8 ? (
     <input
+      required
       className="form-control m-5"
       type="file"
-      id="picture"
-      name="picture"
+      id={`pictures${amountImages}`}
+      name="pictures"
       accept="image/png, image/jpeg"
-      onChange={(e) => {
-        const addObjectToArray = (obj) => {
-          setImages((current) => [...current, obj]);
-        };
-        addObjectToArray(e.target.files[0]);
-      }}
     />
   ) : (
     <div className="m-5">
@@ -64,12 +59,13 @@ function NewProduct() {
 
   //Auxiliar function
   const handle = {
-    createProduct: async () => {
+    createProduct: async (target) => {
+      const formData = new FormData(target);
       try {
         const response = await axios({
           method: "post",
           url: `${process.env.REACT_APP_API_URL}/products`,
-          data: { product, amountImages },
+          data: formData,
           headers: { "Content-Type": "multipart/form-data", Authorization: `Bearer ${token}` },
         });
         if (response.data === 409) {
@@ -100,34 +96,27 @@ function NewProduct() {
       setCorrectlyCreated("Not correctly added");
       setIsLoading(false);
     }
-  
-
   }, [product]);
 
   return (
     allCategories && (
       <div className="container mt-4">
         <form
-          onSubmit={async (e) => {
+          id="newProductForm"
+          onSubmit={(e) => {
             e.preventDefault();
             setIsLoading(true);
-            setProduct((current) => {
-              return {
-                ...current,
-                picture: images,
-              };
-            });
-            handle.createProduct();
+            handle.createProduct(e.target);
           }}
         >
           <div className="row">
-            <div className="col-6 d-flex flex-column">
+            <div className="col-md-6 col-12 d-flex flex-column">
               <label className="m-2">NOMBRE</label>
               <input
                 required
                 type="text"
-                name="firstname"
-                id="firstname"
+                name="name"
+                id="name"
                 className="nameIndividualProduct"
                 defaultValue={product ? product.name : ""}
                 onChange={(e) => {
@@ -185,8 +174,8 @@ function NewProduct() {
                 <label className="m-4">CATEGORÍAS</label>
                 <select
                   className="dropDownCategories p-1 mb-3"
-                  name="categories"
-                  id="categories"
+                  name="category"
+                  id="category"
                   value={product ? product.category : ""}
                   required
                   onChange={(e) => {
@@ -223,7 +212,7 @@ function NewProduct() {
               ></textarea>
               <ColoredLine color="gray" />
             </div>
-            <div className="col-6 d-flex ">
+            <div className="col-md-6 col-12 d-flex mt-3 ">
               {/* <div className="d-flex flex-column align-items-center"> */}
               <div>
                 <div className="mb-2">
@@ -247,7 +236,7 @@ function NewProduct() {
                 correctlyCreated === "Not correctly added" ||
                 correctlyCreated !== "Correctly added") ? (
                 <ReactLoading
-                  className="m-2 mt-0"
+                  className="m-1 mt-0"
                   type={"bubbles"}
                   color={"lightgray"}
                   height={"12%"}

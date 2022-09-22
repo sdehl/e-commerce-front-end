@@ -10,9 +10,9 @@ import "../../styles/AdminStyles.css";
 function AdminProduct() {
   const token = useSelector((state) => state.gema.userData.token);
   const params = useParams();
-
   //states
   const [product, setProduct] = useState(null);
+  const [pictures, setPictures] = useState("");
   const [correctlyUpdated, setCorrectlyUpdated] = useState(false);
   const [originalName, setOriginalName] = useState("");
   const [originalCategory, setOriginalCategory] = useState("");
@@ -57,6 +57,14 @@ function AdminProduct() {
       });
       setAllCategories(response.data);
     },
+    editImage: async () => {
+      const response = await axios({
+        method: "get",
+        url: `${process.env.REACT_APP_API_URL}/categories`,
+        headers: { Authorization: `Bearer ${token}` },
+      });
+      setAllCategories(response.data);
+    },
   };
 
   useEffect(() => {
@@ -71,6 +79,8 @@ function AdminProduct() {
           setProduct(response.data);
           setOriginalName(response.data.name);
           setOriginalCategory(response.data.category);
+          console.log("pictures", response.data.pictures);
+          setPictures(response.data.pictures);
         }
       } catch (error) {
         console.log(error);
@@ -84,7 +94,7 @@ function AdminProduct() {
     handle.getCategories();
   }, [product]);
 
-  return allCategories && product ? (
+  return allCategories && product && pictures ? (
     <div className="container mt-4">
       <form
         onSubmit={(e) => {
@@ -93,7 +103,7 @@ function AdminProduct() {
         }}
       >
         <div className="row">
-          <div className="col-6 d-flex flex-column">
+          <div className="col-md-6 col-12 d-flex flex-column">
             <lable htmlFor="name" className="m-2">
               NOMBRE
             </lable>
@@ -198,8 +208,8 @@ function AdminProduct() {
             ></textarea>
             <ColoredLine color="gray" />
           </div>
-          <div className="col-6 d-flex align-items-center flex-wrap justify-content-center">
-            {product.pictures.map((picture, index) => {
+          <div className="col-md-6 col-12 d-flex align-items-center flex-wrap justify-content-center">
+            {pictures.map((picture, index) => {
               return (
                 <div key={index} className="d-flex flex-column align-items-center">
                   <div className="imagesOfProduct d-flex align-items-center m-3">
@@ -214,7 +224,14 @@ function AdminProduct() {
                     )}
                   </div>
                   <div>
-                    <button className="buttonUpdate my-2">Eliminar</button>
+                    <button
+                      className="buttonUpdate my-2"
+                      onClick={() => {
+                        console.log("picture", picture);
+                      }}
+                    >
+                      Eliminar
+                    </button>
                   </div>
                   <div>
                     <label

@@ -67,7 +67,7 @@ function Cart() {
           <section className="listCart">
             <div className="d-flex justify-content-between">
               <div className="d-flex align-items-center justify-content-center">
-                <p className="m-4">PRODUCT</p>
+                <p className="m-4">PRODUCTO</p>
               </div>
               <div className="d-flex align-items-center justify-content-center">
                 {" "}
@@ -94,7 +94,7 @@ function Cart() {
             <div className="row m-4">
               <div className="col-2">
                 {" "}
-                <h5>ENVIO</h5> {" "}
+                <h5>ENVÍO</h5> {" "}
               </div>
               <div className="col-8">
                 <input
@@ -172,8 +172,8 @@ function Cart() {
         className="m-2 mt-0"
         type={"bubbles"}
         color={"lightgray"}
-        height={"50%"}
-        width={"50%"}
+        height={"35%"}
+        width={"35%"}
       />
     </div>
   );

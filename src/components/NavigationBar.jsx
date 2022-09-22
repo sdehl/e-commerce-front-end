@@ -40,13 +40,13 @@ function NavigationBar() {
 
   return (
     categories && (
-      <div className="allNavbar container-fluid">
+      <>
         <div className="top-banner d-none d-md-flex justify-content-center align-items-center">
           {" "}
           <div>
             <img className="icons mx-2" src={rocket} alt="rocket icon" />
           </div>
-          <div>
+          {/* <div>
             <button
               onClick={() => {
                 dispatch(deleteUserData());
@@ -54,7 +54,7 @@ function NavigationBar() {
             >
               Logout
             </button>
-          </div>
+          </div> */}
           <div>
             <span>Envios a Montevideo y al Interior del Uruguay</span>{" "}
           </div>
@@ -216,7 +216,8 @@ function NavigationBar() {
             </Container>
           </Navbar>
         </div>
-      </div>
+        <div className="allNavbar"></div>
+      </>
     )
   );
 }
