@@ -7,6 +7,7 @@ import {
   updateTotalPrice,
 } from "../redux/slices/gemaSlice";
 import { Link } from "react-router-dom";
+import cross from "./svg/xmark-solid.svg"
 import "../components/styles/CartStyles.css";
 
 function CartProduct({ product, cant }) {
@@ -37,6 +38,8 @@ function CartProduct({ product, cant }) {
   return (
     <div className="d-flex justify-content-between">
       <div className="d-flex align-items-center justify-content-center">
+
+     
         <span
           className="m-3 delete"
           onClick={() => {
@@ -47,8 +50,9 @@ function CartProduct({ product, cant }) {
             setDeletedProduct(true);
           }}
         >
-          {" "}
-          X{" "}
+
+        <img className="cross-icon" src={cross} alt='cross icon'></img>
+       
         </span>
         <div className="imageDivCart m-3">
           {" "}

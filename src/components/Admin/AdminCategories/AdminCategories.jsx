@@ -54,7 +54,7 @@ function AllCategories() {
                       navigate(`/admin/categories/${category.name}`);
                     }}
                   >
-                    {category.name}
+                    {category.name.toUpperCase()}
                   </button>
                 </div>
               );

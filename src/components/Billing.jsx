@@ -434,6 +434,7 @@ function Billing() {
               <ColoredLine color="gray" />
               <div className="d-flex align-items-center mt-3">
                 <input
+                className="form-check-input"
                   type="checkbox"
                   onChange={(event) => {
                     if (event.target.checked) {
@@ -453,15 +454,13 @@ function Billing() {
             </div>
             <button className="createOrder m-4">FINALIZAR COMPRA</button>
             <div className="d-flex justify-content-start divButton mt-1">
-              {/* <Link to="/">
-                <button className="m-2 buttonGoBack">VOLVER AL</button>
-              </Link> */}
+           
 
               <button
                 className="d-flex align-items-center  back-button buttonGoBack my-4"
                 type="submit"
                 onClick={() => {
-                  navigate(-1);
+                  navigate("/cart");
                 }}
               >
                 <img className="arrow-icon mx-2" src={backArrow} alt="back arrow icon" /> VOLVER AL
