@@ -14,7 +14,7 @@
 
 .home-logo {
   height: 80px;
-  width: fit-content;
+  /* width: fit-content; */
   position: relative;
   /* left: -69px; */
 }
