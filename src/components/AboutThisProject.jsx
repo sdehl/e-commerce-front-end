@@ -236,7 +236,9 @@ function About() {
               className="imgzoom profile-image d-inline-block w-100 my-4"
               alt="Foto de perfil"
             />
-            <h3 className="mt-5">Mercedes Torrendell</h3>
+            <h3 className="mt-5">
+              Mercedes <br></br>Torrendell
+            </h3>
             <p className="mt-4">Full Stack Developer Jr</p>
             <a
               className="icons8-linkedin"

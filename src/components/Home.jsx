@@ -24,7 +24,7 @@ function Home() {
 
   return (
     categories && (
-      <div className="mb-5">
+      <div className="container-fluid mb-5">
         <div className="row mb-5">
           <div className="col-lg-7 col-12">
             <img

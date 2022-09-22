@@ -40,7 +40,7 @@ function NavigationBar() {
 
   return (
     categories && (
-      <div className="allNavbar">
+      <div className="allNavbar container-fluid">
         <div className="top-banner d-none d-md-flex justify-content-center align-items-center">
           {" "}
           <div>
