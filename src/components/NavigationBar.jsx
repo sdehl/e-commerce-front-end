@@ -40,7 +40,7 @@ function NavigationBar() {
 
   return (
     categories && (
-      <div className="allNavbar container-fluid">
+      <>
         <div className="top-banner d-none d-md-flex justify-content-center align-items-center">
           {" "}
           <div>
@@ -59,161 +59,170 @@ function NavigationBar() {
             <span>Envios a Montevideo y al Interior del Uruguay</span>{" "}
           </div>
         </div>
-        <div className="row align-items-center my-4  ">
-          <div className="col-4 navbarCol4 d-none d-md-flex">
-            {location.pathname !== "/search" ? (
-              <div>
-                <input
-                  className="headerSearch"
-                  type="text"
-                  value={elementToSearch}
-                  onChange={(e) => {
-                    setElementToSearch(e.target.value);
-                  }}
-                />{" "}
-                <img
-                  className="icons mx-2"
-                  src={search}
-                  alt="search icon"
-                  onClick={() => {
-                    setElementToSearch("");
-                    navigate("/search", {
-                      state: {
-                        elementToSearch: elementToSearch,
-                      },
-                    });
-                  }}
-                />
-              </div>
-            ) : (
-              <div>
-                <p
-                  className="searchUnderline"
-                  onClick={() => {
-                    navigate("/search");
-                  }}
-                >
-                  ______________
-                </p>
-                <img className="icons mx-2" src={search} alt="search icon" />
-              </div>
-            )}
-          </div>
-          <div className="col-12 navbarCol12 justify-content-center col-md-4 ">
-            <Link to="/">
-              <img className="home-logo" src={gemaLogo} alt="gema-logo" />
-            </Link>
-          </div>
-          <div className="col-4 d-none d-md-flex navIcons">
-            <div>
-              <img
-                className="icons link-icons"
-                src={profile}
-                alt="profile icon"
-                onClick={() => {
-                  navigate("/profile");
-                }}
-              />
+        <div className="allNavbar container-fluid">
+          <div className="row align-items-center my-4  ">
+            <div className="col-4 navbarCol4 d-none d-md-flex">
+              {location.pathname !== "/search" ? (
+                <div>
+                  <input
+                    className="headerSearch"
+                    type="text"
+                    value={elementToSearch}
+                    onChange={(e) => {
+                      setElementToSearch(e.target.value);
+                    }}
+                  />{" "}
+                  <img
+                    className="icons mx-2"
+                    src={search}
+                    alt="search icon"
+                    onClick={() => {
+                      setElementToSearch("");
+                      navigate("/search", {
+                        state: {
+                          elementToSearch: elementToSearch,
+                        },
+                      });
+                    }}
+                  />
+                </div>
+              ) : (
+                <div>
+                  <p
+                    className="searchUnderline"
+                    onClick={() => {
+                      navigate("/search");
+                    }}
+                  >
+                    ______________
+                  </p>
+                  <img className="icons mx-2" src={search} alt="search icon" />
+                </div>
+              )}
             </div>
-
-            <div className="cart">
-              <img
-                className="icons link-icons mx-1"
-                src={cart}
-                alt="cart icon"
-                onClick={() => {
-                  navigate("/cart");
-                }}
-              />
-              <h6 className="icons d-inline-block light">{gema.cantProductsCart}</h6>{" "}
+            <div className="col-12 navbarCol12 justify-content-center col-md-4 ">
+              <Link to="/">
+                <img className="home-logo" src={gemaLogo} alt="gema-logo" />
+              </Link>
             </div>
-
-            <div>
-              {gema.userData.isAdmin ? (
+            <div className="col-4 d-none d-md-flex navIcons">
+              <div>
                 <img
                   className="icons link-icons"
-                  src={admin}
-                  alt="admin icon"
+                  src={profile}
+                  alt="profile icon"
                   onClick={() => {
-                    navigate("/admin");
+                    navigate("/profile");
                   }}
                 />
-              ) : null}
+              </div>
+
+              <div className="cart">
+                <img
+                  className="icons link-icons mx-1"
+                  src={cart}
+                  alt="cart icon"
+                  onClick={() => {
+                    navigate("/cart");
+                  }}
+                />
+                <h6 className="icons d-inline-block light">{gema.cantProductsCart}</h6>{" "}
+              </div>
+
+              <div>
+                {gema.userData.isAdmin ? (
+                  <img
+                    className="icons link-icons"
+                    src={admin}
+                    alt="admin icon"
+                    onClick={() => {
+                      navigate("/admin");
+                    }}
+                  />
+                ) : null}
+              </div>
             </div>
           </div>
-        </div>
-        <div className=" d-flex justify-content-center dropdowns-container itemsNavBar">
-          <Navbar expand="md">
-            <Container fluid>
-              <Navbar.Toggle className="border-0 shadow-none " aria-controls="basic-navbar-nav" />
-              <Navbar.Collapse id="basic-navbar-nav">
-                <Nav className="me-auto my-2 my-lg-0">
-                  <Nav.Link
-                    className="mx-3 "
-                    onClick={() => {
-                      navigate("/products");
-                    }}
-                  >
-                    <span className="underline-animation">TIENDA</span>
-                  </Nav.Link>
-                  <Nav.Link
-                    className="mx-3"
-                    onClick={() => {
-                      navigate(`/products/${categories[0].name}`);
-                    }}
-                  >
-                    <span className="underline-animation"> {categories[0].name.toUpperCase()}</span>
-                  </Nav.Link>
-                  <Nav.Link
-                    className="mx-3"
-                    onClick={() => {
-                      navigate(`/products/${categories[1].name}`);
-                    }}
-                  >
-                    <span className="underline-animation">{categories[1].name.toUpperCase()} </span>
-                  </Nav.Link>
+          <div className=" d-flex justify-content-center dropdowns-container itemsNavBar">
+            <Navbar expand="md">
+              <Container fluid>
+                <Navbar.Toggle className="border-0 shadow-none " aria-controls="basic-navbar-nav" />
+                <Navbar.Collapse id="basic-navbar-nav">
+                  <Nav className="me-auto my-2 my-lg-0">
+                    <Nav.Link
+                      className="mx-3 "
+                      onClick={() => {
+                        navigate("/products");
+                      }}
+                    >
+                      <span className="underline-animation">TIENDA</span>
+                    </Nav.Link>
+                    <Nav.Link
+                      className="mx-3"
+                      onClick={() => {
+                        navigate(`/products/${categories[0].name}`);
+                      }}
+                    >
+                      <span className="underline-animation">
+                        {" "}
+                        {categories[0].name.toUpperCase()}
+                      </span>
+                    </Nav.Link>
+                    <Nav.Link
+                      className="mx-3"
+                      onClick={() => {
+                        navigate(`/products/${categories[1].name}`);
+                      }}
+                    >
+                      <span className="underline-animation">
+                        {categories[1].name.toUpperCase()}{" "}
+                      </span>
+                    </Nav.Link>
 
-                  <Nav.Link
-                    className="mx-3"
-                    onClick={() => {
-                      navigate(`/products/${categories[2].name}`);
-                    }}
-                  >
-                    <span className="underline-animation">{categories[2].name.toUpperCase()} </span>
-                  </Nav.Link>
-                  <Nav.Link
-                    className="mx-3 d-md-none"
-                    onClick={() => {
-                      navigate("/profile");
-                    }}
-                  >
-                    <span className=" underline-animation">PERFIL </span>
-                  </Nav.Link>
-                  <Nav.Link
-                    className="mx-3 d-md-none"
-                    onClick={() => {
-                      navigate("/cart");
-                    }}
-                  >
-                    <span className=" underline-animation">CARRITO </span>
-                  </Nav.Link>
-
-                  {gema.userData.isAdmin ? (
+                    <Nav.Link
+                      className="mx-3"
+                      onClick={() => {
+                        navigate(`/products/${categories[2].name}`);
+                      }}
+                    >
+                      <span className="underline-animation">
+                        {categories[2].name.toUpperCase()}{" "}
+                      </span>
+                    </Nav.Link>
                     <Nav.Link
                       className="mx-3 d-md-none"
                       onClick={() => {
-                        navigate("/admin");
+                        navigate("/profile");
                       }}
                     >
-                      <span className=" underline-animation">ADMINISTRADOR </span>
+                      <span className=" underline-animation">PERFIL </span>
                     </Nav.Link>
-                  ) : null}
-                </Nav>
-              </Navbar.Collapse>
-            </Container>
-          </Navbar>
+                    <Nav.Link
+                      className="mx-3 d-md-none"
+                      onClick={() => {
+                        navigate("/cart");
+                      }}
+                    >
+                      <span className=" underline-animation">CARRITO </span>
+                    </Nav.Link>
+
+                    {gema.userData.isAdmin ? (
+                      <Nav.Link
+                        className="mx-3 d-md-none"
+                        onClick={() => {
+                          navigate("/admin");
+                        }}
+                      >
+                        <span className=" underline-animation">ADMINISTRADOR </span>
+                      </Nav.Link>
+                    ) : null}
+                  </Nav>
+                </Navbar.Collapse>
+              </Container>
+            </Navbar>
+          </div>
         </div>
-      </div>
+      </>
     )
   );
 }
