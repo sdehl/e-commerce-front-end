@@ -17,6 +17,7 @@ function Profile() {
   const [loginEmailorUsername, setLoginEmailorUsername] = useState("");
   const [loginPassword, setLoginPassword] = useState("");
   const [userStatus, setUserStatus] = useState("");
+  const [adminStatus, setadminStatus] = useState("");
   const [loginStatus, setLoginStatus] = useState("");
   const [userInfo, setUserInfo] = useState(null);
 
@@ -91,7 +92,6 @@ function Profile() {
 
   async function editProfile(data) {
     try {
-      console.log(data);
       const newData = await axios({
         method: "PATCH",
         url: `${process.env.REACT_APP_API_URL}/users/${gema.userData.userId}`,
@@ -113,6 +113,7 @@ function Profile() {
       setUserStatus(newData.status);
     } catch (error) {
       console.log(error);
+      setadminStatus(error.response.status);
     }
   }
 
@@ -260,6 +261,13 @@ function Profile() {
                             Ir a <img className="home-icon" src={home} alt="" />
                           </Link>
                         </span>
+                      </Alert>
+                    ) : null}
+                  </div>
+                  <div className="editAdmin">
+                    {adminStatus === 401 ? (
+                      <Alert severity="error" icon={false}>
+                        Los datos del administrador no pueden ser alterados!{" "}
                       </Alert>
                     ) : null}
                   </div>

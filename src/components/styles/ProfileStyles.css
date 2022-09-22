@@ -83,6 +83,9 @@
 .userEdited {
   width: 280px;
 }
+.editAdmin {
+  width: 380px;
+}
 
 .userOrders {
   margin-top: 4rem;

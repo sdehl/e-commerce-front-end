@@ -105,7 +105,7 @@ function NavigationBar() {
 
                 <div className="col-4">
                   <Link to="/">
-                    <img className="home-logo d-flex" src={gemaLogo} alt="gema-logo" />
+                    <img className="home-logo" src={gemaLogo} alt="gema-logo" />
                   </Link>
                 </div>
 
