@@ -26,7 +26,7 @@ function Home() {
     categories && (
       <div className="mb-5 container-fluid">
         <div className="row mb-5">
-          <div className="col-lg-7 col-12">
+          <div className="col-lg-7 col-12 px-0">
             <img
               src={"https://www.gemainteriores.com/wp-content/uploads/2021/05/Portada-2-scaled.jpg"}
               className="d-inline-block w-100 imageHomeBig"
