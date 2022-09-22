@@ -261,7 +261,7 @@ function AdminProduct() {
         <button
           className="d-flex align-items-center back-button buttonGoBack mt-4"
           onClick={() => {
-            navigate(`/admin/categories/${originalCategory}`);
+            navigate(-1);
           }}
         >
           <img className="arrow-icon mx-2" src={backArrow} alt="back arrow icon" /> ATRAS

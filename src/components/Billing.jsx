@@ -5,6 +5,8 @@ import axios from "axios";
 import Swal from "sweetalert2";
 import "./styles/BillingStyles.css";
 import { useNavigate } from "react-router-dom";
+import Alert from "@mui/material/Alert";
+
 import check from "../components/svg/check-solid.svg";
 
 import { Link } from "react-router-dom";
@@ -13,7 +15,7 @@ import "react-calendar/dist/Calendar.css";
 
 function Billing() {
   const [value, onChange] = useState(new Date());
-
+  const [leidoCondiciones, setLeidoCondiciones] = useState("");
   const gema = useSelector((state) => state.gema);
   const token = useSelector((state) => state.gema.userData.token);
   const dispatch = useDispatch();
@@ -117,7 +119,11 @@ function Billing() {
         <form
           onSubmit={(e) => {
             e.preventDefault();
-            handle.createOrder();
+            if (leidoCondiciones) {
+              handle.createOrder();
+            } else {
+              setLeidoCondiciones(false);
+            }
           }}
         >
           <div className="row">
@@ -126,7 +132,7 @@ function Billing() {
                 <div className="col-6 d-flex flex-column ml-4">
                   {" "}
                   <label>
-                    First Name <span className="obligatoryBilling">*</span>{" "}
+                    Primer Nombre <span className="obligatoryBilling">*</span>{" "}
                   </label>
                   <input
                     required
@@ -148,7 +154,7 @@ function Billing() {
                 <div className="col-6 d-flex flex-column">
                   {" "}
                   <label>
-                    Last Name <span className="obligatoryBilling">*</span>{" "}
+                    Segundo Nombre <span className="obligatoryBilling">*</span>{" "}
                   </label>
                   <input required className="inputListCheckout"></input>
                 </div>
@@ -396,37 +402,12 @@ function Billing() {
                       <h5 className="m-2 textLighter">Tarjetas de crédito</h5>
                       <div className="m-2 greenbackground">HASTA 1 CUOTAS</div>
                     </div>
-
                     <div className="m-2 d-flex">
                       <div className="logosSize">
                         {" "}
                         <img
                           className="logoImageSize"
-                          src="https://mvdstore.uy/wp-content/themes/thegem-child/src/img/logo-creditel.png"
-                          alt="logo icon"
-                        />
-                      </div>
-                      <div className="logosSize">
-                        {" "}
-                        <img
-                          className="logoImageSize"
-                          src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Visa_Inc._logo.svg/2560px-Visa_Inc._logo.svg.png"
-                          alt="logo icon"
-                        />
-                      </div>
-                      <div className="logosSize">
-                        {" "}
-                        <img
-                          className="logoImageSize"
-                          src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Mastercard-logo.svg/2560px-Mastercard-logo.svg.png"
-                          alt="logo icon"
-                        />
-                      </div>
-                      <div className="logosSize">
-                        {" "}
-                        <img
-                          className="logoImageSize"
-                          src="https://oca.uy/src/img/logo-og.png"
+                          src="https://www.rainbowdecolombia.com/wp-content/uploads/2021/07/pago-con-tarjeta.png"
                           alt="logo icon"
                         />
                       </div>
@@ -451,14 +432,26 @@ function Billing() {
               </div>
               <ColoredLine color="gray" />
               <div className="d-flex align-items-center mt-3">
-                <input type="checkbox"></input>
+                <input
+                  type="checkbox"
+                  onChange={(event) => {
+                    if (event.target.checked) {
+                      setLeidoCondiciones(true);
+                    }
+                  }}
+                ></input>
                 <h6 className="mt-1 m-2">He leído y acepto el sitio web términos y condiciones</h6>
+                {leidoCondiciones === false && (
+                  <Alert severity="error" className="m-3 mt-4">
+                    Debes aceptar los términos y condiciones!
+                  </Alert>
+                )}
               </div>
             </div>
-            <button className="createOrder m-4">MANDAR PEDIDO</button>
+            <button className="createOrder m-4">MANDAR</button>
             <div className="d-flex justify-content-start divButton mt-1">
-              <Link to="/">
-                <button className="m-2 buttonGoBack">Volver a la tienda</button>
+              <Link to="/cart">
+                <button className="m-2 buttonGoBack">Volver</button>
               </Link>
             </div>
             {errorMessage && (

@@ -6,19 +6,51 @@ import { useNavigate } from "react-router";
 import Alert from "@mui/material/Alert";
 import backArrow from "../../svg/arrow-left-solid.svg";
 import ReactLoading from "react-loading";
-
 import "../../styles/AdminStyles.css";
+
+function Images({ setImages, amountImages }) {
+  return amountImages < 8 ? (
+    <input
+      className="form-control m-5"
+      type="file"
+      id="picture"
+      name="picture"
+      accept="image/png, image/jpeg"
+      onChange={(e) => {
+        const addObjectToArray = (obj) => {
+          setImages((current) => [...current, obj]);
+        };
+        addObjectToArray(e.target.files[0]);
+      }}
+    />
+  ) : (
+    <div className="m-5">
+      <Alert severity="warning">
+        <h6>Se pueden agregar hasta 7 imágenes</h6>
+      </Alert>
+    </div>
+  );
+}
 
 function NewProduct() {
   const token = useSelector((state) => state.gema.userData.token);
   const [product, setProduct] = useState(null);
+  const [images, setImages] = useState([]);
+  const [amountImages, setAmountImages] = useState(0);
+  const [inputList, setInputList] = useState([]);
   const [correctlyCreated, setCorrectlyCreated] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
 
   const [allCategories, setAllCategories] = useState("");
+  const onAddBtnClick = (event) => {
+    setInputList(
+      inputList.concat(
+        <Images setImages={setImages} images={images} amountImages={amountImages} />,
+      ),
+    );
+  };
 
-  console.log(product);
   const ColoredLine = ({ color }) => (
     <hr
       style={{
@@ -37,7 +69,7 @@ function NewProduct() {
         const response = await axios({
           method: "post",
           url: `${process.env.REACT_APP_API_URL}/products`,
-          data: product,
+          data: { product, amountImages },
           headers: { "Content-Type": "multipart/form-data", Authorization: `Bearer ${token}` },
         });
         if (response.data === 409) {
@@ -64,22 +96,28 @@ function NewProduct() {
   }, []);
 
   useEffect(() => {
-    if (setCorrectlyCreated === "Not correctly added") {
+    if (correctlyCreated === "Not correctly added") {
       setCorrectlyCreated("Not correctly added");
+      setIsLoading(false);
     }
-    setIsLoading(false);
+  
+
   }, [product]);
 
   return (
     allCategories && (
       <div className="container mt-4">
         <form
-          onSubmit={(e) => {
+          onSubmit={async (e) => {
             e.preventDefault();
-
-            handle.createProduct();
-
             setIsLoading(true);
+            setProduct((current) => {
+              return {
+                ...current,
+                picture: images,
+              };
+            });
+            handle.createProduct();
           }}
         >
           <div className="row">
@@ -188,31 +226,22 @@ function NewProduct() {
             <div className="col-6 d-flex ">
               {/* <div className="d-flex flex-column align-items-center"> */}
               <div>
-                <div className="mb-3">
-                  <label htmlFor="picture" name="picture" className="form-label fakeInputLabel">
+                <div className="mb-2">
+                  <label
+                    className="form-label mx-5 border p-2"
+                    onClick={() => {
+                      setAmountImages(amountImages + 1);
+                      onAddBtnClick();
+                    }}
+                  >
                     AGREGAR IMAGEN
                   </label>
-                  <input
-                    className="d-none form-control "
-                    type="file"
-                    id="picture"
-                    name="picture"
-                    onChange={(e) => {
-                      setProduct((current) => {
-                        return {
-                          ...current,
-                          picture: e.target.files[0],
-                        };
-                      });
-                    }}
-                  />
+                  {inputList}
                 </div>
               </div>
               {/* </div> */}
             </div>
             <div className="d-flex align-items-center itemsUpdate mt-0">
-              {console.log("correctly created", correctlyCreated)}
-              {console.log(isLoading)}
               {isLoading &&
               (!correctlyCreated ||
                 correctlyCreated === "Not correctly added" ||

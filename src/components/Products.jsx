@@ -5,6 +5,7 @@ import { useParams } from "react-router-dom";
 import SingleProductModal from "./SingleProductModal";
 import "./styles/ProductStyles.css";
 import { ToastContainer, toast } from "react-toastify";
+import ReactLoading from "react-loading";
 import "./styles/FooterStyles.css";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -42,27 +43,36 @@ function Products() {
     },
   };
 
-  return (
-    products && (
-      <>
-        <div className="h-25 d-inline-block"></div>
-        <div className="container">
-          <SingleProductModal show={show} handleClose={handleClose} product={productForModal} />
-          <ToastContainer />
-          <div className="mt-5 d-flex justify-content-between">
-            <h6 className="textProductsStart">{`Mostrando 1 – ${products.length} productos`}</h6>
-            <h6 className="textProductsStart" onClick={notify}>
-              Filter
-            </h6>
-          </div>
-          <div className="productList">
-            {products.map((product) => {
-              return <ProductCard key={product._id} product={product} handleShow={handleShow} />;
-            })}
-          </div>
+  return products ? (
+    <>
+      <div className="h-25 d-inline-block"></div>
+      <div className="container">
+        <SingleProductModal show={show} handleClose={handleClose} product={productForModal} />
+        <ToastContainer />
+        <div className="mt-5 d-flex justify-content-between">
+          <h6 className="textProductsStart">{`Mostrando 1 – ${products.length} productos`}</h6>
+          <h6 className="textProductsStart" onClick={notify}>
+            Filter
+          </h6>
         </div>
-      </>
-    )
+        <div className="productList">
+          {products.map((product) => {
+            return <ProductCard key={product._id} product={product} handleShow={handleShow} />;
+          })}
+        </div>
+      </div>
+    </>
+  ) : (
+    <div className="d-flex justify-content-center align-items-center">
+      {" "}
+      <ReactLoading
+        className="m-2 mt-0"
+        type={"bubbles"}
+        color={"lightgray"}
+        height={"20%"}
+        width={"20%"}
+      />
+    </div>
   );
 }
 

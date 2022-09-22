@@ -14,7 +14,7 @@ function ProductCard({ product, handleShow }) {
     filteredPicture = product.pictures[0].replaceAll(`"`, ``);
   }
 
-  return (
+  return filteredPicture && (
     <div className="card p-3 border-0 cardCss">
       <img
         src={filteredPicture ? filteredPicture : "https://wallpaperaccess.com/full/1756496.jpg"}

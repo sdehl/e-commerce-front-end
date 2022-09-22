@@ -24,12 +24,12 @@ function Home() {
 
   return (
     categories && (
-      <div className="mb-5">
+      <div className="mb-5 container-fluid">
         <div className="row mb-5">
           <div className="col-lg-7 col-12">
             <img
               src={"https://www.gemainteriores.com/wp-content/uploads/2021/05/Portada-2-scaled.jpg"}
-              className="d-inline-block w-100"
+              className="d-inline-block w-100 imageHomeBig"
               alt="logo"
             />
           </div>
@@ -78,7 +78,7 @@ function Home() {
               />
               <h5 className="fw-bold pb-3">{categories[1].name}</h5>
               <Link to={`/products/${categories[1].name}`}>
-                <p className="fw-bold hover-underline-animation ">SHOP NOW</p>
+                <p className="fw-bold hover-underline-animation ">IR A COLECCIÓN</p>
               </Link>
             </div>
           </div>
@@ -93,7 +93,7 @@ function Home() {
               />
               <h5 className="fw-bold pb-3">{categories[2].name}</h5>
               <Link to={`/products/${categories[2].name}`}>
-                <p className="fw-bold hover-underline-animation ">SHOP NOW</p>
+                <p className="fw-bold hover-underline-animation ">IR A COLECCIÓN</p>
               </Link>
             </div>
           </div>
@@ -108,7 +108,7 @@ function Home() {
               />
               <h5 className="fw-bold pb-3">{categories[0].name}</h5>
               <Link to={`/products/${categories[0].name}`}>
-                <p className="fw-bold hover-underline-animation ">SHOP NOW</p>
+                <p className="fw-bold hover-underline-animation ">IR A COLECCIÓN</p>
               </Link>
             </div>
           </div>

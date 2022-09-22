@@ -13,8 +13,8 @@ import "react-toastify/dist/ReactToastify.css";
 
 function Footer() {
   const navigate = useNavigate();
-  const [elementToSearch, setElementToSearch] = useState('');
-  const location = useLocation();
+  //const [elementToSearch, setElementToSearch] = useState('');
+  //const location = useLocation();
   const notify = () => toast("Esto sobrepasa el alcance de nuestro proyecto!");
 
   return (
@@ -22,7 +22,7 @@ function Footer() {
       <div className="container my-1">
         <div className="row">
           <div className="col-12 col-lg-3">
-            <div>
+            {/* <div>
               {location.pathname !== "/search" ? (
                 <div>
                   <input
@@ -60,9 +60,7 @@ function Footer() {
                   <img className="icons mx-2" src={search} alt="search icon" />
                 </div>
               )}
-            </div>
-
-            <div className="dividerLine">____</div>
+            </div> */}
             <div className="d-flex justify-content-center">
               <Link to="/">
                 <img

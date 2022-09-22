@@ -13,12 +13,19 @@
 }
 
 .imageHomeDiv {
-  height: 500px;
+  width: 280px;
+  padding-right: 2%;
+  
 }
 
 .imageHomeStock {
-  width: 90%;
-  height: 100%;
+  width: 100%;
+  height: 50%;
+}
+
+.imageHomeBig{
+  object-fit: fill !important;
+
 }
 
 .animatedImages {
