@@ -2,13 +2,15 @@ import { useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import CartProduct from "./CartProduct";
-import { Link } from "react-router-dom";
 import ReactLoading from "react-loading";
+import { Link, useNavigate } from "react-router-dom";
+import backArrow from "./svg/arrow-left-solid.svg";
 import "./styles/CartStyles.css";
 
 function Cart() {
   const gema = useSelector((state) => state.gema);
   const token = useSelector((state) => state.gema.token);
+  const navigate = useNavigate();
 
   //Status
   const [cart, setCart] = useState(null);

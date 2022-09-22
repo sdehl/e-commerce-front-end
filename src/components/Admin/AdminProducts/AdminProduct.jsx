@@ -5,7 +5,6 @@ import { useNavigate, useParams } from "react-router";
 import { useSelector } from "react-redux";
 import Alert from "@mui/material/Alert";
 import backArrow from "../../svg/arrow-left-solid.svg";
-
 import "../../styles/AdminStyles.css";
 
 function AdminProduct() {

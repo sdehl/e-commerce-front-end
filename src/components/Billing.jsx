@@ -1,17 +1,17 @@
-import { deleteCart } from "../redux/slices/gemaSlice";
+import axios from "axios";
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect, useState } from "react";
-import axios from "axios";
+import { useNavigate, Link } from "react-router-dom";
+import { deleteCart } from "../redux/slices/gemaSlice";
 import Swal from "sweetalert2";
-import "./styles/BillingStyles.css";
-import { useNavigate } from "react-router-dom";
 import Alert from "@mui/material/Alert";
 
 import check from "../components/svg/check-solid.svg";
+import backArrow from "./svg/arrow-left-solid.svg";
 
-import { Link } from "react-router-dom";
 import Calendar from "react-calendar";
 import "react-calendar/dist/Calendar.css";
+import "./styles/BillingStyles.css";
 
 function Billing() {
   const [value, onChange] = useState(new Date());
@@ -19,6 +19,7 @@ function Billing() {
   const gema = useSelector((state) => state.gema);
   const token = useSelector((state) => state.gema.userData.token);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   //states
   const [cart, setCart] = useState(null);
@@ -92,13 +93,13 @@ function Billing() {
   };
 
   useEffect(() => {
-    handle.updateCart();
-    setOrder((current) => {
-      return {
-        ...current,
-        products: cart,
-      };
-    });
+     handle.updateCart();
+    // setOrder((current) => {
+    //   return {
+    //     ...current,
+    //     products: cart,
+    //   };
+    // });
   }, []);
 
   useEffect(() => {
@@ -345,7 +346,7 @@ function Billing() {
                     type="radio"
                     name="moneyDiposite"
                     value="moneyDiposite"
-                    className="mr-3"
+                    className="mr-3  form-check-input"
                     onClick={() => {
                       setDolarsSelected(true);
                       setPesosSelected(false);
@@ -369,7 +370,7 @@ function Billing() {
                     type="radio"
                     name="moneyDiposite"
                     value="moneyDiposite"
-                    className="mr-3"
+                    className="mr-3  form-check-input"
                     onClick={() => {
                       setDolarsSelected(false);
                       setPesosSelected(true);
@@ -450,9 +451,20 @@ function Billing() {
             </div>
             <button className="createOrder m-4">MANDAR</button>
             <div className="d-flex justify-content-start divButton mt-1">
-              <Link to="/cart">
-                <button className="m-2 buttonGoBack">Volver</button>
-              </Link>
+              {/* <Link to="/">
+                <button className="m-2 buttonGoBack">VOLVER AL</button>
+              </Link> */}
+
+              <button
+                className="d-flex align-items-center  back-button buttonGoBack my-4"
+                type="submit"
+                onClick={() => {
+                  navigate(-1);
+                }}
+              >
+                <img className="arrow-icon mx-2" src={backArrow} alt="back arrow icon" /> VOLVER AL
+                CARRITO
+              </button>
             </div>
             {errorMessage && (
               <>
