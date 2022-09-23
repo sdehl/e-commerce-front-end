@@ -22,7 +22,7 @@
   background: linear-gradient(to left, white 50%, black 50%);
   background-size: 200% 100%;
   background-position: right bottom;
-  transition: all 1s ease;
+  transition: all 0.2s ease;
   border: 1px solid black;
   color: black;
   padding: 5% 5%;
@@ -32,15 +32,13 @@
   font-weight: 500;
   letter-spacing: 0.2rem;
   max-width: 100%;
-  
 }
 .addToCartBtnModal:hover {
   background-position: left bottom;
   color: white;
 }
 
-.divButtonCartModal{
+.divButtonCartModal {
   width: auto;
   margin-left: 1%;
 }
-

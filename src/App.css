@@ -60,7 +60,7 @@
   background-size: 200% 100%;
   background-position: right bottom;
   margin-left: 10px;
-  transition: all 2s ease;
+  transition: all 0.2s ease;
   border: 1px solid black;
   color: black;
   padding: 15px 32px;
@@ -82,20 +82,32 @@
 
 .imageProduct {
   height: 310px;
+  cursor: pointer;
 }
 
-@media screen and (max-width: 1069px) {
+@media screen and (max-width: 1400px) {
   .card {
     flex: 0 0 50%;
   }
 }
 
+@media screen and (max-width: 990px) {
+  .card {
+    flex: 0 0 80%;
+    /* width: 480px; */
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
 @media screen and (max-width: 768px) {
   .card {
     flex: 0 0 100%;
   }
-  #button-div:hover .addToCart {
-    display: none;
+  /* #button-div:hover .addToCart {
+    display: none !important;
     opacity: 0;
-  }
+    background-color: transparent !important;
+    height: 0% !important;
+    width: 0% !important;
+  } */
 }

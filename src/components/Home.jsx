@@ -2,6 +2,8 @@ import { Link, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import "./styles/HomeStyles.css";
+import tiradores from "./img/tiradores.jpg";
+import ReactLoading from "react-loading";
 
 function Home() {
   const [categories, setCategories] = useState("");
@@ -26,7 +28,7 @@ function Home() {
     categories && (
       <div className="mb-5 container-fluid">
         <div className="row mb-5">
-          <div className="col-lg-7 col-12">
+          <div className="col-lg-7 col-12 px-0">
             <img
               src={"https://www.gemainteriores.com/wp-content/uploads/2021/05/Portada-2-scaled.jpg"}
               className="d-inline-block w-100 imageHomeBig"
@@ -51,7 +53,7 @@ function Home() {
 
                   <div className="div-column d-flex flex-column justify-content-center align-items-center p-3">
                     <h4 className="enStock mb-3">EN STOCK</h4>
-                    <h3 className="boldCollection mb-3">COLECCION DE GRIFERIAS</h3>
+                    <h3 className="boldCollection mb-3">COLECCIÓN DE GRIFERIAS</h3>
                     <button
                       className="homeButton"
                       onClick={() => {
@@ -69,16 +71,10 @@ function Home() {
         <div className="row animatedImages p-5 m-5">
           <div className="col-md-4 col-12 d-flex flex-column justify-content-center text-center p-3">
             <div>
-              <img
-                src={
-                  "https://www.gemainteriores.com/wp-content/uploads/2021/02/G02-TOP-SIMP-BZ-6.jpeg"
-                }
-                className="d-inline-block w-100 mb-4 imageAnimated"
-                alt=""
-              />
+              <img src={tiradores} className="d-inline-block w-100 mb-4 imageAnimated" alt="" />
               <h5 className="fw-bold pb-3">{categories[1].name}</h5>
               <Link to={`/products/${categories[1].name}`}>
-                <p className="fw-bold hover-underline-animation ">IR A COLECCION</p>
+                <p className="fw-bold hover-underline-animation ">IR A COLECCIÓN</p>
               </Link>
             </div>
           </div>
@@ -93,7 +89,7 @@ function Home() {
               />
               <h5 className="fw-bold pb-3">{categories[2].name}</h5>
               <Link to={`/products/${categories[2].name}`}>
-                <p className="fw-bold hover-underline-animation ">IR A COLECCION</p>
+                <p className="fw-bold hover-underline-animation ">IR A COLECCIÓN</p>
               </Link>
             </div>
           </div>
@@ -108,7 +104,7 @@ function Home() {
               />
               <h5 className="fw-bold pb-3">{categories[0].name}</h5>
               <Link to={`/products/${categories[0].name}`}>
-                <p className="fw-bold hover-underline-animation ">IR A COLECCION</p>
+                <p className="fw-bold hover-underline-animation ">IR A COLECCIÓN</p>
               </Link>
             </div>
           </div>

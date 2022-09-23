@@ -318,7 +318,7 @@ function Billing() {
             <h3 className="mt-4 mb-3">TU PEDIDO</h3>
             <div className="order p-5">
               <div className="row">
-                <h5 className="col-2"></h5>
+                <h5 className="col-2"> </h5>
                 <h5 className="col-6 ">PRODUCTO</h5>
                 <h5 className="col-2">SUBTOTAL</h5>
               </div>
@@ -434,7 +434,7 @@ function Billing() {
               <ColoredLine color="gray" />
               <div className="d-flex align-items-center mt-3">
                 <input
-                className="form-check-input"
+                  className="form-check-input"
                   type="checkbox"
                   onChange={(event) => {
                     if (event.target.checked) {
@@ -454,8 +454,6 @@ function Billing() {
             </div>
             <button className="createOrder m-4">FINALIZAR COMPRA</button>
             <div className="d-flex justify-content-start divButton mt-1">
-           
-
               <button
                 className="d-flex align-items-center  back-button buttonGoBack my-4"
                 type="submit"
