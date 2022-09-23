@@ -1,7 +1,7 @@
 import Alert from "@mui/material/Alert";
 import "../../styles/AdminStyles.css";
 
-function AddImage({ amountImages, index, setAmountImages, setInputList }) {
+function AddImage({ amountImages, index, setAmountImages, setInputList, inputList }) {
   return index < 8 ? (
     <div className="d-flex align-items-center">
       <input
@@ -15,6 +15,8 @@ function AddImage({ amountImages, index, setAmountImages, setInputList }) {
       <h6
         className="m-5 deleteInputImage"
         onClick={() => {
+          console.log({ index });
+          console.log({inputList});
           setAmountImages(amountImages - 1);
           setInputList((prev) => prev.filter((element, i) => i !== index));
         }}
