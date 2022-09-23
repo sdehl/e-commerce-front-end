@@ -2,9 +2,9 @@ import Alert from "@mui/material/Alert";
 import "../../styles/AdminStyles.css";
 
 function Images({ amountImages, inputList, setInputList, key }) {
-   console.log(inputList);
+  console.log(inputList);
   return amountImages < 8 ? (
-    <div className="d-flex">
+    <div className="d-flex align-items-center">
       <input
         required
         className="form-control m-5"
@@ -14,11 +14,12 @@ function Images({ amountImages, inputList, setInputList, key }) {
         accept="image/png, image/jpeg"
       />
       <h6
+        className="m-5"
         onClick={() => {
           console.log(inputList);
           if (inputList.length === 0) {
-           // console.log(inputList);
-           // setInputList([]);
+            // console.log(inputList);
+            // setInputList([]);
           } else {
             //console.log(inputList);
             const newArrayOfInputFiles = inputList.filter((element) => {

@@ -27,7 +27,7 @@ function Cart() {
     />
   );
 
-  //Auxiliar functions
+  //Auxiliary functions
   const handle = {
     apiCall: async (productSlug) => {
       const response = await axios({

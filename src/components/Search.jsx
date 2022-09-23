@@ -14,7 +14,7 @@ function Search() {
   const [recomProducts, setRecomProducts] = useState("");
   const { state } = useLocation();
 
-  //Auxiliar function
+  //auxiliary function
   const handle = {
     apiCall: async () => {
       if (productName) {

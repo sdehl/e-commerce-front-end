@@ -13,6 +13,10 @@ import "./styles/ProfileStyles.css";
 
 function Profile() {
   const gema = useSelector((state) => state.gema);
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  //States
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loginEmailorUsername, setLoginEmailorUsername] = useState("");
@@ -22,10 +26,7 @@ function Profile() {
   const [loginStatus, setLoginStatus] = useState("");
   const [userInfo, setUserInfo] = useState(null);
 
-  const navigate = useNavigate();
-
-  const dispatch = useDispatch();
-
+  //Auxiliary functions
   const handle = {
     register: async () => {
       try {
@@ -124,7 +125,7 @@ function Profile() {
     formState: { errors },
   } = useForm();
 
-  return Profile ? (
+  return userInfo ? (
     <>
       {gema.userData.token ? (
         userInfo && (

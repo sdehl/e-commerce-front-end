@@ -39,7 +39,7 @@ function Billing() {
     />
   );
 
-  //Auxiliar functions
+  //auxiliary functions
   const handle = {
     apiCall: async (productSlug) => {
       try {

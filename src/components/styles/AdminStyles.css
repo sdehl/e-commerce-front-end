@@ -139,6 +139,16 @@
   max-height: 100%;
 }
 
+.addIamegToProduct{
+  cursor: pointer;
+  display: inline;
+}
+
+.addIamegToProduct:hover {
+  background-color: #aa847b27;
+  cursor: pointer;
+}
+
 .buttonUpdate {
   width: 80px !important;
   margin-bottom: 20px;
@@ -149,6 +159,7 @@
 
 .buttonUpdate:hover {
   background-color: #aa847b27;
+  cursor: pointer;
 }
 .fakeInputLabel {
   cursor: pointer;
