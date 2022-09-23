@@ -144,10 +144,10 @@ function About() {
             <p className="paragraph">
               Para acceder al{" "}
               <span className="importantInfo"> dashboard con permisos de administrador</span> deberá
-              ingresar en el navbar con el usuario de pruebas{" "}
-              <span className="importantInfo">admin@admin" y la contraseña "123"</span>. Dispondrán
-              de absoluta libertad para hacer modificaciones, ya que cuando lo deseen podrá re
-              establecer la base de datos inicial.
+              ingresar en el navbar al icono de usuario e iniciar sesión con el usuario de pruebas{" "}
+              <span className="importantInfo">admin@admin.com y la contraseña "123"</span>.
+              Dispondrán de absoluta libertad para hacer modificaciones, ya que cuando lo deseen
+              podrá re establecer la base de datos inicial.
             </p>
           </div>
           <div className="col-2"></div>
