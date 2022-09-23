@@ -2,7 +2,8 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router";
-import Images from "./AdminImageForProduct";
+import AddImage from "./AdminImageForProduct";
+
 import Alert from "@mui/material/Alert";
 import backArrow from "../../svg/arrow-left-solid.svg";
 import ReactLoading from "react-loading";
@@ -19,20 +20,8 @@ function NewProduct() {
   const navigate = useNavigate();
 
   const [allCategories, setAllCategories] = useState("");
-  const onAddBtnClick = (event) => {
-    setInputList(
-      inputList.concat(
-        <Images
-          key={amountImages + 1}
-          setInputList={setInputList}
-          inputList={inputList}
-          setImages={setImages}
-          images={images}
-          amountImages={amountImages}
-          setAmountImages={setAmountImages}
-        />,
-      ),
-    );
+  const onAddBtnClick = () => {
+    setInputList(inputList.concat({}));
   };
 
   const ColoredLine = ({ color }) => (
@@ -212,7 +201,15 @@ function NewProduct() {
                 >
                   AGREGAR IMAGEN
                 </h6>
-                {inputList}
+                {inputList.map((input, index) => (
+                  <AddImage
+                    key={index}
+                    index={index}
+                    amountImages={amountImages}
+                    setAmountImages={setAmountImages}
+                    setInputList={setInputList}
+                  />
+                ))}
               </div>
             </div>
           </div>
