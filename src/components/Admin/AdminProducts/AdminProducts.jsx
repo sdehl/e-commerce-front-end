@@ -12,7 +12,7 @@ import cancel from "../../svg/xmark-solid.svg";
 
 import "../../styles/AdminStyles.css";
 
-function AdminProducts({ categoryName }) {
+function AdminProducts({ categoryName, productsByCategory }) {
   const token = useSelector((state) => state.gema.userData.token);
   const navigate = useNavigate();
 
@@ -24,13 +24,8 @@ function AdminProducts({ categoryName }) {
     apiCall: async () => {
       try {
         if (categoryName) {
-          const response = await axios({
-            method: "get",
-            url: `${process.env.REACT_APP_API_URL}/categories/products/${categoryName}`,
-            headers: { Authorization: `Bearer ${token}` },
-          });
           setNewCategoryName(categoryName);
-          setProducts(response.data.products);
+          setProducts(productsByCategory);
         } else {
           const response = await axios({
             method: "get",

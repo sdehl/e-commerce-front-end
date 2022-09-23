@@ -9,7 +9,7 @@ function ProductsCategory() {
   const [productsByCategory, setProductsByCategory] = useState();
   const token = useSelector((state) => state.gema.userData.token);
   const params = useParams();
-  
+
   const handle = {
     getProductsByCategory: async () => {
       const response = await axios({
@@ -28,7 +28,7 @@ function ProductsCategory() {
   return (
     productsByCategory && (
       <>
-        <AllProducts categoryName={params.categoryName} />
+        <AllProducts categoryName={params.categoryName} productsByCategory={productsByCategory} />
       </>
     )
   );
