@@ -116,18 +116,14 @@
   margin-left: 20px;
   margin-right: 20px;
 }
-<<<<<<< HEAD
 @media screen and (max-width: 767px) {
   .allNavbar {
     display: flex;
     justify-content: space-between;
-    /* flex-wrap: wrap; */
     margin-left: 2%;
     margin-right: 2%;
   }
 }
-=======
->>>>>>> 282ff75e225923bf48716e98e5767e6f8526797c
 
 .allNavbar {
   border-bottom: #d6d6d6 solid 0.8px;

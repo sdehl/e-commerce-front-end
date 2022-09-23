@@ -1,20 +1,13 @@
 import React from "react";
+import { Link } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
 import fb from "./svg/facebook-f.svg";
 import ig from "./svg/instagram.svg";
-import search from "./svg/magnifying-glass-solid.svg";
 import pinterest from "./svg/pinterest-p.svg";
-import { Link } from "react-router-dom";
-import { useLocation, useNavigate } from "react-router";
-import { ToastContainer, toast } from "react-toastify";
-import { useState } from "react";
-
-import "./styles/FooterStyles.css";
 import "react-toastify/dist/ReactToastify.css";
+import "./styles/FooterStyles.css";
 
 function Footer() {
-  const navigate = useNavigate();
-  //const [elementToSearch, setElementToSearch] = useState('');
-  //const location = useLocation();
   const notify = () => toast("Esto sobrepasa el alcance de nuestro proyecto!");
 
   return (
@@ -22,45 +15,6 @@ function Footer() {
       <div className="container my-1">
         <div className="row">
           <div className="col-12 col-lg-3">
-            {/* <div>
-              {location.pathname !== "/search" ? (
-                <div>
-                  <input
-                    className="headerSearch"
-                    type="text"
-                    value={elementToSearch}
-                    onChange={(e) => {
-                      setElementToSearch(e.target.value);
-                    }}
-                  />{" "}
-                  <img
-                    className="icons mx-2"
-                    src={search}
-                    alt="search icon"
-                    onClick={() => {
-                      setElementToSearch("");
-                      navigate("/search", {
-                        state: {
-                          elementToSearch: elementToSearch,
-                        },
-                      });
-                    }}
-                  />
-                </div>
-              ) : (
-                <div>
-                  <p
-                    className="searchUnderline"
-                    onClick={() => {
-                      navigate("/search");
-                    }}
-                  >
-                    ______________
-                  </p>
-                  <img className="icons mx-2" src={search} alt="search icon" />
-                </div>
-              )}
-            </div> */}
             <div className="d-flex justify-content-center">
               <Link to="/">
                 <img

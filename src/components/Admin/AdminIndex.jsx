@@ -1,9 +1,9 @@
-import { Link } from "react-router-dom";
-import "../styles/AdminStyles.css";
-import { useDispatch, useSelector } from "react-redux";
-import { deleteUserData } from "../../redux/slices/gemaSlice";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { deleteUserData } from "../../redux/slices/gemaSlice";
+import "../styles/AdminStyles.css";
 
 function Index() {
   const gema = useSelector((state) => state.gema);

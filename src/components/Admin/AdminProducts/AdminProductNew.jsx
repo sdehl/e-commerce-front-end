@@ -1,13 +1,12 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-// import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router";
+import Images from "./AdminImageForProduct";
 import Alert from "@mui/material/Alert";
 import backArrow from "../../svg/arrow-left-solid.svg";
 import ReactLoading from "react-loading";
 import "../../styles/AdminStyles.css";
-import Images from "./AdminImageForProduct";
 
 function NewProduct() {
   const token = useSelector((state) => state.gema.userData.token);
@@ -202,7 +201,6 @@ function NewProduct() {
             <ColoredLine color="gray" />
           </div>
           <div className="col-md-6 col-12 d-flex mt-3 ">
-            {/* <div className="d-flex flex-column align-items-center"> */}
             <div>
               <div className="mb-2">
                 <h6
@@ -217,7 +215,6 @@ function NewProduct() {
                 {inputList}
               </div>
             </div>
-            {/* </div> */}
           </div>
           <div className="d-flex align-items-center itemsUpdate mt-0">
             {isLoading &&

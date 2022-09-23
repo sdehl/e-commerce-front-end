@@ -94,7 +94,6 @@
 @media screen and (max-width: 990px) {
   .card {
     flex: 0 0 80%;
-    /* width: 480px; */
     margin-left: auto;
     margin-right: auto;
   }
@@ -103,11 +102,4 @@
   .card {
     flex: 0 0 100%;
   }
-  /* #button-div:hover .addToCart {
-    display: none !important;
-    opacity: 0;
-    background-color: transparent !important;
-    height: 0% !important;
-    width: 0% !important;
-  } */
 }

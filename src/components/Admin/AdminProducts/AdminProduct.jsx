@@ -3,12 +3,13 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import { useNavigate, useParams } from "react-router";
 import { useSelector } from "react-redux";
+import Images from "./AdminImageForProduct";
 import Alert from "@mui/material/Alert";
+import ReactLoading from "react-loading";
 import backArrow from "../../svg/arrow-left-solid.svg";
 import AddImage from "./AdminImageForProduct";
 import check from "../../svg/check-solid.svg";
 import cancel from "../../svg/xmark-solid.svg";
-import ReactLoading from "react-loading";
 import "../../styles/AdminStyles.css";
 
 function AdminProduct() {

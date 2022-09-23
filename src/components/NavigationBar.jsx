@@ -1,10 +1,9 @@
-import React from "react";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { Container, Nav, Navbar } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { useLocation, useNavigate } from "react-router";
 import { useDispatch, useSelector } from "react-redux";
+import { Container, Nav, Navbar } from "react-bootstrap";
 import { deleteUserData } from "../redux/slices/gemaSlice";
 
 import gemaLogo from "./img/gema-logo.png";
@@ -78,7 +77,7 @@ function NavigationBar() {
                         src={search}
                         alt="search icon"
                         onClick={() => {
-                          setElementToSearch("");
+                          setElementToSearch(" ");
                           navigate("/search", {
                             state: {
                               elementToSearch: elementToSearch,
@@ -156,6 +155,14 @@ function NavigationBar() {
                     }}
                   >
                     <span className="underline-animation">SHOP ALL</span>
+                  </Nav.Link>
+                  <Nav.Link
+                    className="mx-3 d-md-none"
+                    onClick={() => {
+                      navigate("/search");
+                    }}
+                  >
+                    <span className=" underline-animation">BUSCAR </span>
                   </Nav.Link>
                   <Nav.Link
                     className="mx-3"

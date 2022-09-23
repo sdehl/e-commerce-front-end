@@ -1,14 +1,14 @@
-import { Modal } from "react-bootstrap";
-import "../../styles/AdminStyles.css";
 import UserOrder from "./AdminUserOrder";
+import axios from "axios";
 import { useEffect, useState } from "react";
+import { Modal } from "react-bootstrap";
+import { useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import Alert from "@mui/material/Alert";
 import check from "../../svg/check-solid.svg";
 import cancel from "../../svg/xmark-solid.svg";
-import axios from "axios";
-import { useSelector } from "react-redux";
 import trash from "../../svg/trash-solid.svg";
+import "../../styles/AdminStyles.css";
 
 function User({ show, handleClose, user, setUser }) {
   const gema = useSelector((state) => state.gema);

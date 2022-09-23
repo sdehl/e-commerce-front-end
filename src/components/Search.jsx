@@ -1,16 +1,15 @@
-import "./styles/SearchStyles.css";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import SearchProduct from "./SearchProduct";
-import search from "./svg/magnifying-glass-solid.svg";
-import ProductCard from "./ProductCard";
 import { useLocation } from "react-router";
+import SearchProduct from "./SearchProduct";
+import ProductCard from "./ProductCard";
 import ReactLoading from "react-loading";
-
+import search from "./svg/magnifying-glass-solid.svg";
+import "./styles/SearchStyles.css";
 
 function Search() {
   const [products, setProducts] = useState(null);
-  const [productName, setProductName] = useState("");
+  const [productName, setProductName] = useState(" ");
   const [recomProducts, setRecomProducts] = useState("");
   const { state } = useLocation();
 
@@ -38,7 +37,12 @@ function Search() {
 
   //when params change the api is called again with new category
   useEffect(() => {
-    setProductName(state.elementToSearch);
+    if (state) {
+      setProductName(state.elementToSearch);
+    } else {
+      setProductName(" ");
+    }
+
     handle.get3Products();
   }, []);
 
@@ -55,7 +59,7 @@ function Search() {
           type="text"
           placeholder="TYPE HERE"
           value={productName}
-          autofocus="autofocus"
+          autoFocus="autofocus"
           onChange={(e) => {
             setProductName(e.target.value);
           }}

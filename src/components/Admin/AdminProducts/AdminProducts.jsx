@@ -2,13 +2,13 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
+import Alert from "@mui/material/Alert";
+import ReactLoading from "react-loading";
 import trash from "../../svg/trash-solid.svg";
 import edit from "../../svg/pen-to-square-regular.svg";
 import backArrow from "../../svg/arrow-left-solid.svg";
-import Alert from "@mui/material/Alert";
 import check from "../../svg/check-solid.svg";
 import cancel from "../../svg/xmark-solid.svg";
-import ReactLoading from "react-loading";
 
 import "../../styles/AdminStyles.css";
 

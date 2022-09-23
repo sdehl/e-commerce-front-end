@@ -1,14 +1,14 @@
 import axios from "axios";
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect, useState } from "react";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { deleteCart } from "../redux/slices/gemaSlice";
 import Swal from "sweetalert2";
 import Alert from "@mui/material/Alert";
-import check from "../components/svg/check-solid.svg";
-import backArrow from "./svg/arrow-left-solid.svg";
 import Calendar from "react-calendar";
 import ReactLoading from "react-loading";
+import check from "../components/svg/check-solid.svg";
+import backArrow from "./svg/arrow-left-solid.svg";
 import "react-calendar/dist/Calendar.css";
 import "./styles/BillingStyles.css";
 
