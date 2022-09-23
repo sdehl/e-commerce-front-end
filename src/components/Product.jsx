@@ -6,6 +6,8 @@ import { addProductToCart, updateCantProducts, updateTotalPrice } from "../redux
 import ProductCard from "./ProductCard";
 import { Carousel } from "react-bootstrap";
 import SingleProductModal from "./SingleProductModal";
+import ReactLoading from "react-loading";
+
 import "./styles/ProductStyles.css";
 
 function Product() {
@@ -54,127 +56,135 @@ function Product() {
     getProduct();
   }, [params]);
 
-  return (
-    product &&
-    recomProducts && (
-      <div className="container oneProductSection">
-        <div className="row ">
-          <div className="col-12 col-lg-4 ">
-            <Carousel variant="dark">
-              {product.pictures.map((picture, index) => {
-                return (
-                  <Carousel.Item key={index}>
-                    {index === 0 ? (
-                      <img
-                        className="productImg"
-                        src={picture.replaceAll(`"`, ``)}
-                        alt="Many product images"
-                      />
-                    ) : (
-                      <img className="productImg" src={picture} alt="Many product images" />
-                    )}
-                  </Carousel.Item>
-                );
-              })}
-            </Carousel>
-          </div>
-          <div className="productInformation col-12 col-lg-8">
-            <h1>{product.name.toUpperCase()}</h1>
-            <h3>U$S {product.price}</h3>
-            <h6>Categorías: {product.category.toUpperCase()}</h6>{" "}
-            <p className="productStock mb-5"> {product.stock > 0 ? "HAY STOCK" : "NO HAY STOCK"}</p>
-            {product.stock > 0 && (
-              <div className="buttons">
-                <div className="quantityBtn">
-                  <span
-                    className="add-substract pr-2"
-                    onClick={() => {
-                      quantity > 1 && setQuantity(quantity - 1);
-                    }}
-                  >
-                    -
-                  </span>
-                  <input
-                    type="number"
-                    min="0"
-                    value={quantity}
-                    className="input"
-                    onChange={(e) => {
-                      if (e.target.value >= 0) {
-                        setQuantity(e.target.value);
-                      }
-                    }}
-                  ></input>
-                  <span
-                    className="add-substract pr-2"
-                    onClick={() => {
-                      setQuantity(quantity + 1);
-                    }}
-                  >
-                    +
-                  </span>
-                </div>
-                <button
-                  className="addToCartBtn"
+  return product && recomProducts ? (
+    <div className="container oneProductSection">
+      <div className="row ">
+        <div className="col-12 col-lg-4 ">
+          <Carousel variant="dark">
+            {product.pictures.map((picture, index) => {
+              return (
+                <Carousel.Item key={index}>
+                  {index === 0 ? (
+                    <img
+                      className="productImg"
+                      src={picture.replaceAll(`"`, ``)}
+                      alt="Many product images"
+                    />
+                  ) : (
+                    <img className="productImg" src={picture} alt="Many product images" />
+                  )}
+                </Carousel.Item>
+              );
+            })}
+          </Carousel>
+        </div>
+        <div className="productInformation col-12 col-lg-8">
+          <h1>{product.name.toUpperCase()}</h1>
+          <h3>U$S {product.price}</h3>
+          <h6>Categorías: {product.category.toUpperCase()}</h6>{" "}
+          <p className="productStock mb-5"> {product.stock > 0 ? "HAY STOCK" : "NO HAY STOCK"}</p>
+          {product.stock > 0 && (
+            <div className="buttons">
+              <div className="quantityBtn">
+                <span
+                  className="add-substract pr-2"
                   onClick={() => {
-                    if (buttonCart !== "Agregar al carrito") {
-                      navigate("/cart");
-                    } else {
-                      dispatch(
-                        addProductToCart({
-                          id: product._id,
-                          cant: quantity,
-                          slug: product.slug,
-                        }),
-                      );
-                      dispatch(updateCantProducts(quantity));
-                      dispatch(updateTotalPrice(quantity * product.price));
-                      setButtonCart("Ver carrito");
-                    }
+                    quantity > 1 && setQuantity(quantity - 1);
                   }}
                 >
-                  {buttonCart.toUpperCase()}
-                </button>
+                  -
+                </span>
+                <input
+                  type="number"
+                  min="0"
+                  value={quantity}
+                  className="input"
+                  onChange={(e) => {
+                    if (e.target.value >= 0) {
+                      setQuantity(e.target.value);
+                    }
+                  }}
+                ></input>
+                <span
+                  className="add-substract pr-2"
+                  onClick={() => {
+                    setQuantity(quantity + 1);
+                  }}
+                >
+                  +
+                </span>
               </div>
-            )}
-          </div>
-          <div className="row description ">
-            <strong>
-              <div>DESCRIPCIÓN</div>
-            </strong>
-            <hr />
-            <div>
-              <p className="dimentions">
-                <strong>DIMENSIONES: </strong>
-                <br />
-                Diámetro: 12 mm Ancho: 38 mm
-              </p>
-              <p className="materials">
-                {" "}
-                <strong>MATERIALES: </strong>
-                <br />
-                Bronce Macizo con terminación barniz transparente mate
-              </p>
-              <p>
-                <Link className="careTips" to="#">
-                  – Ver Mantenimiento y Cuidados por más información –{" "}
-                </Link>
-              </p>
-              <p className="includes">INCLUYE COMPONENTES CORRESPONDIENTES PARA SU COLOCACIÓN</p>
+              <button
+                className="addToCartBtn"
+                onClick={() => {
+                  if (buttonCart !== "Agregar al carrito") {
+                    navigate("/cart");
+                  } else {
+                    dispatch(
+                      addProductToCart({
+                        id: product._id,
+                        cant: quantity,
+                        slug: product.slug,
+                      }),
+                    );
+                    dispatch(updateCantProducts(quantity));
+                    dispatch(updateTotalPrice(quantity * product.price));
+                    setButtonCart("Ver carrito");
+                  }
+                }}
+              >
+                {buttonCart.toUpperCase()}
+              </button>
             </div>
-          </div>
+          )}
         </div>
-        <SingleProductModal show={show} handleClose={handleClose} product={productForModal} />
-        <div className="recommendations">
-          <h4>TAMBIÉN TE RECOMENDAMOS...</h4>
-          <div className="row">
-            {recomProducts.map((prod) => {
-              return <ProductCard key={prod._id} product={prod} handleShow={handleShow} />;
-            })}
+        <div className="row description ">
+          <strong>
+            <div>DESCRIPCIÓN</div>
+          </strong>
+          <hr />
+          <div>
+            <p className="dimentions">
+              <strong>DIMENSIONES: </strong>
+              <br />
+              Diámetro: 12 mm Ancho: 38 mm
+            </p>
+            <p className="materials">
+              {" "}
+              <strong>MATERIALES: </strong>
+              <br />
+              Bronce Macizo con terminación barniz transparente mate
+            </p>
+            <p>
+              <Link className="careTips" to="#">
+                – Ver Mantenimiento y Cuidados por más información –{" "}
+              </Link>
+            </p>
+            <p className="includes">INCLUYE COMPONENTES CORRESPONDIENTES PARA SU COLOCACIÓN</p>
           </div>
         </div>
       </div>
-    )
+      <SingleProductModal show={show} handleClose={handleClose} product={productForModal} />
+      <div className="recommendations">
+        <h4>TAMBIÉN TE RECOMENDAMOS...</h4>
+        <div className="row">
+          {recomProducts.map((prod) => {
+            return <ProductCard key={prod._id} product={prod} handleShow={handleShow} />;
+          })}
+        </div>
+      </div>
+    </div>
+  ) : (
+    <div className="d-flex justify-content-center align-items-center">
+      {" "}
+      <ReactLoading
+        className="m-2 mt-0"
+        type={"bubbles"}
+        color={"lightgray"}
+        height={"35%"}
+        width={"35%"}
+      />
+    </div>
   );
 }
 

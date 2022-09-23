@@ -17,9 +17,10 @@ import bronce2 from "./img/2.jpg";
 import bronce3 from "./img/3.jpg";
 import bronce4 from "./img/4.jpg";
 import porcelain from "./img/11.jpg";
+import ReactLoading from "react-loading";
 
 function About() {
-  return (
+  return About ? (
     <>
       <div>
         <img
@@ -316,6 +317,17 @@ function About() {
         </div>
       </div>
     </>
+  ) : (
+    <div className="d-flex justify-content-center align-items-center">
+      {" "}
+      <ReactLoading
+        className="m-2 mt-0"
+        type={"bubbles"}
+        color={"lightgray"}
+        height={"35%"}
+        width={"35%"}
+      />
+    </div>
   );
 }
 export default About;

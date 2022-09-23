@@ -29,6 +29,11 @@
 .productImg {
   max-width: 100%;
   max-height: 100%;
+  object-fit: contain;
+}
+.imagesOfProduct {
+  width: 180px;
+  height: 180px;
 }
 
 .buttons {

@@ -8,6 +8,7 @@ import UserOrder from "./Admin/AdminUsers/AdminUserOrder";
 import Alert from "@mui/material/Alert";
 import cart from "./svg/cart-shopping-solid.svg";
 import home from "./svg/house-solid.svg";
+import ReactLoading from "react-loading";
 import "./styles/ProfileStyles.css";
 
 function Profile() {
@@ -123,7 +124,7 @@ function Profile() {
     formState: { errors },
   } = useForm();
 
-  return (
+  return Profile ? (
     <>
       {gema.userData.token ? (
         userInfo && (
@@ -427,6 +428,17 @@ function Profile() {
         </div>
       )}
     </>
+  ) : (
+    <div className="d-flex justify-content-center align-items-center">
+      {" "}
+      <ReactLoading
+        className="m-2 mt-0"
+        type={"bubbles"}
+        color={"lightgray"}
+        height={"35%"}
+        width={"35%"}
+      />
+    </div>
   );
 }
 

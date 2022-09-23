@@ -5,33 +5,41 @@ import { useNavigate, useParams } from "react-router";
 import { useSelector } from "react-redux";
 import Alert from "@mui/material/Alert";
 import backArrow from "../../svg/arrow-left-solid.svg";
-import "../../styles/AdminStyles.css";
 import Images from "./AdminImageForProduct";
+import "../../styles/AdminStyles.css";
 
 function AdminProduct() {
   const token = useSelector((state) => state.gema.userData.token);
   const params = useParams();
+  const navigate = useNavigate();
+
   //states
   const [product, setProduct] = useState(null);
   const [pictures, setPictures] = useState("");
-  const [newPictures, setNewPictures] = useState([]);
+  const [newPictures, setNewPictures] = useState([]); //Pictures that are added from the input forms
   const [correctlyUpdated, setCorrectlyUpdated] = useState(false);
-  const [originalName, setOriginalName] = useState("");
-  const [originalCategory, setOriginalCategory] = useState("");
+  const [originalName, setOriginalName] = useState(""); //To verify if name exists
+  const [originalCategory, setOriginalCategory] = useState(""); //To change the product of categorys if neccesary
   const [allCategories, setAllCategories] = useState("");
   const [amountImages, setAmountImages] = useState(0);
   const [inputList, setInputList] = useState([]);
 
+  //Function that generates a new input file
   const onAddBtnClick = (event) => {
+    console.log(inputList)
     setInputList(
       inputList.concat(
-        <Images setImages={setNewPictures} images={newPictures} amountImages={amountImages} />,
+        <Images
+          key={amountImages + 1}
+          amountImages={amountImages}
+          setInputList={setInputList}
+          inputList={inputList}
+        />,
       ),
     );
   };
 
-  const navigate = useNavigate();
-
+  //Black line for design
   const ColoredLine = ({ color }) => (
     <hr
       style={{
@@ -42,6 +50,8 @@ function AdminProduct() {
       }}
     />
   );
+
+  //Auxiliar functions
   const handle = {
     updateProduct: async (target) => {
       const formData = new FormData(target);
@@ -75,6 +85,7 @@ function AdminProduct() {
     },
   };
 
+  //Initially gets all products
   useEffect(() => {
     async function getProduct() {
       try {
@@ -96,6 +107,7 @@ function AdminProduct() {
     getProduct();
   }, []);
 
+  //Changing informative messages when value changes
   useEffect(() => {
     setCorrectlyUpdated(false);
     handle.getCategories();
@@ -219,15 +231,15 @@ function AdminProduct() {
             {pictures.map((picture, index) => {
               return (
                 <div key={index} className="d-flex flex-column align-items-center">
-                  <div className="imagesOfProduct d-flex align-items-center m-3">
+                  <div className="imagesOfProduct d-flex align-items-center m-4">
                     {index === 0 ? (
                       <img
                         className="productImg"
                         src={picture.replaceAll(`"`, ``)}
-                        alt="Many product images"
+                        alt="product images"
                       />
                     ) : (
-                      <img className="productImg" src={picture} alt="Many product images" />
+                      <img className="productImg" src={picture} alt="product images" />
                     )}
                   </div>
                   <div>
