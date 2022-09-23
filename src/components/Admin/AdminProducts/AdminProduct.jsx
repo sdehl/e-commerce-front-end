@@ -6,6 +6,7 @@ import { useSelector } from "react-redux";
 import Alert from "@mui/material/Alert";
 import backArrow from "../../svg/arrow-left-solid.svg";
 import "../../styles/AdminStyles.css";
+import Images from "./AdminImageForProduct";
 
 function AdminProduct() {
   const token = useSelector((state) => state.gema.userData.token);
@@ -13,10 +14,21 @@ function AdminProduct() {
   //states
   const [product, setProduct] = useState(null);
   const [pictures, setPictures] = useState("");
+  const [newPictures, setNewPictures] = useState([]);
   const [correctlyUpdated, setCorrectlyUpdated] = useState(false);
   const [originalName, setOriginalName] = useState("");
   const [originalCategory, setOriginalCategory] = useState("");
   const [allCategories, setAllCategories] = useState("");
+  const [amountImages, setAmountImages] = useState(0);
+  const [inputList, setInputList] = useState([]);
+
+  const onAddBtnClick = (event) => {
+    setInputList(
+      inputList.concat(
+        <Images setImages={setNewPictures} images={newPictures} amountImages={amountImages} />,
+      ),
+    );
+  };
 
   const navigate = useNavigate();
 
@@ -31,12 +43,16 @@ function AdminProduct() {
     />
   );
   const handle = {
-    updateProduct: async () => {
+    updateProduct: async (target) => {
+      const formData = new FormData(target);
       try {
         const response = await axios({
           method: "patch",
-          url: `${process.env.REACT_APP_API_URL}/products/${product.slug}`,
-          data: { product, originalName, originalCategory },
+          url: `${process.env.REACT_APP_API_URL}/products/${product.slug}?${
+            "originalName=" + originalName
+          }&${"originalCategory=" + originalCategory}&${"pictures=" + pictures}`,
+          data: formData,
+          // query: { originalName, originalCategory },
           headers: { Authorization: `Bearer ${token}` },
         });
         if (response.data === 409) {
@@ -50,14 +66,6 @@ function AdminProduct() {
       }
     },
     getCategories: async () => {
-      const response = await axios({
-        method: "get",
-        url: `${process.env.REACT_APP_API_URL}/categories`,
-        headers: { Authorization: `Bearer ${token}` },
-      });
-      setAllCategories(response.data);
-    },
-    editImage: async () => {
       const response = await axios({
         method: "get",
         url: `${process.env.REACT_APP_API_URL}/categories`,
@@ -79,7 +87,6 @@ function AdminProduct() {
           setProduct(response.data);
           setOriginalName(response.data.name);
           setOriginalCategory(response.data.category);
-          console.log("pictures", response.data.pictures);
           setPictures(response.data.pictures);
         }
       } catch (error) {
@@ -99,7 +106,7 @@ function AdminProduct() {
       <form
         onSubmit={(e) => {
           e.preventDefault();
-          handle.updateProduct();
+          handle.updateProduct(e.target);
         }}
       >
         <div className="row">
@@ -224,33 +231,35 @@ function AdminProduct() {
                     )}
                   </div>
                   <div>
-                    <button
-                      className="buttonUpdate my-2"
+                    <div
+                      className="buttonUpdate my-2 d-flex justify-content-center"
                       onClick={() => {
                         console.log("picture", picture);
+                        setPictures(
+                          pictures.filter((pic) => {
+                            return pic !== picture;
+                          }),
+                        );
                       }}
                     >
                       Eliminar
-                    </button>
-                  </div>
-                  <div>
-                    <label
-                      htmlFor="productNewImg"
-                      type="button"
-                      className="buttonUpdate fakeInputLabel"
-                    >
-                      Modificar
-                      <input
-                        className="d-none"
-                        type="file"
-                        name="productNewImg"
-                        id="productNewImg"
-                      />
-                    </label>
+                    </div>
                   </div>
                 </div>
               );
             })}
+            <div className="mb-2">
+              <label
+                className="form-label mx-5 border p-2"
+                onClick={() => {
+                  setAmountImages(amountImages + 1);
+                  onAddBtnClick();
+                }}
+              >
+                AGREGAR IMAGEN
+              </label>
+              {inputList}
+            </div>
           </div>
           <div className="d-flex align-items-center itemsUpdate">
             {!correctlyUpdated && (

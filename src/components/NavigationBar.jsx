@@ -145,8 +145,11 @@ function NavigationBar() {
           </div>
           <div className=" d-flex justify-content-center dropdowns-container itemsNavBar">
             <Navbar expand="md">
+              <Navbar.Toggle
+                className="border-0 shadow-none mt-auto "
+                aria-controls="basic-navbar-nav"
+              />
               <Container fluid>
-                <Navbar.Toggle className="border-0 shadow-none " aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                   <Nav className="me-auto my-2 my-lg-0">
                     <Nav.Link
