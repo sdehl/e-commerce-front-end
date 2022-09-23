@@ -2,7 +2,6 @@ import Alert from "@mui/material/Alert";
 import "../../styles/AdminStyles.css";
 
 function AddImage({ amountImages, index, setAmountImages, setInputList }) {
-  console.log({ index });
   return index < 8 ? (
     <div className="d-flex align-items-center">
       <input

@@ -112,18 +112,21 @@
   display: flex;
 }
 
-.newProductImgInput {
-  padding: 0 5px !important;
-  font-weight: normal !important;
+.productImg {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
 }
 
 .imagesOfProduct {
   display: inline-block;
-  align-items: center;
-  height: 200px;
-  width: 200px;
-  border: 1px solid rgba(128, 128, 128, 0.226);
+  border: none;
   flex: 0 0 33.333333%;
+}
+
+.newProductImgInput {
+  padding: 0 5px !important;
+  font-weight: normal !important;
 }
 
 .textCenter {

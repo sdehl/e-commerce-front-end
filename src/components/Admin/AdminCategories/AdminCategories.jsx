@@ -33,7 +33,7 @@ function AllCategories() {
 
   return allCategories ? (
     <div className="divCategory">
-      <h1 className="m-4 d-flex justify-content-center">CATEGORIAS</h1>
+      <h1 className="m-4 d-flex justify-content-center">CATEGORÍAS</h1>
       <div className="container">
         <div className="m-3 d-flex justify-content-between ">
           <Link className="link-admin-center" to={`/admin`}>

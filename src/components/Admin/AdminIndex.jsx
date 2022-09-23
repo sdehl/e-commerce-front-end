@@ -40,7 +40,7 @@ function Index() {
           {" "}
           <Link to="/admin/orders">
             {" "}
-            <button className="update">ORDENES</button>
+            <button className="update">ÓRDENES</button>
           </Link>
         </div>
         <div className="col-lg-2 col-md-4 col-12 d-flex justify-content-center m-2">
@@ -61,7 +61,7 @@ function Index() {
           {" "}
           <Link to="/admin/categories">
             {" "}
-            <button className="update">CATEGORIAS</button>
+            <button className="update">CATEGORÍAS</button>
           </Link>
         </div>
         <div className="col-lg-2 col-md-4 col-12 d-flex justify-content-center m-2">
@@ -73,7 +73,7 @@ function Index() {
                 dispatch(deleteUserData());
               }}
             >
-              LOGOUT
+              CERRAR SESIÓN
             </button>
           </div>
         </div>

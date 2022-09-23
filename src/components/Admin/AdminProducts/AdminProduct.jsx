@@ -3,7 +3,6 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import { useNavigate, useParams } from "react-router";
 import { useSelector } from "react-redux";
-import Images from "./AdminImageForProduct";
 import Alert from "@mui/material/Alert";
 import ReactLoading from "react-loading";
 import backArrow from "../../svg/arrow-left-solid.svg";
@@ -20,7 +19,6 @@ function AdminProduct() {
   //states
   const [product, setProduct] = useState(null);
   const [pictures, setPictures] = useState("");
-  const [newPictures, setNewPictures] = useState([]); //Pictures that are updated from the input forms
   const [correctlyUpdated, setCorrectlyUpdated] = useState(false);
   const [originalName, setOriginalName] = useState(""); //To verify if name exists
   const [originalCategory, setOriginalCategory] = useState(""); //To change the product of categorys if neccesary
@@ -235,7 +233,6 @@ function AdminProduct() {
                     key={index}
                     index={index}
                     setPictures={setPictures}
-                    pictures={pictures}
                     picture={picture}
                   />
                 );

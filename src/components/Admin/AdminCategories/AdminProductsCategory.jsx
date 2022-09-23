@@ -2,14 +2,14 @@ import AllProducts from "../AdminProducts/AdminProducts";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { useSelector } from "react-redux";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import "../../styles/AdminStyles.css";
 
 function ProductsCategory() {
   const [productsByCategory, setProductsByCategory] = useState();
   const token = useSelector((state) => state.gema.userData.token);
-
   const params = useParams();
+  
   const handle = {
     getProductsByCategory: async () => {
       const response = await axios({

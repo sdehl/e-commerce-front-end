@@ -24,15 +24,6 @@ function AllOrders() {
       });
       setAllOrders(response.data);
     },
-    filterOrders: (filterBy) => {
-      if (filterBy === "quantity") {
-        const filteredOrders = _.sortBy(allOrders, [
-          function (o) {
-            return o.totalPrice;
-          },
-        ]);
-      }
-    },
   };
 
   useEffect(() => {

@@ -42,7 +42,6 @@ function Search() {
     } else {
       setProductName(" ");
     }
-
     handle.get3Products();
   }, []);
 
