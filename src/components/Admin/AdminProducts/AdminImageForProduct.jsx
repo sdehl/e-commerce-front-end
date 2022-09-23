@@ -1,7 +1,7 @@
 import Alert from "@mui/material/Alert";
 import "../../styles/AdminStyles.css";
 
-function Images({ amountImages, inputList, setInputList, key }) {
+function Images({ amountImages, inputList, setInputList, key, setAmountImages }) {
   console.log(inputList);
   return amountImages < 8 ? (
     <div className="d-flex align-items-center">
@@ -14,18 +14,19 @@ function Images({ amountImages, inputList, setInputList, key }) {
         accept="image/png, image/jpeg"
       />
       <h6
-        className="m-5"
+        className="m-5 deleteInputImage"
         onClick={() => {
           console.log(inputList);
+          setAmountImages(amountImages - 1);
           if (inputList.length === 0) {
             // console.log(inputList);
-            // setInputList([]);
+            setInputList([]);
           } else {
             //console.log(inputList);
             const newArrayOfInputFiles = inputList.filter((element) => {
               return element.key !== key;
             });
-            //setInputList(newArrayOfInputFiles);
+            setInputList(newArrayOfInputFiles);
           }
         }}
       >
