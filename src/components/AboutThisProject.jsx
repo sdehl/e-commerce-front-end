@@ -142,10 +142,12 @@ function About() {
               borrar productos, categorías, usuarios y órdenes.
             </p>
             <p className="paragraph">
-              Para acceder al dashboard con permisos de administrador deberá ingresar en el navbar
-              con el usuario de pruebas "admin@admin" y la contraseña "123". Dispondrán de absoluta
-              libertad para hacer modificaciones, ya que cuando lo deseen podrá re establecer la
-              base de datos inicial.
+              Para acceder al{" "}
+              <span className="importantInfo"> dashboard con permisos de administrador</span> deberá
+              ingresar en el navbar con el usuario de pruebas{" "}
+              <span className="importantInfo">admin@admin" y la contraseña "123"</span>. Dispondrán
+              de absoluta libertad para hacer modificaciones, ya que cuando lo deseen podrá re
+              establecer la base de datos inicial.
             </p>
           </div>
           <div className="col-2"></div>

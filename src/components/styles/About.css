@@ -130,3 +130,9 @@
   -webkit-transform: scale(1.05); /* Safari 3-8 */
   transform: scale(1.05);
 }
+
+.importantInfo {
+  color: #9e7d73;
+  /* font-style: italic; */
+  font-size: 1.2rem !important;
+}
