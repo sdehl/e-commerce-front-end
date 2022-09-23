@@ -1,10 +1,5 @@
 .footerComponent {
   margin-top: auto;
-  /* position: absolute;
-  bottom: 0;
-  width: 100%;
-  line-height: 60px;
-  height: 30px; */
 }
 
 ul {
@@ -91,8 +86,6 @@ ul h5 {
   color: #4c4c4c;
 }
 
-.Toastify__progress-bar-theme--light{
+.Toastify__progress-bar-theme--light {
   background: #6d443a86 !important;
 }
-
-

@@ -18,7 +18,6 @@ import AdminProducts from "./components/Admin/AdminProducts/AdminProducts";
 import AdminProductsNew from "./components/Admin/AdminProducts/AdminProductNew";
 import AdminProduct from "./components/Admin/AdminProducts/AdminProduct";
 import AdminOrders from "./components/Admin/AdminOrders/AdminOrders";
-//import AdminOrder from "./components/Admin/AdminOrders/AdminOrder";
 import AdminIndex from "./components/Admin/AdminIndex.jsx";
 import About from "./components/AboutThisProject";
 import AdminCategories from "./components/Admin/AdminCategories/AdminCategories";

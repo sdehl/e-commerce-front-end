@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
-import { Modal, Carousel } from "react-bootstrap";
 import { addProductToCart, updateCantProducts, updateTotalPrice } from "../redux/slices/gemaSlice";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router";
+import { Modal, Carousel } from "react-bootstrap";
 import "./styles/SingleProductModalStyles.css";
 
 function SingleProductModal({ show, handleClose, product }) {

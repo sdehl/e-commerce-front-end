@@ -1,11 +1,11 @@
+import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import plus from "../../svg/plus-solid.svg";
-import less from "../../svg/minus-solid.svg";
 import { useSelector } from "react-redux";
 import Alert from "@mui/material/Alert";
+import plus from "../../svg/plus-solid.svg";
+import less from "../../svg/minus-solid.svg";
 import check from "../../svg/check-solid.svg";
-import axios from "axios";
 
 function UserOrder({ products, order }) {
   const token = useSelector((state) => state.gema.userData.token);

@@ -2,8 +2,8 @@ import { useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import CartProduct from "./CartProduct";
-import ReactLoading from "react-loading";
 import { Link, useNavigate } from "react-router-dom";
+import ReactLoading from "react-loading";
 import backArrow from "./svg/arrow-left-solid.svg";
 import "./styles/CartStyles.css";
 

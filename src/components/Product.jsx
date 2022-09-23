@@ -4,8 +4,8 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { addProductToCart, updateCantProducts, updateTotalPrice } from "../redux/slices/gemaSlice";
 import ProductCard from "./ProductCard";
-import { Carousel } from "react-bootstrap";
 import SingleProductModal from "./SingleProductModal";
+import { Carousel } from "react-bootstrap";
 import ReactLoading from "react-loading";
 
 import "./styles/ProductStyles.css";

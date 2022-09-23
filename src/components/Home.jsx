@@ -1,9 +1,9 @@
-import { Link, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import "./styles/HomeStyles.css";
-import tiradores from "./img/tiradores.jpg";
+import { Link, useNavigate } from "react-router-dom";
 import ReactLoading from "react-loading";
+import tiradores from "./img/tiradores.jpg";
+import "./styles/HomeStyles.css";
 
 function Home() {
   const [categories, setCategories] = useState("");

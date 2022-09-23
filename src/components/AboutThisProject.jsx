@@ -1,7 +1,12 @@
-import "../components/styles/About.css";
+import ReactLoading from "react-loading";
 import mer from "./img/mer-t.jpg";
 import sant from "./img/sdehl.jpg";
 import marc from "./img/marc.jpg";
+import bronce1 from "./img/1.jpg";
+import bronce2 from "./img/2.jpg";
+import bronce3 from "./img/3.jpg";
+import bronce4 from "./img/4.jpg";
+import porcelain from "./img/11.jpg";
 import figma from "./img/figma.svg";
 import trello from "./img/trello.svg";
 import react from "./img/react-native.svg";
@@ -12,12 +17,7 @@ import discord from "./img/discord.svg";
 import mongodb from "./img/mongodb.svg";
 import mongoose from "./img/mongoose.svg";
 import teams from "./img/microsoft-teams.svg";
-import bronce1 from "./img/1.jpg";
-import bronce2 from "./img/2.jpg";
-import bronce3 from "./img/3.jpg";
-import bronce4 from "./img/4.jpg";
-import porcelain from "./img/11.jpg";
-import ReactLoading from "react-loading";
+import "../components/styles/About.css";
 
 function About() {
   return About ? (

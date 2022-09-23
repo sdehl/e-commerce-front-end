@@ -141,13 +141,6 @@ input::-webkit-inner-spin-button {
   justify-content: center;
 }
 
-/* #button-div:hover .addToCart {
-  display: inline-block;
-}
-#button-div:hover {
-  background-color: rgba(255, 255, 255, 0.582);
-} */
-
 .addToCart {
   margin-top: 10px;
   background: linear-gradient(to left, transparent 50%, black 50%);
@@ -165,23 +158,6 @@ input::-webkit-inner-spin-button {
   width: 80%;
 }
 
-/* .addToCart:hover {
-  background-position: left bottom;
-  color: white;
-} */
-
 .input {
   border: 0 solid;
 }
-
-/* @media screen and (max-width: 1069px) {
-  .card {
-    flex: 0 0 50%;
-  }
-}
-
-@media screen and (max-width: 600px) {
-  .card {
-    flex: 0 0 100%;
-  }
-} */

@@ -2,7 +2,6 @@ import { configureStore } from "@reduxjs/toolkit";
 import { combineReducers } from "redux";
 import gemaSlice from "./slices/gemaSlice";
 
-
 import {
   persistStore,
   persistReducer,
@@ -36,7 +35,3 @@ const store = configureStore({
 const persistor = persistStore(store);
 
 export { store, persistor };
-
-//  const store = configureStore({
-//   reducer: { gema: gemReducer },
-// });

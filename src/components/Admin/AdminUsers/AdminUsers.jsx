@@ -1,11 +1,11 @@
-import { useEffect, useState } from "react";
-import axios from "axios";
-import { Link } from "react-router-dom";
 import AdminUser from "./AdminUser";
+import axios from "axios";
+import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
+import ReactLoading from "react-loading";
 import backArrow from "../../svg/arrow-left-solid.svg";
 import showMore from "../../svg/ellipsis-solid.svg";
-import ReactLoading from "react-loading";
 
 function Users() {
   const token = useSelector((state) => state.gema.userData.token);

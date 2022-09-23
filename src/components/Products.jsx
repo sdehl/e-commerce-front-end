@@ -3,11 +3,11 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import SingleProductModal from "./SingleProductModal";
-import "./styles/ProductStyles.css";
 import { ToastContainer, toast } from "react-toastify";
 import ReactLoading from "react-loading";
-import "./styles/FooterStyles.css";
 import "react-toastify/dist/ReactToastify.css";
+import "./styles/FooterStyles.css";
+import "./styles/ProductStyles.css";
 
 function Products() {
   const params = useParams();

@@ -1,5 +1,5 @@
-import "./styles/SearchStyles.css";
 import { Link } from "react-router-dom";
+import "./styles/SearchStyles.css";
 
 function SearchProduct({ product }) {
   //Verify if any picture exists

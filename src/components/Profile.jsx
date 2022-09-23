@@ -6,9 +6,9 @@ import { deleteUserData, storeUserData } from "../redux/slices/gemaSlice";
 import { useForm } from "react-hook-form";
 import UserOrder from "./Admin/AdminUsers/AdminUserOrder";
 import Alert from "@mui/material/Alert";
+import ReactLoading from "react-loading";
 import cart from "./svg/cart-shopping-solid.svg";
 import home from "./svg/house-solid.svg";
-import ReactLoading from "react-loading";
 import "./styles/ProfileStyles.css";
 
 function Profile() {
@@ -192,7 +192,6 @@ function Profile() {
                       name="phone"
                       className="form-control"
                       id="phone"
-                      // pattern="[+]{1}[0-9]{3} [0-9]{3} [0-9]{3}"
                       placeholder="09x xxx xxx"
                     />
                     <p className="requireMessage"> {errors.phone?.message}</p>
@@ -237,7 +236,6 @@ function Profile() {
                       className="form-control"
                       id="newPassword"
                     />
-                    {/* <p className="requireMessage"> {errors.newPassword?.message}</p> */}
                   </div>
                   <div className="d-flex align-items-center justify-content-between">
                     <button type="submit" className="save-btn ">
@@ -275,8 +273,6 @@ function Profile() {
                   </div>
                 </form>
               </div>
-
-              {/* userInfo.orderHistory > 0 */}
               <div className="col-12 col-lg-6">
                 <h2>HISTORIAL DE ÓRDENES</h2>
 
@@ -293,7 +289,6 @@ function Profile() {
         )
       ) : (
         //  login/register
-
         <div className="container profileForm">
           <div className="row signInForm">
             <div className="col-12 col-lg-6">
