@@ -198,7 +198,7 @@ function About() {
           <>
             <h4 className="mb-5 py-5 fw-bold">ENLACES A ESQUEMAS DE ORGANIZACIÓN</h4>
             <div className="col-3 "></div>
-            <div className="col-3 ">
+            <div className="col-3 mx-2">
               <>
                 <a
                   className="icons8-trello"
@@ -211,7 +211,7 @@ function About() {
                 <h4 className="mt-5">Trello</h4>
               </>
             </div>
-            <div className="col-3">
+            <div className="col-3 mx-2">
               <a
                 className="icons8-figma"
                 href="https://www.figma.com/file/4K0ucBjB7EOI5obNOMZmAm/e-commerce?node-id=0%3A1"
