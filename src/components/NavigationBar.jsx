@@ -4,7 +4,7 @@ import axios from "axios";
 import { Container, Nav, Navbar } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { useLocation, useNavigate } from "react-router";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { deleteUserData } from "../redux/slices/gemaSlice";
 
 import gemaLogo from "./img/gema-logo.png";
@@ -17,6 +17,7 @@ import "./styles/NavigationBarStyles.css";
 
 function NavigationBar() {
   const gema = useSelector((state) => state.gema);
+  const dispatch= useDispatch();
   const [categories, setCategories] = useState("");
   const [elementToSearch, setElementToSearch] = useState("");
   const location = useLocation();
@@ -45,7 +46,7 @@ function NavigationBar() {
           <div>
             <img className="icons mx-2" src={rocket} alt="rocket icon" />
           </div>
-          {/* <div>
+          <div>
             <button
               onClick={() => {
                 dispatch(deleteUserData());
@@ -53,7 +54,7 @@ function NavigationBar() {
             >
               Logout
             </button>
-          </div> */}
+          </div>
           <div>
             <span>Envios a Montevideo y al Interior del Uruguay</span>{" "}
           </div>

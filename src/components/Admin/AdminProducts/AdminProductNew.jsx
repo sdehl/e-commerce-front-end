@@ -23,7 +23,15 @@ function NewProduct() {
   const onAddBtnClick = (event) => {
     setInputList(
       inputList.concat(
-        <Images setImages={setImages} images={images} amountImages={amountImages} />,
+        <Images
+          key={amountImages + 1}
+          setInputList={setInputList}
+          inputList={inputList}
+          setImages={setImages}
+          images={images}
+          amountImages={amountImages}
+          setAmountImages={setAmountImages}
+        />,
       ),
     );
   };

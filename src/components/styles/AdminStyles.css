@@ -139,9 +139,10 @@
   max-height: 100%;
 }
 
-.addIamegToProduct{
+.addIamegToProduct, .deleteInputImage{
   cursor: pointer;
   display: inline;
+
 }
 
 .addIamegToProduct:hover {

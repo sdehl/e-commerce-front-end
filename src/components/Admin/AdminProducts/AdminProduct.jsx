@@ -38,6 +38,7 @@ function AdminProduct() {
           amountImages={amountImages}
           setInputList={setInputList}
           inputList={inputList}
+          setAmountImages={setAmountImages}
         />,
       ),
     );
