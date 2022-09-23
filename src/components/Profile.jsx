@@ -274,7 +274,7 @@ function Profile() {
                 </form>
               </div>
 
-              {userInfo.orederHistory ? (
+              {userInfo.orderHistory ? (
                 <div className="col-12 col-lg-6">
                   {userInfo.orderHistory.map((order, index) => {
                     return (
