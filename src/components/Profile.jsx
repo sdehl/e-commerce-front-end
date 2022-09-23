@@ -273,17 +273,23 @@ function Profile() {
                   </div>
                 </form>
               </div>
-              <div className="col-12 col-lg-6">
-                <h2>HISTORIAL DE ÓRDENES</h2>
 
-                {userInfo.orderHistory.map((order, index) => {
-                  return (
-                    <div key={order._id} className="userOrders">
-                      <UserOrder order={order} index={index} products={order.products} />
-                    </div>
-                  );
-                })}
-              </div>
+              {userInfo.orederHistory ? (
+                <div className="col-12 col-lg-6">
+                  {userInfo.orderHistory.map((order, index) => {
+                    return (
+                      <div key={order._id} className="userOrders">
+                        <UserOrder order={order} index={index} products={order.products} />
+                      </div>
+                    );
+                  })}
+                </div>
+              ) : (
+                <div className="col-12 col-lg-6">
+                  <h2>HISTORIAL DE ÓRDENES</h2>{" "}
+                  <h5 className="my-5">No cuentas con órdenes realizadas aún.</h5>
+                </div>
+              )}
             </div>
           </div>
         )
