@@ -1,9 +1,9 @@
 import Alert from "@mui/material/Alert";
 import "../../styles/AdminStyles.css";
 
-function Images({ amountImages, inputList, setInputList, key, setAmountImages }) {
-  console.log(inputList);
-  return amountImages < 8 ? (
+function AddImage({ amountImages, index, setAmountImages, setInputList }) {
+  console.log({ index });
+  return index < 8 ? (
     <div className="d-flex align-items-center">
       <input
         required
@@ -16,18 +16,8 @@ function Images({ amountImages, inputList, setInputList, key, setAmountImages })
       <h6
         className="m-5 deleteInputImage"
         onClick={() => {
-          console.log(inputList);
           setAmountImages(amountImages - 1);
-          if (inputList.length === 0) {
-            // console.log(inputList);
-            setInputList([]);
-          } else {
-            //console.log(inputList);
-            const newArrayOfInputFiles = inputList.filter((element) => {
-              return element.key !== key;
-            });
-            setInputList(newArrayOfInputFiles);
-          }
+          setInputList((prev) => prev.filter((element, i) => i !== index));
         }}
       >
         Eliminar
@@ -36,10 +26,10 @@ function Images({ amountImages, inputList, setInputList, key, setAmountImages })
   ) : (
     <div className="m-5">
       <Alert severity="warning">
-        <h6>Se pueden agregar hasta 7 imágenes</h6>
+        <h6>Se pueden agregar hasta 8 imágenes</h6>
       </Alert>
     </div>
   );
 }
 
-export default Images;
+export default AddImage;

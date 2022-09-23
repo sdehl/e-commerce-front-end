@@ -277,10 +277,10 @@ function Billing() {
               ></input>
             </div>
             <div className="listInfo d-flex flex-column">
-              <lable>
+              <h6>
                 {" "}
                 Fecha de entrega <span className="obligatoryBilling">*</span>{" "}
-              </lable>
+              </h6>
               <div>
                 <Calendar className="calender" onChange={onChange} value={value} />
               </div>
@@ -415,7 +415,7 @@ function Billing() {
                     <h5 className="mt-3 textLighter">
                       Al confirmar tu compra, te redirigiremos a tu cuenta de Mercado Pago
                     </h5>
-                    <h6 className="mt-3 textLighter">
+                    <h6 className="mt-3 textLighter textMercadoPago">
                       Al continuar, aceptas nuestros Términos y condiciones
                     </h6>
                   </div>
@@ -425,7 +425,7 @@ function Billing() {
             <ColoredLine color="gray" />
             <div className="d-flex align-items-center mt-3">
               <input
-                className="form-check-input"
+                className="form-check-input m-1"
                 type="checkbox"
                 onChange={(event) => {
                   if (event.target.checked) {

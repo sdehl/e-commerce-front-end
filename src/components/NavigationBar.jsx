@@ -17,7 +17,7 @@ import "./styles/NavigationBarStyles.css";
 
 function NavigationBar() {
   const gema = useSelector((state) => state.gema);
-  const dispatch= useDispatch();
+  const dispatch = useDispatch();
   const [categories, setCategories] = useState("");
   const [elementToSearch, setElementToSearch] = useState("");
   const location = useLocation();
@@ -44,16 +44,14 @@ function NavigationBar() {
         <div className="top-banner d-none d-md-flex justify-content-center align-items-center">
           {" "}
           <div>
-            <img className="icons mx-2" src={rocket} alt="rocket icon" />
-          </div>
-          <div>
-            <button
+            <img
+              className="icons mx-2"
+              src={rocket}
+              alt="rocket icon"
               onClick={() => {
                 dispatch(deleteUserData());
               }}
-            >
-              Logout
-            </button>
+            />
           </div>
           <div>
             <span>Envios a Montevideo y al Interior del Uruguay</span>{" "}

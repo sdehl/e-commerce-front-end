@@ -142,6 +142,7 @@
 .addIamegToProduct, .deleteInputImage{
   cursor: pointer;
   display: inline;
+  margin-top: 20px;
 
 }
 

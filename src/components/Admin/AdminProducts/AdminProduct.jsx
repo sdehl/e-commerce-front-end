@@ -5,7 +5,7 @@ import { useNavigate, useParams } from "react-router";
 import { useSelector } from "react-redux";
 import Alert from "@mui/material/Alert";
 import backArrow from "../../svg/arrow-left-solid.svg";
-import Images from "./AdminImageForProduct";
+import AddImage from "./AdminImageForProduct";
 import check from "../../svg/check-solid.svg";
 import cancel from "../../svg/xmark-solid.svg";
 import ReactLoading from "react-loading";
@@ -29,19 +29,8 @@ function AdminProduct() {
   const [isLoading, setIsLoading] = useState(false);
 
   //Function that generates a new input file
-  const onAddBtnClick = (event) => {
-    // console.log(inputList);
-    setInputList(
-      inputList.concat(
-        <Images
-          key={amountImages + 1}
-          amountImages={amountImages}
-          setInputList={setInputList}
-          inputList={inputList}
-          setAmountImages={setAmountImages}
-        />,
-      ),
-    );
+  const onAddBtnClick = () => {
+    setInputList(inputList.concat({}));
   };
 
   //Black line for design
@@ -134,9 +123,9 @@ function AdminProduct() {
         >
           <div className="row">
             <div className="col-md-6 col-12 d-flex flex-column">
-              <lable htmlFor="name" className="m-2">
+              <h6 htmlFor="name" className="m-2">
                 NOMBRE
-              </lable>
+              </h6>
               <input
                 required
                 type="text"
@@ -204,7 +193,7 @@ function AdminProduct() {
                   className="dropDownCategories p-1 mb-3"
                   name="categories"
                   id="categories"
-                  defaultValue={product.category}
+                  value={product.category}
                   required
                   onChange={(e) => {
                     setProduct((current) => {
@@ -215,7 +204,7 @@ function AdminProduct() {
                     });
                   }}
                 >
-                  <option value={product.category} selected disabled hidden>
+                  <option value={product.category} defaultValue disabled hidden>
                     {product.category}
                   </option>
                   <option value={allCategories[0].name}>{allCategories[0].name}</option>
@@ -242,14 +231,15 @@ function AdminProduct() {
               {pictures.map((picture, index) => {
                 return (
                   <ImageProduct
-                    picture={picture}
+                    key={index}
                     index={index}
                     setPictures={setPictures}
                     pictures={pictures}
+                    picture={picture}
                   />
                 );
               })}
-              <div className="m-4">
+              <div className="mt-4">
                 <h6
                   className="form-label mx-5 border p-2 addIamegToProduct"
                   onClick={() => {
@@ -259,7 +249,15 @@ function AdminProduct() {
                 >
                   AGREGAR IMAGEN
                 </h6>
-                {inputList}
+                {inputList.map((input, index) => (
+                  <AddImage
+                    key={index}
+                    index={index}
+                    amountImages={amountImages}
+                    setAmountImages={setAmountImages}
+                    setInputList={setInputList}
+                  />
+                ))}
               </div>
             </div>
             <div className="d-flex align-items-center itemsUpdate mt-0">
@@ -330,7 +328,7 @@ function AdminProduct() {
 
 export default AdminProduct;
 
-function ImageProduct({ index, setPictures, picture, pictures }) {
+function ImageProduct({ index, setPictures, picture }) {
   //SET WARNING BEFORE DELETING AN IMAGE
   const [verifyDeleted, setVerifyDeleted] = useState(false);
 
@@ -360,12 +358,7 @@ function ImageProduct({ index, setPictures, picture, pictures }) {
             <button
               className=" check-button"
               onClick={() => {
-                setPictures(
-                  pictures.filter((pic) => {
-                    return pic !== picture;
-                  }),
-                );
-
+                setPictures((prev) => prev.filter((pic) => pic !== picture));
                 setVerifyDeleted(false);
               }}
             >
